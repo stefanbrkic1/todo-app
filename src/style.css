@@ -54,6 +54,8 @@ body {
 .main{
     background-color: var(--background-light);
     grid-area: 1 / 2 / 12 / -1;
+    box-sizing: border-box;
+    padding: 40px 40px 40px 40px;
 }
 
 .footer{
@@ -89,10 +91,11 @@ body {
     grid-template-rows: 1fr 1fr;
     height: 100%;
     color: var(--text-light);
+    font-size: 15rem;
 }
 
 .sidebar-header{
-    font-size: 23rem;
+    font-size: 20rem;
     font-weight: bold;
     padding-bottom: 10px;
     color: var(--text-light);
@@ -271,6 +274,12 @@ body {
 
 /* Smartphones (portrait and landscape) */
 @media only screen and (max-width: 767px) {
+    .container{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
     .sidebar{
         position: absolute;
         z-index: 19;
@@ -292,7 +301,9 @@ body {
         left: 20px;
         cursor: pointer;
     }
-
+    .main{
+        padding: 50px 20px 20px 20px;
+    }
   }
   
   /* Smartphones (portrait) */
