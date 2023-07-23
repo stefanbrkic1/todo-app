@@ -38,7 +38,7 @@ body {
     --text-light: #303336;
 }
 
-.container{
+.body-container{
     width: 100vw;
     height: 100vh;
     display: grid;
@@ -113,113 +113,69 @@ body {
     padding: 5px 5px 5px 10px;
 }
 
+/* Remove this container when use*/
+.component-title {
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+  top: 30px;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #888;
+  text-align: center;
+}
+
+/* The switch - the box around the slider */
+.container {
+  width: 51px;
+  height: 31px;
+  position: relative;
+}
+
+/* Hide default HTML checkbox */
+.checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
 .switch {
-    font-size: 17px;
-    position: relative;
-    display: inline-block;
-    width: 64px;
-    height: 34px;
-  }
-  
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #73C0FC;
-    transition: .4s;
-    border-radius: 30px;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 30px;
-    width: 30px;
-    border-radius: 20px;
-    left: 2px;
-    bottom: 2px;
-    z-index: 2;
-    background-color: #e8e8e8;
-    transition: .4s;
-  }
-  
-  .sun svg {
-    position: absolute;
-    top: 6px;
-    left: 36px;
-    z-index: 1;
-    width: 24px;
-    height: 24px;
-  }
-  
-  .moon svg {
-    fill: #73C0FC;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    z-index: 1;
-    width: 24px;
-    height: 24px;
-  }
-  
-  /* .switch:hover */.sun svg {
-    animation: rotate 15s linear infinite;
-  }
-  
-  @keyframes rotate {
-   
-    0% {
-      transform: rotate(0);
-    }
-  
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-  /* .switch:hover */.moon svg {
-    animation: tilt 5s linear infinite;
-  }
-  
-  @keyframes tilt {
-   
-    0% {
-      transform: rotate(0deg);
-    }
-  
-    25% {
-      transform: rotate(-10deg);
-    }
-  
-    75% {
-      transform: rotate(10deg);
-    }
-  
-    100% {
-      transform: rotate(0deg);
-    }
-  }
-  
-  .input:checked + .slider {
-    background-color: #183153;
-  }
-  
-  .input:focus + .slider {
-    box-shadow: 0 0 1px #183153;
-  }
-  
-  .input:checked + .slider:before {
-    transform: translateX(30px);
-  }
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: #e9e9eb;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+/* The slider */
+.slider {
+  width: 27px;
+  height: 27px;
+  position: absolute;
+  left: calc(50% - 27px/2 - 10px);
+  top: calc(50% - 27px/2);
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15), 0px 3px 1px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+}
+
+.checkbox:checked + .switch {
+  background-color: #34C759;
+}
+
+.checkbox:checked + .switch .slider {
+  left: calc(50% - 27px/2 + 10px);
+  top: calc(50% - 27px/2);
+}
+
 
 #Open {
     position: absolute;
@@ -273,7 +229,7 @@ body {
 
 /* Smartphones (portrait and landscape) */
 @media only screen and (max-width: 767px) {
-    .container{
+    .body-container{
         width: 100vw;
         height: 100vh;
         display: flex;
