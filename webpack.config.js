@@ -7,7 +7,7 @@ module.exports = {
     devtool: 'inline-source-map',
     devServer: {
         static: path.resolve(__dirname, 'dist'), // Set the path to your output folder (Webpack 5+)
-        hot: 'true', // Enable hot module replacement for faster updates
+        hot: true, // Enable hot module replacement for faster updates
         liveReload: false,
     },
     plugins: [
