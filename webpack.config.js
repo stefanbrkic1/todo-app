@@ -2,20 +2,22 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    mode:'production',
+    mode:'development',
     entry: './src/index.js',
     devtool: 'inline-source-map',
     devServer: {
-        static: './dist',
+        static: path.resolve(__dirname, 'dist'), // Set the path to your output folder (Webpack 5+)
+        hot: 'true', // Enable hot module replacement for faster updates
+        liveReload: false,
     },
     plugins: [
         new HtmlWebpackPlugin({
             title:'ToDo | ProductivityApp',
-            template: './src/index.ejs',
+            template: path.resolve(__dirname, './src/template.html'),
         }),
     ],
     output: {
-        filename: 'main.js',
+        filename: '[name].[contenthash].js',
         path:path.resolve(__dirname, 'dist'),
         clean: true,
     },
