@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo | ProductivityApp</title>
 </head>
+
 <body>
     <div class="body-container">
         <!-- #region sidebar-->
@@ -19,27 +21,73 @@
                 <div class="sidebar-top">
                     <div class="sidebar-header">Home</div>
                     <ul class="sidebar-list">
-                        <li class="sidebar-item sidebar-item-active"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#10a885" d="M9 5v4h12V5M9 19h12v-4H9m0-1h12v-4H9M4 9h4V5H4m0 14h4v-4H4m0-1h4v-4H4v4Z"/></svg>All Tasks</li>
-                        <li class="sidebar-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#ff5436" d="M19 4h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm-1 15h-6v-6h6v6zm1-10H5V7h14v2z"/></svg>Today</li>
-                        <li class="sidebar-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#126fb5" d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zm11-6H8v-2h8v2zM5 7h14v2H5V7z"/></svg>This Week</li>
-                        <li class="sidebar-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#ffc300" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z"/></svg>Important</li>
+                        <li class="sidebar-item sidebar-item-active"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24">
+                                <path fill="#10a885"
+                                    d="M9 5v4h12V5M9 19h12v-4H9m0-1h12v-4H9M4 9h4V5H4m0 14h4v-4H4m0-1h4v-4H4v4Z" />
+                            </svg>All Tasks</li>
+                        <li class="sidebar-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24">
+                                <path fill="#ff5436"
+                                    d="M19 4h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm-1 15h-6v-6h6v6zm1-10H5V7h14v2z" />
+                            </svg>Today</li>
+                        <li class="sidebar-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24">
+                                <path fill="#126fb5"
+                                    d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zm11-6H8v-2h8v2zM5 7h14v2H5V7z" />
+                            </svg>This Week</li>
+                        <li class="sidebar-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24">
+                                <path fill="#ffc300"
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>Important</li>
                     </ul>
                     <div class="sidebar-header">Projects</div>
                     <ul class="sidebar-list">
-                        <li class="sidebar-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path fill="#10a885" d="M16 420a28 28 0 0 0 28 28h424a28 28 0 0 0 28-28V208H16Zm480-296a28 28 0 0 0-28-28H212.84l-48-32H44a28 28 0 0 0-28 28v84h480Z"/></svg>Project1</li>
+                        <li class="sidebar-project">
+                            <div class="flex">
+                               <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                                    <path fill="#10a885"
+                                        d="M16 420a28 28 0 0 0 28 28h424a28 28 0 0 0 28-28V208H16Zm480-296a28 28 0 0 0-28-28H212.84l-48-32H44a28 28 0 0 0-28 28v84h480Z" />
+                                </svg>
+                               </div>
+                                <div class="project-name">Project1</div>
+                            </div>
+                            <div class="dot-menu">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                    <g fill="#303336">
+                                        <circle cx="10" cy="15" r="2" />
+                                        <circle cx="10" cy="10" r="2" />
+                                        <circle cx="10" cy="5" r="2" />
+                                    </g>
+                                </svg>
+                            </div>
+                        </li>
+                        <li class="sidebar-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24">
+                                <path fill="#303336"
+                                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+                            </svg>Add Project</li>
                     </ul>
                 </div>
                 <div class="sidebar-bottom">
                     <div class="sidebar-header">Settings</div>
                     <ul class="sidebar-list">
-                        <li class="settings-item">Dark Theme
-                            <div class="container">
-                              <input type="checkbox" class="checkbox" id="checkbox">
-                              <label class="switch" for="checkbox">
-                                <span class="slider"></span>
-                              </label>
+                        <li class="settings-item">
+                            <div class="flex">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20">
+                                    <path fill="#303336"
+                                        d="M10 3.5a6.5 6.5 0 1 1 0 13v-13ZM10 2a8 8 0 1 0 0 16a8 8 0 0 0 0-16Z" />
+                                </svg>Dark Theme
                             </div>
-                        </li>  
+                            <div class="container">
+                                <input type="checkbox" class="checkbox" id="checkbox">
+                                <label class="switch" for="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -48,7 +96,7 @@
 
         <!-- #region main-->
         <div id="mainSection" class="main">
-            
+
         </div>
         <!-- #endregion-->
 
@@ -60,4 +108,5 @@
     </div>
     <script src="main.js"></script>
 </body>
+
 </html>
