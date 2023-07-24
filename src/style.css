@@ -369,7 +369,7 @@ background-color: var(--hover-light);
         position: absolute;
         z-index: 19;
         height: 100%;
-        width: 55vw;
+        width: 70vw;
         padding-top: 60px;
         transform: translateX(-500px);
     }
