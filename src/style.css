@@ -264,6 +264,10 @@ body {
     display: none;
 }
 
+.smooth-transition{
+    transition: transform 300ms ease-in-out;
+}
+
 
 /*Media Queries*/
 
@@ -278,13 +282,10 @@ body {
     .sidebar{
         position: absolute;
         z-index: 19;
-        top: 0;
-        left: 0;
         height: 100%;
         width: 60vw;
-        transform: translate(-500px);
-        transition: transform 300ms ease-in-out;
         padding-top: 60px;
+        transform: translateX(-500px);
     }
     .sidebar-icon{
         display: block;
@@ -305,12 +306,9 @@ body {
         align-items: center;
         padding: 0px 3px 0px 3px;
     }
-     #Open:checked~#sidebarMenu {
+    #Open:checked~#sidebarMenu {
         transform: translateX(0px);
-    }
-
-    #sidebarMenu {
-        transform: translateX(-500px);
+        transition: transform 300ms ease-in-out;
     }
   }
   
