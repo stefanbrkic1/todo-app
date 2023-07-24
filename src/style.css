@@ -253,21 +253,75 @@ body {
     background-color: var(--hover-light);
 }
 
-.sidebar-project:hover .dot-menu{
+.sidebar-project-active{
+    background-color: var(--hover-light);
+}
+
+.sidebar-project:hover .project-tools{
     display: block;
     display: flex;
     align-items: center;
-    padding: 0px 3px 0px 3px;
+    gap: 8px;
 }
 
 .dot-menu{
     display: none;
 }
 
+.dot-menu-active{
+    display: block;
+    display: flex;
+    align-items: center;
+    padding: 0px 3px 0px 3px;
+}
+
 .smooth-transition{
     transition: transform 300ms ease-in-out;
 }
 
+.menu-container {
+    position: relative;
+  }
+    
+.menu-options {
+    display: none;
+    position: absolute;
+    top: 25px;
+    right: 0;
+    background-color: var(--background-light);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    list-style: none;
+  }
+  
+  .menu-options li {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .menu-options li:hover {
+    background-color: var(--hover-light);
+  }
+  
+  .project-tools{
+   display: none;
+  }
+
+  .project-tools-active{
+    display: block;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+/* Regular styles for icons */
+.delete path[fill="#303336"]:hover {
+  fill: var(--tertiary-color-light);
+}
+
+.rename path[fill="#303336"]:hover {
+  fill: var(--secondary-color-light);
+}
 
 /*Media Queries*/
 
@@ -283,7 +337,7 @@ body {
         position: absolute;
         z-index: 19;
         height: 100%;
-        width: 60vw;
+        width: 55vw;
         padding-top: 60px;
         transform: translateX(-500px);
     }
@@ -299,12 +353,6 @@ body {
     }
     .main{
         padding: 50px 20px 20px 20px;
-    }
-    .dot-menu{
-        display: block;
-        display: flex;
-        align-items: center;
-        padding: 0px 3px 0px 3px;
     }
     #Open:checked~#sidebarMenu {
         transform: translateX(0px);
