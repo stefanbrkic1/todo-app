@@ -305,6 +305,13 @@ body {
         align-items: center;
         padding: 0px 3px 0px 3px;
     }
+     #Open:checked~#sidebarMenu {
+        transform: translateX(0px);
+    }
+
+    #sidebarMenu {
+        transform: translateX(-500px);
+    }
   }
   
   /* Smartphones (portrait) */
