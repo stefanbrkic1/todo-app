@@ -1,6 +1,7 @@
 import './style.css'
 import handleSidebar from './sidebar'
-import dotmenuHandler from './dotmenu'
+import loadAllTasks from './alltasks';
 
 handleSidebar();
+loadAllTasks();
 

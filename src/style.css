@@ -61,7 +61,7 @@ body {
     background-color: var(--background-light);
     grid-area: 1 / 2 / 12 / -1;
     box-sizing: border-box;
-    padding: 40px 40px 40px 40px;
+    padding: 30px 70px 0px 70px;
 }
 
 .footer{
@@ -253,11 +253,16 @@ body {
     background-color: var(--hover-light);
 }
 
+.sidebar-project:hover .project-name-input{
+  background-color: var(--hover-light);
+}
+
 .sidebar-project-active{
     background-color: var(--hover-light);
 }
 
 .sidebar-project:hover .project-tools{
+    margin-left: 10px;
     display: block;
     display: flex;
     align-items: center;
@@ -312,6 +317,44 @@ body {
   fill: var(--secondary-color-light);
 }
 
+.project-name-input{
+  appearance: none;
+  border: none;
+  outline: none;
+  font-family: 'TTSemiBold';
+  font-size: 15rem;
+  max-width: 170px;
+  background-color: var(--secondary-background-light);
+  color: var(--text-light);
+}
+
+.all-tasks-container{
+  display: grid;
+  grid-template-rows: 1fr 10fr;
+  height: 100%;
+}
+
+.home-heading{
+  font-size: 35rem;
+  font-family: 'TTBold';
+  align-self: center;
+}
+
+.add-task-btn{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 0px 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-task-btn:hover{
+background-color: var(--hover-light);
+}
+
 /*Media Queries*/
 
 /* Smartphones (portrait and landscape) */
@@ -341,7 +384,7 @@ body {
         cursor: pointer;
     }
     .main{
-        padding: 50px 20px 20px 20px;
+        padding: 65px 20px 0px 20px;
     }
     #Open:checked~#sidebarMenu {
         transform: translateX(0px);
