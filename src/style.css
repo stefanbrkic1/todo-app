@@ -390,6 +390,12 @@ background-color: var(--hover-light);
         transform: translateX(0px);
         transition: transform 300ms ease-in-out;
     }
+    .delete, .rename{
+      display: none;
+    }
+    .project-name-input{
+      max-width: 150px;
+    }
   }
   
   /* Smartphones (portrait) */
