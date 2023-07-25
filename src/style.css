@@ -323,7 +323,7 @@ body {
   outline: none;
   font-family: 'TTSemiBold';
   font-size: 15rem;
-  max-width: 170px;
+  max-width: 150px;
   background-color: transparent;
   color: var(--text-light);
   cursor: pointer;
@@ -393,9 +393,6 @@ background-color: var(--hover-light);
     }
     .delete, .rename{
       display: none;
-    }
-    .project-name-input{
-      max-width: 150px;
     }
   }
   
