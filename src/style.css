@@ -324,11 +324,12 @@ body {
   font-family: 'TTSemiBold';
   font-size: 15rem;
   max-width: 170px;
-  background-color: var(--secondary-background-light);
+  background-color: transparent;
   color: var(--text-light);
+  cursor: pointer;
 }
 
-.all-tasks-container{
+.tasks-container{
   display: grid;
   grid-template-rows: 1fr 10fr;
   height: 100%;
