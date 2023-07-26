@@ -2,6 +2,7 @@ import './style.css'
 import handleSidebar from './sidebar'
 import loadAllTasks from './alltasks';
 import { ActiveTabHandler } from './dom';
+import loadProjects from './projects';
 
 (function websiteHandler(){
     const activeTabHandler = new ActiveTabHandler();
@@ -9,5 +10,6 @@ import { ActiveTabHandler } from './dom';
     handleSidebar()
     loadAllTasks()
     activeTabHandler.handleTabsClick()
+    loadProjects();
 })()
 

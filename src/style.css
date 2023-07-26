@@ -77,6 +77,13 @@ body {
     padding-bottom: 23px;
 }
 
+.projects-sidebar-list{
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .sidebar-item{
     display: flex;
     gap: 7px;
@@ -307,15 +314,6 @@ body {
     align-items: center;
     gap: 8px;
   }
-
-/* Regular styles for icons */
-.delete path[fill="#303336"]:hover {
-  fill: var(--tertiary-color-light);
-}
-
-.rename path[fill="#303336"]:hover {
-  fill: var(--secondary-color-light);
-}
 
 .project-name-input{
   appearance: none;
