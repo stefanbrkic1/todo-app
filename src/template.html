@@ -47,11 +47,12 @@
 
                     </ul>
                     <ul class="projects-sidebar-list">
-                        <li class="sidebar-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        <li data-modal-target="#modal" class="sidebar-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24">
                             <path fill="#303336"
                                 d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
-                        </svg>Add Project</li>
+                        </svg>Add Project
+                        </li>
                     </ul>
                 </div>
                 <div class="sidebar-bottom">
@@ -92,6 +93,24 @@
         <div id="footerSection" class="footer">
 
         </div>
+        <!-- #endregion-->
+
+        <!-- #region modal-->
+        <div id="modal" class="modal">
+            <div class="modal-header">
+                <div class="modal-title">Add Project</div>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <input type="text" class="add-project-input" name="project-name" placeholder="Enter project title">
+                    <div class="project-modal-buttons">
+                        <button type="submit" class="add-project-buttons add-btn">Add</button>
+                        <button type="button" data-close-button class="add-project-buttons close-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="overlay"></div>
         <!-- #endregion-->
     </div>
     <script src="main.js" defer></script>

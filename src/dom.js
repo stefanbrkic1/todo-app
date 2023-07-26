@@ -60,3 +60,48 @@ export class ActiveTabHandler {
         }
     }
 }
+
+export class ModalHandler {
+    constructor(){
+
+    }
+    handleModals(){
+        const openModalButtons = document.querySelectorAll('[data-modal-target]')
+        const closeModalButtons = document.querySelectorAll('[data-close-button]')
+        const overlay = document.getElementById('overlay')
+
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = document.querySelector(button.dataset.modalTarget)
+                this.openModal(modal)
+            })
+        })
+
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal')
+                this.closeModal(modal)
+            })
+        })
+
+        overlay.addEventListener('click', () => {
+            const modals = document.querySelectorAll('.modal.active')
+            modals.forEach(modal => {
+                this.closeModal(modal)
+            })
+
+        })
+    }
+
+    openModal(modal){
+        if(modal == null)return
+        modal.classList.add('active')
+        overlay.classList.add('active')
+    }
+
+    closeModal(modal){
+        if(modal == null)return
+        modal.classList.remove('active')
+        overlay.classList.remove('active')
+    }
+}

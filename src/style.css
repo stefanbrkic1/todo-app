@@ -40,6 +40,7 @@ body {
     --hover-light: #dde0e4;
 
     --text-light: #303336;
+    --text-dark: #ffffff;
 }
 
 .body-container{
@@ -354,6 +355,106 @@ body {
 background-color: var(--hover-light);
 }
 
+.modal{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border-radius: 10px;
+  z-index: 999;
+  background-color: var(--background-light);
+  width: 600px;
+  max-width: 80%;
+}
+
+.modal.active{
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header{
+  box-sizing: border-box;
+  padding: 10px 15px;
+  border-bottom: 1px solid black;
+  font-size: 22rem;
+  color: var(--text-light);
+}
+
+.modal-title{
+  font-family: 'TTBold';
+}
+
+.modal-body{
+  box-sizing: border-box;
+  padding: 25px;
+}
+
+#overlay{
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+  transition: 200ms ease-in-out;
+  z-index: 15;
+}
+
+#overlay.active{
+  opacity: 1;
+  pointer-events: all;
+}
+
+.add-project-input{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 10px 12px 10px;
+  outline: none;
+  border: 1px solid var(--text-light);
+  border-radius: 5px;
+  font-family: 'TTSemiBold';
+  font-size: 16rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.project-modal-buttons{
+  display: flex;
+  height: 40px;
+  padding-top: 12px;
+  gap: 12px;
+}
+
+.add-project-buttons{
+  flex: 1;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--text-dark);
+  font-family: 'TTBold';
+  font-size: 18rem;
+}
+
+.add-btn{
+  background-color: var(--secondary-color-light);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn{
+  background-color: var(--tertiary-color-light);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-btn:hover{
+    background-color: #01a17c;
+}
+
+.close-btn:hover{
+    background-color: #ff3916;
+}
+
 /*Media Queries*/
 
 /* Smartphones (portrait and landscape) */
@@ -366,7 +467,7 @@ background-color: var(--hover-light);
     }
     .sidebar{
         position: absolute;
-        z-index: 19;
+        z-index: 10;
         height: 100%;
         width: 70vw;
         padding-top: 60px;
@@ -391,6 +492,18 @@ background-color: var(--hover-light);
     }
     .delete, .rename{
       display: none;
+    }
+    .modal-body{
+      padding: 17px;
+    }
+    .modal-header{
+      font-size: 18rem;
+    }
+    .add-project-input{
+      font-size: 15rem;
+    }
+    .add-project-buttons{
+      font-size: 16rem;
     }
   }
   
