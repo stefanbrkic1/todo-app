@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo | ProductivityApp</title>
-<link rel="icon" href="task.png"><script defer src="main.19d7b89dc4567f1019c5.js"></script></head>
+<link rel="icon" href="task.png"><script defer src="main.0585b0b4ca01184938b3.js"></script></head>
 
 <body>
     <div class="body-container">
@@ -101,13 +101,11 @@
                 <div class="modal-title">Add Project</div>
             </div>
             <div class="modal-body">
-                <form action="">
-                    <input type="text" class="add-project-input" name="project-name" placeholder="Enter project title">
+                    <input type="text" id="projectNameInput" class="add-project-input" name="project-name" placeholder="Enter project title">
                     <div class="project-modal-buttons">
-                        <button type="submit" class="add-project-buttons add-btn">Add</button>
-                        <button type="button" data-close-button class="add-project-buttons close-btn">Cancel</button>
+                        <button type="button" id="addProjectButton" class="add-project-buttons add-btn">Add</button>
+                        <button type="button" id="closeModalButton" data-close-button class="add-project-buttons close-btn">Cancel</button>
                     </div>
-                </form>
             </div>
         </div>
         <div id="overlay"></div>
