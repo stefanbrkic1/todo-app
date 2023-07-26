@@ -106,16 +106,28 @@ function createProjectHtml(project){
     projectsContainer.appendChild(liElement)
 }
 
-function addProjectEvent(){
-    const addProjectButton = document.getElementById('addProjectButton')
-    const projectNameInput = document.getElementById('projectNameInput')
-    const closeModalButton = document.getElementById('closeModalButton')
+function addProjectEvent() {
+    const addProjectButton = document.getElementById('addProjectButton');
+    const projectNameInput = document.getElementById('projectNameInput');
+    const closeModalButton = document.getElementById('closeModalButton');
 
     addProjectButton.addEventListener('click', () => {
-        const newProject = new Project(projectNameInput.value)
-        allProjects.push(newProject)
-        loadProjects()
-        closeModalButton.click()
-        
-    })
+        const newProjectName = projectNameInput.value.trim();
+
+        // Check if a project with the same name already exists
+        const existingProject = allProjects.find(project => project.name === newProjectName);
+
+        if (existingProject) {
+            return;
+        }
+
+        if(allProjects.length === 5){   
+            return
+        }
+
+        let newProject = new Project(newProjectName);
+        allProjects.push(newProject);
+        loadProjects();
+        closeModalButton.click();
+    });
 }
