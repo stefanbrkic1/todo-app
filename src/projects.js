@@ -4,6 +4,7 @@ import deleteIcon from './img/delete.svg'
 import renameIconHover from './img/rename-hover.svg'
 import deleteIconHover from './img/delete-hover.svg'
 
+const projectsContainer = document.getElementById('projectsContainer')
 
 class Project {
     constructor(name) {
@@ -21,14 +22,14 @@ let allProjects = [
 ]
 
 export default function loadProjects() {
+    projectsContainer.innerHTML = ''
+    addProjectEvent()
     allProjects.forEach(project => {
       createProjectHtml(project);
     })
 }
 
 function createProjectHtml(project){
-    const projectsContainer = document.getElementById('projectsContainer')
-
     // Create the <li> element with class "sidebar-project" and "tab"
     const liElement = document.createElement("li");
     liElement.classList.add("sidebar-project", "tab");
@@ -103,4 +104,18 @@ function createProjectHtml(project){
     liElement.appendChild(divTools);
     
     projectsContainer.appendChild(liElement)
+}
+
+function addProjectEvent(){
+    const addProjectButton = document.getElementById('addProjectButton')
+    const projectNameInput = document.getElementById('projectNameInput')
+    const closeModalButton = document.getElementById('closeModalButton')
+
+    addProjectButton.addEventListener('click', () => {
+        const newProject = new Project(projectNameInput.value)
+        allProjects.push(newProject)
+        loadProjects()
+        closeModalButton.click()
+        
+    })
 }
