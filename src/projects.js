@@ -109,6 +109,7 @@ export function addProjectEvent() {
     const addProjectButton = document.getElementById('addProjectButton');
     const projectNameInput = document.getElementById('projectNameInput');
     const closeModalButton = document.getElementById('closeModalButton');
+    const modalAlert = document.getElementById('modalAlert')
 
     addProjectButton.addEventListener('click', () => {
         const newProjectName = projectNameInput.value.trim();
@@ -116,13 +117,17 @@ export function addProjectEvent() {
         // Check if a project with the same name already exists
         const existingProject = allProjects.find(project => project.name === newProjectName);
 
+        if(newProjectName === ''){
+            return
+        }
+
         if (existingProject) {
-            alert('The project with this name already exists.')
+            modalAlert.textContent = '(The project with this name already exists.)'
             return;
         }
 
         if(allProjects.length === 5){  
-            alert('Cant have more than five projects. Upgrade to PRO') 
+            modalAlert.textContent = '(Cant have more than five projects. Upgrade to PRO.)'
             return
         }
 

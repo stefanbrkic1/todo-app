@@ -378,6 +378,14 @@ background-color: var(--hover-light);
   border-bottom: 1px solid black;
   font-size: 22rem;
   color: var(--text-light);
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.modal-alert{
+  font-size: 16rem;
+  color: var(--tertiary-color-light);
 }
 
 .modal-title{
