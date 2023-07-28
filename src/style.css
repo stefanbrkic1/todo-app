@@ -41,6 +41,9 @@ body {
 
     --text-light: #303336;
     --text-dark: #ffffff;
+
+    --warning-light: #ff5436;
+    --warning-dark: #FFF200;
 }
 
 .body-container{
@@ -385,7 +388,7 @@ background-color: var(--hover-light);
 
 .modal-alert{
   font-size: 16rem;
-  color: var(--tertiary-color-light);
+  color: var(--warning-light);
 }
 
 .modal-title{

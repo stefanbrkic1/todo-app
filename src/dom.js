@@ -104,6 +104,11 @@ export class ModalHandler {
     }
 
     closeModal(modal){
+        const projectNameInput = document.getElementById('projectNameInput');
+        const modalAlert = document.getElementById('modalAlert')
+        projectNameInput.value = ''
+        modalAlert.innerHTML = ''
+        
         if(modal == null)return
         modal.classList.remove('active')
         overlay.classList.remove('active')
