@@ -74,10 +74,6 @@ function createProjectHtml(project){
     const svgRename = new Image();
     svgRename.src = renameIcon; 
     svgRename.classList.add("rename"); // Add any necessary class for stylin
-
-    // Add the data-modal-target attribute
-    svgRename.setAttribute("data-modal-target", "#modalRename");
-
     //Change icons color on hover
     svgRename.addEventListener('mouseover', () => {
         svgRename.src = renameIconHover
@@ -146,24 +142,6 @@ export function addProjectEvent() {
 function addProjectToolsEvent(){
     const renameButtons = document.querySelectorAll('.rename')
     const deleteButtons = document.querySelectorAll('.delete')
-    const projectNameInputs = document.querySelectorAll('.project-name-input')
-    const renameProjectButton = document.getElementById('renameProjectButton')
-    const renameInput = document.getElementById('projectRenameInput')
-    const closeModalButton2 = document.getElementById('closeModalButton2');
-
-    renameButtons.forEach((button, index) => {
-        button.addEventListener('click', () => {
-            let nameContainer = projectNameInputs[index]
-            renameProjectButton.addEventListener('click', () => {
-                nameContainer.value = renameInput.value
-                allProjects[index].name = renameInput.value
-                loadProjects()
-                closeModalButton2.click()
-            })
-
-            
-        })
-    })
 
     deleteButtons.forEach((button, index) => {
         button.addEventListener('click', () => {

@@ -116,15 +116,16 @@
 
         <!-- #region modal-rename-->
         <div id="modalRename" class="modal">
-            <div class="modal-header">
-                <div class="modal-title">Rename Project</div>
+            <div class="modal-header-rename">
+                <div class="modal-title">Rename</div>
+                <div id="oldName"></div>
             </div>
             <div class="modal-body">
                 <form id="renameForm" action="">
                     <input type="text" id="projectRenameInput" class="add-project-input" name="project-name" placeholder="Enter new project title" autocomplete="off" required>
                     <div class="project-modal-buttons">
                         <button type="submit" id="renameProjectButton" class="add-project-buttons add-btn">Rename</button>
-                        <button type="button" id="closeModalButton2" data-close-button class="add-project-buttons close-btn">Cancel</button>
+                        <button type="button" id="closeModalButtonRename" data-close-button class="add-project-buttons close-btn">Cancel</button>
                     </div>
                 </form>
             </div>

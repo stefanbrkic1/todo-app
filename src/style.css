@@ -391,6 +391,17 @@ background-color: var(--hover-light);
   color: var(--warning-light);
 }
 
+.modal-header-rename{
+  box-sizing: border-box;
+  padding: 10px 15px;
+  border-bottom: 1px solid black;
+  font-size: 22rem;
+  color: var(--text-light);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 .modal-title{
   font-family: 'TTBold';
 }
@@ -514,7 +525,13 @@ background-color: var(--hover-light);
       font-size: 15rem;
     }
     .add-project-buttons{
-      font-size: 16rem;
+      font-size: 15rem;
+    }
+    .modal-title{
+      font-size: 20rem;
+    }
+    #oldName{
+      font-size: 20rem;
     }
   }
   
