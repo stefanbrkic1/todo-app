@@ -91,18 +91,18 @@
 
         <!-- #region footer-->
         <div id="footerSection" class="footer">
-
+        
         </div>
         <!-- #endregion-->
 
-        <!-- #region modal-->
+        <!-- #region modal-add-->
         <div id="modal" class="modal">
             <div class="modal-header">
                 <div class="modal-title">Add Project</div>
                 <div id="modalAlert" class="modal-alert"></div>
             </div>
             <div class="modal-body">
-                <form id="myForm" action="">
+                <form id="addForm" action="">
                     <input type="text" id="projectNameInput" class="add-project-input" name="project-name" placeholder="Enter project title" autocomplete="off" required>
                     <div class="project-modal-buttons">
                         <button type="submit" id="addProjectButton" class="add-project-buttons add-btn">Add</button>
@@ -112,6 +112,23 @@
             </div>
         </div>
         <div id="overlay"></div>
+        <!-- #endregion-->
+
+        <!-- #region modal-rename-->
+        <div id="modalRename" class="modal">
+            <div class="modal-header">
+                <div class="modal-title">Rename Project</div>
+            </div>
+            <div class="modal-body">
+                <form id="renameForm" action="">
+                    <input type="text" id="projectRenameInput" class="add-project-input" name="project-name" placeholder="Enter new project title" autocomplete="off" required>
+                    <div class="project-modal-buttons">
+                        <button type="submit" id="renameProjectButton" class="add-project-buttons add-btn">Rename</button>
+                        <button type="button" id="closeModalButton2" data-close-button class="add-project-buttons close-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
         <!-- #endregion-->
     </div>
     <script src="main.js" defer></script>

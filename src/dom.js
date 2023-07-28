@@ -66,7 +66,11 @@ export class ModalHandler {
 
     }
     handleModals(){
-        document.getElementById("myForm").addEventListener("submit", function(event) {
+        document.getElementById("addForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+        });
+
+        document.getElementById("renameForm").addEventListener("submit", function(event) {
             event.preventDefault();
         });
 
@@ -108,7 +112,7 @@ export class ModalHandler {
         const modalAlert = document.getElementById('modalAlert')
         projectNameInput.value = ''
         modalAlert.innerHTML = ''
-        
+
         if(modal == null)return
         modal.classList.remove('active')
         overlay.classList.remove('active')
