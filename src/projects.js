@@ -135,6 +135,8 @@ function addProjectToolsEvent() {
     renameButtons.forEach((button, index) => {
         button.addEventListener('click', () => { 
            currentProject = allProjects[index];
+           const oldName = document.getElementById('oldName');
+           oldName.textContent = `(${currentProject.name})`
         });
     });
 
