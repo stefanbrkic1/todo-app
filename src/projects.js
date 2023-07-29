@@ -11,7 +11,7 @@ class Project {
     }
 }
 
-let allProjects = [
+export let allProjects = [
     {
         name: 'ToDo',
     },
@@ -20,13 +20,14 @@ let allProjects = [
     },
 ]
 
-export default function loadProjects() {
+export function loadProjects() {
     projectsContainer.innerHTML = ''
     allProjects.forEach(project => {
       projectsHandler.createProjectHtml(project);
     })
     addProjectToolsEvent()
     tabHandler.handleTabsClick()
+    handleProjectTabs(allProjects)
     modalHandler.handleModals()
 }
 
@@ -116,4 +117,30 @@ function addProjectToolsEvent() {
         currentProject = null;
     });
 }
+
+
+let currentProjectTab = null
+
+function handleProjectTabs(allProjects){
+    const projectTabs = document.querySelectorAll('.sidebar-project')
+    const tabs = document.querySelectorAll('.tab')
+    projectTabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(tab => {
+                tab.classList.remove('sidebar-item-active')
+            })
+            tab.classList.add('sidebar-item-active')
+            currentProjectTab = allProjects[index]
+            loadActiveProject(currentProjectTab)
+        })
+    })
+}
+
+function loadActiveProject(currentProjectTab){
+    const mainHeading = document.getElementById('mainHeading')
+    const projectNameMain = document.getElementById('projectNameMain')
+    mainHeading.textContent = `Project | ${currentProjectTab.name}`
+}
+
+
 

@@ -1,9 +1,8 @@
 import './style.css'
 import handleSidebar from './sidebar'
 import loadAllTasks from './alltasks';
-import { ActiveTabHandler, ModalHandler } from './dom';
-import loadProjects from './projects';
-import { addProjectEvent } from './projects';
+import { ActiveTabHandler, ModalHandler} from './dom';
+import { loadProjects, addProjectEvent } from './projects';
 
 (function websiteHandler(){
     const activeTabHandler = new ActiveTabHandler();
@@ -14,6 +13,5 @@ import { addProjectEvent } from './projects';
     loadProjects();
     addProjectEvent();
     modalHandler.handleModals();
-    activeTabHandler.handleTabsClick();
 })();
 

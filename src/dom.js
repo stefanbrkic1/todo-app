@@ -6,13 +6,12 @@ import projectIcon from './img/project.svg'
 
 export class ActiveTabHandler {
     constructor() {
-        this.currentTab = 'tabAllTasks'
+        this.currentTab = ''
     }
 
     handleTabsClick() {
         this.tabs = document.querySelectorAll('.tab');
         this.tabs.forEach(tab => {
-            console.log(tab)
             tab.addEventListener('click', (e) => {
                 let target = e.target;
                 while (target && !target.classList.contains('tab')) {
@@ -58,7 +57,7 @@ export class ActiveTabHandler {
                 break;                
                 
             default:
-                break;
+                break
         }
     }
 }
@@ -197,3 +196,4 @@ export class ProjectsHandler{
         this.projectsContainer.appendChild(liElement)
     }
 }
+
