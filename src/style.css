@@ -507,6 +507,13 @@ background-color: var(--hover-light);
   background-image: url(./img/delete-hover.svg);
 }
 
+#deleteQuestion{
+  font-size: 18rem;
+  padding-bottom: 10px;
+  text-align: center;
+  color: var(--text-light);
+}
+
 /*Media Queries*/
 
 /* Smartphones (portrait and landscape) */

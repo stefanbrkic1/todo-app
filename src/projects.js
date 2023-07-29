@@ -81,6 +81,7 @@ function createProjectHtml(project){
     //Create button delete
     const buttonDelete = document.createElement('button');
     buttonDelete.classList.add('btn-delete')
+    buttonDelete.setAttribute('data-modal-target', '#modalDelete');
 
     // Append the "delete" button to the second <div> element
     divFlex3.appendChild(buttonDelete);
@@ -125,12 +126,15 @@ export function addProjectEvent() {
 }
 
 let currentProject = null;
+let currentIndex
 
 function addProjectToolsEvent() {
     const renameButtons = document.querySelectorAll('.btn-rename');
     const deleteButtons = document.querySelectorAll('.btn-delete');
     const renameProjectButton = document.getElementById('projectRenameButton');
     const closeModalButtonRename = document.getElementById('closeModalButtonRename');
+    const deleteProjectButton = document.getElementById('projectDeleteButton');
+    const closeModalButtonDelete = document.getElementById('closeModalButtonDelete');
 
     renameButtons.forEach((button, index) => {
         button.addEventListener('click', () => { 
@@ -155,9 +159,18 @@ function addProjectToolsEvent() {
 
     deleteButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
-            allProjects.splice(index, 1);
-            loadProjects();
+            currentProject = allProjects[index];
+            currentIndex = index;
+            const deleteProjectName = document.getElementById('deleteProjectName')
+            deleteProjectName.textContent = `(${currentProject.name})`
         });
+    });
+
+    deleteProjectButton.addEventListener('click', () => {
+            allProjects.splice(currentIndex, 1)
+            loadProjects();
+            closeModalButtonDelete.click();
+            modalHandler.handleModals();
     });
 }
 
