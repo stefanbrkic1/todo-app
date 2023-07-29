@@ -570,6 +570,9 @@ background-color: var(--hover-light);
     #oldName{
       font-size: 20rem;
     }
+    #deleteProjectName{
+      font-size: 20rem;
+    }
   }
   
   /* Smartphones (portrait) */
