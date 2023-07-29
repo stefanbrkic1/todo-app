@@ -1,8 +1,7 @@
 import projectIcon from './img/project.svg'
-import renameIcon from './img/rename.svg'
-import deleteIcon from './img/delete.svg'
-import renameIconHover from './img/rename-hover.svg'
-import deleteIconHover from './img/delete-hover.svg'
+import { ModalHandler } from './dom';
+
+const modalHandler = new ModalHandler(); 
 
 const projectsContainer = document.getElementById('projectsContainer')
 
@@ -27,6 +26,7 @@ export default function loadProjects() {
       createProjectHtml(project);
     })
     addProjectToolsEvent()
+    modalHandler.handleModals()
 }
 
 function createProjectHtml(project){
@@ -70,35 +70,20 @@ function createProjectHtml(project){
     divTools.appendChild(divFlex2);
     divTools.appendChild(divFlex3);
 
-    // Create the "rename" SVG icon
-    const svgRename = new Image();
-    svgRename.src = renameIcon; 
-    svgRename.classList.add("rename"); // Add any necessary class for stylin
-    //Change icons color on hover
-    svgRename.addEventListener('mouseover', () => {
-        svgRename.src = renameIconHover
-    })
-    svgRename.addEventListener('mouseout', () => {
-        svgRename.src = renameIcon
-    })
+     //Create button delete
+     const buttonRename = document.createElement('button');
+     buttonRename.classList.add('btn-rename')
+     buttonRename.setAttribute('data-modal-target', '#modalRename');
 
-    // Append the "rename" icon to the second <div> element
-    divFlex2.appendChild(svgRename);
+    // Append the "rename" button to the second <div> element
+    divFlex2.appendChild(buttonRename);
 
-    // Create the "delete" SVG icon
-    const svgDelete = new Image();
-    svgDelete.src = deleteIcon; 
-    svgDelete.classList.add("delete"); // Add any necessary class for styling
-    //Change icons color on hover
-    svgDelete.addEventListener('mouseover', () => {
-        svgDelete.src = deleteIconHover
-    })
-    svgDelete.addEventListener('mouseout', () => {
-        svgDelete.src = deleteIcon
-    })
+    //Create button delete
+    const buttonDelete = document.createElement('button');
+    buttonDelete.classList.add('btn-delete')
 
-    // Append the "delete" icon to the second <div> element
-    divFlex3.appendChild(svgDelete);
+    // Append the "delete" button to the second <div> element
+    divFlex3.appendChild(buttonDelete);
 
     // Append the second <div> element to the <li> element
     liElement.appendChild(divTools);
@@ -139,14 +124,38 @@ export function addProjectEvent() {
     });
 }
 
-function addProjectToolsEvent(){
-    const renameButtons = document.querySelectorAll('.rename')
-    const deleteButtons = document.querySelectorAll('.delete')
+let currentProject = null;
+
+function addProjectToolsEvent() {
+    const renameButtons = document.querySelectorAll('.btn-rename');
+    const deleteButtons = document.querySelectorAll('.btn-delete');
+    const renameProjectButton = document.getElementById('projectRenameButton');
+    const closeModalButtonRename = document.getElementById('closeModalButtonRename');
+
+    renameButtons.forEach((button, index) => {
+        button.addEventListener('click', () => { 
+           currentProject = allProjects[index];
+        });
+    });
+
+    renameProjectButton.addEventListener('click', () => {
+        if (currentProject) {
+            const projectRenameInput = document.getElementById('projectRenameInput');
+            currentProject.name = projectRenameInput.value;
+            loadProjects();
+            closeModalButtonRename.click();
+            modalHandler.handleModals();
+        } else {
+            
+        }
+        currentProject = null;
+    });
 
     deleteButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
-            allProjects.splice(index, 1)
-            loadProjects()
-        })
-    })
+            allProjects.splice(index, 1);
+            loadProjects();
+        });
+    });
 }
+

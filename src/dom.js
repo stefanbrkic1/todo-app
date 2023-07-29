@@ -109,9 +109,11 @@ export class ModalHandler {
 
     closeModal(modal){
         const projectNameInput = document.getElementById('projectNameInput');
+        const projectRenameInput = document.getElementById('projectRenameInput')
         const modalAlert = document.getElementById('modalAlert')
         projectNameInput.value = ''
         modalAlert.innerHTML = ''
+        projectRenameInput.value = ''
 
         if(modal == null)return
         modal.classList.remove('active')

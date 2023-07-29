@@ -9,10 +9,11 @@ import { addProjectEvent } from './projects';
     const activeTabHandler = new ActiveTabHandler();
     const modalHandler = new ModalHandler(); 
 
-    handleSidebar()
-    loadAllTasks()
-    activeTabHandler.handleTabsClick()
+    handleSidebar();
+    loadAllTasks();
+    activeTabHandler.handleTabsClick();
     loadProjects();
-    addProjectEvent()
+    addProjectEvent();
     modalHandler.handleModals();
 })();
+

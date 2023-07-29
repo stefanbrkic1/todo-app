@@ -477,6 +477,36 @@ background-color: var(--hover-light);
     background-color: #ff3916;
 }
 
+.btn-rename{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  background-image: url(./img/rename.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.btn-rename:hover{
+  background-image: url(./img/rename-hover.svg);
+}
+
+.btn-delete{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  background-image: url(./img/delete.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.btn-delete:hover{
+  background-image: url(./img/delete-hover.svg);
+}
+
 /*Media Queries*/
 
 /* Smartphones (portrait and landscape) */
