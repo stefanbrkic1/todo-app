@@ -1,8 +1,7 @@
-import projectIcon from './img/project.svg'
-import { ModalHandler } from './dom';
+import { ModalHandler, ProjectsHandler } from './dom';
 
 const modalHandler = new ModalHandler(); 
-
+const projectsHandler = new ProjectsHandler();
 const projectsContainer = document.getElementById('projectsContainer')
 
 class Project {
@@ -23,73 +22,10 @@ let allProjects = [
 export default function loadProjects() {
     projectsContainer.innerHTML = ''
     allProjects.forEach(project => {
-      createProjectHtml(project);
+      projectsHandler.createProjectHtml(project);
     })
     addProjectToolsEvent()
     modalHandler.handleModals()
-}
-
-function createProjectHtml(project){
-    // Create the <li> element with class "sidebar-project" and "tab"
-    const liElement = document.createElement("li");
-    liElement.classList.add("sidebar-project", "tab");
-
-    // Create the first <div> element with class "flex"
-    const divFlex1 = document.createElement("div");
-    divFlex1.classList.add("flex");
-
-    // Create the "project" SVG icon
-    const svgProject = new Image();
-    svgProject.src = projectIcon; 
-
-    // Append the "project" icon to the first <div> element
-    divFlex1.appendChild(svgProject);
-
-    // Create the <input> element
-    const inputElement = document.createElement("input");
-    inputElement.value = project.name
-    inputElement.setAttribute("type", "text");
-    inputElement.classList.add("project-name-input");
-    inputElement.setAttribute("disabled", "");
-    divFlex1.appendChild(inputElement);
-
-    // Append the first <div> element to the <li> element
-    liElement.appendChild(divFlex1);
-
-    // Create the second <div> element with class "project-tools"
-    const divTools = document.createElement("div");
-    divTools.classList.add("project-tools");
-
-    // Create the <div> elements with class "flex" for the tool icons
-    const divFlex2 = document.createElement("div");
-    divFlex2.classList.add("flex");
-    const divFlex3 = document.createElement("div");
-    divFlex3.classList.add("flex");
-
-    // Append the tool icons to the second <div> element
-    divTools.appendChild(divFlex2);
-    divTools.appendChild(divFlex3);
-
-     //Create button delete
-     const buttonRename = document.createElement('button');
-     buttonRename.classList.add('btn-rename')
-     buttonRename.setAttribute('data-modal-target', '#modalRename');
-
-    // Append the "rename" button to the second <div> element
-    divFlex2.appendChild(buttonRename);
-
-    //Create button delete
-    const buttonDelete = document.createElement('button');
-    buttonDelete.classList.add('btn-delete')
-    buttonDelete.setAttribute('data-modal-target', '#modalDelete');
-
-    // Append the "delete" button to the second <div> element
-    divFlex3.appendChild(buttonDelete);
-
-    // Append the second <div> element to the <li> element
-    liElement.appendChild(divTools);
-    
-    projectsContainer.appendChild(liElement)
 }
 
 export function addProjectEvent() {
@@ -167,10 +103,15 @@ function addProjectToolsEvent() {
     });
 
     deleteProjectButton.addEventListener('click', () => {
+        if (currentProject) {
             allProjects.splice(currentIndex, 1)
             loadProjects();
             closeModalButtonDelete.click();
             modalHandler.handleModals();
+        } else {
+            
+        }
+        currentProject = null;
     });
 }
 
