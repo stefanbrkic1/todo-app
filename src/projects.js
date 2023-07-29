@@ -1,7 +1,8 @@
-import { ModalHandler, ProjectsHandler } from './dom';
+import { ModalHandler, ProjectsHandler, ActiveTabHandler } from './dom';
 
 const modalHandler = new ModalHandler(); 
 const projectsHandler = new ProjectsHandler();
+const tabHandler = new ActiveTabHandler();
 const projectsContainer = document.getElementById('projectsContainer')
 
 class Project {
@@ -25,6 +26,7 @@ export default function loadProjects() {
       projectsHandler.createProjectHtml(project);
     })
     addProjectToolsEvent()
+    tabHandler.handleTabsClick()
     modalHandler.handleModals()
 }
 

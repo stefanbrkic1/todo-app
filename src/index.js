@@ -11,9 +11,9 @@ import { addProjectEvent } from './projects';
 
     handleSidebar();
     loadAllTasks();
-    activeTabHandler.handleTabsClick();
     loadProjects();
     addProjectEvent();
     modalHandler.handleModals();
+    activeTabHandler.handleTabsClick();
 })();
 
