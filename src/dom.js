@@ -196,4 +196,3 @@ export class ProjectsHandler{
         this.projectsContainer.appendChild(liElement)
     }
 }
-

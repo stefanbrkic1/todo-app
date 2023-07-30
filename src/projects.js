@@ -25,9 +25,9 @@ export function loadProjects() {
     allProjects.forEach(project => {
       projectsHandler.createProjectHtml(project);
     })
-    addProjectToolsEvent()
     tabHandler.handleTabsClick()
     handleProjectTabs(allProjects)
+    addProjectToolsEvent()
     modalHandler.handleModals()
 }
 
@@ -86,11 +86,17 @@ function addProjectToolsEvent() {
 
     renameProjectButton.addEventListener('click', () => {
         const projectTabs = document.querySelectorAll('.sidebar-project')
+        const projectRenameInput = document.getElementById('projectRenameInput');
+
+        if(projectRenameInput.value === ''){
+            return
+        }
+
         if (currentProject) {            
-            const projectRenameInput = document.getElementById('projectRenameInput');
             currentProject.name = projectRenameInput.value;
             loadProjects();
             projectTabs[currentIndex].click()
+            projectTabs[currentIndex].classList.add('sidebar-item-active')
             closeModalButtonRename.click();
             modalHandler.handleModals();
         } else {
@@ -131,6 +137,7 @@ function handleProjectTabs(allProjects){
     const tabs = document.querySelectorAll('.tab')
     projectTabs.forEach((tab, index) => {
         tab.addEventListener('click', (e) => {
+            console.log('i was clicked')
             let target = e.target
             tabs.forEach(tab => {
                 tab.classList.remove('sidebar-item-active')
