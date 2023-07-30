@@ -111,6 +111,20 @@ body {
     font-size: 15rem;
 }
 
+.sidebar-add-project{
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 5px 5px 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sidebar-add-project:hover{
+  background-color: var(--hover-light);
+}
+
 .sidebar-header{
     font-size: 21rem;
     padding-bottom: 10px;
