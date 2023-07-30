@@ -78,16 +78,19 @@ function addProjectToolsEvent() {
     renameButtons.forEach((button, index) => {
         button.addEventListener('click', () => { 
            currentProject = allProjects[index];
+           currentIndex = index;
            const oldName = document.getElementById('oldName');
            oldName.textContent = `(${currentProject.name})`
         });
     });
 
     renameProjectButton.addEventListener('click', () => {
-        if (currentProject) {
+        const projectTabs = document.querySelectorAll('.sidebar-project')
+        if (currentProject) {            
             const projectRenameInput = document.getElementById('projectRenameInput');
             currentProject.name = projectRenameInput.value;
             loadProjects();
+            projectTabs[currentIndex].click()
             closeModalButtonRename.click();
             modalHandler.handleModals();
         } else {
@@ -106,10 +109,12 @@ function addProjectToolsEvent() {
     });
 
     deleteProjectButton.addEventListener('click', () => {
+        const tabAllTasks = document.getElementById('tabAllTasks')
         if (currentProject) {
             allProjects.splice(currentIndex, 1)
             loadProjects();
             closeModalButtonDelete.click();
+            tabAllTasks.click()
             modalHandler.handleModals();
         } else {
             
@@ -125,7 +130,8 @@ function handleProjectTabs(allProjects){
     const projectTabs = document.querySelectorAll('.sidebar-project')
     const tabs = document.querySelectorAll('.tab')
     projectTabs.forEach((tab, index) => {
-        tab.addEventListener('click', () => {
+        tab.addEventListener('click', (e) => {
+            let target = e.target
             tabs.forEach(tab => {
                 tab.classList.remove('sidebar-item-active')
             })
@@ -138,7 +144,6 @@ function handleProjectTabs(allProjects){
 
 function loadActiveProject(currentProjectTab){
     const mainHeading = document.getElementById('mainHeading')
-    const projectNameMain = document.getElementById('projectNameMain')
     mainHeading.textContent = `Project | ${currentProjectTab.name}`
 }
 
