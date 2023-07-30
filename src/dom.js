@@ -6,7 +6,7 @@ import projectIcon from './img/project.svg'
 
 export class ActiveTabHandler {
     constructor() {
-        
+
     }
 
     handleTabsClick() {
@@ -15,7 +15,7 @@ export class ActiveTabHandler {
         this.homeTabs.forEach(tab => {
             tab.addEventListener('click', (e) => {
                 let target = e.target;
-                while (target && !target.classList.contains('tab')) {
+                while (target && !target.classList.contains('sidebar-item')) {
                     target = target.parentNode;
                 }
                 this.setActiveTab(target);
