@@ -6,12 +6,13 @@ import projectIcon from './img/project.svg'
 
 export class ActiveTabHandler {
     constructor() {
-        this.currentTab = ''
+        
     }
 
     handleTabsClick() {
-        this.tabs = document.querySelectorAll('.tab');
-        this.tabs.forEach(tab => {
+        this.homeTabs = document.querySelectorAll('.sidebar-item');
+        this.projectTabs = document.querySelectorAll('.sidebar-project');
+        this.homeTabs.forEach(tab => {
             tab.addEventListener('click', (e) => {
                 let target = e.target;
                 while (target && !target.classList.contains('tab')) {
@@ -24,7 +25,10 @@ export class ActiveTabHandler {
     }
 
     setActiveTab(target) {
-        this.tabs.forEach(tab => {
+        this.homeTabs.forEach(tab => {
+            tab.classList.remove('sidebar-item-active');
+        });
+        this.projectTabs.forEach(tab => {
             tab.classList.remove('sidebar-item-active');
         });
         target.classList.add('sidebar-item-active');
@@ -33,27 +37,19 @@ export class ActiveTabHandler {
     openActiveTab(target){
         switch (target.id) {
             case 'tabAllTasks':
-                if (this.currentTab === 'tabAllTasks') return;
                 loadAllTasks();
-                this.currentTab = 'tabAllTasks'
                 break;
     
             case 'tabToday':
-                if (this.currentTab === 'tabToday') return;
                 loadTodayTasks();
-                this.currentTab = 'tabToday'
                 break;
 
             case 'tabThisWeek':
-                if (this.currentTab === 'tabThisWeek') return;
                 loadWeekTasks();
-                this.currentTab = 'tabThisWeek'
                 break;
 
             case 'tabImportant':
-                if (this.currentTab === 'tabImportant') return;
                 loadImportantTasks();
-                this.currentTab = 'tabImportant'
                 break;                
                 
             default:

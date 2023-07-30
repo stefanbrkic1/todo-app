@@ -95,8 +95,7 @@ function addProjectToolsEvent() {
         if (currentProject) {            
             currentProject.name = projectRenameInput.value;
             loadProjects();
-            projectTabs[currentIndex].click()
-            projectTabs[currentIndex].classList.add('sidebar-item-active')
+            //projectTabs[currentIndex].click()
             closeModalButtonRename.click();
             modalHandler.handleModals();
         } else {
@@ -137,14 +136,19 @@ function handleProjectTabs(allProjects){
     const tabs = document.querySelectorAll('.tab')
     projectTabs.forEach((tab, index) => {
         tab.addEventListener('click', (e) => {
-            console.log('i was clicked')
             let target = e.target
-            tabs.forEach(tab => {
-                tab.classList.remove('sidebar-item-active')
-            })
-            tab.classList.add('sidebar-item-active')
-            currentProjectTab = allProjects[index]
-            loadActiveProject(currentProjectTab)
+            if(target.classList.contains('btn-rename')){
+                console.log('rename clicked')
+            }
+            else{
+                console.log('kita')
+                tabs.forEach(tab => {
+                    tab.classList.remove('sidebar-item-active')
+                })
+                tab.classList.add('sidebar-item-active')
+                currentProjectTab = allProjects[index]
+                loadActiveProject(currentProjectTab)
+            }
         })
     })
 }
