@@ -4,6 +4,8 @@ import loadWeekTasks from "./week";
 import loadImportantTasks from "./important";
 import projectIcon from './img/project.svg'
 
+const sidebar = document.getElementById('sidebarMenu')
+
 export class ActiveTabHandler {
     constructor() {
 
@@ -64,8 +66,15 @@ export class ActiveTabHandler {
 
 export class ModalHandler {
     constructor(){
-
+        this.projectNameInput = document.getElementById('projectNameInput');
+        this.projectRenameInput = document.getElementById('projectRenameInput')
+        this.modalAlert = document.getElementById('modalAlert')
+        this.modalAlertRename = document.getElementById('modalAlertRename')
+        this.allInputs = document.getElementsByTagName('input')
+        this.modalAddProject = document.getElementById('modal')
     }
+    
+
     handleModals(){
         document.getElementById("addForm").addEventListener("submit", function(event) {
             event.preventDefault();
@@ -113,18 +122,29 @@ export class ModalHandler {
     }
 
     closeModal(modal){
-        const projectNameInput = document.getElementById('projectNameInput');
-        const projectRenameInput = document.getElementById('projectRenameInput')
-        const modalAlert = document.getElementById('modalAlert')
-        const modalAlertRename = document.getElementById('modalAlertRename')
-        projectNameInput.value = ''
-        modalAlert.innerHTML = ''
-        modalAlertRename.innerHTML = ''
-        projectRenameInput.value = ''
+        this.projectNameInput.value = ''
+        this.modalAlert.innerHTML = ''
+        this.modalAlertRename.innerHTML = ''
+        this.projectRenameInput.value = ''
 
         if(modal == null)return
         modal.classList.remove('active')
         overlay.classList.remove('active')
+    }
+
+
+    changeModalPositionIfKeyboardOpened(){
+        const inputsArray = Array.from(this.allInputs)
+        inputsArray.forEach(input => {
+            input.addEventListener('focus', () => {
+                if(sidebar.classList.contains('active-sidebar')){
+                    this.modalAddProject.style.top = '150px'
+                }
+            })
+            input.addEventListener('blur', () => {
+                    this.modalAddProject.style.top = '50%'
+            })
+        })
     }
 }
 
@@ -201,6 +221,5 @@ export class ProjectsHandler{
 
 export function closeSidebarIfSmallScreen(){
     const closeSidebarButon = document.querySelector('.sidebar-icon')
-    const sidebar = document.getElementById('sidebarMenu')
     sidebar.classList.contains('active-sidebar') ? closeSidebarButon.click() : {} ;
 }

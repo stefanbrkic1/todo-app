@@ -12,5 +12,6 @@ import { loadProjects, addProjectEvent } from './projects';
     loadProjects();
     addProjectEvent();
     modalHandler.handleModals();
+    modalHandler.changeModalPositionIfKeyboardOpened()
 })();
 
