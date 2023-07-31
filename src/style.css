@@ -355,7 +355,9 @@ body {
 .home-heading{
   font-size: 35rem;
   font-family: 'TTBold';
-  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .add-task-btn{

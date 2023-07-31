@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo | ProductivityApp</title>
-<link rel="icon" href="task.png"><script defer src="main.bc543ecf1f6cae2d13e1.js"></script></head>
+<link rel="icon" href="task.png"><script defer src="main.5d0c023323b98035b4d1.js"></script></head>
 
 <body>
     <div class="body-container">
@@ -21,23 +21,23 @@
                 <div class="sidebar-top">
                     <div class="sidebar-header">Home</div>
                     <ul class="sidebar-list">
-                        <li id="tabAllTasks" class="sidebar-item tab sidebar-item-active"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24">
+                        <li id="tabAllTasks" class="sidebar-item tab sidebar-item-active"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <path fill="#10a885"
                                     d="M9 5v4h12V5M9 19h12v-4H9m0-1h12v-4H9M4 9h4V5H4m0 14h4v-4H4m0-1h4v-4H4v4Z" />
                             </svg>All Tasks</li>
-                        <li id="tabToday" class="sidebar-item tab"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24">
+                        <li id="tabToday" class="sidebar-item tab"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24">
                                 <path fill="#ff5436"
                                     d="M19 4h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm-1 15h-6v-6h6v6zm1-10H5V7h14v2z" />
                             </svg>Today</li>
-                        <li id="tabThisWeek" class="sidebar-item tab"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24">
+                        <li id="tabThisWeek" class="sidebar-item tab"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24">
                                 <path fill="#126fb5"
                                     d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zm11-6H8v-2h8v2zM5 7h14v2H5V7z" />
                             </svg>This Week</li>
-                        <li id="tabImportant" class="sidebar-item tab"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24">
+                        <li id="tabImportant" class="sidebar-item tab"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24">
                                 <path fill="#ffc300"
                                     d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
                             </svg>Important</li>
@@ -47,11 +47,11 @@
 
                     </ul>
                     <ul class="projects-sidebar-list">
-                        <li data-modal-target="#modal" class="sidebar-add-project"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24">
-                            <path fill="#303336"
-                                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
-                        </svg>Add Project
+                        <li data-modal-target="#modal" class="sidebar-add-project"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="#303336"
+                                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+                            </svg>Add Project
                         </li>
                     </ul>
                 </div>
@@ -81,9 +81,12 @@
         <!-- #region main-->
         <div id="mainSection" class="main">
             <div class="tasks-container">
-                <div id="mainHeading" class="home-heading"></div>
+                <div id="mainHeading" class="home-heading">
+                    <div id="currentTabIcon" class="flex"></div>
+                    <div id="currentTabName"></div>
+                </div>
                 <div class="tasks">
-                
+
                 </div>
             </div>
         </div>
@@ -91,7 +94,7 @@
 
         <!-- #region footer-->
         <div id="footerSection" class="footer">
-
+            <div id="currentTabName"></div>
         </div>
         <!-- #endregion-->
 
@@ -103,10 +106,12 @@
             </div>
             <div class="modal-body">
                 <form id="addForm" action="">
-                    <input type="text" id="projectNameInput" class="add-project-input" name="project-name" placeholder="Enter project title" autocomplete="off" required>
+                    <input type="text" id="projectNameInput" class="add-project-input" name="project-name"
+                        placeholder="Enter project title" autocomplete="off" required>
                     <div class="project-modal-buttons">
                         <button type="submit" id="addProjectButton" class="add-project-buttons add-btn">Add</button>
-                        <button type="button" id="closeModalButton" data-close-button class="add-project-buttons close-btn">Cancel</button>
+                        <button type="button" id="closeModalButton" data-close-button
+                            class="add-project-buttons close-btn">Cancel</button>
                     </div>
                 </form>
             </div>
@@ -123,10 +128,13 @@
             </div>
             <div class="modal-body">
                 <form id="renameForm" action="">
-                    <input type="text" id="projectRenameInput" class="add-project-input" name="project-name" placeholder="Enter new project title" autocomplete="off" required>
+                    <input type="text" id="projectRenameInput" class="add-project-input" name="project-name"
+                        placeholder="Enter new project title" autocomplete="off" required>
                     <div class="project-modal-buttons">
-                        <button type="submit" id="projectRenameButton" class="add-project-buttons add-btn">Rename</button>
-                        <button type="button" id="closeModalButtonRename" data-close-button class="add-project-buttons close-btn">Cancel</button>
+                        <button type="submit" id="projectRenameButton"
+                            class="add-project-buttons add-btn">Rename</button>
+                        <button type="button" id="closeModalButtonRename" data-close-button
+                            class="add-project-buttons close-btn">Cancel</button>
                     </div>
                 </form>
             </div>
@@ -143,8 +151,10 @@
                 <form id="deleteForm" action="">
                     <div id="deleteQuestion">Are you sure you want to delete this project?</div>
                     <div class="project-modal-buttons">
-                        <button type="submit" id="projectDeleteButton" class="add-project-buttons close-btn">Delete</button>
-                        <button type="button" id="closeModalButtonDelete" data-close-button class="add-project-buttons add-btn">Cancel</button>
+                        <button type="submit" id="projectDeleteButton"
+                            class="add-project-buttons close-btn">Delete</button>
+                        <button type="button" id="closeModalButtonDelete" data-close-button
+                            class="add-project-buttons add-btn">Cancel</button>
                     </div>
                 </form>
             </div>

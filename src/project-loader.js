@@ -1,4 +1,13 @@
+import projectIcon from './img/project48x48.svg'
+
 export function loadActiveProject(currentProjectTab){
-    const mainHeading = document.getElementById('mainHeading')
-    mainHeading.textContent = `Project | ${currentProjectTab.name}`
+    const currentTabName = document.getElementById('currentTabName')
+    const currentTabIcon = document.getElementById('currentTabIcon')
+
+    const svgProject = new Image()
+    svgProject.src = projectIcon;
+    currentTabIcon.innerHTML = ''
+    currentTabIcon.appendChild(svgProject)
+
+    currentTabName.textContent = `Project | ${currentProjectTab.name}`
 }
