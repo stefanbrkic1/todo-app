@@ -357,7 +357,7 @@ body {
   font-family: 'TTBold';
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .add-task-btn{
@@ -566,7 +566,7 @@ background-color: var(--hover-light);
         transform: translateX(0px);
         transition: transform 300ms ease-in-out;
     }
-    .delete, .rename{
+    .btn-delete, .btn-rename{
       display: none;
     }
     .modal-body{

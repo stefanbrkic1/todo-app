@@ -9,5 +9,5 @@ export function loadActiveProject(currentProjectTab){
     currentTabIcon.innerHTML = ''
     currentTabIcon.appendChild(svgProject)
 
-    currentTabName.textContent = `Project | ${currentProjectTab.name}`
+    currentTabName.textContent = `${currentProjectTab.name}`
 }
