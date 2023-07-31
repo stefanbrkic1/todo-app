@@ -38,18 +38,22 @@ export class ActiveTabHandler {
         switch (target.id) {
             case 'tabAllTasks':
                 loadAllTasks();
+                closeSidebarIfSmallScreen()
                 break;
     
             case 'tabToday':
                 loadTodayTasks();
+                closeSidebarIfSmallScreen()
                 break;
 
             case 'tabThisWeek':
                 loadWeekTasks();
+                closeSidebarIfSmallScreen()
                 break;
 
             case 'tabImportant':
                 loadImportantTasks();
+                closeSidebarIfSmallScreen()
                 break;                
                 
             default:
@@ -193,4 +197,10 @@ export class ProjectsHandler{
         
         this.projectsContainer.appendChild(liElement)
     }
+}
+
+export function closeSidebarIfSmallScreen(){
+    const closeSidebarButon = document.querySelector('.sidebar-icon')
+    const sidebar = document.getElementById('sidebarMenu')
+    sidebar.classList.contains('active-sidebar') ? closeSidebarButon.click() : {} ;
 }

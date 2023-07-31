@@ -9,12 +9,14 @@ export default function handleSidebar() {
             setTimeout(() => {
                 main.classList.add('blur');
                 footer.classList.add('blur');
+                sidebar.classList.add('active-sidebar')
             }, 155);
             handleTransition()
         }
         else {
             main.classList.remove('blur');
             footer.classList.remove('blur');
+            sidebar.classList.remove('active-sidebar')
             handleTransition()
         }
     });

@@ -1,5 +1,6 @@
 import { ModalHandler, ProjectsHandler, ActiveTabHandler } from './dom';
 import { loadActiveProject } from './project-loader';
+import { closeSidebarIfSmallScreen } from './dom'
 
 const modalHandler = new ModalHandler(); 
 const projectsHandler = new ProjectsHandler();
@@ -161,6 +162,7 @@ function handleProjectTabs(allProjects){
                 tab.classList.add('sidebar-item-active')
                 currentProjectTab = allProjects[index]
                 loadActiveProject(currentProjectTab)
+                closeSidebarIfSmallScreen()
         })
     })
 }
