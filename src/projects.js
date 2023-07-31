@@ -1,4 +1,5 @@
 import { ModalHandler, ProjectsHandler, ActiveTabHandler } from './dom';
+import { loadActiveProject } from './project-loader';
 
 const modalHandler = new ModalHandler(); 
 const projectsHandler = new ProjectsHandler();
@@ -163,11 +164,5 @@ function handleProjectTabs(allProjects){
         })
     })
 }
-
-function loadActiveProject(currentProjectTab){
-    const mainHeading = document.getElementById('mainHeading')
-    mainHeading.textContent = `Project | ${currentProjectTab.name}`
-}
-
 
 
