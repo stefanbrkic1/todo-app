@@ -112,8 +112,10 @@ export class ModalHandler {
         const projectNameInput = document.getElementById('projectNameInput');
         const projectRenameInput = document.getElementById('projectRenameInput')
         const modalAlert = document.getElementById('modalAlert')
+        const modalAlertRename = document.getElementById('modalAlertRename')
         projectNameInput.value = ''
         modalAlert.innerHTML = ''
+        modalAlertRename.innerHTML = ''
         projectRenameInput.value = ''
 
         if(modal == null)return

@@ -20,6 +20,9 @@ export let allProjects = [
     },
 ]
 
+let currentProject = null;
+let currentIndex = null
+
 export function loadProjects() {
     projectsContainer.innerHTML = ''
     allProjects.forEach(project => {
@@ -29,6 +32,13 @@ export function loadProjects() {
     handleProjectTabs(allProjects)
     addProjectToolsEvent()
     modalHandler.handleModals()
+    if(currentIndex === null){
+
+    }
+    else{
+        const projectTabs = document.querySelectorAll('.sidebar-project')
+        projectTabs[currentIndex].classList.add('sidebar-item-active')
+    }
 }
 
 export function addProjectEvent() {
@@ -49,6 +59,7 @@ export function addProjectEvent() {
 
         if (existingProject) {
             modalAlert.textContent = '(The project with this name already exists.)'
+            projectNameInput.value = ''
             return;
         }
 
@@ -63,9 +74,6 @@ export function addProjectEvent() {
         closeModalButton.click();
     });
 }
-
-let currentProject = null;
-let currentIndex
 
 function addProjectToolsEvent() {
     const renameButtons = document.querySelectorAll('.btn-rename');
@@ -87,15 +95,23 @@ function addProjectToolsEvent() {
     renameProjectButton.addEventListener('click', () => {
         const projectTabs = document.querySelectorAll('.sidebar-project')
         const projectRenameInput = document.getElementById('projectRenameInput');
+        const modalAlertRename = document.getElementById('modalAlertRename')
+        let existingProject = allProjects.find(project => project.name === projectRenameInput.value)
 
         if(projectRenameInput.value === ''){
+            return
+        }
+
+        if(existingProject){
+            modalAlertRename.textContent = '(The project with this name already exists)'
+            projectRenameInput.value = ''
             return
         }
 
         if (currentProject) {            
             currentProject.name = projectRenameInput.value;
             loadProjects();
-            //projectTabs[currentIndex].click()
+            projectTabs[currentIndex].click()
             closeModalButtonRename.click();
             modalHandler.handleModals();
         } else {
@@ -116,6 +132,7 @@ function addProjectToolsEvent() {
     deleteProjectButton.addEventListener('click', () => {
         const tabAllTasks = document.getElementById('tabAllTasks')
         if (currentProject) {
+            currentIndex = null
             allProjects.splice(currentIndex, 1)
             loadProjects();
             closeModalButtonDelete.click();
@@ -135,20 +152,14 @@ function handleProjectTabs(allProjects){
     const projectTabs = document.querySelectorAll('.sidebar-project')
     const tabs = document.querySelectorAll('.tab')
     projectTabs.forEach((tab, index) => {
-        tab.addEventListener('click', (e) => {
-            let target = e.target
-            if(target.classList.contains('btn-rename')){
-                console.log('rename clicked')
-            }
-            else{
-                console.log('kita')
+        tab.addEventListener('click', () => {
+            currentIndex = index;
                 tabs.forEach(tab => {
                     tab.classList.remove('sidebar-item-active')
                 })
                 tab.classList.add('sidebar-item-active')
                 currentProjectTab = allProjects[index]
                 loadActiveProject(currentProjectTab)
-            }
         })
     })
 }
