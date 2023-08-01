@@ -144,12 +144,10 @@ export class ModalHandler {
                 const computedStyle = window.getComputedStyle(renameButtons);
                 if(computedStyle.display === 'none'){
                     this.modalAddProject.style.top = '150px'
-                    console.log('i work')
                 }
             })
             input.addEventListener('blur', () => {
                     this.modalAddProject.style.top = '50%'
-                    console.log('i dont work') 
             })
         })
     }
