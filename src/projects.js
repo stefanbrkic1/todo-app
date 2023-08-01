@@ -80,22 +80,11 @@ export function addProjectEvent() {
     });
 }
 
-function addProjectToolsEvent() {
-    const renameButtons = document.querySelectorAll('.btn-rename');
-    const deleteButtons = document.querySelectorAll('.btn-delete');
+export function addProjectToolsSubmitEvent() {
     const renameProjectButton = document.getElementById('projectRenameButton');
     const closeModalButtonRename = document.getElementById('closeModalButtonRename');
     const deleteProjectButton = document.getElementById('projectDeleteButton');
     const closeModalButtonDelete = document.getElementById('closeModalButtonDelete');
-
-    renameButtons.forEach((button, index) => {
-        button.addEventListener('click', () => { 
-           currentProject = allProjects[index];
-           currentIndex = index;
-           const oldName = document.getElementById('oldName');
-           oldName.textContent = `(${currentProject.name})`
-        });
-    });
 
     renameProjectButton.addEventListener('click', () => {
         const projectTabs = document.querySelectorAll('.sidebar-project')
@@ -128,15 +117,6 @@ function addProjectToolsEvent() {
         currentProject = null;
     });
 
-    deleteButtons.forEach((button, index) => {
-        button.addEventListener('click', () => {
-            currentProject = allProjects[index];
-            currentIndex = index;
-            const deleteProjectName = document.getElementById('deleteProjectName')
-            deleteProjectName.textContent = `(${currentProject.name})`
-        });
-    });
-
     deleteProjectButton.addEventListener('click', () => {
         const tabAllTasks = document.getElementById('tabAllTasks')
         if (currentProject) {
@@ -154,6 +134,29 @@ function addProjectToolsEvent() {
     });
 }
 
+function addProjectToolsEvent(){
+    const renameButtons = document.querySelectorAll('.btn-rename');
+    const deleteButtons = document.querySelectorAll('.btn-delete');
+
+    renameButtons.forEach((button, index) => {
+        button.addEventListener('click', () => { 
+           currentProject = allProjects[index];
+           currentIndex = index;
+           const oldName = document.getElementById('oldName');
+           oldName.textContent = `(${currentProject.name})`
+        });
+    });
+
+
+    deleteButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            currentProject = allProjects[index];
+            currentIndex = index;
+            const deleteProjectName = document.getElementById('deleteProjectName')
+            deleteProjectName.textContent = `(${currentProject.name})`
+        });
+    });
+}
 
 let currentProjectTab = null
 

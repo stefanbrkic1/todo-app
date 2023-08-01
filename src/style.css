@@ -487,6 +487,8 @@ background-color: var(--hover-light);
 .modal-alert{
   font-size: 16rem;
   color: var(--warning-light);
+  box-sizing: border-box;
+  padding: 5px 0px 5px 0px;
 }
 
 .modal-header-rename{
@@ -542,7 +544,7 @@ background-color: var(--hover-light);
 .project-modal-buttons{
   display: flex;
   height: 40px;
-  padding-top: 12px;
+  padding-top: 7px;
   gap: 12px;
 }
 
@@ -670,6 +672,9 @@ background-color: var(--hover-light);
     }
     #deleteProjectName{
       font-size: 20rem;
+    }
+    .modal-alert{
+      font-size: 14rem;
     }
   }
   

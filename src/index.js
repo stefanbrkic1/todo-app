@@ -2,7 +2,7 @@ import './style.css'
 import handleSidebar from './sidebar'
 import loadAllTasks from './alltasks';
 import { ModalHandler} from './dom';
-import { loadProjects, addProjectEvent } from './projects';
+import { loadProjects, addProjectEvent, addProjectToolsSubmitEvent } from './projects';
 
 (function websiteHandler(){
     const modalHandler = new ModalHandler(); 
@@ -11,6 +11,7 @@ import { loadProjects, addProjectEvent } from './projects';
     loadAllTasks();
     loadProjects();
     addProjectEvent();
+    addProjectToolsSubmitEvent()
     modalHandler.handleModals();
     modalHandler.changeModalPositionIfKeyboardOpened()
     modalHandler.handleSubmit()
