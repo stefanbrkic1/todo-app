@@ -10,7 +10,7 @@ export default function handleSidebar() {
                 main.classList.add('blur');
                 footer.classList.add('blur');
                 sidebar.classList.add('active-sidebar')
-            }, 155);
+            }, 220);
             handleTransition()
         }
         else {
