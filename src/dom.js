@@ -78,10 +78,12 @@ export class ModalHandler {
     handleModals(){
         document.getElementById("addForm").addEventListener("submit", function(event) {
             event.preventDefault();
+            this.projectNameInput.blur()
         });
 
         document.getElementById("renameForm").addEventListener("submit", function(event) {
             event.preventDefault();
+            this.projectRenameInput.blur()
         });
 
         document.getElementById("deleteForm").addEventListener("submit", function(event) {
