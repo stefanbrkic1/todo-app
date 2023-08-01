@@ -4,8 +4,6 @@ import loadWeekTasks from "./week";
 import loadImportantTasks from "./important";
 import projectIcon from './img/project.svg'
 
-const sidebar = document.getElementById('sidebarMenu')
-
 export class ActiveTabHandler {
     constructor() {
 
@@ -140,14 +138,18 @@ export class ModalHandler {
 
     changeModalPositionIfKeyboardOpened(){
         const inputsArray = Array.from(this.allInputs)
+        const renameButtons = document.querySelector('.btn-rename')
         inputsArray.forEach(input => {
             input.addEventListener('focus', () => {
-                if(sidebar.classList.contains('active-sidebar')){
+                const computedStyle = window.getComputedStyle(renameButtons);
+                if(computedStyle.display === 'none'){
                     this.modalAddProject.style.top = '150px'
+                    console.log('i work')
                 }
             })
             input.addEventListener('blur', () => {
                     this.modalAddProject.style.top = '50%'
+                    console.log('i dont work') 
             })
         })
     }
@@ -225,6 +227,7 @@ export class ProjectsHandler{
 }
 
 export function closeSidebarIfSmallScreen(){
+    const sidebar = document.getElementById('sidebarMenu')
     const closeSidebarButon = document.querySelector('.sidebar-icon')
     sidebar.classList.contains('active-sidebar') ? closeSidebarButon.click() : {} ;
 }
