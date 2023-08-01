@@ -34,6 +34,7 @@ export function loadProjects() {
     handleProjectTabs(allProjects)
     addProjectToolsEvent()
     modalHandler.handleModals()
+    modalHandler.changeModalPositionIfKeyboardOpened()
     if(currentIndex === null){
 
     }
@@ -116,6 +117,7 @@ function addProjectToolsEvent() {
             projectTabs[currentIndex].click()
             closeModalButtonRename.click();
             modalHandler.handleModals();
+            modalHandler.changeModalPositionIfKeyboardOpened()
         } else {
             
         }
@@ -140,6 +142,7 @@ function addProjectToolsEvent() {
             closeModalButtonDelete.click();
             tabAllTasks.click()
             modalHandler.handleModals();
+            modalHandler.changeModalPositionIfKeyboardOpened()
         } else {
             
         }
