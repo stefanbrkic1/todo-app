@@ -488,7 +488,7 @@ background-color: var(--hover-light);
   font-size: 16rem;
   color: var(--warning-light);
   box-sizing: border-box;
-  padding: 5px 0px 5px 0px;
+  padding: 7px 0px 5px 0px;
 }
 
 .modal-header-rename{
