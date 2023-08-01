@@ -57,6 +57,8 @@ export function addProjectEvent() {
         const existingProject = allProjects.find(project => project.name === newProjectName);
 
         if(newProjectName === ''){
+            modalAlert.textContent = '(You must enter new project name)'
+            projectNameInput.value = ''
             return
         }
 
@@ -102,6 +104,8 @@ function addProjectToolsEvent() {
         let existingProject = allProjects.find(project => project.name === projectRenameInput.value)
 
         if(projectRenameInput.value === ''){
+            modalAlertRename.textContent = '(You must enter new project name)'
+            projectRenameInput.value = ''
             return
         }
 

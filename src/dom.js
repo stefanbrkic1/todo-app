@@ -74,20 +74,6 @@ export class ModalHandler {
     
 
     handleModals(){
-        document.getElementById("addForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            this.projectNameInput.blur()
-        });
-
-        document.getElementById("renameForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            this.projectRenameInput.blur()
-        });
-
-        document.getElementById("deleteForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-        });
-
         const openModalButtons = document.querySelectorAll('[data-modal-target]')
         const closeModalButtons = document.querySelectorAll('[data-close-button]')
         const overlay = document.getElementById('overlay')
@@ -150,6 +136,22 @@ export class ModalHandler {
                     this.modalAddProject.style.top = '50%'
             })
         })
+    }
+
+    handleSubmit(){
+        document.getElementById("addForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            this.projectNameInput.blur()
+        });
+        
+        document.getElementById("renameForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            this.projectRenameInput.blur()
+        });
+        
+        document.getElementById("deleteForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+        });
     }
 }
 

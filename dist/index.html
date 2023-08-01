@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo | ProductivityApp</title>
-<link rel="icon" href="task.png"><script defer src="main.e74b48d3b413de937588.js"></script></head>
+<link rel="icon" href="task.png"><script defer src="main.5fb4b5dd6526ca3dc9ef.js"></script></head>
 
 <body>
     <div class="body-container">
@@ -105,7 +105,7 @@
 
         <!-- #region footer-->
         <div id="footerSection" class="footer">
-            <div id="currentTabName"></div>
+           
         </div>
         <!-- #endregion-->
 
@@ -117,14 +117,15 @@
             </div>
             <div class="modal-body">
                 <form id="addForm" action="">
-                    <input type="text" id="projectNameInput" class="add-project-input" name="project-name"
-                        placeholder="Enter project title" autocomplete="off" required>
+                    <input type="text" id="projectNameInput" class="add-project-input" placeholder="Enter project title" autocomplete="off">
                     <div class="project-modal-buttons">
                         <button type="submit" id="addProjectButton" class="add-project-buttons add-btn">Add</button>
                         <button type="button" id="closeModalButton" data-close-button
                             class="add-project-buttons close-btn">Cancel</button>
                     </div>
                 </form>
+
+                <form action="" id="test" method="post"></form>
             </div>
         </div>
         <div id="overlay"></div>
@@ -139,8 +140,8 @@
             </div>
             <div class="modal-body">
                 <form id="renameForm" action="">
-                    <input type="text" id="projectRenameInput" class="add-project-input" name="project-name"
-                        placeholder="Enter new project title" autocomplete="off" required>
+                    <input type="text" id="projectRenameInput" class="add-project-input"
+                        placeholder="Enter new project title" autocomplete="off">
                     <div class="project-modal-buttons">
                         <button type="submit" id="projectRenameButton"
                             class="add-project-buttons add-btn">Rename</button>
