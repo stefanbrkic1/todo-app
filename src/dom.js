@@ -127,6 +127,9 @@ export class ModalHandler {
         this.modalAlertRename.innerHTML = ''
         this.projectRenameInput.value = ''
 
+        this.projectNameInput.blur();
+        this.projectRenameInput.blur()
+
         if(modal == null)return
         modal.classList.remove('active')
         overlay.classList.remove('active')
