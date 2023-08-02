@@ -614,6 +614,12 @@ background-color: var(--hover-light);
   color: var(--text-light);
 }
 
+#mediaQueryHandler{
+  position: absolute;
+  top: 0;
+  right: -100px;
+}
+
 /*Media Queries*/
 
 /* Smartphones (portrait and landscape) */
@@ -675,6 +681,9 @@ background-color: var(--hover-light);
     }
     .modal-alert{
       font-size: 14rem;
+    }
+    #mediaQueryHandler{
+      display: none;
     }
   }
   

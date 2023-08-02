@@ -124,10 +124,10 @@ export class ModalHandler {
 
     changeModalPositionIfKeyboardOpened(){
         const inputsArray = Array.from(this.allInputs)
-        const renameButtons = document.querySelector('.btn-rename')
+        const mediaQueryHandler = document.getElementById('mediaQueryHandler')
         inputsArray.forEach(input => {
             input.addEventListener('focus', () => {
-                const computedStyle = window.getComputedStyle(renameButtons);
+                const computedStyle = window.getComputedStyle(mediaQueryHandler);
                 if(computedStyle.display === 'none'){
                     this.modalAddProject.style.top = '150px'
                 }
