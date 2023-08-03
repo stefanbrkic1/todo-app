@@ -429,6 +429,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid var(--hover-light);
 }
 
 .add-task-btn{
@@ -698,7 +699,7 @@ background-color: var(--hover-light);
   background-image: url(./img/rename.svg);
   background-size: contain;
   background-repeat: no-repeat;
-  padding: 12px;
+  padding: 13px;
   cursor: pointer;
 }
 
@@ -713,7 +714,7 @@ background-color: var(--hover-light);
   background-image: url(./img/delete.svg);
   background-size: contain;
   background-repeat: no-repeat;
-  padding: 12px;
+  padding: 13px;
   cursor: pointer;
 }
 
@@ -797,6 +798,9 @@ background-color: var(--hover-light);
     }
     #deleteQuestion{
       font-size: 15rem;
+    }
+    .home-heading{
+      padding-bottom: 7px;
     }
   }
   
