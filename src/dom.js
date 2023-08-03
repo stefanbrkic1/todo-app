@@ -134,7 +134,7 @@ export class ModalHandler {
                 const computedStyle = window.getComputedStyle(mediaQueryHandler);
                 if (computedStyle.display === 'none') {
                     this.modalAddProject.style.top = '30%'
-                    this.modalRenameProject.style.top = '30%'
+                    this.modalRenameProject.style.top = '40%'
                 }
             })
             input.addEventListener('blur', () => {
