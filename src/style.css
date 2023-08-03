@@ -798,6 +798,9 @@ background-color: var(--hover-light);
     .tasks-list-view{
       padding: 10px 15px 0px 15px;
     }
+    #deleteQuestion{
+      font-size: 15rem;
+    }
   }
   
   /* Smartphones (portrait) */
