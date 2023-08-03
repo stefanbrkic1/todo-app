@@ -14,6 +14,8 @@ export class ActiveTabHandler {
         this.projectTabs = document.querySelectorAll('.sidebar-project');
         this.homeTabs.forEach(tab => {
             tab.addEventListener('click', (e) => {
+                const mainHeadingRight = document.getElementById('mainHeadingRight')
+                mainHeadingRight.innerHTML = ''
                 let target = e.target;
                 while (target && !target.classList.contains('sidebar-item')) {
                     target = target.parentNode;
@@ -34,13 +36,13 @@ export class ActiveTabHandler {
         target.classList.add('sidebar-item-active');
     }
 
-    openActiveTab(target){
+    openActiveTab(target) {
         switch (target.id) {
             case 'tabAllTasks':
                 loadAllTasks();
                 closeSidebarIfSmallScreen()
                 break;
-    
+
             case 'tabToday':
                 loadTodayTasks();
                 closeSidebarIfSmallScreen()
@@ -54,8 +56,8 @@ export class ActiveTabHandler {
             case 'tabImportant':
                 loadImportantTasks();
                 closeSidebarIfSmallScreen()
-                break;                
-                
+                break;
+
             default:
                 break
         }
@@ -63,7 +65,7 @@ export class ActiveTabHandler {
 }
 
 export class ModalHandler {
-    constructor(){
+    constructor() {
         this.projectNameInput = document.getElementById('projectNameInput');
         this.projectRenameInput = document.getElementById('projectRenameInput')
         this.modalAlert = document.getElementById('modalAlert')
@@ -71,9 +73,9 @@ export class ModalHandler {
         this.allInputs = document.getElementsByTagName('input')
         this.modalAddProject = document.getElementById('modal')
     }
-    
 
-    handleModals(){
+
+    handleModals() {
         const openModalButtons = document.querySelectorAll('[data-modal-target]')
         const closeModalButtons = document.querySelectorAll('[data-close-button]')
         const overlay = document.getElementById('overlay')
@@ -101,13 +103,13 @@ export class ModalHandler {
         })
     }
 
-    openModal(modal){
-        if(modal == null)return
+    openModal(modal) {
+        if (modal == null) return
         modal.classList.add('active')
         overlay.classList.add('active')
     }
 
-    closeModal(modal){
+    closeModal(modal) {
         this.projectNameInput.value = ''
         this.modalAlert.innerHTML = ''
         this.modalAlertRename.innerHTML = ''
@@ -116,68 +118,68 @@ export class ModalHandler {
         this.projectNameInput.blur();
         this.projectRenameInput.blur()
 
-        if(modal == null)return
+        if (modal == null) return
         modal.classList.remove('active')
         overlay.classList.remove('active')
     }
 
 
-    changeModalPositionIfKeyboardOpened(){
+    changeModalPositionIfKeyboardOpened() {
         const inputsArray = Array.from(this.allInputs)
         const mediaQueryHandler = document.getElementById('mediaQueryHandler')
         inputsArray.forEach(input => {
             input.addEventListener('focus', () => {
                 const computedStyle = window.getComputedStyle(mediaQueryHandler);
-                if(computedStyle.display === 'none'){
+                if (computedStyle.display === 'none') {
                     this.modalAddProject.style.top = '150px'
                 }
             })
             input.addEventListener('blur', () => {
-                    this.modalAddProject.style.top = '50%'
+                this.modalAddProject.style.top = '50%'
             })
         })
     }
 
-    handleSubmit(){
-        document.getElementById("addForm").addEventListener("submit", function(event) {
+    handleSubmit() {
+        document.getElementById("addForm").addEventListener("submit", function (event) {
             event.preventDefault();
             this.projectNameInput.blur()
         });
-        
-        document.getElementById("renameForm").addEventListener("submit", function(event) {
+
+        document.getElementById("renameForm").addEventListener("submit", function (event) {
             event.preventDefault();
             this.projectRenameInput.blur()
         });
-        
-        document.getElementById("deleteForm").addEventListener("submit", function(event) {
+
+        document.getElementById("deleteForm").addEventListener("submit", function (event) {
             event.preventDefault();
         });
     }
 }
 
-export class ProjectsHandler{
-    constructor(){
-        
+export class ProjectsHandler {
+    constructor() {
+
     }
 
     projectsContainer = document.getElementById('projectsContainer')
 
-    createProjectHtml(project){
+    createProjectHtml(project) {
         // Create the <li> element with class "sidebar-project" and "tab"
         const liElement = document.createElement("li");
         liElement.classList.add("sidebar-project", "tab");
-    
+
         // Create the first <div> element with class "flex"
         const divFlex1 = document.createElement("div");
         divFlex1.classList.add("flex");
-    
+
         // Create the "project" SVG icon
         const svgProject = new Image();
-        svgProject.src = projectIcon; 
-    
+        svgProject.src = projectIcon;
+
         // Append the "project" icon to the first <div> element
         divFlex1.appendChild(svgProject);
-    
+
         // Create the <input> element
         const inputElement = document.createElement("input");
         inputElement.value = project.name
@@ -185,49 +187,83 @@ export class ProjectsHandler{
         inputElement.classList.add("project-name-input");
         inputElement.setAttribute("disabled", "");
         divFlex1.appendChild(inputElement);
-    
+
         // Append the first <div> element to the <li> element
         liElement.appendChild(divFlex1);
-    
+
         // Create the second <div> element with class "project-tools"
         const divTools = document.createElement("div");
         divTools.classList.add("project-tools");
-    
+
         // Create the <div> elements with class "flex" for the tool icons
         const divFlex2 = document.createElement("div");
         divFlex2.classList.add("flex");
         const divFlex3 = document.createElement("div");
         divFlex3.classList.add("flex");
-    
+
         // Append the tool icons to the second <div> element
         divTools.appendChild(divFlex2);
         divTools.appendChild(divFlex3);
-    
-         //Create button delete
-         const buttonRename = document.createElement('button');
-         buttonRename.classList.add('btn-rename')
-         buttonRename.setAttribute('data-modal-target', '#modalRename');
-    
+
+        //Create button delete
+        const buttonRename = document.createElement('button');
+        buttonRename.classList.add('btn-rename')
+        buttonRename.setAttribute('data-modal-target', '#modalRename');
+
         // Append the "rename" button to the second <div> element
         divFlex2.appendChild(buttonRename);
-    
+
         //Create button delete
         const buttonDelete = document.createElement('button');
         buttonDelete.classList.add('btn-delete')
         buttonDelete.setAttribute('data-modal-target', '#modalDelete');
-    
+
         // Append the "delete" button to the second <div> element
         divFlex3.appendChild(buttonDelete);
-    
+
         // Append the second <div> element to the <li> element
         liElement.appendChild(divTools);
-        
+
         this.projectsContainer.appendChild(liElement)
+    }
+
+    createMainProjectToolsHtml() {
+        const mainHeadingRight = document.getElementById('mainHeadingRight')
+        // Create the first button element
+
+        mainHeadingRight.innerHTML = ''
+
+        const btnRenameMain = document.createElement('button');
+        btnRenameMain.classList.add('btn-rename-main');
+        btnRenameMain.id = 'btnRenameMain';
+        btnRenameMain.setAttribute('data-modal-target', '#modalRename');
+
+        // Create the second button element
+        const btnDeleteMain = document.createElement('button');
+        btnDeleteMain.classList.add('btn-delete-main');
+        btnDeleteMain.id = 'btnDeleteMain';
+        btnDeleteMain.setAttribute('data-modal-target', '#modalDelete');
+
+        mainHeadingRight.appendChild(btnRenameMain);
+        mainHeadingRight.appendChild(btnDeleteMain);
     }
 }
 
-export function closeSidebarIfSmallScreen(){
+export class TasksHandler {
+    constructor() {
+
+    }
+
+    tasksListView = document.getElementById('tasksListView')
+
+    createHtml() {
+
+    }
+}
+
+
+export function closeSidebarIfSmallScreen() {
     const sidebar = document.getElementById('sidebarMenu')
     const closeSidebarButon = document.querySelector('.sidebar-icon')
-    sidebar.classList.contains('active-sidebar') ? closeSidebarButon.click() : {} ;
+    sidebar.classList.contains('active-sidebar') ? closeSidebarButon.click() : {};
 }

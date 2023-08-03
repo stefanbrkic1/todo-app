@@ -407,14 +407,7 @@ body {
   .project-tools{
    display: none;
   }
-
-  .project-tools-active{
-    display: block;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
+  
 .project-name-input{
   appearance: none;
   border: none;
@@ -434,11 +427,11 @@ body {
 }
 
 .home-heading{
-  font-size: 35rem;
+  font-size: 30rem;
   font-family: 'TTBold';
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
 }
 
 .add-task-btn{
@@ -620,6 +613,123 @@ background-color: var(--hover-light);
   right: -100px;
 }
 
+.section-title{
+  font-size: 17rem;
+  color: var(--secondary-color-light);
+  font-family: 'TTBold';
+}
+
+.tasks-list-view{
+  box-sizing: border-box;
+  padding: 10px 70px 0px 70px;
+}
+
+.section-tasks{
+  padding-top: 10px;
+}
+
+.task{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.task-title{
+  font-size: 15rem;
+}
+
+.section-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 7px 0px;
+  border-bottom: 1px solid var(--hover-light);
+}
+
+.remove-section-btn{
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-image: url(./img/delete-section.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-sizing: border-box;
+  padding: 11px;
+}
+
+.remove-section-btn:hover{
+  background-image: url(./img/delete-section-hover.svg);
+}
+
+.add-task-btn{
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-image: url(./img/add-task.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-sizing: border-box;
+  padding: 11px;
+}
+
+.add-task-container{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  width: 100px;
+}
+
+.add-task-container:hover{
+  color: var(--primary-color-light);
+}
+
+.add-task-container:hover .add-task-btn{
+  background-image: url(./img/add-task-hover.svg);
+  background-color: transparent;
+}
+
+.btn-rename-main{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  background-image: url(./img/rename.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.btn-rename-main:hover{
+  background-image: url(./img/rename-hover.svg);
+}
+
+.btn-delete-main{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  background-image: url(./img/delete.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.btn-delete-main:hover{
+  background-image: url(./img/delete-hover.svg);
+}
+
+.main-heading-right{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 /*Media Queries*/
 
 /* Smartphones (portrait and landscape) */
@@ -684,6 +794,9 @@ background-color: var(--hover-light);
     }
     #mediaQueryHandler{
       display: none;
+    }
+    .tasks-list-view{
+      padding: 10px 15px 0px 15px;
     }
   }
   

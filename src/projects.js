@@ -147,7 +147,6 @@ function addProjectToolsEvent(){
         });
     });
 
-
     deleteButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
             currentProject = allProjects[index];
@@ -172,6 +171,7 @@ function handleProjectTabs(allProjects){
                 tab.classList.add('sidebar-item-active')
                 currentProjectTab = allProjects[index]
                 loadActiveProject(currentProjectTab)
+                projectsHandler.createMainProjectToolsHtml()
                 closeSidebarIfSmallScreen()
         })
     })
