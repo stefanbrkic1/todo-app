@@ -72,6 +72,8 @@ export class ModalHandler {
         this.modalAlertRename = document.getElementById('modalAlertRename')
         this.allInputs = document.getElementsByTagName('input')
         this.modalAddProject = document.getElementById('modal')
+        this.modalRenameProject = document.getElementById('modalRename')
+        this.modalDeleteProject = document.getElementById('modalDelete')
     }
 
 
@@ -132,10 +134,12 @@ export class ModalHandler {
                 const computedStyle = window.getComputedStyle(mediaQueryHandler);
                 if (computedStyle.display === 'none') {
                     this.modalAddProject.style.top = '150px'
+                    this.modalRenameProject.style.top = '150px'
                 }
             })
             input.addEventListener('blur', () => {
                 this.modalAddProject.style.top = '50%'
+                this.modalRenameProject.style.top = '50%'
             })
         })
     }
