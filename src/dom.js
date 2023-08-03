@@ -133,8 +133,8 @@ export class ModalHandler {
             input.addEventListener('focus', () => {
                 const computedStyle = window.getComputedStyle(mediaQueryHandler);
                 if (computedStyle.display === 'none') {
-                    this.modalAddProject.style.top = '150px'
-                    this.modalRenameProject.style.top = '150px'
+                    this.modalAddProject.style.top = '30%'
+                    this.modalRenameProject.style.top = '30%'
                 }
             })
             input.addEventListener('blur', () => {
@@ -185,12 +185,10 @@ export class ProjectsHandler {
         divFlex1.appendChild(svgProject);
 
         // Create the <input> element
-        const inputElement = document.createElement("input");
-        inputElement.value = project.name
-        inputElement.setAttribute("type", "text");
-        inputElement.classList.add("project-name-input");
-        inputElement.setAttribute("disabled", "");
-        divFlex1.appendChild(inputElement);
+        const projectNameContainer = document.createElement("div");
+        projectNameContainer.textContent = project.name
+        projectNameContainer.classList.add("project-name-input");
+        divFlex1.appendChild(projectNameContainer);
 
         // Append the first <div> element to the <li> element
         liElement.appendChild(divFlex1);

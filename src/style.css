@@ -409,9 +409,6 @@ body {
   }
   
 .project-name-input{
-  appearance: none;
-  border: none;
-  outline: none;
   font-family: 'TTSemiBold';
   font-size: 15rem;
   max-width: 150px;
