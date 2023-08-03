@@ -164,7 +164,7 @@ function handleProjectTabs(allProjects){
     const tabs = document.querySelectorAll('.tab')
     projectTabs.forEach((tab, index) => {
         tab.addEventListener('click', () => {
-            currentIndex = index;
+            currentIndex = index
                 tabs.forEach(tab => {
                     tab.classList.remove('sidebar-item-active')
                 })
@@ -172,9 +172,27 @@ function handleProjectTabs(allProjects){
                 currentProjectTab = allProjects[index]
                 loadActiveProject(currentProjectTab)
                 projectsHandler.createMainProjectToolsHtml()
+                addProjectToolsMainEvent()
+                modalHandler.handleModals()
                 closeSidebarIfSmallScreen()
         })
     })
 }
 
+function addProjectToolsMainEvent(){
+    const btnRenameMain = document.getElementById('btnRenameMain');
+    const btnDeleteMain = document.getElementById('btnDeleteMain');
+
+    btnRenameMain.addEventListener('click', () => {
+        currentProject = allProjects[currentIndex];
+        const oldName = document.getElementById('oldName');
+        oldName.textContent = `(${currentProject.name})`
+    })
+
+    btnDeleteMain.addEventListener('click', () => {
+        currentProject = allProjects[currentIndex];
+        const deleteProjectName = document.getElementById('deleteProjectName')
+        deleteProjectName.textContent = `(${currentProject.name})`
+    })
+}
 
