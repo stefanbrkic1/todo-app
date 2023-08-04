@@ -596,7 +596,7 @@ background-color: var(--hover-light);
   background-image: url(./img/delete-hover.svg);
 }
 
-#deleteQuestion{
+.delete-question{
   font-size: 18rem;
   padding-bottom: 10px;
   text-align: center;
@@ -817,9 +817,9 @@ background-color: var(--hover-light);
       display: none;
     }
     .tasks-list-view{
-      padding: 10px 15px 0px 15px;
+      padding: 20px 15px 0px 15px;
     }
-    #deleteQuestion{
+    .delete-question{
       font-size: 15rem;
     }
     .home-heading{

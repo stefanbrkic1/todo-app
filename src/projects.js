@@ -1,7 +1,7 @@
 import { ModalHandler, ProjectsHandler, ActiveHomeTabHandler } from './dom';
 import { loadActiveProject } from './project-loader';
 import { closeSidebarIfSmallScreen } from './dom'
-import { addSectionSubmitEvent, loadCurrentProjectSections } from './sections';
+import { addSectionSubmitEvent, addSectionDeleteEvent, loadCurrentProjectSections } from './sections';
 
 const modalHandler = new ModalHandler(); 
 const projectsHandler = new ProjectsHandler();
@@ -21,6 +21,9 @@ export let allProjects = [
         sections: [
             {
                 sectionTitle: 'Shopping',
+            },
+            {
+                sectionTitle: 'Grocceries',
             },
         ],
     },
@@ -170,8 +173,6 @@ function addProjectToolsEvent(){
     });
 }
 
-export let currentProjectTab = null
-
 function handleProjectTabs(allProjects){
     const projectTabs = document.querySelectorAll('.sidebar-project')
     const tabs = document.querySelectorAll('.tab')
@@ -182,12 +183,14 @@ function handleProjectTabs(allProjects){
                     tab.classList.remove('sidebar-item-active')
                 })
                 tab.classList.add('sidebar-item-active')
-                currentProjectTab = allProjects[index]
-                loadActiveProject(currentProjectTab)
+                currentProject = allProjects[index]
+                loadActiveProject(currentProject)
                 projectsHandler.createMainProjectToolsHtml()
                 addProjectToolsMainEvent()
                 addSectionSubmitEvent()
-                loadCurrentProjectSections(currentProjectTab)
+                addSectionDeleteEvent()
+                loadCurrentProjectSections(currentProject)
+                addDeleteSectionButtonsEvent()
                 modalHandler.handleModals()
                 closeSidebarIfSmallScreen()
         })
@@ -216,3 +219,17 @@ function addProjectToolsMainEvent(){
     })
 }
 
+export let currentSectionIndex = null
+
+export function addDeleteSectionButtonsEvent(){
+    const deleteSectionButtons = document.querySelectorAll('.remove-section-btn')
+
+    deleteSectionButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            currentProject = allProjects[currentIndex];
+            currentSectionIndex = index;
+            const deleteSectionName = document.getElementById('deleteSectionName')
+            deleteSectionName.textContent = `(${currentProject.sections[index].sectionTitle})`
+        })
+    })
+}

@@ -1,5 +1,5 @@
 import { SectionHandler } from "./dom";
-import { currentProjectTab } from "./projects";
+import { currentProject, addDeleteSectionButtonsEvent, currentSectionIndex } from "./projects";
 import { ModalHandler } from "./dom";
 
 const modalHandler = new ModalHandler(); 
@@ -14,7 +14,7 @@ export function addSectionSubmitEvent() {
         const sectionNameInput = document.getElementById('sectionNameInput');
         const modalSectionAlert = document.getElementById('modalSectionAlert')
 
-        let existingProject = currentProjectTab.sections.find(section => section.sectionTitle === sectionNameInput.value)
+        let existingProject = currentProject.sections.find(section => section.sectionTitle === sectionNameInput.value)
 
         if(sectionNameInput.value === ''){
             modalSectionAlert.textContent = '(You must enter new section title)'
@@ -28,9 +28,10 @@ export function addSectionSubmitEvent() {
             return
         }
 
-        if (currentProjectTab) {            
-            currentProjectTab.sections.push({sectionTitle: `${sectionNameInput.value}`})
-            loadCurrentProjectSections(currentProjectTab)
+        if (currentProject) {            
+            currentProject.sections.push({sectionTitle: `${sectionNameInput.value}`})
+            loadCurrentProjectSections(currentProject)
+            addDeleteSectionButtonsEvent()
             closeModalButtonSection.click();
             modalHandler.handleModals();
             modalHandler.changeModalPositionIfKeyboardOpened()
@@ -40,9 +41,26 @@ export function addSectionSubmitEvent() {
         });
 }
 
-export function loadCurrentProjectSections(currentProjectTab){
+export function addSectionDeleteEvent() {
+    const deleteSectionButton = document.getElementById('deleteSectionButton')
+    const closeModalButtonDeleteSection = document.getElementById('closeModalButtonDeleteSection')
+
+    deleteSectionButton.addEventListener('click', () => {
+        if (currentProject) {
+            currentProject.sections.splice(currentSectionIndex, 1)
+            loadCurrentProjectSections(currentProject)
+            closeModalButtonDeleteSection.click();
+            modalHandler.handleModals();
+            modalHandler.changeModalPositionIfKeyboardOpened()
+        } else {
+            
+        }
+    });
+}
+
+export function loadCurrentProjectSections(currentProject){
     tasksListView.innerHTML = ''
-    currentProjectTab.sections.forEach(section => {
+    currentProject.sections.forEach(section => {
         sectionHandler.createSectionHtml(section)
     })
 }

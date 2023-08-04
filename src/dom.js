@@ -171,6 +171,10 @@ export class ModalHandler {
         document.getElementById("deleteForm").addEventListener("submit", function (event) {
             event.preventDefault();
         });
+
+        document.getElementById("deleteFormSection").addEventListener("submit", function (event) {
+            event.preventDefault();
+        });
     }
 }
 
@@ -303,6 +307,7 @@ export class SectionHandler {
         const removeSectionButton = document.createElement('button');
         removeSectionButton.type = 'button';
         removeSectionButton.className = 'remove-section-btn';
+        removeSectionButton.setAttribute('data-modal-target', '#modalDeleteSection');
 
         // Append the remove section button to the section buttons container
         sectionButtons.appendChild(removeSectionButton);
