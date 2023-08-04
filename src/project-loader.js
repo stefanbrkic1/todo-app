@@ -2,6 +2,7 @@ import { SectionHandler } from './dom'
 import projectIcon from './img/project48x48.svg'
 
 const sectionHandler = new SectionHandler()
+const mainHeading = document.getElementById('mainHeading')
 
 export function loadActiveProject(currentProjectTab){
     const currentTabName = document.getElementById('currentTabName')
@@ -15,4 +16,5 @@ export function loadActiveProject(currentProjectTab){
     currentTabName.textContent = `${currentProjectTab.name}`
 
     sectionHandler.createAddSectionButtonHtml()
+    mainHeading.classList.add('border-bottom')
 }

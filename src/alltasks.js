@@ -1,6 +1,7 @@
 import allTasksIcon from './img/alltasks48x48.svg'
 
 const tasksListView = document.getElementById('tasksListView')
+const mainHeading = document.getElementById('mainHeading')
 
 export default function loadAllTasks() {
     const currentTabName = document.getElementById('currentTabName')
@@ -17,4 +18,5 @@ export default function loadAllTasks() {
 
     tasksListView.innerHTML = ''
     footerSection.innerHTML = ''
+    mainHeading.classList.remove('border-bottom')
 }
