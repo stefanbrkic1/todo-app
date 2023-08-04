@@ -76,6 +76,7 @@ export class ModalHandler {
         this.modalDeleteProject = document.getElementById('modalDelete')
         this.sectionNameInput = document.getElementById('sectionNameInput')
         this.modalSectionAlert = document.getElementById('modalSectionAlert')
+        this.modalAddSection = document.getElementById('modalAddSection')
     }
 
 
@@ -140,11 +141,13 @@ export class ModalHandler {
                 if (computedStyle.display === 'none') {
                     this.modalAddProject.style.top = '30%'
                     this.modalRenameProject.style.top = '30%'
+                    this.modalAddSection.style.top = '30%'
                 }
             })
             input.addEventListener('blur', () => {
                 this.modalAddProject.style.top = '50%'
                 this.modalRenameProject.style.top = '50%'
+                this.modalAddSection.style.top = '50%'
             })
         })
     }
