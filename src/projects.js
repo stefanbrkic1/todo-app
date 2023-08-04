@@ -20,10 +20,10 @@ export let allProjects = [
         name: 'ToDo',
         sections: [
             {
-                sectionTitle: 'Shopping',
+                sectionTitle: 'Routines',
             },
             {
-                sectionTitle: 'Grocceries',
+                sectionTitle: 'Shopping',
             },
         ],
     },
@@ -228,6 +228,7 @@ export function addDeleteSectionButtonsEvent(){
         button.addEventListener('click', () => {
             currentProject = allProjects[currentIndex];
             currentSectionIndex = index;
+            console.log(currentSectionIndex)
             const deleteSectionName = document.getElementById('deleteSectionName')
             deleteSectionName.textContent = `(${currentProject.sections[index].sectionTitle})`
         })

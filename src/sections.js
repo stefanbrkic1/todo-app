@@ -52,6 +52,7 @@ export function addSectionDeleteEvent() {
             closeModalButtonDeleteSection.click();
             modalHandler.handleModals();
             modalHandler.changeModalPositionIfKeyboardOpened()
+            addDeleteSectionButtonsEvent()
         } else {
             
         }
