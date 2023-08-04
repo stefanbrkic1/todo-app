@@ -102,15 +102,14 @@
                     </div>
                 </div>
                 <div id="tasksListView" class="tasks-list-view">
-
+                   
                 </div>
             </div>
-        </div>
         <!-- #endregion-->
 
         <!-- #region footer-->
         <div id="footerSection" class="footer">
-           <div id="mediaQueryHandler"></div>
+          
         </div>
         <!-- #endregion-->
 
@@ -175,6 +174,27 @@
             </div>
         </div>
         <!-- #endregion-->
+
+         <!-- #region modal-add-->
+         <div id="modalAddSection" class="modal">
+            <div class="modal-header">
+                <div class="modal-title">Add Section</div>
+            </div>
+            <div class="modal-body">
+                <form id="addSectionForm" action="">
+                    <input type="text" id="sectionNameInput" class="add-project-input" placeholder="Enter section tittle" autocomplete="off" maxlength="30">
+                    <div id="modalSectionAlert" class="modal-alert"></div>
+                    <div class="project-modal-buttons">
+                        <button type="submit" id="addSectionButtonSubmit" class="add-project-buttons add-btn">Add</button>
+                        <button type="button" id="closeModalButtonSection" data-close-button
+                            class="add-project-buttons close-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- #endregion-->
+
+        <div id="mediaQueryHandler"></div>
     </div>
     <script src="main.js" defer></script>
 </body>

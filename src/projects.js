@@ -1,6 +1,7 @@
 import { ModalHandler, ProjectsHandler, ActiveTabHandler } from './dom';
 import { loadActiveProject } from './project-loader';
 import { closeSidebarIfSmallScreen } from './dom'
+import { addSectionSubmitEvent, loadCurrentProjectSections } from './sections';
 
 const modalHandler = new ModalHandler(); 
 const projectsHandler = new ProjectsHandler();
@@ -10,20 +11,31 @@ const projectsContainer = document.getElementById('projectsContainer')
 class Project {
     constructor(name) {
         this.name = name
+        this.sections = []
     }
 }
 
 export let allProjects = [
     {
         name: 'ToDo',
+        sections: [
+            {
+                sectionTitle: 'Shopping',
+            },
+        ],
     },
     {
         name: 'My Work',
+        sections: [
+            {
+                sectionTitle: 'Presentations',
+            },
+        ],
     },
 ]
 
-let currentProject = null;
-let currentIndex = null
+export let currentProject = null;
+export let currentIndex = null
 
 export function loadProjects() {
     projectsContainer.innerHTML = ''
@@ -130,6 +142,7 @@ export function addProjectToolsSubmitEvent() {
         } else {
             
         }
+
         currentProject = null;
     });
 }
@@ -157,7 +170,7 @@ function addProjectToolsEvent(){
     });
 }
 
-let currentProjectTab = null
+export let currentProjectTab = null
 
 function handleProjectTabs(allProjects){
     const projectTabs = document.querySelectorAll('.sidebar-project')
@@ -173,6 +186,8 @@ function handleProjectTabs(allProjects){
                 loadActiveProject(currentProjectTab)
                 projectsHandler.createMainProjectToolsHtml()
                 addProjectToolsMainEvent()
+                addSectionSubmitEvent()
+                loadCurrentProjectSections(currentProjectTab)
                 modalHandler.handleModals()
                 closeSidebarIfSmallScreen()
         })
@@ -182,6 +197,7 @@ function handleProjectTabs(allProjects){
 function addProjectToolsMainEvent(){
     const btnRenameMain = document.getElementById('btnRenameMain');
     const btnDeleteMain = document.getElementById('btnDeleteMain');
+    const addSectionButton = document.getElementById('addSectionButton');
 
     btnRenameMain.addEventListener('click', () => {
         currentProject = allProjects[currentIndex];
@@ -193,6 +209,10 @@ function addProjectToolsMainEvent(){
         currentProject = allProjects[currentIndex];
         const deleteProjectName = document.getElementById('deleteProjectName')
         deleteProjectName.textContent = `(${currentProject.name})`
+    })
+
+    addSectionButton.addEventListener('click', () => {
+        currentProject = allProjects[currentIndex];
     })
 }
 

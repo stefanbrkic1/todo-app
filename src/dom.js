@@ -74,6 +74,8 @@ export class ModalHandler {
         this.modalAddProject = document.getElementById('modal')
         this.modalRenameProject = document.getElementById('modalRename')
         this.modalDeleteProject = document.getElementById('modalDelete')
+        this.sectionNameInput = document.getElementById('sectionNameInput')
+        this.modalSectionAlert = document.getElementById('modalSectionAlert')
     }
 
 
@@ -116,9 +118,12 @@ export class ModalHandler {
         this.modalAlert.innerHTML = ''
         this.modalAlertRename.innerHTML = ''
         this.projectRenameInput.value = ''
+        this.sectionNameInput.value = ''
+        this.modalSectionAlert.innerHTML = ''
 
         this.projectNameInput.blur();
         this.projectRenameInput.blur()
+        this.sectionNameInput.blur()
 
         if (modal == null) return
         modal.classList.remove('active')
@@ -152,7 +157,12 @@ export class ModalHandler {
 
         document.getElementById("renameForm").addEventListener("submit", function (event) {
             event.preventDefault();
-            this.projectRenameInput.blur()
+            this.sectionNameInput.blur()
+        });
+
+        document.getElementById("addSectionForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            this.sectionNameInput.blur()
         });
 
         document.getElementById("deleteForm").addEventListener("submit", function (event) {
@@ -251,15 +261,89 @@ export class ProjectsHandler {
     }
 }
 
-export class TasksHandler {
+export class SectionHandler {
     constructor() {
-
+        this.footerSection = document.getElementById('footerSection')
+        this.tasksListView = document.getElementById('tasksListView')
     }
 
-    tasksListView = document.getElementById('tasksListView')
+    createAddSectionButtonHtml() {
+        this.footerSection.innerHTML = ''
+        const addSectionButton = document.createElement('button');
+        addSectionButton.id = 'addSectionButton';
+        addSectionButton.className = 'add-section-button';
+        addSectionButton.setAttribute('data-modal-target', '#modalAddSection');
+        addSectionButton.textContent = '+';
 
-    createHtml() {
+        this.footerSection.appendChild(addSectionButton)
+    }
 
+    createSectionHtml(section) {
+        // Create the main section container
+        const sectionContainer = document.createElement('div');
+        sectionContainer.className = 'section';
+
+        // Create the section header
+        const sectionHeader = document.createElement('div');
+        sectionHeader.className = 'section-header';
+
+        // Create the section title
+        const sectionTitle = document.createElement('div');
+        sectionTitle.className = 'section-title';
+        sectionTitle.textContent = section.sectionTitle;
+
+        // Create the section buttons container
+        const sectionButtons = document.createElement('div');
+        sectionButtons.className = 'section-buttons';
+
+        // Create the remove section button
+        const removeSectionButton = document.createElement('button');
+        removeSectionButton.type = 'button';
+        removeSectionButton.className = 'remove-section-btn';
+
+        // Append the remove section button to the section buttons container
+        sectionButtons.appendChild(removeSectionButton);
+
+        // Append the section title and buttons to the section header
+        sectionHeader.appendChild(sectionTitle);
+        sectionHeader.appendChild(sectionButtons);
+
+        // Create the section tasks container
+        const sectionTasks = document.createElement('div');
+        sectionTasks.className = 'section-tasks';
+
+        // Create the add task container
+        const addTaskContainer = document.createElement('div');
+        addTaskContainer.className = 'add-task-container';
+
+        // Create the task button container
+        const taskButtonContainer = document.createElement('div');
+        taskButtonContainer.className = 'task-btn';
+
+        // Create the add task button
+        const addTaskButton = document.createElement('button');
+        addTaskButton.type = 'button';
+        addTaskButton.className = 'add-task-btn';
+
+        // Append the add task button to the task button container
+        taskButtonContainer.appendChild(addTaskButton);
+
+        // Create the task button title
+        const taskButtonTitle = document.createElement('div');
+        taskButtonTitle.className = 'task-button-title';
+        taskButtonTitle.textContent = 'Add Task';
+
+        // Append the task button and title to the add task container
+        addTaskContainer.appendChild(taskButtonContainer);
+        addTaskContainer.appendChild(taskButtonTitle);
+
+        // Append the add task container to the section tasks
+        sectionTasks.appendChild(addTaskContainer);
+
+        sectionContainer.appendChild(sectionHeader);
+        sectionContainer.appendChild(sectionTasks);
+
+        this.tasksListView.appendChild(sectionContainer)
     }
 }
 

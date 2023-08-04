@@ -3,6 +3,8 @@ import weekIcon from './img/thisweek48x48.svg'
 export default function loadWeekTasks() {
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
+    const footerSection = document.getElementById('footerSection')
+  
 
     const svgWeek = new Image()
     svgWeek.src = weekIcon;
@@ -10,4 +12,6 @@ export default function loadWeekTasks() {
     currentTabIcon.appendChild(svgWeek)
 
     currentTabName.textContent = 'This Week'
+
+    footerSection.innerHTML = ''
 }
