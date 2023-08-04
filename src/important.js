@@ -1,5 +1,7 @@
 import importantIcon from './img/important48x48.svg'
 
+const tasksListView = document.getElementById('tasksListView')
+
 export default function loadImportantTasks() {
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
@@ -13,5 +15,6 @@ export default function loadImportantTasks() {
 
     currentTabName.textContent = 'Important'
 
+    tasksListView.innerHTML = ''
     footerSection.innerHTML = ''
 }

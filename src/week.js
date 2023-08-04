@@ -1,5 +1,7 @@
 import weekIcon from './img/thisweek48x48.svg'
 
+const tasksListView = document.getElementById('tasksListView')
+
 export default function loadWeekTasks() {
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
@@ -13,5 +15,6 @@ export default function loadWeekTasks() {
 
     currentTabName.textContent = 'This Week'
 
+    tasksListView.innerHTML = ''
     footerSection.innerHTML = ''
 }

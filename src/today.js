@@ -1,5 +1,7 @@
 import todayIcon from './img/today48x48.svg'
 
+const tasksListView = document.getElementById('tasksListView')
+
 export default function loadTodayTasks() {
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
@@ -13,6 +15,6 @@ export default function loadTodayTasks() {
 
     currentTabName.textContent = 'Today'
 
-
+    tasksListView.innerHTML = ''
     footerSection.innerHTML = ''
 }

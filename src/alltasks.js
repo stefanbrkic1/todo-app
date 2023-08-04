@@ -1,5 +1,7 @@
 import allTasksIcon from './img/alltasks48x48.svg'
 
+const tasksListView = document.getElementById('tasksListView')
+
 export default function loadAllTasks() {
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
@@ -13,5 +15,6 @@ export default function loadAllTasks() {
 
     currentTabName.textContent = 'All Tasks'
 
+    tasksListView.innerHTML = ''
     footerSection.innerHTML = ''
 }
