@@ -105,97 +105,96 @@
                    
                 </div>
             </div>
+        </div>
         <!-- #endregion-->
 
         <!-- #region footer-->
         <div id="footerSection" class="footer">
           
         </div>
-        <!-- #endregion-->
+        <!-- #endregion-->    
 
-        <!-- #region modal-add-->
-        <div id="modal" class="modal">
-            <div class="modal-header">
-                <div class="modal-title">Add Project</div>
-            </div>
-            <div class="modal-body">
-                <form id="addForm" action="">
-                    <input type="text" id="projectNameInput" class="add-project-input" placeholder="Enter project title" autocomplete="off" maxlength="11">
-                    <div id="modalAlert" class="modal-alert"></div>
-                    <div class="project-modal-buttons">
-                        <button type="submit" id="addProjectButton" class="add-project-buttons add-btn">Add</button>
-                        <button type="button" id="closeModalButton" data-close-button
-                            class="add-project-buttons close-btn">Cancel</button>
-                    </div>
-                </form>
-            </div>
+     <!-- #region modal-add-->
+     <div id="modal" class="modal">
+        <div class="modal-header">
+            <div class="modal-title">Add Project</div>
         </div>
-        <div id="overlay"></div>
-        <!-- #endregion-->
-
-        <!-- #region modal-rename-->
-        <div id="modalRename" class="modal">
-            <div class="modal-header-rename">
-                <div class="modal-title">Rename</div>
-                <div id="oldName"></div>
-            </div>
-            <div class="modal-body">
-                <form id="renameForm" action="">
-                    <input type="text" id="projectRenameInput" class="add-project-input"
-                        placeholder="Enter new project title" autocomplete="off" maxlength="11">
-                        <div id="modalAlertRename" class="modal-alert"></div>
-                    <div class="project-modal-buttons">
-                        <button type="submit" id="projectRenameButton"
-                            class="add-project-buttons add-btn">Rename</button>
-                        <button type="button" id="closeModalButtonRename" data-close-button
-                            class="add-project-buttons close-btn">Cancel</button>
-                    </div>
-                </form>
-            </div>
+        <div class="modal-body">
+            <form id="addForm" action="">
+                <input type="text" id="projectNameInput" class="add-project-input" placeholder="Enter project title" autocomplete="off" maxlength="11">
+                <div id="modalAlert" class="modal-alert"></div>
+                <div class="project-modal-buttons">
+                    <button type="submit" id="addProjectButton" class="add-project-buttons add-btn">Add</button>
+                    <button type="button" id="closeModalButton" data-close-button
+                        class="add-project-buttons close-btn">Cancel</button>
+                </div>
+            </form>
         </div>
-        <!-- #endregion-->
-
-        <!-- #region modal-rename-->
-        <div id="modalDelete" class="modal">
-            <div class="modal-header-rename">
-                <div class="modal-title">Delete</div>
-                <div id="deleteProjectName"></div>
-            </div>
-            <div class="modal-body">
-                <form id="deleteForm" action="">
-                    <div id="deleteQuestion">Are you sure you want to delete this project?</div>
-                    <div class="project-modal-buttons">
-                        <button type="submit" id="projectDeleteButton"
-                            class="add-project-buttons close-btn">Delete</button>
-                        <button type="button" id="closeModalButtonDelete" data-close-button
-                            class="add-project-buttons add-btn">Cancel</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!-- #endregion-->
-
-         <!-- #region modal-add-->
-         <div id="modalAddSection" class="modal">
-            <div class="modal-header">
-                <div class="modal-title">Add Section</div>
-            </div>
-            <div class="modal-body">
-                <form id="addSectionForm" action="">
-                    <input type="text" id="sectionNameInput" class="add-project-input" placeholder="Enter section tittle" autocomplete="off" maxlength="30">
-                    <div id="modalSectionAlert" class="modal-alert"></div>
-                    <div class="project-modal-buttons">
-                        <button type="submit" id="addSectionButtonSubmit" class="add-project-buttons add-btn">Add</button>
-                        <button type="button" id="closeModalButtonSection" data-close-button
-                            class="add-project-buttons close-btn">Cancel</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!-- #endregion-->
-
-        <div id="mediaQueryHandler"></div>
     </div>
+    <!-- #endregion-->
+
+    <!-- #region modal-rename-->
+    <div id="modalRename" class="modal">
+        <div class="modal-header-rename">
+            <div class="modal-title">Rename</div>
+            <div id="oldName"></div>
+        </div>
+        <div class="modal-body">
+            <form id="renameForm" action="">
+                <input type="text" id="projectRenameInput" class="add-project-input"
+                    placeholder="Enter new project title" autocomplete="off" maxlength="11">
+                    <div id="modalAlertRename" class="modal-alert"></div>
+                <div class="project-modal-buttons">
+                    <button type="submit" id="projectRenameButton"
+                        class="add-project-buttons add-btn">Rename</button>
+                    <button type="button" id="closeModalButtonRename" data-close-button
+                        class="add-project-buttons close-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- #endregion-->
+
+    <!-- #region modal-rename-->
+    <div id="modalDelete" class="modal">
+        <div class="modal-header-rename">
+            <div class="modal-title">Delete</div>
+            <div id="deleteProjectName"></div>
+        </div>
+        <div class="modal-body">
+            <form id="deleteForm" action="">
+                <div id="deleteQuestion">Are you sure you want to delete this project?</div>
+                <div class="project-modal-buttons">
+                    <button type="submit" id="projectDeleteButton"
+                        class="add-project-buttons close-btn">Delete</button>
+                    <button type="button" id="closeModalButtonDelete" data-close-button
+                        class="add-project-buttons add-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- #endregion-->
+
+     <!-- #region modal-add-->
+     <div id="modalAddSection" class="modal">
+        <div class="modal-header">
+            <div class="modal-title">Add Section</div>
+        </div>
+        <div class="modal-body">
+            <form id="addSectionForm" action="">
+                <input type="text" id="sectionNameInput" class="add-project-input" placeholder="Enter section tittle" autocomplete="off" maxlength="30">
+                <div id="modalSectionAlert" class="modal-alert"></div>
+                <div class="project-modal-buttons">
+                    <button type="submit" id="addSectionButtonSubmit" class="add-project-buttons add-btn">Add</button>
+                    <button type="button" id="closeModalButtonSection" data-close-button
+                        class="add-project-buttons close-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- #endregion-->
+    <div id="overlay"></div>
+    <div id="mediaQueryHandler"></div>
     <script src="main.js" defer></script>
 </body>
 

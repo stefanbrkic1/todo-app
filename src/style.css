@@ -66,14 +66,9 @@ body {
 
 .main{
     background-color: var(--background-light);
-    grid-area: 1 / 2 / 12 / -1;
+    grid-area: 1 / 2 / 13 / -1;
     box-sizing: border-box;
     padding: 30px 70px 0px 70px;
-}
-
-.footer{
-    grid-area: 12 / 2 / -1 / -1;
-    background-color: var(--background-light);
 }
 
 .sidebar-list{
@@ -763,11 +758,12 @@ background-color: var(--hover-light);
 /* Smartphones (portrait and landscape) */
 @media only screen and (max-width: 767px) {
     .body-container{
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
+      grid-template-columns: 1fr;
     }
+    .main{
+      grid-area: 1 / 1 / -1 / -1;
+      padding: 65px 20px 0px 20px;
+  }
     .sidebar{
         position: absolute;
         z-index: 10;
@@ -785,9 +781,6 @@ background-color: var(--hover-light);
         top: 20px;
         left: 20px;
         cursor: pointer;
-    }
-    .main{
-        padding: 65px 20px 0px 20px;
     }
     #Open:checked~#sidebarMenu {
         transform: translateX(0px);
