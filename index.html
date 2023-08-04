@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo | ProductivityApp</title>
-<link rel="icon" href="task.png"><script defer src="main.859e6a9726307775696f.js"></script></head>
+<link rel="icon" href="task.png"><script defer src="main.0d591e2e9c9fb3d26013.js"></script></head>
 
 <body>
     <div class="body-container">
@@ -155,7 +155,7 @@
     </div>
     <!-- #endregion-->
 
-    <!-- #region modal-rename-->
+    <!-- #region modal-delete-->
     <div id="modalDelete" class="modal">
         <div class="modal-header-rename">
             <div class="modal-title">Delete</div>
@@ -163,7 +163,7 @@
         </div>
         <div class="modal-body">
             <form id="deleteForm" action="">
-                <div id="deleteQuestion">Are you sure you want to delete this project?</div>
+                <div class="delete-question">Are you sure you want to delete this project?</div>
                 <div class="project-modal-buttons">
                     <button type="submit" id="projectDeleteButton"
                         class="add-project-buttons close-btn">Delete</button>
@@ -193,6 +193,27 @@
         </div>
     </div>
     <!-- #endregion-->
+
+     <!-- #region modal-delete-section-->
+     <div id="modalDeleteSection" class="modal">
+        <div class="modal-header-rename">
+            <div class="modal-title">Remove</div>
+            <div id="deleteSectionName"></div>
+        </div>
+        <div class="modal-body">
+            <form id="deleteFormSection" action="">
+                <div class="delete-question">Are you sure you want to remove this section?</div>
+                <div class="project-modal-buttons">
+                    <button type="submit" id="deleteSectionButton"
+                        class="add-project-buttons close-btn">Remove</button>
+                    <button type="button" id="closeModalButtonDeleteSection" data-close-button
+                        class="add-project-buttons add-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- #endregion-->
+
     <div id="overlay"></div>
     <div id="mediaQueryHandler"></div>
     <script src="main.js" defer></script>
