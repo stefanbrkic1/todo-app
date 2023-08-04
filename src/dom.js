@@ -4,7 +4,7 @@ import loadWeekTasks from "./week";
 import loadImportantTasks from "./important";
 import projectIcon from './img/project.svg'
 
-export class ActiveTabHandler {
+export class ActiveHomeTabHandler {
     constructor() {
 
     }

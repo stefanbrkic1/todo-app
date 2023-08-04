@@ -1,11 +1,11 @@
-import { ModalHandler, ProjectsHandler, ActiveTabHandler } from './dom';
+import { ModalHandler, ProjectsHandler, ActiveHomeTabHandler } from './dom';
 import { loadActiveProject } from './project-loader';
 import { closeSidebarIfSmallScreen } from './dom'
 import { addSectionSubmitEvent, loadCurrentProjectSections } from './sections';
 
 const modalHandler = new ModalHandler(); 
 const projectsHandler = new ProjectsHandler();
-const tabHandler = new ActiveTabHandler();
+const activeHomeTabHandler = new ActiveHomeTabHandler();
 const projectsContainer = document.getElementById('projectsContainer')
 
 class Project {
@@ -42,7 +42,7 @@ export function loadProjects() {
     allProjects.forEach(project => {
       projectsHandler.createProjectHtml(project);
     })
-    tabHandler.handleTabsClick()
+    activeHomeTabHandler.handleTabsClick()
     handleProjectTabs(allProjects)
     addProjectToolsEvent()
     modalHandler.handleModals()
