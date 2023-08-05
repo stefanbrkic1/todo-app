@@ -736,6 +736,9 @@ background-color: var(--hover-light);
 }
 
 .add-section-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 70px;
   height: 70px;
   border-radius: 50%;

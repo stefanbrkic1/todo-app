@@ -280,7 +280,7 @@ export class SectionHandler {
         addSectionButton.id = 'addSectionButton';
         addSectionButton.className = 'add-section-button';
         addSectionButton.setAttribute('data-modal-target', '#modalAddSection');
-        addSectionButton.textContent = '+';
+        addSectionButton.innerHTML = '&plus;';
 
         this.footerSection.appendChild(addSectionButton)
     }
