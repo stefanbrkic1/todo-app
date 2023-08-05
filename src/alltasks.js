@@ -20,5 +20,5 @@ export default function loadAllTasks() {
     footerSection.innerHTML = ''
     mainHeading.classList.remove('border-bottom')
     headerSection.className = ''
-    headerSection.classList.add('footer-all-tasks')
+    headerSection.classList.add('header-all-tasks')
 }

@@ -20,5 +20,5 @@ export default function loadImportantTasks() {
     footerSection.innerHTML = ''
     mainHeading.classList.remove('border-bottom')
     headerSection.className = ''
-    headerSection.classList.add('footer-important')
+    headerSection.classList.add('header-important')
 }

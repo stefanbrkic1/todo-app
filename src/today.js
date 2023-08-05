@@ -20,5 +20,5 @@ export default function loadTodayTasks() {
     footerSection.innerHTML = ''
     mainHeading.classList.remove('border-bottom')
     headerSection.className = ''
-    headerSection.classList.add('footer-today')
+    headerSection.classList.add('header-today')
 }

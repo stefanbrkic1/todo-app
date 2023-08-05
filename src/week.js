@@ -20,5 +20,5 @@ export default function loadWeekTasks() {
     footerSection.innerHTML = ''
     mainHeading.classList.remove('border-bottom')
     headerSection.className = ''
-    headerSection.classList.add('footer-week')
+    headerSection.classList.add('header-week')
 }

@@ -19,5 +19,5 @@ export function loadActiveProject(currentProjectTab){
     sectionHandler.createAddSectionButtonHtml()
     mainHeading.classList.add('border-bottom')
     headerSection.className = ''
-    headerSection.classList.add('footer-project')
+    headerSection.classList.add('header-project')
 }

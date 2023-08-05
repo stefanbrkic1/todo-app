@@ -69,7 +69,7 @@ body {
     grid-area: 2 / 2 / 13 / -1;
     box-sizing: border-box;
     padding: 0px 70px 0px 70px;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 #headerSection{
@@ -762,23 +762,23 @@ background-color: var(--hover-light);
   padding-bottom: 50px;
 }
 
-.footer-all-tasks{
+.header-all-tasks{
   background-color: var(--secondary-color-light);
 }
 
-.footer-today{
+.header-today{
   background-color: var(--tertiary-color-light);
 }
 
-.footer-week{
+.header-week{
   background-color: var(--primary-color-light);
 }
 
-.footer-important{
+.header-important{
   background-color: var(--yellow-color);
 }
 
-.footer-project{
+.header-project{
   background-color: var(--secondary-color-light);
 }
 
