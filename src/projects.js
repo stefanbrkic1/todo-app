@@ -1,7 +1,7 @@
 import { ModalHandler, ProjectsHandler, ActiveHomeTabHandler } from './dom';
 import { loadActiveProject } from './project-loader';
 import { closeSidebarIfSmallScreen } from './dom'
-import { addSectionSubmitEvent, addSectionDeleteEvent, loadCurrentProjectSections } from './sections';
+import { addSectionSubmitEvent, loadCurrentProjectSections } from './sections';
 
 const modalHandler = new ModalHandler(); 
 const projectsHandler = new ProjectsHandler();
@@ -25,6 +25,9 @@ export let allProjects = [
             {
                 sectionTitle: 'Shopping',
             },
+            {
+                sectionTitle: 'Inspiration',
+            },
         ],
     },
     {
@@ -32,6 +35,12 @@ export let allProjects = [
         sections: [
             {
                 sectionTitle: 'Presentations',
+            },
+            {
+                sectionTitle: 'Interviews',
+            },
+            {
+                sectionTitle: 'Slides',
             },
         ],
     },
@@ -228,9 +237,27 @@ export function addDeleteSectionButtonsEvent(){
         button.addEventListener('click', () => {
             currentProject = allProjects[currentIndex];
             currentSectionIndex = index;
-            console.log(currentSectionIndex)
             const deleteSectionName = document.getElementById('deleteSectionName')
             deleteSectionName.textContent = `(${currentProject.sections[index].sectionTitle})`
         })
     })
+}
+
+export function addSectionDeleteEvent() {
+    const deleteSectionButton = document.getElementById('deleteSectionButton')
+    const closeModalButtonDeleteSection = document.getElementById('closeModalButtonDeleteSection')
+
+    deleteSectionButton.addEventListener('click', () => {
+        if (currentSectionIndex || currentSectionIndex === 0) {
+            currentProject.sections.splice(currentSectionIndex, 1)
+            loadCurrentProjectSections(currentProject)
+            closeModalButtonDeleteSection.click();
+            modalHandler.handleModals();
+            modalHandler.changeModalPositionIfKeyboardOpened()
+            addDeleteSectionButtonsEvent()
+        } else {
+            
+        }
+        currentSectionIndex = null
+    });
 }

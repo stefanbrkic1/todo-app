@@ -41,24 +41,6 @@ export function addSectionSubmitEvent() {
         });
 }
 
-export function addSectionDeleteEvent() {
-    const deleteSectionButton = document.getElementById('deleteSectionButton')
-    const closeModalButtonDeleteSection = document.getElementById('closeModalButtonDeleteSection')
-
-    deleteSectionButton.addEventListener('click', () => {
-        if (currentProject) {
-            currentProject.sections.splice(currentSectionIndex, 1)
-            loadCurrentProjectSections(currentProject)
-            closeModalButtonDeleteSection.click();
-            modalHandler.handleModals();
-            modalHandler.changeModalPositionIfKeyboardOpened()
-            addDeleteSectionButtonsEvent()
-        } else {
-            
-        }
-    });
-}
-
 export function loadCurrentProjectSections(currentProject){
     tasksListView.innerHTML = ''
     currentProject.sections.forEach(section => {
