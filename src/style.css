@@ -447,6 +447,7 @@ body {
   padding: 8px 0px 8px 15px;
   border-radius: 5px;
   cursor: pointer;
+  transition: 200ms ease-in-out;
 }
 
 .add-task-btn:hover{
@@ -697,6 +698,7 @@ background-color: var(--hover-light);
 .add-task-container:hover .add-task-btn{
   background-image: url(./img/add-task-hover.svg);
   background-color: transparent;
+  transform: rotate(90deg);
 }
 
 .btn-rename-main{
