@@ -802,7 +802,7 @@ background-color: var(--hover-light);
         position: absolute;
         z-index: 10;
         height: 100%;
-        width: 70vw;
+        width: 100vw;
         padding-top: 60px;
         transform: translateX(-500px);
     }
@@ -818,7 +818,7 @@ background-color: var(--hover-light);
     }
     #Open:checked~#sidebarMenu {
         transform: translateX(0px);
-        transition: transform 300ms ease-in-out;
+        transition: transform 350ms ease-in-out;
     }
     .btn-delete, .btn-rename{
       display: none;
