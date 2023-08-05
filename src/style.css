@@ -54,7 +54,7 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: minmax(305px, 1fr) repeat(4, 1fr) ;
-    grid-template-rows: repeat(12, 1fr);
+    grid-template-rows: 40px repeat(11, 1fr);
 }
 
 .sidebar{
@@ -66,9 +66,15 @@ body {
 
 .main{
     background-color: var(--background-light);
-    grid-area: 1 / 2 / 13 / -1;
+    grid-area: 2 / 2 / 13 / -1;
     box-sizing: border-box;
-    padding: 30px 70px 0px 70px;
+    padding: 0px 70px 0px 70px;
+    overflow: scroll;
+}
+
+#headerSection{
+  grid-area: 1 / 2 / 2 / -1;
+  height: 10px;
 }
 
 .sidebar-list{
@@ -300,7 +306,7 @@ body {
 
 .wrapper {
     height: 3px;
-    background-color: var(--text-light);
+    background-color: var(--text-dark);
     transition: all 0.5s;
 }
 
@@ -315,11 +321,13 @@ body {
 
 #Open:checked~.sidebar-icon>.wrapper.first {
     transform: rotate(315deg);
+    background-color: var(--text-light);
     margin-top: 9px;
 }
 
 #Open:checked~.sidebar-icon>.wrapper.third {
     transform: rotate(-315deg);
+    background-color: var(--text-light);
     margin-top: -9px;
 }
 
@@ -649,15 +657,16 @@ background-color: var(--hover-light);
   border: none;
   outline: none;
   cursor: pointer;
-  background-image: url(./img/delete-section.svg);
+  background-image: url(./img/delete-section-hover.svg);
   background-repeat: no-repeat;
   background-size: contain;
   box-sizing: border-box;
   padding: 11px;
+  transition: 200ms ease-in-out;
 }
 
 .remove-section-btn:hover{
-  background-image: url(./img/delete-section-hover.svg);
+  transform: rotate(180deg);
 }
 
 .add-task-btn{
@@ -753,16 +762,42 @@ background-color: var(--hover-light);
   padding-bottom: 50px;
 }
 
+.footer-all-tasks{
+  background-color: var(--secondary-color-light);
+}
+
+.footer-today{
+  background-color: var(--tertiary-color-light);
+}
+
+.footer-week{
+  background-color: var(--primary-color-light);
+}
+
+.footer-important{
+  background-color: var(--yellow-color);
+}
+
+.footer-project{
+  background-color: var(--secondary-color-light);
+}
+
+
 /*Media Queries*/
 
 /* Smartphones (portrait and landscape) */
 @media only screen and (max-width: 767px) {
     .body-container{
       grid-template-columns: 1fr;
+      grid-template-rows: 55px repeat(11, 1fr);
     }
     .main{
-      grid-area: 1 / 1 / -1 / -1;
-      padding: 65px 20px 0px 20px;
+      grid-area: 2 / 1 / -1 / -1;
+      padding: 25px 20px 0px 20px;
+  }
+  #headerSection{
+    grid-area: 1 / 1 / 1 / -1;
+    height: auto;
   }
     .sidebar{
         position: absolute;
@@ -817,7 +852,7 @@ background-color: var(--hover-light);
       display: none;
     }
     .tasks-list-view{
-      padding: 20px 15px 0px 15px;
+      padding: 30px 15px 0px 15px;
     }
     .delete-question{
       font-size: 15rem;

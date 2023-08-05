@@ -3,6 +3,7 @@ import projectIcon from './img/project48x48.svg'
 
 const sectionHandler = new SectionHandler()
 const mainHeading = document.getElementById('mainHeading')
+const headerSection = document.getElementById('headerSection')
 
 export function loadActiveProject(currentProjectTab){
     const currentTabName = document.getElementById('currentTabName')
@@ -17,4 +18,6 @@ export function loadActiveProject(currentProjectTab){
 
     sectionHandler.createAddSectionButtonHtml()
     mainHeading.classList.add('border-bottom')
+    headerSection.className = ''
+    headerSection.classList.add('footer-project')
 }
