@@ -3,7 +3,7 @@ import importantIcon from './img/important48x48.svg'
 const tasksListView = document.getElementById('tasksListView')
 const mainHeading = document.getElementById('mainHeading')
 const headerSection = document.getElementById('headerSection')
-const footerSection = document.getElementById('footerSection')
+const floatingActionButton = document.getElementById('floatingActionButton')
 
 export default function loadImportantTasks() {
     const currentTabName = document.getElementById('currentTabName')
@@ -17,7 +17,7 @@ export default function loadImportantTasks() {
     currentTabName.textContent = 'Important'
 
     tasksListView.innerHTML = ''
-    footerSection.innerHTML = ''
+    floatingActionButton.innerHTML = ''
     mainHeading.classList.remove('border-bottom')
     headerSection.className = ''
     headerSection.classList.add('header-important')

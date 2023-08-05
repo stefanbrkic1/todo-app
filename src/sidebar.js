@@ -2,7 +2,7 @@ const sidebarToggle = document.getElementById('Open');
 const sidebar = document.getElementById('sidebarMenu')
 const main = document.getElementById('mainSection');
 const header = document.getElementById('headerSection');
-const footer = document.getElementById('footerSection');
+const floatingActionButton = document.getElementById('floatingActionButton');
 
 export default function handleSidebar() {
     sidebarToggle.addEventListener('change', function () {
@@ -10,7 +10,7 @@ export default function handleSidebar() {
             setTimeout(() => {
                 main.classList.add('blur');
                 header.classList.add('blur');
-                footer.classList.add('blur');
+                floatingActionButton.classList.add('blur');
                 sidebar.classList.add('active-sidebar')
             }, 220);
             handleTransition()
@@ -18,7 +18,7 @@ export default function handleSidebar() {
         else {
             main.classList.remove('blur');
             header.classList.remove('blur');
-            footer.classList.remove('blur');
+            floatingActionButton.classList.remove('blur');
             sidebar.classList.remove('active-sidebar')
             handleTransition()
         }

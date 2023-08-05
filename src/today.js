@@ -3,7 +3,7 @@ import todayIcon from './img/today48x48.svg'
 const tasksListView = document.getElementById('tasksListView')
 const mainHeading = document.getElementById('mainHeading')
 const headerSection = document.getElementById('headerSection')
-const footerSection = document.getElementById('footerSection')
+const floatingActionButton = document.getElementById('floatingActionButton')
 
 export default function loadTodayTasks() {
     const currentTabName = document.getElementById('currentTabName')
@@ -17,7 +17,7 @@ export default function loadTodayTasks() {
     currentTabName.textContent = 'Today'
 
     tasksListView.innerHTML = ''
-    footerSection.innerHTML = ''
+    floatingActionButton.innerHTML = ''
     mainHeading.classList.remove('border-bottom')
     headerSection.className = ''
     headerSection.classList.add('header-today')

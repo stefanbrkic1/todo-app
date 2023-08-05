@@ -788,6 +788,12 @@ background-color: var(--hover-light);
   background-color: var(--secondary-color-light);
 }
 
+#floatingActionButton{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
 /*Media Queries*/
 
 /* Smartphones (portrait and landscape) */

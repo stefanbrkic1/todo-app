@@ -270,19 +270,19 @@ export class ProjectsHandler {
 
 export class SectionHandler {
     constructor() {
-        this.footerSection = document.getElementById('footerSection')
+        this.floatingActionButton = document.getElementById('floatingActionButton')
         this.tasksListView = document.getElementById('tasksListView')
     }
 
     createAddSectionButtonHtml() {
-        this.footerSection.innerHTML = ''
+        this.floatingActionButton.innerHTML = ''
         const addSectionButton = document.createElement('button');
         addSectionButton.id = 'addSectionButton';
         addSectionButton.className = 'add-section-button';
         addSectionButton.setAttribute('data-modal-target', '#modalAddSection');
         addSectionButton.innerHTML = '&plus;';
 
-        this.footerSection.appendChild(addSectionButton)
+        this.floatingActionButton.appendChild(addSectionButton)
     }
 
     createSectionHtml(section) {
