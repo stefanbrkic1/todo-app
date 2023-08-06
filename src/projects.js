@@ -15,6 +15,12 @@ class Project {
     }
 }
 
+class Task {
+    constructor(description) {
+        this.description = description;
+    }
+}
+
 export let allProjects = [
     {
         name: 'ToDo',
@@ -38,9 +44,6 @@ export let allProjects = [
             },
             {
                 sectionTitle: 'Interviews',
-            },
-            {
-                sectionTitle: 'Slides',
             },
         ],
     },

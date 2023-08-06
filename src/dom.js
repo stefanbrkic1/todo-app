@@ -319,6 +319,9 @@ export class SectionHandler {
         const sectionTasks = document.createElement('div');
         sectionTasks.className = 'section-tasks';
 
+        const addTask = document.createElement('div');
+        addTask.className = 'add-task-section';
+
         // Create the add task container
         const addTaskContainer = document.createElement('div');
         addTaskContainer.className = 'add-task-container';
@@ -344,11 +347,11 @@ export class SectionHandler {
         addTaskContainer.appendChild(taskButtonContainer);
         addTaskContainer.appendChild(taskButtonTitle);
 
-        // Append the add task container to the section tasks
-        sectionTasks.appendChild(addTaskContainer);
+        addTask.appendChild(addTaskContainer);
 
         sectionContainer.appendChild(sectionHeader);
         sectionContainer.appendChild(sectionTasks);
+        sectionContainer.appendChild(addTask);
 
         this.tasksListView.appendChild(sectionContainer)
     }
