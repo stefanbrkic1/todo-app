@@ -29,14 +29,12 @@ export function addSectionSubmitEvent() {
             sectionNameInput.value = ''
             return
         }
-
-        if(existingProject){
+        else if(existingProject){
             modalSectionAlert.textContent = '(The section with this name already exists)'
             sectionNameInput.value = ''
             return
         }
-
-        if (currentProject) {        
+        else if (currentProject) {        
             let newSection = new Section(sectionNameInput.value)    
             currentProject.sections.push(newSection)
             loadCurrentProjectSections(currentProject)

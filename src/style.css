@@ -626,7 +626,7 @@ body {
 
 .tasks-list-view {
   box-sizing: border-box;
-  padding: 30px 70px 0px 70px;
+  padding: 30px 70px 90px 70px;
   overflow-y: scroll;
 }
 
