@@ -112,16 +112,15 @@ export class ModalHandler {
         if (modal == null) return
         modal.classList.add('active')
         overlay.classList.add('active')
-    }
-
-    closeModal(modal) {
         this.projectNameInput.value = ''
         this.modalAlert.innerHTML = ''
         this.modalAlertRename.innerHTML = ''
         this.projectRenameInput.value = ''
         this.sectionNameInput.value = ''
         this.modalSectionAlert.innerHTML = ''
+    }
 
+    closeModal(modal) {
         this.projectNameInput.blur();
         this.projectRenameInput.blur()
         this.sectionNameInput.blur()
