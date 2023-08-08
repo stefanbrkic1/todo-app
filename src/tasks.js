@@ -1,6 +1,5 @@
 import { add } from "date-fns";
 import { ModalHandler, TasksHandler } from "./dom";
-import { currentProject } from "./projects";
 
 
 const tasksHandler = new TasksHandler(); 
@@ -21,7 +20,7 @@ export function addTaskFormEvent(){
             let target = e.target
             currentSectionIndex = index
             let currentSectionHtmlElement = target.closest('.section')
-            let currentSectionTasksContainer = currentSectionHtmlElement.querySelector('.section-tasks')
+            let currentSectionTasksContainer = currentSectionHtmlElement.querySelector('.form-task-container')
             tasksHandler.createAddTaskFormHtml(currentSectionTasksContainer)
             addCancelButtonEvent(currentSectionTasksContainer)
             removeAddTaskButtons(addTaskButtons)

@@ -319,6 +319,9 @@ export class SectionHandler {
         const sectionTasks = document.createElement('div');
         sectionTasks.className = 'section-tasks';
 
+        const formTaskContainer = document.createElement('div');
+        sectionTasks.className = 'form-task-container';
+
         // Create the add task container
         const addTaskContainer = document.createElement('div');
         addTaskContainer.className = 'add-task-container';
@@ -346,6 +349,7 @@ export class SectionHandler {
 
         sectionContainer.appendChild(sectionHeader);
         sectionContainer.appendChild(sectionTasks);
+        sectionContainer.appendChild(formTaskContainer);
         sectionContainer.appendChild(addTaskContainer);
 
         this.tasksListView.appendChild(sectionContainer)
@@ -364,7 +368,7 @@ export class TasksHandler {
 
         // Create task data div
         const taskDataDiv = document.createElement('div');
-        taskDataDiv.classList.add('task-data', 'flex');
+        taskDataDiv.classList.add('task-data');
 
         // Create task description input
         const taskDescriptionInput = document.createElement('input');

@@ -630,10 +630,6 @@ body {
   overflow-y: scroll;
 }
 
-.section-tasks {
-  padding: 15px 0px;
-}
-
 .task {
   display: flex;
   align-items: center;
@@ -651,6 +647,7 @@ body {
   box-sizing: border-box;
   padding: 7px 0px;
   border-bottom: 1px solid var(--hover-light);
+  margin-bottom: 14px;
 }
 
 .remove-section-btn {
@@ -796,6 +793,7 @@ body {
 }
 
 .add-task-form-container{
+  margin-top: 20px;
   border: solid 1px var(--hover-light);
   border-radius: 4px;
   box-sizing: border-box;
@@ -814,6 +812,9 @@ body {
 }
 
 .task-data{
+  display: flex;
+  align-items: center;
+  gap: 7px;
   padding-bottom: 15px;
 }
 
@@ -856,7 +857,8 @@ body {
 }
 
 #dateInput{
-  height: 33px;
+  height: 35px;
+  box-sizing: border-box;
   padding: 0px 10px;
   border: 1px solid var(--hover-light);
   border-radius: 5px;
@@ -870,6 +872,7 @@ button{
 .display-none{
   display: none;
 }
+
 
 /*Media Queries*/
 
@@ -982,6 +985,28 @@ button{
 
   .add-section-button {
     margin: 0px 16px 16px 0px;
+  }
+
+  .task-data{
+    flex-direction: column;
+  }
+
+  #dateInput{
+    width: 100%;
+  }
+
+  .add-task-form-buttons{
+    justify-content: center;
+  }
+
+  .add-task-form-btn{
+    padding: 10px 0px;
+    flex: 1;
+  }
+
+  .cancel-task-btn{
+    padding: 10px 0px;
+    flex: 1;
   }
 }
 
