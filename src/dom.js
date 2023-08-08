@@ -292,6 +292,7 @@ export class SectionHandler {
         // Create the section header
         const sectionHeader = document.createElement('div');
         sectionHeader.className = 'section-header';
+        sectionHeader.classList.add('border-bottom');
 
         // Create the section title
         const sectionTitle = document.createElement('div');

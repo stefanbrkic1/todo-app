@@ -646,7 +646,6 @@ body {
   justify-content: space-between;
   box-sizing: border-box;
   padding: 7px 0px;
-  border-bottom: 1px solid var(--hover-light);
   margin-bottom: 14px;
 }
 
@@ -1007,6 +1006,10 @@ button{
   .cancel-task-btn{
     padding: 10px 0px;
     flex: 1;
+  }
+
+  .border-bottom{
+    border-bottom: 2px solid var(--hover-light);
   }
 }
 
