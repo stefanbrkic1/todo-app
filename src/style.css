@@ -631,7 +631,7 @@ body {
 }
 
 .section-tasks {
-  padding-top: 10px;
+  padding: 15px 0px;
 }
 
 .task {
@@ -793,6 +793,82 @@ body {
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+.add-task-form-container{
+  border: solid 1px var(--hover-light);
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.task-description-input{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 9px 7px 9px 7px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 14rem;
+  border: solid 1px var(--hover-light);
+}
+
+.task-data{
+  padding-bottom: 15px;
+}
+
+.add-task-form-buttons{
+  display: flex;
+  gap: 6px;
+  justify-content: end;
+  align-items: center;
+  border-top: 1px solid var(--hover-light);
+  box-sizing: border-box;
+  padding: 15px 0px 5px 0px ;
+}
+
+.add-task-form-btn{
+  border: none;
+  outline: none;
+  padding: 7px 20px;
+  border-radius: 3px;
+  background-color: var(--secondary-color-light);
+  color: var(--text-dark);
+  font-family: 'TTSemiBold';
+}
+
+.add-task-form-btn:hover{
+  background-color: #01a17c;
+}
+
+.cancel-task-btn{
+  border: none;
+  outline: none;
+  padding: 7px 20px;
+  border-radius: 3px;
+  background-color: var(--tertiary-color-light);
+  color: var(--text-dark);
+  font-family: 'TTSemiBold';
+}
+
+.cancel-task-btn:hover{
+  background-color: #ff3916;
+}
+
+#dateInput{
+  height: 33px;
+  padding: 0px 10px;
+  border: 1px solid var(--hover-light);
+  border-radius: 5px;
+}
+
+
+button{
+  cursor: pointer;
+}
+
+.display-none{
+  display: none;
 }
 
 /*Media Queries*/

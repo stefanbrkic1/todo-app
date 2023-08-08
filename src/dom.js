@@ -319,9 +319,6 @@ export class SectionHandler {
         const sectionTasks = document.createElement('div');
         sectionTasks.className = 'section-tasks';
 
-        const addTask = document.createElement('div');
-        addTask.className = 'add-task-section';
-
         // Create the add task container
         const addTaskContainer = document.createElement('div');
         addTaskContainer.className = 'add-task-container';
@@ -347,16 +344,71 @@ export class SectionHandler {
         addTaskContainer.appendChild(taskButtonContainer);
         addTaskContainer.appendChild(taskButtonTitle);
 
-        addTask.appendChild(addTaskContainer);
-
         sectionContainer.appendChild(sectionHeader);
         sectionContainer.appendChild(sectionTasks);
-        sectionContainer.appendChild(addTask);
+        sectionContainer.appendChild(addTaskContainer);
 
         this.tasksListView.appendChild(sectionContainer)
     }
 }
 
+export class TasksHandler {
+    constructor() {
+
+    }
+
+    createAddTaskFormHtml(currentSectionTasksContainer) {
+        // Create main container div
+        const addTaskFormContainer = document.createElement('div');
+        addTaskFormContainer.classList.add('add-task-form-container');
+
+        // Create task data div
+        const taskDataDiv = document.createElement('div');
+        taskDataDiv.classList.add('task-data', 'flex');
+
+        // Create task description input
+        const taskDescriptionInput = document.createElement('input');
+        taskDescriptionInput.type = 'text';
+        taskDescriptionInput.id = 'taskDescriptionInput';
+        taskDescriptionInput.classList.add('task-description-input');
+        taskDescriptionInput.placeholder = 'Task description...';
+
+        // Create date input
+        const dateInput = document.createElement('input');
+        dateInput.type = 'date';
+        dateInput.id = 'dateInput';
+
+        // Append task description input and date input to task data div
+        taskDataDiv.appendChild(taskDescriptionInput);
+        taskDataDiv.appendChild(dateInput);
+
+        // Create add task button
+        const addTaskFormButton = document.createElement('button');
+        addTaskFormButton.id = 'addTaskFormButton';
+        addTaskFormButton.classList.add('add-task-form-btn');
+        addTaskFormButton.textContent = 'Add Task';
+
+        // Create cancel button
+        const cancelTaskFormButton = document.createElement('button');
+        cancelTaskFormButton.id = 'cancelTaskFormButton';
+        cancelTaskFormButton.classList.add('cancel-task-btn');
+        cancelTaskFormButton.textContent = 'Cancel';
+
+        // Create add task form buttons div
+        const addTaskFormButtonsDiv = document.createElement('div');
+        addTaskFormButtonsDiv.classList.add('add-task-form-buttons');
+
+        // Append buttons to add task form buttons div
+        addTaskFormButtonsDiv.appendChild(addTaskFormButton);
+        addTaskFormButtonsDiv.appendChild(cancelTaskFormButton);
+
+        // Append task data div and add task form buttons div to main container div
+        addTaskFormContainer.appendChild(taskDataDiv);
+        addTaskFormContainer.appendChild(addTaskFormButtonsDiv);
+
+        currentSectionTasksContainer.appendChild(addTaskFormContainer)
+    }
+}
 
 export function closeSidebarIfSmallScreen() {
     const sidebar = document.getElementById('sidebarMenu')

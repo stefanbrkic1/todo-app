@@ -16,7 +16,7 @@ export default function loadAllTasks() {
 
     currentTabName.textContent = 'All Tasks'
 
-    tasksListView.innerHTML = ''
+    //tasksListView.innerHTML = ''
     floatingActionButton.innerHTML = ''
     mainHeading.classList.remove('border-bottom')
     headerSection.className = ''
