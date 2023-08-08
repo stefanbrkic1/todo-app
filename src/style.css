@@ -861,6 +861,7 @@ body {
   padding: 0px 10px;
   border: 1px solid var(--hover-light);
   border-radius: 5px;
+  background-color: transparent;
 }
 
 
@@ -1006,6 +1007,10 @@ button{
   .cancel-task-btn{
     padding: 10px 0px;
     flex: 1;
+  }
+
+  .add-task-form-container{
+    border: 2px solid var(--hover-light);
   }
 
   .border-bottom{
