@@ -618,11 +618,11 @@ body {
   display: flex;
   align-items: center;
   padding-bottom: 6px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .left-task-side{
-  flex: 1;
+  flex: 6;
   display: flex;
   align-items: center;
   gap: 7px;
@@ -651,11 +651,11 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   box-sizing: border-box;
-  padding: 13px;
+  padding: 10px;
 }
 
 .important-btn:hover{
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .important-btn-active{
@@ -703,7 +703,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   box-sizing: border-box;
-  padding: 11px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -716,7 +716,7 @@ body {
 .add-task-container {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 4px;
   cursor: pointer;
   width: 100px;
 }
@@ -921,6 +921,10 @@ button{
   cursor: pointer;
 }
 
+.task-button-title{
+  font-size: 15rem;
+}
+
 /*Media Queries*/
 
 /* Smartphones (portrait and landscape) */
@@ -1072,16 +1076,9 @@ button{
   .task-description-input{
     border: 2px solid var(--hover-light);
   }
-  .left-task-side{
-    flex: 2;
-  }
-
-  .right-task-side{
-    gap: 6px;
-  }
 
   .date-task-container{
-    font-size: 13rem;
+    display: none;
   }
 }
 
