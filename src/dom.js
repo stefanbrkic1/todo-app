@@ -321,7 +321,7 @@ export class SectionHandler {
         sectionTasks.className = 'section-tasks';
 
         const formTaskContainer = document.createElement('div');
-        sectionTasks.className = 'form-task-container';
+        formTaskContainer.className = 'form-task-container';
 
         // Create the add task container
         const addTaskContainer = document.createElement('div');
@@ -412,6 +412,54 @@ export class TasksHandler {
         addTaskFormContainer.appendChild(addTaskFormButtonsDiv);
 
         currentSectionTasksContainer.appendChild(addTaskFormContainer)
+    }
+
+    createTaskHtml(currentSectionTasksHtml, task) {
+        // Create the main container div
+        const taskDiv = document.createElement('div');
+        taskDiv.classList.add('task');
+
+        // Create the left-task-side div
+        const leftTaskSideDiv = document.createElement('div');
+        leftTaskSideDiv.classList.add('left-task-side');
+
+        // Create the checkbox input
+        const checkboxInput = document.createElement('input');
+        checkboxInput.type = 'checkbox';
+        checkboxInput.classList.add('checkbox');
+
+        // Create the task title div
+        const taskTitleDiv = document.createElement('div');
+        taskTitleDiv.classList.add('task-title');
+        taskTitleDiv.textContent = task.description
+
+        // Append checkbox and task title to the left-task-side div
+        leftTaskSideDiv.appendChild(checkboxInput);
+        leftTaskSideDiv.appendChild(taskTitleDiv);
+
+        // Create the right-task-side div
+        const rightTaskSideDiv = document.createElement('div');
+        rightTaskSideDiv.classList.add('right-task-side');
+
+        // Create the date-task-container div
+        const dateTaskContainerDiv = document.createElement('div');
+        dateTaskContainerDiv.classList.add('date-task-container');
+        dateTaskContainerDiv.textContent = task.date
+
+        // Create the important button
+        const importantButton = document.createElement('button');
+        importantButton.type = 'button';
+        importantButton.classList.add('important-btn');
+
+        // Append date-task-container and important button to the right-task-side div
+        rightTaskSideDiv.appendChild(dateTaskContainerDiv);
+        rightTaskSideDiv.appendChild(importantButton);
+
+        // Append left-task-side and right-task-side to the main container div
+        taskDiv.appendChild(leftTaskSideDiv);
+        taskDiv.appendChild(rightTaskSideDiv);
+        
+        currentSectionTasksHtml.appendChild(taskDiv)
     }
 }
 

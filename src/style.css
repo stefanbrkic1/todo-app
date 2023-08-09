@@ -617,7 +617,49 @@ body {
 .task {
   display: flex;
   align-items: center;
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+}
+
+.left-task-side{
+  flex: 1;
+  display: flex;
+  align-items: center;
   gap: 7px;
+}
+
+.right-task-side{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 20px;
+}
+
+.date-task-container{
+  font-size: 15rem;
+  color: var(--hover-light);
+}
+
+.important-btn{
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-image: url(./img/important-disabled.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-sizing: border-box;
+  padding: 13px;
+}
+
+.important-btn:hover{
+  transform: scale(1.1);
+}
+
+.important-btn-active{
+  background-image: url(./img/important48x48.svg);
 }
 
 .task-title {
@@ -869,6 +911,15 @@ button{
   color: var(--hover-light);
 }
 
+.invalid-input{
+  border: 2px solid var(--tertiary-color-light) !important;
+}
+
+.checkbox{
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
 
 /*Media Queries*/
 
@@ -1020,6 +1071,17 @@ button{
 
   .task-description-input{
     border: 2px solid var(--hover-light);
+  }
+  .left-task-side{
+    flex: 2;
+  }
+
+  .right-task-side{
+    gap: 6px;
+  }
+
+  .date-task-container{
+    font-size: 13rem;
   }
 }
 

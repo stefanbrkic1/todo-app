@@ -21,13 +21,16 @@ export let allProjects = [
         sections: [
             {
                 sectionTitle: 'Routines',
+                tasks: [
+
+                ],
             },
             {
                 sectionTitle: 'Shopping',
-            },
-        ],
-        tasks: [
+                tasks: [
 
+                ],
+            },
         ],
     },
     {
@@ -35,13 +38,16 @@ export let allProjects = [
         sections: [
             {
                 sectionTitle: 'Presentations',
+                tasks: [
+
+                ],
             },
             {
                 sectionTitle: 'Interviews',
-            },
-        ],
-        tasks: [
+                tasks: [
             
+                ],
+            },
         ],
     },
 ]
