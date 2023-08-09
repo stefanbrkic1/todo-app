@@ -1,4 +1,4 @@
-import importantIcon from './img/important48x48.svg'
+import importantIcon from './img/important.svg'
 
 const tasksListView = document.getElementById('tasksListView')
 const mainHeading = document.getElementById('mainHeading')
