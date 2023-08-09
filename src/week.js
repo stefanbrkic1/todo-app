@@ -1,7 +1,6 @@
 import weekIcon from './img/thisweek48x48.svg'
 
 const tasksListView = document.getElementById('tasksListView')
-const mainHeading = document.getElementById('mainHeading')
 const headerSection = document.getElementById('headerSection')
 const floatingActionButton = document.getElementById('floatingActionButton')
 
@@ -18,7 +17,6 @@ export default function loadWeekTasks() {
 
     tasksListView.innerHTML = ''
     floatingActionButton.innerHTML = ''
-    mainHeading.classList.remove('border-bottom')
     headerSection.className = ''
     headerSection.classList.add('header-week')
 }
