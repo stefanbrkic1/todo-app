@@ -989,6 +989,7 @@ button{
 
   #dateInput{
     width: 100%;
+    border: 2px solid var(--hover-light);
   }
 
   .add-task-form-buttons{
@@ -1015,6 +1016,10 @@ button{
 
   .add-task-form-buttons{
     border-top: 2px solid var(--hover-light);
+  }
+
+  .task-description-input{
+    border: 2px solid var(--hover-light);
   }
 }
 
