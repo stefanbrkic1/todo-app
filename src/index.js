@@ -1,7 +1,7 @@
 import './style.css'
 import handleSidebar from './sidebar'
 import loadAllTasks from './alltasks';
-import { ModalHandler} from './dom';
+import { ModalHandler } from './dom';
 import { loadProjects, addProjectEvent, addProjectToolsSubmitEvent } from './projects';
 
 (function websiteHandler(){

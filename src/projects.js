@@ -2,6 +2,7 @@ import { ModalHandler, ProjectsHandler, ActiveHomeTabHandler } from './dom';
 import { loadActiveProject } from './project-loader';
 import { closeSidebarIfSmallScreen } from './dom'
 import { addSectionSubmitEvent, loadCurrentProjectSections } from './sections';
+import { loadAllSectionsTasks } from './tasks';
 
 const modalHandler = new ModalHandler(); 
 const projectsHandler = new ProjectsHandler();
@@ -150,8 +151,8 @@ export function addProjectToolsSubmitEvent() {
     deleteProjectButton.addEventListener('click', () => {
         const tabAllTasks = document.getElementById('tabAllTasks')
         if (currentProject) {
-            currentIndex = null
             allProjects.splice(currentIndex, 1)
+            currentIndex = null
             loadProjects();
             closeModalButtonDelete.click();
             tabAllTasks.click()
@@ -206,6 +207,7 @@ function handleProjectTabs(allProjects){
                 addSectionDeleteEvent()
                 loadCurrentProjectSections(currentProject)
                 addDeleteSectionButtonsEvent()
+                loadAllSectionsTasks(currentProject)
                 modalHandler.handleModals()
                 closeSidebarIfSmallScreen()
         })

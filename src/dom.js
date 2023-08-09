@@ -159,7 +159,7 @@ export class ModalHandler {
 
         document.getElementById("renameForm").addEventListener("submit", function (event) {
             event.preventDefault();
-            this.sectionNameInput.blur()
+            this.projectRenameInput.blur()
         });
 
         document.getElementById("addSectionForm").addEventListener("submit", function (event) {

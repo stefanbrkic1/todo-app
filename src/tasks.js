@@ -1,10 +1,8 @@
-import { add } from "date-fns";
-import { ModalHandler, TasksHandler } from "./dom";
+import { TasksHandler } from "./dom";
 import { currentProject } from "./projects";
 
 
 const tasksHandler = new TasksHandler(); 
-const modalHandler = new ModalHandler(); 
 
 class Task {
     constructor(description, date) {
@@ -108,6 +106,15 @@ function loadCurrentSectionTasks(currentSection, currentSectionTasksHtml){
     let currentSectionTasks = currentSection.tasks
     currentSectionTasks.forEach(task => {
         tasksHandler.createTaskHtml(currentSectionTasksHtml, task)
+    })
+}
+
+export function loadAllSectionsTasks(currentProject){
+    const allSectionTasksContainers = document.querySelectorAll('.section-tasks')
+    currentProject.sections.forEach((section, index) => {
+        section.tasks.forEach(task => {
+            tasksHandler.createTaskHtml(allSectionTasksContainers[index], task)
+        })
     })
 }
 
