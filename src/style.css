@@ -438,22 +438,6 @@ body {
   border-bottom: 1px solid var(--hover-light);
 }
 
-.add-task-btn {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 8px 0px 8px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 200ms ease-in-out;
-}
-
-.add-task-btn:hover {
-  background-color: var(--hover-light);
-}
-
 .modal {
   position: fixed;
   top: 50%;
@@ -678,6 +662,13 @@ body {
   background-size: contain;
   box-sizing: border-box;
   padding: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-task-btn-disabled{
+  background-image: url(./img/add-task-disabled.svg) !important;
 }
 
 .add-task-container {
@@ -871,6 +862,11 @@ button{
 
 .display-none{
   display: none;
+}
+
+.disabled-click{
+  pointer-events: none;
+  color: var(--hover-light);
 }
 
 

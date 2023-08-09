@@ -23,7 +23,9 @@ export function addTaskFormEvent(){
             let currentSectionTasksContainer = currentSectionHtmlElement.querySelector('.form-task-container')
             tasksHandler.createAddTaskFormHtml(currentSectionTasksContainer)
             addCancelButtonEvent(currentSectionTasksContainer)
-            removeAddTaskButtons(addTaskButtons)
+            let currentAddTaskButtonContainer = currentSectionHtmlElement.querySelector('.add-task-container')
+            currentAddTaskButtonContainer.classList.add('display-none')
+            removeAddTaskButtonsClick(addTaskButtons)
         })
     })
 }
@@ -43,9 +45,13 @@ function addCancelButtonEvent(currentSectionTasksContainer){
     })
 }
 
-function removeAddTaskButtons(addTaskButtons){
+function removeAddTaskButtonsClick(addTaskButtons){
     addTaskButtons.forEach(button => {
-        button.classList.add('display-none')
+        button.classList.add('disabled-click')
+    })
+    let addTaskIcons = document.querySelectorAll('.add-task-btn')
+    addTaskIcons.forEach(icon => {
+        icon.classList.add('add-task-btn-disabled')
     })
 }
 
@@ -53,7 +59,13 @@ function removeAddTaskButtons(addTaskButtons){
 function addAddTaskButtons(){
     const addTaskButtons = document.querySelectorAll('.add-task-container')
     addTaskButtons.forEach(button => {
+        button.classList.remove('disabled-click')
         button.classList.remove('display-none')
+    })
+
+    let addTaskIcons = document.querySelectorAll('.add-task-btn')
+    addTaskIcons.forEach(icon => {
+        icon.classList.remove('add-task-btn-disabled')
     })
 }
 
