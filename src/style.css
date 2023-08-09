@@ -1016,6 +1016,10 @@ button{
   .border-bottom{
     border-bottom: 2px solid var(--hover-light);
   }
+
+  .add-task-form-buttons{
+    border-top: 2px solid var(--hover-light);
+  }
 }
 
 /* Smartphones (portrait) */
