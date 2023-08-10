@@ -5,6 +5,10 @@ const headerSection = document.getElementById('headerSection')
 const floatingActionButton = document.getElementById('floatingActionButton')
 
 export default function loadWeekTasks() {
+    setWeekTab()
+}
+
+function setWeekTab(){
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
 

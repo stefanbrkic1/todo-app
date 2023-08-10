@@ -265,6 +265,40 @@ export class ProjectsHandler {
         mainHeadingRight.appendChild(btnRenameMain);
         mainHeadingRight.appendChild(btnDeleteMain);
     }
+
+    createProjectHtmlAllTasks(tasksListView, project) {
+        // Create the main container div
+        const projectTasksContainer = document.createElement('div');
+        projectTasksContainer.classList.add('project-tasks-container-all-tasks');
+
+        // Create the project header div
+        const projectHeaderDiv = document.createElement('div');
+        projectHeaderDiv.classList.add('project-all-tasks-header', 'flex', 'border-bottom');
+
+        // Create the project icon button
+        const projectIconButton = document.createElement('button');
+        projectIconButton.type = 'button';
+        projectIconButton.classList.add('project-icon-all-tasks');
+
+        // Create the project name div
+        const projectNameDiv = document.createElement('div');
+        projectNameDiv.classList.add('project-name-all-tasks');
+        projectNameDiv.textContent = project.name;
+
+        // Append project icon button and project name to the project header div
+        projectHeaderDiv.appendChild(projectIconButton);
+        projectHeaderDiv.appendChild(projectNameDiv);
+
+        // Create the tasks container div
+        const tasksContainerDiv = document.createElement('div');
+        tasksContainerDiv.classList.add('tasks-container-all-tasks');
+
+        // Append project header and tasks container to the main container div
+        projectTasksContainer.appendChild(projectHeaderDiv);
+        projectTasksContainer.appendChild(tasksContainerDiv);
+
+        tasksListView.appendChild(projectTasksContainer)
+    }
 }
 
 export class SectionHandler {
@@ -458,10 +492,12 @@ export class TasksHandler {
         // Append left-task-side and right-task-side to the main container div
         taskDiv.appendChild(leftTaskSideDiv);
         taskDiv.appendChild(rightTaskSideDiv);
-        
+
         currentSectionTasksHtml.appendChild(taskDiv)
     }
 }
+
+
 
 export function closeSidebarIfSmallScreen() {
     const sidebar = document.getElementById('sidebarMenu')

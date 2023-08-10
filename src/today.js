@@ -5,6 +5,10 @@ const headerSection = document.getElementById('headerSection')
 const floatingActionButton = document.getElementById('floatingActionButton')
 
 export default function loadTodayTasks() {
+  setTodayTab()
+}
+
+function setTodayTab(){
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
 

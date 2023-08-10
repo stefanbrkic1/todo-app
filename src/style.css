@@ -931,6 +931,36 @@ button{
   color: var(--text-light);
 }
 
+.project-tasks-container-all-tasks{
+  display: flex;
+  flex-direction: column;
+}
+
+.project-name-all-tasks{
+  color: var(--text-light);
+  font-size: 18rem;
+  font-family: 'TTBold';
+}
+
+.project-all-tasks-header{
+  box-sizing: border-box;
+  padding: 7px 0px;
+  margin-bottom: 14px;
+}
+
+.project-icon-all-tasks{
+  width: 24px;
+  height: 24px;
+  appearance: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  background-image: url(./img/project.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+}
+
 /*Media Queries*/
 
 /* Smartphones (portrait and landscape) */

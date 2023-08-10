@@ -5,6 +5,10 @@ const headerSection = document.getElementById('headerSection')
 const floatingActionButton = document.getElementById('floatingActionButton')
 
 export default function loadImportantTasks() {
+    setImportantTab()
+}
+
+function setImportantTab(){
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
 
