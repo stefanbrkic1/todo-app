@@ -1,7 +1,7 @@
 import { SectionHandler } from "./dom";
 import { currentProject, addDeleteSectionButtonsEvent } from "./projects";
 import { ModalHandler } from "./dom";
-import { addTaskFormCreationEvent } from "./tasks";
+import { addTaskFormCreationEvent, loadAllSectionsTasks } from "./tasks";
 
 const modalHandler = new ModalHandler(); 
 const sectionHandler = new SectionHandler(); 
@@ -39,6 +39,7 @@ export function addSectionSubmitEvent() {
             let newSection = new Section(sectionNameInput.value)    
             currentProject.sections.push(newSection)
             loadCurrentProjectSections(currentProject)
+            loadAllSectionsTasks(currentProject)
             addDeleteSectionButtonsEvent()
             closeModalButtonSection.click();
             modalHandler.handleModals();
