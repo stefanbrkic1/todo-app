@@ -259,6 +259,7 @@ export function addSectionDeleteEvent() {
         if (currentSectionIndex || currentSectionIndex === 0) {
             currentProject.sections.splice(currentSectionIndex, 1)
             loadCurrentProjectSections(currentProject)
+            loadAllSectionsTasks(currentProject)
             closeModalButtonDeleteSection.click();
             modalHandler.handleModals();
             modalHandler.changeModalPositionIfKeyboardOpened()
