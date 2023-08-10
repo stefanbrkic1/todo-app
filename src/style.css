@@ -958,7 +958,25 @@ button{
   background-image: url(./img/project.svg);
   background-repeat: no-repeat;
   background-size: contain;
+  pointer-events: nonecio;
+}
+
+.tasks-container-all-tasks{
+  margin-bottom: 15px;
+}
+
+.no-tasks-message{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15rem;
+  color: var(--hover-light);
+  border: 1px solid var(--hover-light);
+  width: 110px;
+  border-radius: 5px;
   pointer-events: none;
+  box-sizing: border-box;
+  padding: 3px 0px;
 }
 
 /*Media Queries*/

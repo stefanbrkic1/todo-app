@@ -495,6 +495,14 @@ export class TasksHandler {
 
         currentSectionTasksHtml.appendChild(taskDiv)
     }
+
+    displayNoTasksMessage(currentProjectWithNoTasksHtml){
+        const div = document.createElement('div')
+        div.classList.add('no-tasks-message')
+        div.textContent = `No tasks here`
+
+        currentProjectWithNoTasksHtml.appendChild(div)
+    }
 }
 
 

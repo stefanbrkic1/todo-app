@@ -10,16 +10,28 @@ const headerSection = document.getElementById('headerSection')
 const floatingActionButton = document.getElementById('floatingActionButton')
 
 export default function loadAllTasks() {
-    setAllTasksTab()
+    setAllTasksTab();
     allProjects.forEach((project, projectIndex) => {
-        projectsHandler.createProjectHtmlAllTasks(tasksListView, project)
+        projectsHandler.createProjectHtmlAllTasks(tasksListView, project);
+        const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
+        
+        let hasTasks = false; // Track if there are tasks in the project
+        
         project.sections.forEach(section => {
-            section.tasks.forEach(task => {
-                const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks')
-                tasksHandler.createTaskHtml(tasksContainerAllTasks[projectIndex], task)
-            })
-        })
-    })
+            if (section.tasks.length === 0) {
+               
+            } else {
+                hasTasks = true; // Mark that there are tasks in this project
+                section.tasks.forEach(task => {
+                    tasksHandler.createTaskHtml(tasksContainerAllTasks[projectIndex], task);
+                });
+            }
+        });
+        
+        if (!hasTasks) {
+            tasksHandler.displayNoTasksMessage(tasksContainerAllTasks[projectIndex]);
+        }
+    });
 }
 
 function setAllTasksTab(){
