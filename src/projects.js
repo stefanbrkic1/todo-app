@@ -1,4 +1,5 @@
-import { ModalHandler, ProjectsHandler, ActiveHomeTabHandler } from './dom';
+import { ModalHandler, ProjectsHandler } from './dom';
+import { ActiveHomeTabHandler } from './tabs';
 import { loadActiveProject } from './project-loader';
 import { closeSidebarIfSmallScreen } from './dom'
 import { addSectionSubmitEvent, loadCurrentProjectSections } from './sections';

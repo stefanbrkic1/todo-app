@@ -1,68 +1,4 @@
-import loadAllTasks from "./alltasks";
-import loadTodayTasks from "./today";
-import loadWeekTasks from "./week";
-import loadImportantTasks from "./important";
 import projectIcon from './img/project.svg'
-
-export class ActiveHomeTabHandler {
-    constructor() {
-
-    }
-
-    handleTabsClick() {
-        this.homeTabs = document.querySelectorAll('.sidebar-item');
-        this.projectTabs = document.querySelectorAll('.sidebar-project');
-        this.homeTabs.forEach(tab => {
-            tab.addEventListener('click', (e) => {
-                const mainHeadingRight = document.getElementById('mainHeadingRight')
-                mainHeadingRight.innerHTML = ''
-                let target = e.target;
-                while (target && !target.classList.contains('sidebar-item')) {
-                    target = target.parentNode;
-                }
-                this.setActiveTab(target);
-                this.openActiveTab(target)
-            });
-        });
-    }
-
-    setActiveTab(target) {
-        this.homeTabs.forEach(tab => {
-            tab.classList.remove('sidebar-item-active');
-        });
-        this.projectTabs.forEach(tab => {
-            tab.classList.remove('sidebar-item-active');
-        });
-        target.classList.add('sidebar-item-active');
-    }
-
-    openActiveTab(target) {
-        switch (target.id) {
-            case 'tabAllTasks':
-                loadAllTasks();
-                closeSidebarIfSmallScreen()
-                break;
-
-            case 'tabToday':
-                loadTodayTasks();
-                closeSidebarIfSmallScreen()
-                break;
-
-            case 'tabThisWeek':
-                loadWeekTasks();
-                closeSidebarIfSmallScreen()
-                break;
-
-            case 'tabImportant':
-                loadImportantTasks();
-                closeSidebarIfSmallScreen()
-                break;
-
-            default:
-                break
-        }
-    }
-}
 
 export class ModalHandler {
     constructor() {
@@ -485,6 +421,14 @@ export class TasksHandler {
         importantButton.type = 'button';
         importantButton.classList.add('important-btn');
 
+        //Create active task if has true for important state
+        if(task.important === true){
+            importantButton.classList.add('important-btn-active')
+        }
+        else{
+            
+        }
+
         // Append date-task-container and important button to the right-task-side div
         rightTaskSideDiv.appendChild(dateTaskContainerDiv);
         rightTaskSideDiv.appendChild(importantButton);
@@ -504,8 +448,6 @@ export class TasksHandler {
         currentProjectWithNoTasksHtml.appendChild(div)
     }
 }
-
-
 
 export function closeSidebarIfSmallScreen() {
     const sidebar = document.getElementById('sidebarMenu')

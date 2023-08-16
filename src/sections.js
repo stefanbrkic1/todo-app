@@ -1,7 +1,7 @@
 import { SectionHandler } from "./dom";
 import { currentProject, addDeleteSectionButtonsEvent } from "./projects";
 import { ModalHandler } from "./dom";
-import { addTaskFormCreationEvent, loadAllSectionsTasks } from "./tasks";
+import { addTaskFormCreationEvent, loadAllSectionsTasks, getCurrentSectionIndex, addImportantButtonEvent } from "./tasks";
 
 const modalHandler = new ModalHandler(); 
 const sectionHandler = new SectionHandler(); 
@@ -57,4 +57,6 @@ export function loadCurrentProjectSections(currentProject){
         sectionHandler.createSectionHtml(section)
     })
     addTaskFormCreationEvent()
+    getCurrentSectionIndex()
 }
+

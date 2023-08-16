@@ -1,6 +1,6 @@
+import { add } from "date-fns";
 import { TasksHandler } from "./dom";
-import { currentProject } from "./projects";
-
+import { allProjects, currentProject } from "./projects";
 
 const tasksHandler = new TasksHandler(); 
 
@@ -8,6 +8,7 @@ class Task {
     constructor(description, date) {
         this.description = description;
         this.date = date;
+        this.important = false;
     }
 }
 
@@ -86,7 +87,7 @@ function addTaskSubmitEvent(){
             let newTask = new Task(taskDescriptionInput.value, dateInput.value)
             let currentSection = currentProject.sections[currentSectionIndex]
             currentSection.tasks.push(newTask)
-            loadCurrentSectionTasks(currentSection, currentSectionTasksHtml)
+            loadAllSectionsTasks(currentProject)
             cancelTaskFormButton.click()
         }
     })
@@ -101,22 +102,57 @@ function addTaskSubmitEvent(){
     })
 }
 
-function loadCurrentSectionTasks(currentSection, currentSectionTasksHtml){
-    currentSectionTasksHtml.innerHTML = ''
-    let currentSectionTasks = currentSection.tasks
-    currentSectionTasks.forEach(task => {
-        tasksHandler.createTaskHtml(currentSectionTasksHtml, task)
-    })
-}
-
 export function loadAllSectionsTasks(currentProject){
     const allSectionTasksContainers = document.querySelectorAll('.section-tasks')
+    allSectionTasksContainers.forEach(container => {
+        container.innerHTML = ''
+    })
     currentProject.sections.forEach((section, index) => {
         section.tasks.forEach(task => {
             tasksHandler.createTaskHtml(allSectionTasksContainers[index], task)
         })
     })
+    addImportantButtonEvent()
 }
 
+let clickedSectionIndex = null
 
+export function getCurrentSectionIndex(){
+    const allSectionsHtml = document.querySelectorAll('.section')
+    allSectionsHtml.forEach((section, index) => {
+        section.addEventListener('click', () => {
+            clickedSectionIndex = index
+        })
+    })
+}
+
+export function addImportantButtonEvent(){
+    const allSectionsHtml = document.querySelectorAll('.section')
+    allSectionsHtml.forEach(section => {
+        let sectionImportantButtons = section.querySelectorAll('.important-btn')
+        sectionImportantButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                setTimeout(() => {
+                    if(!button.classList.contains('important-btn-active')){
+                        setTaskAsImportant(button, index)
+                    }
+                    else if(button.classList.contains('important-btn-active')){
+                        setTaskAsUnimportant(button, index)
+                    }
+                })
+                }, 500);
+        })
+    })
+}
+
+function setTaskAsImportant(clickedButton, index){
+    clickedButton.classList.add('important-btn-active')
+    currentProject.sections[clickedSectionIndex].tasks[index].important = true
+}
+
+function setTaskAsUnimportant(clickedButton, index){
+    console.log('clicked')
+    clickedButton.classList.remove('important-btn-active')
+    currentProject.sections[clickedSectionIndex].tasks[index].important = false
+}
 
