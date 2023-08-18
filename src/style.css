@@ -989,7 +989,7 @@ button{
 }
 
 .no-tasks-img{
-  width: 300px;
+  width: 280px;
 }
 
 .no-tasks-img-text{
@@ -1158,6 +1158,10 @@ button{
   .no-tasks-img-text{
     font-size: 17rem;
     padding: 0px 10px;
+  }
+
+  .no-tasks-img{
+    width: 200px;
   }
 }
 
