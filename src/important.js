@@ -1,6 +1,7 @@
 import { allProjects } from './projects';
 import importantIcon from './img/important.svg'
 import { TasksHandler } from './dom'
+import noTasksIconImportant from './img/important-no-tasks.png'
 
 const tasksHandler = new TasksHandler()
 const tasksListView = document.getElementById('tasksListView')
@@ -21,7 +22,7 @@ export default function loadImportantTasks() {
             })
         })
     })
-    
+    displayNoTasksImage()
 }
 
 function setImportantTab(){
@@ -39,4 +40,24 @@ function setImportantTab(){
     floatingActionButton.innerHTML = ''
     headerSection.className = ''
     headerSection.classList.add('header-important')
+
+}
+
+function displayNoTasksImage(){
+    if(tasksListView.innerHTML === ''){
+        const container = document.createElement('div')
+        container.classList.add('no-tasks-img-container')
+
+        const noTasksImageImportant = new Image()
+        noTasksImageImportant.src = noTasksIconImportant
+        noTasksImageImportant.classList.add('no-tasks-img')
+
+        const text = document.createElement('div')
+        text.textContent = `You don't have any important tasks`
+        text.classList.add('no-tasks-img-text')
+
+        container.appendChild(noTasksImageImportant)
+        container.appendChild(text)
+        tasksListView.appendChild(container)
+    }
 }
