@@ -2,7 +2,7 @@ import {isThisWeek, startOfWeek, addDays, format}  from 'date-fns'
 import weekIcon from './img/thisweek48x48.svg'
 import { allProjects } from './projects'
 import { TasksHandler } from './dom'
-import noTasksIconImportant from './img/important-no-tasks.png'
+import noTasksIconThisWeek from './img/this-week-no-tasks.png'
 
 const tasksHandler = new TasksHandler()
 const tasksListView = document.getElementById('tasksListView')
@@ -67,15 +67,15 @@ function displayNoTasksImage(){
         const container = document.createElement('div')
         container.classList.add('no-tasks-img-container')
 
-        const noTasksImageImportant = new Image()
-        noTasksImageImportant.src = noTasksIconImportant
-        noTasksImageImportant.classList.add('no-tasks-img')
+        const noTasksImageThisWeek = new Image()
+        noTasksImageThisWeek.src = noTasksIconThisWeek
+        noTasksImageThisWeek.classList.add('no-tasks-img')
 
         const text = document.createElement('div')
         text.textContent = `You don't have any tasks for this week`
         text.classList.add('no-tasks-img-text')
 
-        container.appendChild(noTasksImageImportant)
+        container.appendChild(noTasksImageThisWeek)
         container.appendChild(text)
         tasksListView.appendChild(container)
     }
