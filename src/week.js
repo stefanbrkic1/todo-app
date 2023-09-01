@@ -9,12 +9,15 @@ const tasksListView = document.getElementById('tasksListView')
 const headerSection = document.getElementById('headerSection')
 const floatingActionButton = document.getElementById('floatingActionButton')
 
+let fullDateString = null
+
 export default function loadWeekTasks() {
     setWeekTab()
     allProjects.forEach(project => {
         project.sections.forEach(section => {
             section.tasks.forEach(task => {
                 if(taskHasDateForThisWeek(task.date)){
+                    tasksHandler.createDateDisplay(tasksListView, fullDateString)
                     tasksHandler.createTaskHtml(tasksListView, task)
                 }
                 else{
@@ -43,8 +46,10 @@ function setWeekTab(){
     const formattedStartDate = format(thisWeekStart, 'MM/dd/yyyy');
     const formattedEndDate = format(thisWeekEnd, 'MM/dd/yyyy');
 
+    fullDateString = `Week: ${formattedStartDate} - ${formattedEndDate}`
+
     currentTabName.textContent = 'This Week'
-    mainHeadingRight.textContent = `${formattedStartDate} - ${formattedEndDate}`
+    tasksHandler.createRightDateDisplay(mainHeadingRight, fullDateString)
 
     tasksListView.innerHTML = ''
     floatingActionButton.innerHTML = ''

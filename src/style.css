@@ -1001,6 +1001,15 @@ button{
   text-align: center;
 }
 
+.this-week-date{
+  display: none;
+  padding: 0px 0px 20px 0px;
+}
+
+.date-heading-right{
+  display: block;
+}
+
 /*Media Queries*/
 
 /* Smartphones (portrait and landscape) */
@@ -1164,6 +1173,15 @@ button{
 
   .no-tasks-img{
     width: 200px;
+  }
+
+  .this-week-date{
+    display: block;
+    color: var(--hover-light);
+  }
+
+  .date-heading-right{
+    display: none;
   }
 }
 

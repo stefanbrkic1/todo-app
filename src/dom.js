@@ -447,6 +447,20 @@ export class TasksHandler {
 
         currentProjectWithNoTasksHtml.appendChild(div)
     }
+
+    createDateDisplay(tasksListView, fullDateString){
+        const div = document.createElement('div')
+        div.classList.add('this-week-date')
+        div.textContent = fullDateString
+        tasksListView.appendChild(div)
+    }
+
+    createRightDateDisplay(mainHeadingRight, fullDateString){
+        const div = document.createElement('div')
+        div.classList.add('date-heading-right')
+        div.textContent = fullDateString
+        mainHeadingRight.appendChild(div)
+    }
 }
 
 export function closeSidebarIfSmallScreen() {
