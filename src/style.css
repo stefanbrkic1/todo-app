@@ -767,6 +767,8 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  font-size: 16rem;
+  color: var(--text-light);
 }
 
 .add-section-button {

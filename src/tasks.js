@@ -1,6 +1,6 @@
-import { add } from "date-fns";
+import { format } from "date-fns";
 import { TasksHandler } from "./dom";
-import { allProjects, currentProject } from "./projects";
+import {currentProject } from "./projects";
 
 const tasksHandler = new TasksHandler(); 
 
@@ -84,7 +84,12 @@ function addTaskSubmitEvent(){
             return
         }
         else{
-            let newTask = new Task(taskDescriptionInput.value, dateInput.value)
+            const dateArr = dateInput.value.split('-')
+            const year = dateArr[0]
+            const month = dateArr[1]
+            const day = dateArr[2]
+            const formattedDate = `${month}/${day}/${year}`
+            const newTask = new Task(taskDescriptionInput.value, formattedDate)
             let currentSection = currentProject.sections[currentSectionIndex]
             currentSection.tasks.push(newTask)
             loadAllSectionsTasks(currentProject)
@@ -151,7 +156,6 @@ function setTaskAsImportant(clickedButton, index){
 }
 
 function setTaskAsUnimportant(clickedButton, index){
-    console.log('clicked')
     clickedButton.classList.remove('important-btn-active')
     currentProject.sections[clickedSectionIndex].tasks[index].important = false
 }
