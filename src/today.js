@@ -38,7 +38,7 @@ function setTodayTab(){
     currentTabIcon.appendChild(svgToday)
 
     const todayDate = new Date()
-    const todayDateString =  format(todayDate, 'MMMM/dd/yyyy');
+    const todayDateString =  `Date: ${format(todayDate, 'MMMM/dd/yyyy')}`;
 
     currentTabName.textContent = 'Today'
     tasksHandler.createRightDateDisplay(mainHeadingRight, todayDateString)
