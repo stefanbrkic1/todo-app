@@ -1,6 +1,6 @@
 import {format, isToday}  from 'date-fns'
 import todayIcon from './img/today48x48.svg'
-import noTasksIconThisWeek from './img/this-week-no-tasks.png'
+import noTasksIconToday from './img/today-no-tasks.png'
 import { TasksHandler } from './dom'
 import { allProjects } from './projects'
 
@@ -67,15 +67,15 @@ function displayNoTasksImage(){
       const container = document.createElement('div')
       container.classList.add('no-tasks-img-container')
 
-      const noTasksImageThisWeek = new Image()
-      noTasksImageThisWeek.src = noTasksIconThisWeek
-      noTasksImageThisWeek.classList.add('no-tasks-img')
+      const noTasksImageToday = new Image()
+      noTasksImageToday.src = noTasksIconToday
+      noTasksImageToday.classList.add('no-tasks-img-today')
 
       const text = document.createElement('div')
       text.textContent = `You don't have any tasks for today`
       text.classList.add('no-tasks-img-text')
 
-      container.appendChild(noTasksImageThisWeek)
+      container.appendChild(noTasksImageToday)
       container.appendChild(text)
       tasksListView.appendChild(container)
   }
