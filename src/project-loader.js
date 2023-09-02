@@ -7,6 +7,7 @@ const headerSection = document.getElementById('headerSection')
 export function loadActiveProject(currentProjectTab){
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
+    const dateDisplayer = document.querySelector('.date-displayer')
 
     const svgProject = new Image()
     svgProject.src = projectIcon;
