@@ -77,7 +77,7 @@ function displayNoTasksImage(){
 
         const noTasksImageThisWeek = new Image()
         noTasksImageThisWeek.src = noTasksIconThisWeek
-        noTasksImageThisWeek.classList.add('no-tasks-img')
+        noTasksImageThisWeek.classList.add('no-tasks-img-week')
 
         const text = document.createElement('div')
         text.textContent = `You don't have any tasks for this week`

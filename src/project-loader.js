@@ -15,6 +15,7 @@ export function loadActiveProject(currentProjectTab){
 
     currentTabName.textContent = `${currentProjectTab.name}`
 
+    dateDisplayer.innerHTML = ''
     sectionHandler.createAddSectionButtonHtml()
     headerSection.className = ''
     headerSection.classList.add('header-project')
