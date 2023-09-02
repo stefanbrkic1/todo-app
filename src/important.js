@@ -28,6 +28,7 @@ export default function loadImportantTasks() {
 function setImportantTab(){
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
+    const dateDisplayer = document.querySelector('.date-displayer')
 
     const svgImportant = new Image()
     svgImportant.src = importantIcon;
@@ -37,6 +38,7 @@ function setImportantTab(){
     currentTabName.textContent = 'Important'
 
     tasksListView.innerHTML = ''
+    dateDisplayer.innerHTML = ''
     floatingActionButton.innerHTML = ''
     headerSection.className = ''
     headerSection.classList.add('header-important')

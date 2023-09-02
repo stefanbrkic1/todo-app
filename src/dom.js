@@ -448,11 +448,11 @@ export class TasksHandler {
         currentProjectWithNoTasksHtml.appendChild(div)
     }
 
-    createDateDisplay(tasksListView, fullDateString){
+    createDateDisplay(dateDisplayer, fullDateString){
         const div = document.createElement('div')
         div.classList.add('this-week-date')
         div.textContent = fullDateString
-        tasksListView.appendChild(div)
+        dateDisplayer.appendChild(div)
     }
 
     createRightDateDisplay(mainHeadingRight, fullDateString){

@@ -11,6 +11,7 @@ export default function loadTodayTasks() {
 function setTodayTab(){
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
+    const dateDisplayer = document.querySelector('.date-displayer')
 
     const svgToday = new Image()
     svgToday.src = todayIcon;
@@ -20,6 +21,7 @@ function setTodayTab(){
     currentTabName.textContent = 'Today'
 
     tasksListView.innerHTML = ''
+    dateDisplayer.innerHTML = ''
     floatingActionButton.innerHTML = ''
     headerSection.className = ''
     headerSection.classList.add('header-today')

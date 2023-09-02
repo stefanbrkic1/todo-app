@@ -37,6 +37,7 @@ export default function loadAllTasks() {
 function setAllTasksTab(){
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
+    const dateDisplayer = document.querySelector('.date-displayer')
   
     const svgAllTasks = new Image()
     svgAllTasks.src = allTasksIcon;
@@ -46,6 +47,7 @@ function setAllTasksTab(){
     currentTabName.textContent = 'All Tasks'
 
     tasksListView.innerHTML = ''
+    dateDisplayer.innerHTML = ''
     floatingActionButton.innerHTML = ''
     headerSection.className = ''
     headerSection.classList.add('header-all-tasks')

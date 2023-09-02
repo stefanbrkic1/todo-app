@@ -17,7 +17,6 @@ export default function loadWeekTasks() {
         project.sections.forEach(section => {
             section.tasks.forEach(task => {
                 if(taskHasDateForThisWeek(task.date)){
-                    tasksHandler.createDateDisplay(tasksListView, fullDateString)
                     tasksHandler.createTaskHtml(tasksListView, task)
                 }
                 else{
@@ -33,6 +32,7 @@ function setWeekTab(){
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
     const mainHeadingRight = document.getElementById('mainHeadingRight')
+    const dateDisplayer = document.querySelector('.date-displayer')
 
     const svgWeek = new Image()
     svgWeek.src = weekIcon;
@@ -50,6 +50,9 @@ function setWeekTab(){
 
     currentTabName.textContent = 'This Week'
     tasksHandler.createRightDateDisplay(mainHeadingRight, fullDateString)
+    
+    dateDisplayer.innerHTML = ''
+    tasksHandler.createDateDisplay(dateDisplayer, fullDateString)
 
     tasksListView.innerHTML = ''
     floatingActionButton.innerHTML = ''

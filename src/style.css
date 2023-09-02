@@ -421,8 +421,6 @@ body {
 }
 
 .tasks-container {
-  display: grid;
-  grid-template-rows: minmax(60px, 60px) 1fr;
   height: 100%;
 }
 
@@ -612,6 +610,7 @@ body {
   box-sizing: border-box;
   padding: 30px 70px 90px 70px;
   overflow-y: auto;
+  height: 100%;
 }
 
 .task {
@@ -1003,12 +1002,20 @@ button{
 
 .this-week-date{
   display: none;
-  padding: 0px 0px 20px 0px;
+  color: var(--hover-light);
+  font-size: 16rem;
 }
 
 .date-heading-right{
   display: block;
+  color: var(--hover-light);
 }
+
+.date-displayer{
+  padding: 10px 0px 0px 0px;
+}
+
+
 
 /*Media Queries*/
 
@@ -1108,7 +1115,7 @@ button{
   }
 
   .tasks-list-view {
-    padding: 30px 20px 90px 20px;
+    padding: 20px 20px 90px 20px;
   }
 
   .delete-question {
@@ -1177,7 +1184,6 @@ button{
 
   .this-week-date{
     display: block;
-    color: var(--hover-light);
   }
 
   .date-heading-right{
