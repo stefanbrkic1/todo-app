@@ -202,7 +202,7 @@ export class ProjectsHandler {
         mainHeadingRight.appendChild(btnDeleteMain);
     }
 
-    createProjectHtmlAllTasks(tasksListView, project) {
+    createProjectHtmlForTabs(tasksListView, project) {
         // Create the main container div
         const projectTasksContainer = document.createElement('div');
         projectTasksContainer.classList.add('project-tasks-container-all-tasks');
@@ -210,19 +210,12 @@ export class ProjectsHandler {
         // Create the project header div
         const projectHeaderDiv = document.createElement('div');
         projectHeaderDiv.classList.add('project-all-tasks-header', 'flex', 'border-bottom');
-
-        // Create the project icon button
-        const projectIconButton = document.createElement('button');
-        projectIconButton.type = 'button';
-        projectIconButton.classList.add('project-icon-all-tasks');
-
+        
         // Create the project name div
         const projectNameDiv = document.createElement('div');
         projectNameDiv.classList.add('project-name-all-tasks');
-        projectNameDiv.textContent = project.name;
+        projectNameDiv.textContent = `Project (${project.name})`;
 
-        // Append project icon button and project name to the project header div
-        projectHeaderDiv.appendChild(projectIconButton);
         projectHeaderDiv.appendChild(projectNameDiv);
 
         // Create the tasks container div

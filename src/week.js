@@ -1,10 +1,12 @@
 import {isThisWeek, startOfWeek, addDays, format}  from 'date-fns'
 import weekIcon from './img/thisweek48x48.svg'
 import { allProjects } from './projects'
-import { TasksHandler } from './dom'
+import { TasksHandler, ProjectsHandler} from './dom'
 import noTasksIconThisWeek from './img/this-week-no-tasks.png'
 
 const tasksHandler = new TasksHandler()
+const projectsHandler = new ProjectsHandler()
+
 const tasksListView = document.getElementById('tasksListView')
 const headerSection = document.getElementById('headerSection')
 const floatingActionButton = document.getElementById('floatingActionButton')
@@ -13,18 +15,30 @@ let fullDateString = null
 
 export default function loadWeekTasks() {
     setWeekTab()
-    allProjects.forEach(project => {
+    allProjects.forEach((project, projectIndex) => {
+        let projectHtmlCreated = false; // Track if project HTML has been created
+    
         project.sections.forEach(section => {
+          if (section.tasks.length === 0) {
+            // Handle empty section
+          } else {
+            if (!projectHtmlCreated) {
+              // Create project HTML only once for each project if it has tasks
+              projectsHandler.createProjectHtmlForTabs(tasksListView, project);
+              projectHtmlCreated = true; // Set the flag to true to prevent further creation
+            }
+    
             section.tasks.forEach(task => {
-                if(taskHasDateForThisWeek(task.date)){
-                    tasksHandler.createTaskHtml(tasksListView, task)
-                }
-                else{
-                    return
-                }
-            })
-        })
-    })
+              if (taskHasDateForThisWeek(task.date)) {
+                const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
+                tasksHandler.createTaskHtml(tasksContainerAllTasks[projectIndex], task);
+              } else {
+                return;
+              }
+            });
+          }
+        });
+      });
     displayNoTasksImage()
 }
 

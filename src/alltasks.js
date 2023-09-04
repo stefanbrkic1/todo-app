@@ -14,7 +14,7 @@ export default function loadAllTasks() {
     setAllTasksTab();
     let tasksLength = 0
     allProjects.forEach((project, projectIndex) => {
-        projectsHandler.createProjectHtmlAllTasks(tasksListView, project);
+        projectsHandler.createProjectHtmlForTabs(tasksListView, project);
         const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
         
         let hasTasks = false; // Track if there are tasks in the project
