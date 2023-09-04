@@ -8,9 +8,11 @@ const projectsHandler = new ProjectsHandler()
 const tasksListView = document.getElementById('tasksListView')
 const headerSection = document.getElementById('headerSection')
 const floatingActionButton = document.getElementById('floatingActionButton')
+const dateDisplayer = document.querySelector('.date-displayer')
 
 export default function loadAllTasks() {
     setAllTasksTab();
+    let tasksLength = 0
     allProjects.forEach((project, projectIndex) => {
         projectsHandler.createProjectHtmlAllTasks(tasksListView, project);
         const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
@@ -24,6 +26,7 @@ export default function loadAllTasks() {
                 hasTasks = true; // Mark that there are tasks in this project
                 section.tasks.forEach(task => {
                     tasksHandler.createTaskHtml(tasksContainerAllTasks[projectIndex], task);
+                    tasksLength++
                 });
             }
         });
@@ -32,12 +35,12 @@ export default function loadAllTasks() {
             tasksHandler.displayNoTasksMessage(tasksContainerAllTasks[projectIndex]);
         }
     });
+    displayImportantTasksLength(tasksLength)
 }
 
 function setAllTasksTab(){
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
-    const dateDisplayer = document.querySelector('.date-displayer')
   
     const svgAllTasks = new Image()
     svgAllTasks.src = allTasksIcon;
@@ -51,4 +54,18 @@ function setAllTasksTab(){
     floatingActionButton.innerHTML = ''
     headerSection.className = ''
     headerSection.classList.add('header-all-tasks')
+}
+
+
+function displayImportantTasksLength(tasksLength){
+    let tasksString = 'tasks'
+    const lengthArr = tasksLength.toString().split('')
+    if( lengthArr[lengthArr.length - 1] === '1' ){
+        tasksString = 'task'
+    }
+    const lengthString =  `TasksCount: ${tasksLength} ${tasksString}.`
+    tasksHandler.createRightDateDisplay(mainHeadingRight, lengthString)
+    
+    dateDisplayer.innerHTML = ''
+    tasksHandler.createDateDisplay(dateDisplayer, lengthString)
 }

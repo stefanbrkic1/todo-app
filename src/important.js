@@ -7,14 +7,17 @@ const tasksHandler = new TasksHandler()
 const tasksListView = document.getElementById('tasksListView')
 const headerSection = document.getElementById('headerSection')
 const floatingActionButton = document.getElementById('floatingActionButton')
+const dateDisplayer = document.querySelector('.date-displayer')
 
 export default function loadImportantTasks() {
     setImportantTab()
+    let tasksLength = 0
     allProjects.forEach(project => {
         project.sections.forEach(section => {
             section.tasks.forEach(task => {
                 if(task.important === true){
                     tasksHandler.createTaskHtml(tasksListView, task)
+                    tasksLength++
                 }
                 else{
                     return
@@ -22,13 +25,13 @@ export default function loadImportantTasks() {
             })
         })
     })
+    displayImportantTasksLength(tasksLength)
     displayNoTasksImage()
 }
 
 function setImportantTab(){
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
-    const dateDisplayer = document.querySelector('.date-displayer')
 
     const svgImportant = new Image()
     svgImportant.src = importantIcon;
@@ -55,11 +58,24 @@ function displayNoTasksImage(){
         noTasksImageImportant.classList.add('no-tasks-img')
 
         const text = document.createElement('div')
-        text.textContent = `You don't have any important tasks`
+        text.textContent = `You don't have any important tasks!`
         text.classList.add('no-tasks-img-text')
 
         container.appendChild(noTasksImageImportant)
         container.appendChild(text)
         tasksListView.appendChild(container)
     }
+}
+
+function displayImportantTasksLength(tasksLength){
+    let tasksString = 'tasks'
+    const lengthArr = tasksLength.toString().split('')
+    if( lengthArr[lengthArr.length - 1] === '1' ){
+        tasksString = 'task'
+    }
+    const lengthString =  `TasksCount: ${tasksLength} ${tasksString}.`
+    tasksHandler.createRightDateDisplay(mainHeadingRight, lengthString)
+
+    dateDisplayer.innerHTML = ''
+    tasksHandler.createDateDisplay(dateDisplayer, lengthString)
 }
