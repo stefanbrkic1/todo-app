@@ -1,8 +1,8 @@
 import { format } from "date-fns";
 import { TasksHandler } from "./dom";
-import {currentProject } from "./projects";
+import { currentProject } from "./projects";
 
-const tasksHandler = new TasksHandler(); 
+const tasksHandler = new TasksHandler();
 
 class Task {
     constructor(description, date) {
@@ -15,7 +15,7 @@ class Task {
 let currentSectionIndex = null
 let currentSectionTasksHtml = null
 
-export function addTaskFormCreationEvent(){
+export function addTaskFormCreationEvent() {
     const addTaskButtons = document.querySelectorAll('.add-task-container')
     addTaskButtons.forEach((button, index) => {
         button.addEventListener('click', (e) => {
@@ -34,7 +34,7 @@ export function addTaskFormCreationEvent(){
     })
 }
 
-function addCancelButtonEvent(currentSectionTasksContainer){
+function addCancelButtonEvent(currentSectionTasksContainer) {
     const cancelTaskFormButton = document.getElementById('cancelTaskFormButton')
     cancelTaskFormButton.addEventListener('click', () => {
         let addTaskForm = currentSectionTasksContainer.querySelector('.add-task-form-container');
@@ -45,7 +45,7 @@ function addCancelButtonEvent(currentSectionTasksContainer){
     })
 }
 
-function removeAddTaskButtonsClick(addTaskButtons){
+function removeAddTaskButtonsClick(addTaskButtons) {
     addTaskButtons.forEach(button => {
         button.classList.add('disabled-click')
     })
@@ -56,7 +56,7 @@ function removeAddTaskButtonsClick(addTaskButtons){
 }
 
 
-function addAddTaskButtons(){
+function addAddTaskButtons() {
     const addTaskButtons = document.querySelectorAll('.add-task-container')
     addTaskButtons.forEach(button => {
         button.classList.remove('disabled-click')
@@ -69,21 +69,21 @@ function addAddTaskButtons(){
     })
 }
 
-function addTaskSubmitEvent(){
+function addTaskSubmitEvent() {
     const addTaskFormButton = document.getElementById('addTaskFormButton')
     const taskDescriptionInput = document.getElementById('taskDescriptionInput')
     const dateInput = document.getElementById('dateInput')
     const cancelTaskFormButton = document.getElementById('cancelTaskFormButton')
     addTaskFormButton.addEventListener('click', () => {
-        if(taskDescriptionInput.value === ''){
+        if (taskDescriptionInput.value === '') {
             taskDescriptionInput.classList.add('invalid-input')
             return
         }
-        else if(dateInput.value === ''){
+        else if (dateInput.value === '') {
             dateInput.classList.add('invalid-input')
             return
         }
-        else{
+        else {
             const dateArr = dateInput.value.split('-')
             const year = dateArr[0]
             const month = dateArr[1]
@@ -107,7 +107,7 @@ function addTaskSubmitEvent(){
     })
 }
 
-export function loadAllSectionsTasks(currentProject){
+export function loadAllSectionsTasks(currentProject) {
     const allSectionTasksContainers = document.querySelectorAll('.section-tasks')
     allSectionTasksContainers.forEach(container => {
         container.innerHTML = ''
@@ -122,7 +122,7 @@ export function loadAllSectionsTasks(currentProject){
 
 let clickedSectionIndex = null
 
-export function getCurrentSectionIndex(){
+export function getCurrentSectionIndex() {
     const allSectionsHtml = document.querySelectorAll('.section')
     allSectionsHtml.forEach((section, index) => {
         section.addEventListener('click', () => {
@@ -131,31 +131,31 @@ export function getCurrentSectionIndex(){
     })
 }
 
-export function addImportantButtonEvent(){
+export function addImportantButtonEvent() {
     const allSectionsHtml = document.querySelectorAll('.section')
     allSectionsHtml.forEach(section => {
         let sectionImportantButtons = section.querySelectorAll('.important-btn')
         sectionImportantButtons.forEach((button, index) => {
             button.addEventListener('click', () => {
                 setTimeout(() => {
-                    if(!button.classList.contains('important-btn-active')){
+                    if (!button.classList.contains('important-btn-active')) {
                         setTaskAsImportant(button, index)
                     }
-                    else if(button.classList.contains('important-btn-active')){
+                    else if (button.classList.contains('important-btn-active')) {
                         setTaskAsUnimportant(button, index)
                     }
                 })
-                }, 500);
+            }, 500);
         })
     })
 }
 
-function setTaskAsImportant(clickedButton, index){
+function setTaskAsImportant(clickedButton, index) {
     clickedButton.classList.add('important-btn-active')
     currentProject.sections[clickedSectionIndex].tasks[index].important = true
 }
 
-function setTaskAsUnimportant(clickedButton, index){
+function setTaskAsUnimportant(clickedButton, index) {
     clickedButton.classList.remove('important-btn-active')
     currentProject.sections[clickedSectionIndex].tasks[index].important = false
 }

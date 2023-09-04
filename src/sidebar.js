@@ -25,7 +25,7 @@ export default function handleSidebar() {
     });
 }
 
-function handleTransition(){
+function handleTransition() {
     if (sidebarToggle.checked) {
         sidebar.classList.remove('smooth-transition')
     }

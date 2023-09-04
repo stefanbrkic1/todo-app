@@ -16,34 +16,29 @@ export default function loadImportantTasks() {
     let tasksLength = 0
     allProjects.forEach((project, projectIndex) => {
         let projectHtmlCreated = false; // Track if project HTML has been created
-    
+
         project.sections.forEach(section => {
-          if (section.tasks.length === 0) {
-            // Handle empty section
-          } else {
-            if (!projectHtmlCreated) {
-              // Create project HTML only once for each project if it has tasks
-              projectsHandler.createProjectHtmlForTabs(tasksListView, project);
-              projectHtmlCreated = true; // Set the flag to true to prevent further creation
-            }
-    
             section.tasks.forEach(task => {
-              if (task.important === true) {
-                const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
-                tasksHandler.createTaskHtml(tasksContainerAllTasks[projectIndex], task);
-                tasksLength++
-              } else {
-                return;
-              }
+                if (task.important === true) {
+                    if (!projectHtmlCreated) {
+                        // Create project HTML only once for each project if it has tasks
+                        projectsHandler.createProjectHtmlForTabs(tasksListView, project);
+                        projectHtmlCreated = true; // Set the flag to true to prevent further creation
+                    }
+                    const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
+                    tasksHandler.createTaskHtml(tasksContainerAllTasks[projectIndex], task);
+                    tasksLength++
+                } else {
+                    return;
+                }
             });
-          }
         });
-      });
+    });
     displayImportantTasksLength(tasksLength)
     displayNoTasksImage()
 }
 
-function setImportantTab(){
+function setImportantTab() {
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
 
@@ -62,8 +57,8 @@ function setImportantTab(){
 
 }
 
-function displayNoTasksImage(){
-    if(tasksListView.innerHTML === ''){
+function displayNoTasksImage() {
+    if (tasksListView.innerHTML === '') {
         const container = document.createElement('div')
         container.classList.add('no-tasks-img-container')
 
@@ -81,13 +76,13 @@ function displayNoTasksImage(){
     }
 }
 
-function displayImportantTasksLength(tasksLength){
+function displayImportantTasksLength(tasksLength) {
     let tasksString = 'tasks'
     const lengthArr = tasksLength.toString().split('')
-    if( lengthArr[lengthArr.length - 1] === '1' ){
+    if (lengthArr[lengthArr.length - 1] === '1') {
         tasksString = 'task'
     }
-    const lengthString =  `TasksCount: ${tasksLength} ${tasksString}.`
+    const lengthString = `TasksCount: ${tasksLength} ${tasksString}.`
     tasksHandler.createRightDateDisplay(mainHeadingRight, lengthString)
 
     dateDisplayer.innerHTML = ''

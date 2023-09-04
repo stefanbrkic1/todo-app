@@ -210,7 +210,7 @@ export class ProjectsHandler {
         // Create the project header div
         const projectHeaderDiv = document.createElement('div');
         projectHeaderDiv.classList.add('project-all-tasks-header', 'flex', 'border-bottom');
-        
+
         // Create the project name div
         const projectNameDiv = document.createElement('div');
         projectNameDiv.classList.add('project-name-all-tasks');
@@ -415,11 +415,11 @@ export class TasksHandler {
         importantButton.classList.add('important-btn');
 
         //Create active task if has true for important state
-        if(task.important === true){
+        if (task.important === true) {
             importantButton.classList.add('important-btn-active')
         }
-        else{
-            
+        else {
+
         }
 
         // Append date-task-container and important button to the right-task-side div
@@ -433,7 +433,7 @@ export class TasksHandler {
         currentSectionTasksHtml.appendChild(taskDiv)
     }
 
-    displayNoTasksMessage(currentProjectWithNoTasksHtml){
+    displayNoTasksMessage(currentProjectWithNoTasksHtml) {
         const div = document.createElement('div')
         div.classList.add('no-tasks-message')
         div.textContent = `No tasks here`
@@ -441,14 +441,14 @@ export class TasksHandler {
         currentProjectWithNoTasksHtml.appendChild(div)
     }
 
-    createDateDisplay(dateDisplayer, fullDateString){
+    createDateDisplay(dateDisplayer, fullDateString) {
         const div = document.createElement('div')
         div.classList.add('this-week-date')
         div.textContent = fullDateString
         dateDisplayer.appendChild(div)
     }
 
-    createRightDateDisplay(mainHeadingRight, fullDateString){
+    createRightDateDisplay(mainHeadingRight, fullDateString) {
         const div = document.createElement('div')
         div.classList.add('date-heading-right')
         div.textContent = fullDateString

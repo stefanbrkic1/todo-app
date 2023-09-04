@@ -1,7 +1,7 @@
-import {isThisWeek, startOfWeek, addDays, format}  from 'date-fns'
+import { isThisWeek, startOfWeek, addDays, format } from 'date-fns'
 import weekIcon from './img/thisweek48x48.svg'
 import { allProjects } from './projects'
-import { TasksHandler, ProjectsHandler} from './dom'
+import { TasksHandler, ProjectsHandler } from './dom'
 import noTasksIconThisWeek from './img/this-week-no-tasks.png'
 
 const tasksHandler = new TasksHandler()
@@ -17,32 +17,27 @@ export default function loadWeekTasks() {
     setWeekTab()
     allProjects.forEach((project, projectIndex) => {
         let projectHtmlCreated = false; // Track if project HTML has been created
-    
+
         project.sections.forEach(section => {
-          if (section.tasks.length === 0) {
-            // Handle empty section
-          } else {
-            if (!projectHtmlCreated) {
-              // Create project HTML only once for each project if it has tasks
-              projectsHandler.createProjectHtmlForTabs(tasksListView, project);
-              projectHtmlCreated = true; // Set the flag to true to prevent further creation
-            }
-    
             section.tasks.forEach(task => {
-              if (taskHasDateForThisWeek(task.date)) {
-                const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
-                tasksHandler.createTaskHtml(tasksContainerAllTasks[projectIndex], task);
-              } else {
-                return;
-              }
+                if (taskHasDateForThisWeek(task.date)) {
+                    if (!projectHtmlCreated) {
+                        // Create project HTML only once for each project if it has tasks
+                        projectsHandler.createProjectHtmlForTabs(tasksListView, project);
+                        projectHtmlCreated = true; // Set the flag to true to prevent further creation
+                    }
+                    const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
+                    tasksHandler.createTaskHtml(tasksContainerAllTasks[projectIndex], task);
+                } else {
+                    return;
+                }
             });
-          }
         });
-      });
+    });
     displayNoTasksImage()
 }
 
-function setWeekTab(){
+function setWeekTab() {
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
     const mainHeadingRight = document.getElementById('mainHeadingRight')
@@ -64,7 +59,7 @@ function setWeekTab(){
 
     currentTabName.textContent = 'This Week'
     tasksHandler.createRightDateDisplay(mainHeadingRight, fullDateString)
-    
+
     dateDisplayer.innerHTML = ''
     tasksHandler.createDateDisplay(dateDisplayer, fullDateString)
 
@@ -74,18 +69,18 @@ function setWeekTab(){
     headerSection.classList.add('header-week')
 }
 
-function taskHasDateForThisWeek(taskDate){
+function taskHasDateForThisWeek(taskDate) {
     let currentTaskDate = new Date(taskDate)
-    if(isThisWeek(currentTaskDate) === true){
+    if (isThisWeek(currentTaskDate) === true) {
         return true
     }
-    else{
+    else {
         return false
     }
 }
 
-function displayNoTasksImage(){
-    if(tasksListView.innerHTML === ''){
+function displayNoTasksImage() {
+    if (tasksListView.innerHTML === '') {
         const container = document.createElement('div')
         container.classList.add('no-tasks-img-container')
 

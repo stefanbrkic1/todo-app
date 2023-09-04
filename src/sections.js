@@ -3,8 +3,8 @@ import { currentProject, addDeleteSectionButtonsEvent } from "./projects";
 import { ModalHandler } from "./dom";
 import { addTaskFormCreationEvent, loadAllSectionsTasks, getCurrentSectionIndex, addImportantButtonEvent } from "./tasks";
 
-const modalHandler = new ModalHandler(); 
-const sectionHandler = new SectionHandler(); 
+const modalHandler = new ModalHandler();
+const sectionHandler = new SectionHandler();
 const tasksListView = document.getElementById('tasksListView')
 
 
@@ -18,25 +18,25 @@ class Section {
 export function addSectionSubmitEvent() {
     const addSectionButtonSubmit = document.getElementById('addSectionButtonSubmit');
     const closeModalButtonSection = document.getElementById('closeModalButtonSection')
-    
+
     addSectionButtonSubmit.addEventListener('click', () => {
         const sectionNameInput = document.getElementById('sectionNameInput');
         const modalSectionAlert = document.getElementById('modalSectionAlert')
 
         let existingProject = currentProject.sections.find(section => section.sectionTitle === sectionNameInput.value)
 
-        if(sectionNameInput.value === ''){
+        if (sectionNameInput.value === '') {
             modalSectionAlert.textContent = '(You must enter new section title)'
             sectionNameInput.value = ''
             return
         }
-        else if(existingProject){
+        else if (existingProject) {
             modalSectionAlert.textContent = '(The section with this name already exists)'
             sectionNameInput.value = ''
             return
         }
-        else if (currentProject) {        
-            let newSection = new Section(sectionNameInput.value)    
+        else if (currentProject) {
+            let newSection = new Section(sectionNameInput.value)
             currentProject.sections.push(newSection)
             loadCurrentProjectSections(currentProject)
             loadAllSectionsTasks(currentProject)
@@ -46,12 +46,12 @@ export function addSectionSubmitEvent() {
             modalHandler.changeModalPositionIfKeyboardOpened()
             modalSectionAlert.textContent = ''
         } else {
-            
+
         }
-        });
+    });
 }
 
-export function loadCurrentProjectSections(currentProject){
+export function loadCurrentProjectSections(currentProject) {
     tasksListView.innerHTML = ''
     currentProject.sections.forEach(section => {
         sectionHandler.createSectionHtml(section)

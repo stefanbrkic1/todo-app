@@ -5,7 +5,7 @@ import { closeSidebarIfSmallScreen } from './dom'
 import { addSectionSubmitEvent, loadCurrentProjectSections } from './sections';
 import { loadAllSectionsTasks } from './tasks';
 
-const modalHandler = new ModalHandler(); 
+const modalHandler = new ModalHandler();
 const projectsHandler = new ProjectsHandler();
 const activeHomeTabHandler = new ActiveHomeTabHandler();
 const projectsContainer = document.getElementById('projectsContainer')
@@ -47,7 +47,7 @@ export let allProjects = [
             {
                 sectionTitle: 'Interviews',
                 tasks: [
-            
+
                 ],
             },
         ],
@@ -60,17 +60,17 @@ export let currentIndex = null
 export function loadProjects() {
     projectsContainer.innerHTML = ''
     allProjects.forEach(project => {
-      projectsHandler.createProjectHtml(project);
+        projectsHandler.createProjectHtml(project);
     })
     activeHomeTabHandler.handleTabsClick()
     handleProjectTabs(allProjects)
     addProjectToolsEvent()
     modalHandler.handleModals()
     modalHandler.changeModalPositionIfKeyboardOpened()
-    if(currentIndex === null){
+    if (currentIndex === null) {
 
     }
-    else{
+    else {
         const projectTabs = document.querySelectorAll('.sidebar-project')
         projectTabs[currentIndex].classList.add('sidebar-item-active')
     }
@@ -88,7 +88,7 @@ export function addProjectEvent() {
         // Check if a project with the same name already exists
         const existingProject = allProjects.find(project => project.name === newProjectName);
 
-        if(newProjectName === ''){
+        if (newProjectName === '') {
             modalAlert.textContent = '(You must enter new project name)'
             projectNameInput.value = ''
             return
@@ -100,7 +100,7 @@ export function addProjectEvent() {
             return;
         }
 
-        if(allProjects.length === 5){  
+        if (allProjects.length === 5) {
             modalAlert.textContent = '(Cant have more than five projects. Upgrade to PRO.)'
             return
         }
@@ -124,19 +124,19 @@ export function addProjectToolsSubmitEvent() {
         const modalAlertRename = document.getElementById('modalAlertRename')
         let existingProject = allProjects.find(project => project.name === projectRenameInput.value)
 
-        if(projectRenameInput.value === ''){
+        if (projectRenameInput.value === '') {
             modalAlertRename.textContent = '(You must enter new project name)'
             projectRenameInput.value = ''
             return
         }
 
-        if(existingProject){
+        if (existingProject) {
             modalAlertRename.textContent = '(The project with this name already exists)'
             projectRenameInput.value = ''
             return
         }
 
-        if (currentProject) {            
+        if (currentProject) {
             currentProject.name = projectRenameInput.value;
             loadProjects();
             projectTabs[currentIndex].click()
@@ -144,7 +144,7 @@ export function addProjectToolsSubmitEvent() {
             modalHandler.handleModals();
             modalHandler.changeModalPositionIfKeyboardOpened()
         } else {
-            
+
         }
         currentProject = null;
     });
@@ -160,23 +160,23 @@ export function addProjectToolsSubmitEvent() {
             modalHandler.handleModals();
             modalHandler.changeModalPositionIfKeyboardOpened()
         } else {
-            
+
         }
 
         currentProject = null;
     });
 }
 
-function addProjectToolsEvent(){
+function addProjectToolsEvent() {
     const renameButtons = document.querySelectorAll('.btn-rename');
     const deleteButtons = document.querySelectorAll('.btn-delete');
 
     renameButtons.forEach((button, index) => {
-        button.addEventListener('click', () => { 
-           currentProject = allProjects[index];
-           currentIndex = index;
-           const oldName = document.getElementById('oldName');
-           oldName.textContent = `(${currentProject.name})`
+        button.addEventListener('click', () => {
+            currentProject = allProjects[index];
+            currentIndex = index;
+            const oldName = document.getElementById('oldName');
+            oldName.textContent = `(${currentProject.name})`
         });
     });
 
@@ -190,32 +190,32 @@ function addProjectToolsEvent(){
     });
 }
 
-function handleProjectTabs(allProjects){
+function handleProjectTabs(allProjects) {
     const projectTabs = document.querySelectorAll('.sidebar-project')
     const tabs = document.querySelectorAll('.tab')
     projectTabs.forEach((tab, index) => {
         tab.addEventListener('click', () => {
             currentIndex = index
-                tabs.forEach(tab => {
-                    tab.classList.remove('sidebar-item-active')
-                })
-                tab.classList.add('sidebar-item-active')
-                currentProject = allProjects[index]
-                loadActiveProject(currentProject)
-                projectsHandler.createMainProjectToolsHtml()
-                addProjectToolsMainEvent()
-                addSectionSubmitEvent()
-                addSectionDeleteEvent()
-                loadCurrentProjectSections(currentProject)
-                addDeleteSectionButtonsEvent()
-                loadAllSectionsTasks(currentProject)
-                modalHandler.handleModals()
-                closeSidebarIfSmallScreen()
+            tabs.forEach(tab => {
+                tab.classList.remove('sidebar-item-active')
+            })
+            tab.classList.add('sidebar-item-active')
+            currentProject = allProjects[index]
+            loadActiveProject(currentProject)
+            projectsHandler.createMainProjectToolsHtml()
+            addProjectToolsMainEvent()
+            addSectionSubmitEvent()
+            addSectionDeleteEvent()
+            loadCurrentProjectSections(currentProject)
+            addDeleteSectionButtonsEvent()
+            loadAllSectionsTasks(currentProject)
+            modalHandler.handleModals()
+            closeSidebarIfSmallScreen()
         })
     })
 }
 
-function addProjectToolsMainEvent(){
+function addProjectToolsMainEvent() {
     const btnRenameMain = document.getElementById('btnRenameMain');
     const btnDeleteMain = document.getElementById('btnDeleteMain');
     const addSectionButton = document.getElementById('addSectionButton');
@@ -239,7 +239,7 @@ function addProjectToolsMainEvent(){
 
 export let currentSectionIndex = null
 
-export function addDeleteSectionButtonsEvent(){
+export function addDeleteSectionButtonsEvent() {
     const deleteSectionButtons = document.querySelectorAll('.remove-section-btn')
 
     deleteSectionButtons.forEach((button, index) => {
@@ -266,7 +266,7 @@ export function addSectionDeleteEvent() {
             modalHandler.changeModalPositionIfKeyboardOpened()
             addDeleteSectionButtonsEvent()
         } else {
-            
+
         }
         currentSectionIndex = null
     });
