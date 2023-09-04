@@ -991,15 +991,21 @@ button{
 }
 
 .no-tasks-img{
-  width: 280px;
+  width: 29%;
+  max-width: 350px;
+  min-width: 200px;
 }
 
 .no-tasks-img-today{
-  width: 350px;
+  width: 38%;
+  max-width: 400px;
+  min-width: 270px;
 }
 
 .no-tasks-img-week{
-  width: 420px;
+  width: 50%;
+  max-width: 450px;
+  min-width: 300px;
 }
 
 .no-tasks-img-text{
@@ -1192,15 +1198,15 @@ button{
   }
 
   .no-tasks-img{
-    width: 220px;
+    width: 70%;
   }
 
   .no-tasks-img-today{
-    width: 270px;
+    width: 70%;
   }
 
   .no-tasks-img-week{
-    width: 300px;
+    width: 70%;
   }
 
   .this-week-date{
