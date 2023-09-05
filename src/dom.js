@@ -379,8 +379,17 @@ export class TasksHandler {
 
     createTaskHtml(currentSectionTasksHtml, task) {
         // Create the main container div
+        const taskContainerDiv = document.createElement('div');
+        taskContainerDiv.classList.add('main-task-container');
+
+        // Create the task container div
         const taskDiv = document.createElement('div');
         taskDiv.classList.add('task');
+
+        // Create the bottom-task div
+        const bottomTaskSideDiv = document.createElement('div');
+        bottomTaskSideDiv.classList.add('bottom-task-side');
+        bottomTaskSideDiv.textContent = task.date
 
         // Create the left-task-side div
         const leftTaskSideDiv = document.createElement('div');
@@ -430,7 +439,10 @@ export class TasksHandler {
         taskDiv.appendChild(leftTaskSideDiv);
         taskDiv.appendChild(rightTaskSideDiv);
 
-        currentSectionTasksHtml.appendChild(taskDiv)
+        taskContainerDiv.appendChild(taskDiv)
+        taskContainerDiv.appendChild(bottomTaskSideDiv)
+
+        currentSectionTasksHtml.appendChild(taskContainerDiv)
     }
 
     displayNoTasksMessage(currentProjectWithNoTasksHtml) {
