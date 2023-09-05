@@ -430,7 +430,6 @@ export class TasksHandler {
         else {
 
         }
-
         // Append date-task-container and important button to the right-task-side div
         rightTaskSideDiv.appendChild(dateTaskContainerDiv);
         rightTaskSideDiv.appendChild(importantButton);
