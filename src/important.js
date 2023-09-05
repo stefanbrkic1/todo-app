@@ -50,6 +50,7 @@ function setImportantTab() {
     currentTabName.textContent = 'Important'
 
     tasksListView.innerHTML = ''
+    tasksListView.classList.add('height-auto')
     dateDisplayer.innerHTML = ''
     floatingActionButton.innerHTML = ''
     headerSection.className = ''
@@ -59,6 +60,7 @@ function setImportantTab() {
 
 function displayNoTasksImage() {
     if (tasksListView.innerHTML === '') {
+        tasksListView.classList.remove('height-auto')
         const container = document.createElement('div')
         container.classList.add('no-tasks-img-container')
 

@@ -55,6 +55,7 @@ function setTodayTab() {
     tasksHandler.createDateDisplay(dateDisplayer, todayDateString)
 
     tasksListView.innerHTML = ''
+    tasksListView.classList.add('height-auto')
     floatingActionButton.innerHTML = ''
     headerSection.className = ''
     headerSection.classList.add('header-today')
@@ -72,6 +73,7 @@ function taskIsToday(taskDate) {
 
 function displayNoTasksImage() {
     if (tasksListView.innerHTML === '') {
+        tasksListView.classList.remove('height-auto')
         const container = document.createElement('div')
         container.classList.add('no-tasks-img-container')
 

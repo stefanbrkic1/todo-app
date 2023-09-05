@@ -64,6 +64,7 @@ function setWeekTab() {
     tasksHandler.createDateDisplay(dateDisplayer, fullDateString)
 
     tasksListView.innerHTML = ''
+    tasksListView.classList.add('height-auto')
     floatingActionButton.innerHTML = ''
     headerSection.className = ''
     headerSection.classList.add('header-week')
@@ -81,6 +82,7 @@ function taskHasDateForThisWeek(taskDate) {
 
 function displayNoTasksImage() {
     if (tasksListView.innerHTML === '') {
+        tasksListView.classList.remove('height-auto')
         const container = document.createElement('div')
         container.classList.add('no-tasks-img-container')
 
