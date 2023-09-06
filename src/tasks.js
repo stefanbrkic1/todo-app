@@ -1,8 +1,11 @@
-import { format } from "date-fns";
 import { TasksHandler } from "./dom";
 import { currentProject } from "./projects";
+import { allProjects, currentProjectIndex } from "./projects";
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
 
 const tasksHandler = new TasksHandler();
+const toastNotification = document.getElementById('toastNotification')
 
 class Task {
     constructor(description, date) {
@@ -13,7 +16,6 @@ class Task {
 }
 
 let currentSectionIndex = null
-let currentSectionTasksHtml = null
 
 export function addTaskFormCreationEvent() {
     const addTaskButtons = document.querySelectorAll('.add-task-container')
@@ -23,7 +25,6 @@ export function addTaskFormCreationEvent() {
             currentSectionIndex = index
             let currentSectionHtmlElement = target.closest('.section')
             let currentSectionTasksContainer = currentSectionHtmlElement.querySelector('.form-task-container')
-            currentSectionTasksHtml = currentSectionHtmlElement.querySelector('.section-tasks')
             tasksHandler.createAddTaskFormHtml(currentSectionTasksContainer)
             addCancelButtonEvent(currentSectionTasksContainer)
             let currentAddTaskButtonContainer = currentSectionHtmlElement.querySelector('.add-task-container')
@@ -118,6 +119,7 @@ export function loadAllSectionsTasks(currentProject) {
         })
     })
     addImportantButtonEvent()
+    addTaskCheckboxEvent()
 }
 
 let clickedSectionIndex = null
@@ -160,3 +162,30 @@ function setTaskAsUnimportant(clickedButton, index) {
     currentProject.sections[clickedSectionIndex].tasks[index].important = false
 }
 
+function addTaskCheckboxEvent(){
+    const allSectionsHtml = document.querySelectorAll('.section')
+    allSectionsHtml.forEach(section => {
+        let sectionCheckboxes = section.querySelectorAll('.checkbox')
+        sectionCheckboxes.forEach((checkbox, checkboxIndex) => {
+            checkbox.addEventListener('click', () => {
+                setTimeout(() => {
+                   checkTaskAsCompleted(checkboxIndex)
+                })
+            }, 500);
+        })
+    })
+}
+
+function checkTaskAsCompleted(checkboxIndex){
+    allProjects[currentProjectIndex].sections[clickedSectionIndex].tasks.splice(checkboxIndex, 1)
+    setTimeout(() => {
+        loadAllSectionsTasks(currentProject)
+        Toastify({
+            text: "1 task completed",
+            className: "custom-toast", // Apply the custom CSS class
+            duration: 3000,
+            gravity: "bottom", // `top` or `bottom`
+            position: "left", // `left`, `center` or `right`
+          }).showToast();
+    }, 300);
+}

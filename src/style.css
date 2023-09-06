@@ -54,7 +54,7 @@ body {
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: minmax(305px, 1fr) repeat(4, 1fr);
+  grid-template-columns: 310px repeat(4, 1fr);
   grid-template-rows: 40px repeat(11, 1fr);
 }
 
@@ -83,6 +83,13 @@ body {
   flex-direction: column;
   gap: 5px;
   padding-bottom: 23px;
+}
+
+.sidebar-list-settings{
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .projects-sidebar-list {
@@ -1045,6 +1052,11 @@ button{
   padding: 10px 0px 0px 0px;
 }
 
+.custom-toast{
+  width: 240px;
+  background: var(--secondary-color-light) !important;
+  border-radius: 8px !important;
+}
 
 
 /*Media Queries*/

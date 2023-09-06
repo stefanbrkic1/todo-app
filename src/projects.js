@@ -55,7 +55,7 @@ export let allProjects = [
 ]
 
 export let currentProject = null;
-export let currentIndex = null
+export let currentProjectIndex = null
 
 export function loadProjects() {
     projectsContainer.innerHTML = ''
@@ -67,12 +67,12 @@ export function loadProjects() {
     addProjectToolsEvent()
     modalHandler.handleModals()
     modalHandler.changeModalPositionIfKeyboardOpened()
-    if (currentIndex === null) {
+    if (currentProjectIndex === null) {
 
     }
     else {
         const projectTabs = document.querySelectorAll('.sidebar-project')
-        projectTabs[currentIndex].classList.add('sidebar-item-active')
+        projectTabs[currentProjectIndex].classList.add('sidebar-item-active')
     }
 }
 
@@ -139,7 +139,7 @@ export function addProjectToolsSubmitEvent() {
         if (currentProject) {
             currentProject.name = projectRenameInput.value;
             loadProjects();
-            projectTabs[currentIndex].click()
+            projectTabs[currentProjectIndex].click()
             closeModalButtonRename.click();
             modalHandler.handleModals();
             modalHandler.changeModalPositionIfKeyboardOpened()
@@ -152,8 +152,8 @@ export function addProjectToolsSubmitEvent() {
     deleteProjectButton.addEventListener('click', () => {
         const tabAllTasks = document.getElementById('tabAllTasks')
         if (currentProject) {
-            allProjects.splice(currentIndex, 1)
-            currentIndex = null
+            allProjects.splice(currentProjectIndex, 1)
+            currentProjectIndex = null
             loadProjects();
             closeModalButtonDelete.click();
             tabAllTasks.click()
@@ -174,7 +174,7 @@ function addProjectToolsEvent() {
     renameButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
             currentProject = allProjects[index];
-            currentIndex = index;
+            currentProjectIndex = index;
             const oldName = document.getElementById('oldName');
             oldName.textContent = `(${currentProject.name})`
         });
@@ -183,7 +183,7 @@ function addProjectToolsEvent() {
     deleteButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
             currentProject = allProjects[index];
-            currentIndex = index;
+            currentProjectIndex = index;
             const deleteProjectName = document.getElementById('deleteProjectName')
             deleteProjectName.textContent = `(${currentProject.name})`
         });
@@ -195,7 +195,7 @@ function handleProjectTabs(allProjects) {
     const tabs = document.querySelectorAll('.tab')
     projectTabs.forEach((tab, index) => {
         tab.addEventListener('click', () => {
-            currentIndex = index
+            currentProjectIndex = index
             tabs.forEach(tab => {
                 tab.classList.remove('sidebar-item-active')
             })
@@ -221,19 +221,19 @@ function addProjectToolsMainEvent() {
     const addSectionButton = document.getElementById('addSectionButton');
 
     btnRenameMain.addEventListener('click', () => {
-        currentProject = allProjects[currentIndex];
+        currentProject = allProjects[currentProjectIndex];
         const oldName = document.getElementById('oldName');
         oldName.textContent = `(${currentProject.name})`
     })
 
     btnDeleteMain.addEventListener('click', () => {
-        currentProject = allProjects[currentIndex];
+        currentProject = allProjects[currentProjectIndex];
         const deleteProjectName = document.getElementById('deleteProjectName')
         deleteProjectName.textContent = `(${currentProject.name})`
     })
 
     addSectionButton.addEventListener('click', () => {
-        currentProject = allProjects[currentIndex];
+        currentProject = allProjects[currentProjectIndex];
     })
 }
 
@@ -244,7 +244,7 @@ export function addDeleteSectionButtonsEvent() {
 
     deleteSectionButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
-            currentProject = allProjects[currentIndex];
+            currentProject = allProjects[currentProjectIndex];
             currentSectionIndex = index;
             const deleteSectionName = document.getElementById('deleteSectionName')
             deleteSectionName.textContent = `(${currentProject.sections[index].sectionTitle})`
