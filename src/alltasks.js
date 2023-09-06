@@ -50,6 +50,7 @@ function setAllTasksTab() {
     currentTabName.textContent = 'All Tasks'
 
     tasksListView.innerHTML = ''
+    tasksListView.classList.add('height-auto')
     dateDisplayer.innerHTML = ''
     floatingActionButton.innerHTML = ''
     headerSection.className = ''
