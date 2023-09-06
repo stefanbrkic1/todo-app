@@ -1,6 +1,6 @@
 import { ModalHandler, ProjectsHandler } from './dom';
 import { ActiveHomeTabHandler } from './tabs';
-import { loadActiveProject } from './project-loader';
+import { loadActiveProject, displayNoSectionsImage } from './project-loader';
 import { closeSidebarIfSmallScreen } from './dom'
 import { addSectionSubmitEvent, loadCurrentProjectSections } from './sections';
 import { loadAllSectionsTasks } from './tasks';
@@ -265,6 +265,7 @@ export function addSectionDeleteEvent() {
             modalHandler.handleModals();
             modalHandler.changeModalPositionIfKeyboardOpened()
             addDeleteSectionButtonsEvent()
+            displayNoSectionsImage()
         } else {
 
         }
