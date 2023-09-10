@@ -42,11 +42,11 @@ function setWeekTab() {
     currentTabIcon.appendChild(svgWeek)
 
     const currentDate = new Date()
-    const thisWeekStart = startOfWeek(currentDate)
+    const thisWeekStart = startOfWeek(currentDate, { weekStartsOn: 1 })
     const thisWeekEnd = addDays(thisWeekStart, 6);
 
-    const formattedStartDate = format(thisWeekStart, 'MM/dd/yyyy');
-    const formattedEndDate = format(thisWeekEnd, 'MM/dd/yyyy');
+    const formattedStartDate = format(thisWeekStart, 'dd/MM/yyyy');
+    const formattedEndDate = format(thisWeekEnd, 'dd/MM/yyyy');
 
     fullDateString = `Week: ${formattedStartDate} - ${formattedEndDate}`
 

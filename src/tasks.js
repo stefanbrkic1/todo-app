@@ -89,7 +89,7 @@ function addTaskSubmitEvent() {
             const year = dateArr[0]
             const month = dateArr[1]
             const day = dateArr[2]
-            const formattedDate = `${month}/${day}/${year}`
+            const formattedDate = `${day}/${month}/${year}`
             const newTask = new Task(taskDescriptionInput.value, formattedDate)
             let currentSection = currentProject.sections[currentSectionIndex]
             currentSection.tasks.push(newTask)

@@ -131,3 +131,5 @@ function checkTaskAsCompleted(checkboxIndex, projectIndexImportant, sectionIndex
           }).showToast();
     }, 300);
 }
+
+
