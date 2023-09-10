@@ -472,3 +472,16 @@ export function closeSidebarIfSmallScreen() {
     const closeSidebarButon = document.querySelector('.sidebar-icon')
     sidebar.classList.contains('active-sidebar') ? closeSidebarButon.click() : {};
 }
+
+export function removeEmptyProjectsFromHTML(){
+    const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
+    tasksContainerAllTasks.forEach(container => {
+        if(container.innerHTML === ''){
+            let parentContainer = container;
+            while (parentContainer && !parentContainer.classList.contains('project-tasks-container-all-tasks')) {
+                parentContainer = parentContainer.parentNode;
+            }
+            parentContainer.remove()
+        }
+    })
+}

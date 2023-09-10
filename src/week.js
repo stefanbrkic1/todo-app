@@ -1,8 +1,10 @@
 import { isThisWeek, startOfWeek, addDays, format } from 'date-fns'
 import weekIcon from './img/thisweek48x48.svg'
 import { allProjects } from './projects'
-import { TasksHandler, ProjectsHandler } from './dom'
+import { TasksHandler, ProjectsHandler, removeEmptyProjectsFromHTML } from './dom'
 import noTasksIconThisWeek from './img/this-week-no-tasks.png'
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
 
 const tasksHandler = new TasksHandler()
 const projectsHandler = new ProjectsHandler()
@@ -13,28 +15,19 @@ const floatingActionButton = document.getElementById('floatingActionButton')
 
 let fullDateString = null
 
+let allWeekTasks = []
+
+class WeekTask {
+    constructor(projectIndexWeek, sectionIndexWeek, taskIndexWeek){
+        this.projectIndexWeek = projectIndexWeek
+        this.sectionIndexWeek = sectionIndexWeek
+        this.taskIndexWeek = taskIndexWeek
+    }
+}
+
 export default function loadWeekTasks() {
     setWeekTab()
-    allProjects.forEach((project, projectIndex) => {
-        let projectHtmlCreated = false; // Track if project HTML has been created
-
-        project.sections.forEach(section => {
-            section.tasks.forEach(task => {
-                if (taskHasDateForThisWeek(task.date)) {
-                    if (!projectHtmlCreated) {
-                        // Create project HTML only once for each project if it has tasks
-                        projectsHandler.createProjectHtmlForTabs(tasksListView, project);
-                        projectHtmlCreated = true; // Set the flag to true to prevent further creation
-                    }
-                    const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
-                    tasksHandler.createTaskHtml(tasksContainerAllTasks[projectIndex], task);
-                } else {
-                    return;
-                }
-            });
-        });
-    });
-    displayNoTasksImage()
+    loadTasks()
 }
 
 function setWeekTab() {
@@ -70,6 +63,31 @@ function setWeekTab() {
     headerSection.classList.add('header-week')
 }
 
+function loadTasks(){
+    tasksListView.innerHTML = ''
+    allWeekTasks = []
+    allProjects.forEach((project, projectIndexWeek) => {
+        projectsHandler.createProjectHtmlForTabs(tasksListView, project);
+        const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
+
+        project.sections.forEach((section, sectionIndexWeek) => {
+            section.tasks.forEach((task, taskIndexWeek) => {
+                if (taskHasDateForThisWeek(task.date)) {
+                    tasksHandler.createTaskHtml(tasksContainerAllTasks[projectIndexWeek], task);
+                    
+                    let newWeekTask = new WeekTask(projectIndexWeek, sectionIndexWeek, taskIndexWeek)
+                    allWeekTasks.push(newWeekTask)
+                } else {
+                    return;
+                }
+            });
+        });
+    });
+    removeEmptyProjectsFromHTML()
+    displayNoTasksImage()
+    addWeekTaskCheckboxEvent()
+}
+
 function taskHasDateForThisWeek(taskDate) {
     let currentTaskDate = new Date(taskDate)
     if (isThisWeek(currentTaskDate) === true) {
@@ -98,4 +116,31 @@ function displayNoTasksImage() {
         container.appendChild(text)
         tasksListView.appendChild(container)
     }
+}
+
+function addWeekTaskCheckboxEvent(){
+    let weekCheckboxes = document.querySelectorAll('.checkbox')
+    weekCheckboxes.forEach((checkbox, checkboxIndex) => {
+        checkbox.addEventListener('click', () => {
+            setTimeout(() => {
+                checkTaskAsCompleted(checkboxIndex, allWeekTasks[checkboxIndex].projectIndexWeek, allWeekTasks[checkboxIndex].sectionIndexWeek, allWeekTasks[checkboxIndex].taskIndexWeek)
+            }, 10);
+        })
+    })    
+}
+
+function checkTaskAsCompleted(checkboxIndex, projectIndexWeek, sectionIndexWeek, taskIndexWeek){
+    allProjects[projectIndexWeek].sections[sectionIndexWeek].tasks.splice(taskIndexWeek, 1)
+    allWeekTasks.splice(checkboxIndex, 1)
+    setTimeout(() => {
+        loadTasks()
+        console.log('invoked')
+        Toastify({
+            text: "1 task completed",
+            className: "custom-toast-blue", // Apply the custom CSS class
+            duration: 3000,
+            gravity: "bottom", // `top` or `bottom`
+            position: "left", // `left`, `center` or `right`
+          }).showToast();
+    }, 300);
 }

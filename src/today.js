@@ -1,7 +1,7 @@
 import { format, isToday } from 'date-fns'
 import todayIcon from './img/today48x48.svg'
 import noTasksIconToday from './img/today-no-tasks.png'
-import { TasksHandler, ProjectsHandler } from './dom'
+import { TasksHandler, ProjectsHandler, removeEmptyProjectsFromHTML } from './dom'
 import { allProjects } from './projects'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
@@ -75,8 +75,8 @@ function loadTasks(){
         });
     });
     removeEmptyProjectsFromHTML()
-    addTodayTaskCheckboxEvent()
     displayNoTasksImage()
+    addTodayTaskCheckboxEvent()
 }
 
 function taskIsToday(taskDate) {
@@ -126,7 +126,7 @@ function checkTaskAsCompleted(checkboxIndex, projectIndexToday, sectionIndexToda
     setTimeout(() => {
         loadTasks()
         Toastify({
-            text: "1 task completed | Today",
+            text: "1 task completed",
             className: "custom-toast-red", // Apply the custom CSS class
             duration: 3000,
             gravity: "bottom", // `top` or `bottom`
@@ -135,15 +135,3 @@ function checkTaskAsCompleted(checkboxIndex, projectIndexToday, sectionIndexToda
     }, 300);
 }
 
-function removeEmptyProjectsFromHTML(){
-    const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
-    tasksContainerAllTasks.forEach(container => {
-        if(container.innerHTML === ''){
-            let parentContainer = container;
-            while (parentContainer && !parentContainer.classList.contains('project-tasks-container-all-tasks')) {
-                parentContainer = parentContainer.parentNode;
-            }
-            parentContainer.remove()
-        }
-    })
-}

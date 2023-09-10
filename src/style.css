@@ -1071,6 +1071,12 @@ button{
   border-radius: 8px !important;
 }
 
+.custom-toast-blue{
+  width: 240px;
+  background: var(--primary-color-light) !important;
+  border-radius: 8px !important;
+}
+
 
 /*Media Queries*/
 
