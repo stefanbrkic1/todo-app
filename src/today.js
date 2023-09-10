@@ -3,6 +3,8 @@ import todayIcon from './img/today48x48.svg'
 import noTasksIconToday from './img/today-no-tasks.png'
 import { TasksHandler, ProjectsHandler } from './dom'
 import { allProjects } from './projects'
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
 
 const tasksHandler = new TasksHandler()
 const projectsHandler = new ProjectsHandler()
@@ -11,28 +13,19 @@ const tasksListView = document.getElementById('tasksListView')
 const headerSection = document.getElementById('headerSection')
 const floatingActionButton = document.getElementById('floatingActionButton')
 
+let allTodayTasks = []
+
+class TodayTask {
+    constructor(projectIndexToday, sectionIndexToday, taskIndexToday){
+        this.projectIndexToday = projectIndexToday
+        this.sectionIndexToday = sectionIndexToday
+        this.taskIndexToday = taskIndexToday
+    }
+}
+
 export default function loadTodayTasks() {
     setTodayTab();
-    allProjects.forEach((project, projectIndex) => {
-        let projectHtmlCreated = false; // Track if project HTML has been created
-
-        project.sections.forEach(section => {
-            section.tasks.forEach(task => {
-                if (taskIsToday(task.date)) {
-                    if (!projectHtmlCreated) {
-                        // Create project HTML only once for each project if it has tasks
-                        projectsHandler.createProjectHtmlForTabs(tasksListView, project);
-                        projectHtmlCreated = true; // Set the flag to true to prevent further creation
-                    }
-                    const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
-                    tasksHandler.createTaskHtml(tasksContainerAllTasks[projectIndex], task);
-                } else {
-                    return;
-                }
-            });
-        });
-    });
-    displayNoTasksImage();
+    loadTasks()
 }
 
 function setTodayTab() {
@@ -59,6 +52,31 @@ function setTodayTab() {
     floatingActionButton.innerHTML = ''
     headerSection.className = ''
     headerSection.classList.add('header-today')
+}
+
+function loadTasks(){
+    tasksListView.innerHTML = ''
+    allTodayTasks = []
+    allProjects.forEach((project, projectIndexToday) => {
+        projectsHandler.createProjectHtmlForTabs(tasksListView, project);
+        const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
+
+        project.sections.forEach((section, sectionIndexToday) => {
+            section.tasks.forEach((task, taskIndexToday) => {
+                if (taskIsToday(task.date)) {
+                    tasksHandler.createTaskHtml(tasksContainerAllTasks[projectIndexToday], task);
+                    
+                    let newTodayTask = new TodayTask(projectIndexToday, sectionIndexToday, taskIndexToday)
+                    allTodayTasks.push(newTodayTask)
+                } else {
+                    return;
+                }
+            });
+        });
+    });
+    removeEmptyProjectsFromHTML()
+    addTodayTaskCheckboxEvent()
+    displayNoTasksImage()
 }
 
 function taskIsToday(taskDate) {
@@ -89,4 +107,43 @@ function displayNoTasksImage() {
         container.appendChild(text)
         tasksListView.appendChild(container)
     }
+}
+
+function addTodayTaskCheckboxEvent(){
+    let todayCheckboxes = document.querySelectorAll('.checkbox')
+    todayCheckboxes.forEach((checkbox, checkboxIndex) => {
+        checkbox.addEventListener('click', () => {
+            setTimeout(() => {
+                checkTaskAsCompleted(checkboxIndex, allTodayTasks[checkboxIndex].projectIndexToday, allTodayTasks[checkboxIndex].sectionIndexToday, allTodayTasks[checkboxIndex].taskIndexToday)
+            }, 10);
+        })
+    })    
+}
+
+function checkTaskAsCompleted(checkboxIndex, projectIndexToday, sectionIndexToday, taskIndexToday){
+    allProjects[projectIndexToday].sections[sectionIndexToday].tasks.splice(taskIndexToday, 1)
+    allTodayTasks.splice(checkboxIndex, 1)
+    setTimeout(() => {
+        loadTasks()
+        Toastify({
+            text: "1 task completed",
+            className: "custom-toast", // Apply the custom CSS class
+            duration: 3000,
+            gravity: "bottom", // `top` or `bottom`
+            position: "left", // `left`, `center` or `right`
+          }).showToast();
+    }, 300);
+}
+
+function removeEmptyProjectsFromHTML(){
+    const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
+    tasksContainerAllTasks.forEach(container => {
+        if(container.innerHTML === ''){
+            let parentContainer = container;
+            while (parentContainer && !parentContainer.classList.contains('project-tasks-container-all-tasks')) {
+                parentContainer = parentContainer.parentNode;
+            }
+            parentContainer.remove()
+        }
+    })
 }

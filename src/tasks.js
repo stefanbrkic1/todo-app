@@ -170,8 +170,8 @@ function addTaskCheckboxEvent(){
             checkbox.addEventListener('click', () => {
                 setTimeout(() => {
                    checkTaskAsCompleted(checkboxIndex)
-                })
-            }, 500);
+                }, 10)
+            });
         })
     })
 }
