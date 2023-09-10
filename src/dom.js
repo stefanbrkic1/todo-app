@@ -1,6 +1,7 @@
 import projectIcon from './img/project.svg'
 import flatpickr from "flatpickr"
 import 'flatpickr/dist/flatpickr.min.css'; // Import the CSS file
+require("flatpickr/dist/themes/material_green.css");
 
 export class ModalHandler {
     constructor() {
