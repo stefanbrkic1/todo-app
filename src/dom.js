@@ -349,6 +349,7 @@ export class TasksHandler {
         dateInput.type = 'text';
         dateInput.placeholder = 'Select Date...'
         dateInput.id = 'dateInput';
+        dateInput.classList.add('date-input')
 
         // Append task description input and date input to task data div
         taskDataDiv.appendChild(taskDescriptionInput);

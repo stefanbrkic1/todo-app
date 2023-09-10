@@ -914,7 +914,7 @@ body {
   background-color: #ff3916;
 }
 
-#dateInput{
+.date-input{
   height: 35px;
   box-sizing: border-box;
   padding: 0px 10px;
@@ -1202,7 +1202,7 @@ button{
     flex-direction: column;
   }
 
-  #dateInput{
+  .date-input{
     width: 100%;
     border: 2px solid var(--hover-light);
   }
