@@ -460,6 +460,7 @@ export class TasksHandler {
     }
 
     createRightDateDisplay(mainHeadingRight, fullDateString) {
+        mainHeadingRight.innerHTML = ''
         const div = document.createElement('div')
         div.classList.add('date-heading-right')
         div.textContent = fullDateString

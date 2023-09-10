@@ -1077,6 +1077,12 @@ button{
   border-radius: 8px !important;
 }
 
+.custom-toast-yellow{
+  width: 240px;
+  background: var(--yellow-color) !important;
+  border-radius: 8px !important;
+}
+
 
 /*Media Queries*/
 

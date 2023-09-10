@@ -1,7 +1,9 @@
 import { allProjects } from './projects';
 import importantIcon from './img/important.svg'
-import { TasksHandler, ProjectsHandler } from './dom'
+import { TasksHandler, ProjectsHandler, removeEmptyProjectsFromHTML } from './dom'
 import noTasksIconImportant from './img/important-no-tasks.png'
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
 
 const tasksHandler = new TasksHandler()
 const projectsHandler = new ProjectsHandler()
@@ -11,31 +13,19 @@ const headerSection = document.getElementById('headerSection')
 const floatingActionButton = document.getElementById('floatingActionButton')
 const dateDisplayer = document.querySelector('.date-displayer')
 
+let allImportantTasks = []
+
+class ImportantTask {
+    constructor(projectIndexImportant, sectionIndexImportant, taskIndexImportant){
+        this.projectIndexImportant = projectIndexImportant
+        this.sectionIndexImportant = sectionIndexImportant
+        this.taskIndexImportant = taskIndexImportant
+    }
+}
+
 export default function loadImportantTasks() {
     setImportantTab()
-    let tasksLength = 0
-    allProjects.forEach((project, projectIndex) => {
-        let projectHtmlCreated = false; // Track if project HTML has been created
-
-        project.sections.forEach(section => {
-            section.tasks.forEach(task => {
-                if (task.important === true) {
-                    if (!projectHtmlCreated) {
-                        // Create project HTML only once for each project if it has tasks
-                        projectsHandler.createProjectHtmlForTabs(tasksListView, project);
-                        projectHtmlCreated = true; // Set the flag to true to prevent further creation
-                    }
-                    const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
-                    tasksHandler.createTaskHtml(tasksContainerAllTasks[projectIndex], task);
-                    tasksLength++
-                } else {
-                    return;
-                }
-            });
-        });
-    });
-    displayImportantTasksLength(tasksLength)
-    displayNoTasksImage()
+    loadTasks()
 }
 
 function setImportantTab() {
@@ -58,6 +48,32 @@ function setImportantTab() {
 
 }
 
+function loadTasks(){
+    tasksListView.innerHTML = ''
+    allImportantTasks = []
+    allProjects.forEach((project, projectIndexImportant) => {
+        projectsHandler.createProjectHtmlForTabs(tasksListView, project);
+        const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
+
+        project.sections.forEach((section, sectionIndexImportant) => {
+            section.tasks.forEach((task, taskIndexImportant) => {
+                if (task.important === true) {
+                    tasksHandler.createTaskHtml(tasksContainerAllTasks[projectIndexImportant], task);
+                    
+                    let newImportantTask = new ImportantTask(projectIndexImportant, sectionIndexImportant, taskIndexImportant)
+                    allImportantTasks.push(newImportantTask)
+                } else {
+                    return;
+                }
+            });
+        });
+    });
+    removeEmptyProjectsFromHTML()
+    displayImportantTasksLength()
+    displayNoTasksImage()
+    addImportantTaskCheckboxEvent()
+}
+
 function displayNoTasksImage() {
     if (tasksListView.innerHTML === '') {
         tasksListView.classList.remove('height-auto')
@@ -78,15 +94,40 @@ function displayNoTasksImage() {
     }
 }
 
-function displayImportantTasksLength(tasksLength) {
+function displayImportantTasksLength() {
     let tasksString = 'tasks'
-    const lengthArr = tasksLength.toString().split('')
-    if (lengthArr[lengthArr.length - 1] === '1') {
+    if (allImportantTasks[allImportantTasks.length - 1] === '1') {
         tasksString = 'task'
     }
-    const lengthString = `TasksCount: ${tasksLength} ${tasksString}.`
+    const lengthString = `TasksCount: ${allImportantTasks.length} ${tasksString}.`
     tasksHandler.createRightDateDisplay(mainHeadingRight, lengthString)
 
     dateDisplayer.innerHTML = ''
     tasksHandler.createDateDisplay(dateDisplayer, lengthString)
+}
+
+function addImportantTaskCheckboxEvent(){
+    let importantCheckboxes = document.querySelectorAll('.checkbox')
+    importantCheckboxes.forEach((checkbox, checkboxIndex) => {
+        checkbox.addEventListener('click', () => {
+            setTimeout(() => {
+                checkTaskAsCompleted(checkboxIndex, allImportantTasks[checkboxIndex].projectIndexImportant, allImportantTasks[checkboxIndex].sectionIndexImportant, allImportantTasks[checkboxIndex].taskIndexImportant)
+            }, 10);
+        })
+    })    
+}
+
+function checkTaskAsCompleted(checkboxIndex, projectIndexImportant, sectionIndexImportant, taskIndexImportant){
+    allProjects[projectIndexImportant].sections[sectionIndexImportant].tasks.splice(taskIndexImportant, 1)
+    allImportantTasks.splice(checkboxIndex, 1)
+    setTimeout(() => {
+        loadTasks()
+        Toastify({
+            text: "1 task completed",
+            className: "custom-toast-yellow", // Apply the custom CSS class
+            duration: 3000,
+            gravity: "bottom", // `top` or `bottom`
+            position: "left", // `left`, `center` or `right`
+          }).showToast();
+    }, 300);
 }

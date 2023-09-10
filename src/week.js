@@ -134,7 +134,6 @@ function checkTaskAsCompleted(checkboxIndex, projectIndexWeek, sectionIndexWeek,
     allWeekTasks.splice(checkboxIndex, 1)
     setTimeout(() => {
         loadTasks()
-        console.log('invoked')
         Toastify({
             text: "1 task completed",
             className: "custom-toast-blue", // Apply the custom CSS class
