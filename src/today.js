@@ -80,7 +80,8 @@ function loadTasks(){
 }
 
 function taskIsToday(taskDate) {
-    let currentTaskDate = new Date(taskDate)
+    const [day, month, year] = taskDate.split('/').map(Number);
+    const currentTaskDate = new Date(year, month - 1, day);
     if (isToday(currentTaskDate) === true) {
         return true
     }

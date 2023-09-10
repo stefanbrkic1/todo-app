@@ -1,4 +1,4 @@
-import { isThisWeek, startOfWeek, addDays, format } from 'date-fns'
+import { isThisWeek, startOfWeek, endOfWeek, addDays, format } from 'date-fns'
 import weekIcon from './img/thisweek48x48.svg'
 import { allProjects } from './projects'
 import { TasksHandler, ProjectsHandler, removeEmptyProjectsFromHTML } from './dom'
@@ -89,12 +89,17 @@ function loadTasks(){
 }
 
 function taskHasDateForThisWeek(taskDate) {
-    let currentTaskDate = new Date(taskDate)
-    if (isThisWeek(currentTaskDate) === true) {
-        return true
-    }
-    else {
-        return false
+    const [day, month, year] = taskDate.split('/').map(Number);
+    const currentTaskDate = new Date(year, month - 1, day);
+
+    // Get the start and end of the current week
+    const startOfCurrentWeek = startOfWeek(new Date(), {weekStartsOn: 1});
+    const endOfCurrentWeek = endOfWeek(new Date(), {weekStartsOn: 1});
+    
+    if (currentTaskDate >= startOfCurrentWeek && currentTaskDate <= endOfCurrentWeek) {
+        return true;
+    } else {
+        return false;
     }
 }
 

@@ -1,4 +1,6 @@
 import projectIcon from './img/project.svg'
+import flatpickr from "flatpickr"
+import 'flatpickr/dist/flatpickr.min.css'; // Import the CSS file
 
 export class ModalHandler {
     constructor() {
@@ -343,7 +345,8 @@ export class TasksHandler {
 
         // Create date input
         const dateInput = document.createElement('input');
-        dateInput.type = 'date';
+        dateInput.type = 'text';
+        dateInput.placeholder = 'Select Date...'
         dateInput.id = 'dateInput';
 
         // Append task description input and date input to task data div
@@ -375,6 +378,14 @@ export class TasksHandler {
         addTaskFormContainer.appendChild(addTaskFormButtonsDiv);
 
         currentSectionTasksContainer.appendChild(addTaskFormContainer)
+
+        flatpickr(dateInput, {
+            dateFormat: "d/m/Y",
+              minDate: "today",
+              locale: {
+                firstDayOfWeek: 1
+            },
+        })
     }
 
     createTaskHtml(currentSectionTasksHtml, task) {

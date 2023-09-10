@@ -85,12 +85,7 @@ function addTaskSubmitEvent() {
             return
         }
         else {
-            const dateArr = dateInput.value.split('-')
-            const year = dateArr[0]
-            const month = dateArr[1]
-            const day = dateArr[2]
-            const formattedDate = `${day}/${month}/${year}`
-            const newTask = new Task(taskDescriptionInput.value, formattedDate)
+            const newTask = new Task(taskDescriptionInput.value, dateInput.value)
             let currentSection = currentProject.sections[currentSectionIndex]
             currentSection.tasks.push(newTask)
             loadAllSectionsTasks(currentProject)
