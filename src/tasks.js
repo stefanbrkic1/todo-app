@@ -181,7 +181,7 @@ function checkTaskAsCompleted(checkboxIndex){
     setTimeout(() => {
         loadAllSectionsTasks(currentProject)
         Toastify({
-            text: "1 task completed",
+            text: `1 task completed | ${currentProject.name}`,
             className: "custom-toast", // Apply the custom CSS class
             duration: 3000,
             gravity: "bottom", // `top` or `bottom`

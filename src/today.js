@@ -126,8 +126,8 @@ function checkTaskAsCompleted(checkboxIndex, projectIndexToday, sectionIndexToda
     setTimeout(() => {
         loadTasks()
         Toastify({
-            text: "1 task completed",
-            className: "custom-toast", // Apply the custom CSS class
+            text: "1 task completed | Today",
+            className: "custom-toast-red", // Apply the custom CSS class
             duration: 3000,
             gravity: "bottom", // `top` or `bottom`
             position: "left", // `left`, `center` or `right`
