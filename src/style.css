@@ -1,15 +1,25 @@
+@font-face {
+  font-family: 'TTBold';
+  src: url(./fonts/TT\ Interphases\ Pro\ Trial\ Bold.ttf);
+}
+
 .preloader-image{
   background: url(../src/img/preloader.gif) no-repeat center center;
-  width: 300px;
-  height: 300px;
+  width: 100px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@font-face {
+.preloader-text{
   font-family: 'TTBold';
-  src: url(./fonts/TT\ Interphases\ Pro\ Trial\ Bold.ttf);
+  font-size: 35rem;
+  margin-bottom: 10px;
+}
+
+.preloader-tagline{
+  font-size: 18rem;
 }
 
 @font-face {

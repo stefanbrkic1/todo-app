@@ -11,7 +11,7 @@ import { loadProjects, addProjectEvent, addProjectToolsSubmitEvent } from './pro
     window.addEventListener('load', function(){
         setTimeout(() => {
             loader.style.display = "none";
-        }, 2000);
+        }, 3000);
     })
 
     handleSidebar();
