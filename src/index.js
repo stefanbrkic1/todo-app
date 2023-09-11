@@ -10,7 +10,9 @@ import { loadProjects, addProjectEvent, addProjectToolsSubmitEvent } from './pro
     const loader = document.getElementById('preloader')
     window.addEventListener('load', function(){
         setTimeout(() => {
-            loader.style.display = "none";
+            loader.style.opacity = "0";
+            loader.style.visibility = "hidden";
+            loader.style.transform = "scale(0.8)";
         }, 3500);
     })
 
