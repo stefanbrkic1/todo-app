@@ -1,6 +1,6 @@
 import { allProjects } from './projects';
 import importantIcon from './img/important.svg'
-import { TasksHandler, ProjectsHandler, removeEmptyProjectsFromHTML } from './dom'
+import { TasksHandler, ProjectsHandler, removeEmptyProjectsFromHTML, playNotificationSound } from './dom'
 import noTasksIconImportant from './img/important-no-tasks.png'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
@@ -112,6 +112,7 @@ function addImportantTaskCheckboxEvent(){
         checkbox.addEventListener('click', () => {
             setTimeout(() => {
                 checkTaskAsCompleted(checkboxIndex, allImportantTasks[checkboxIndex].projectIndexImportant, allImportantTasks[checkboxIndex].sectionIndexImportant, allImportantTasks[checkboxIndex].taskIndexImportant)
+                playNotificationSound()
             }, 10);
         })
     })    

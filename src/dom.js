@@ -2,6 +2,7 @@ import projectIcon from './img/project.svg'
 import flatpickr from "flatpickr"
 import 'flatpickr/dist/flatpickr.min.css'; // Import the CSS file
 require("flatpickr/dist/themes/material_green.css");
+import notificationSound from './audio/intuition.mp3';
 
 export class ModalHandler {
     constructor() {
@@ -384,6 +385,7 @@ export class TasksHandler {
         flatpickr(dateInput, {
             dateFormat: "d/m/Y",
               minDate: "today",
+              disableMobile: "true",
               locale: {
                 firstDayOfWeek: 1
             },
@@ -498,4 +500,10 @@ export function removeEmptyProjectsFromHTML(){
             parentContainer.remove()
         }
     })
+}
+
+const notificationAudio = new Audio(notificationSound);
+
+export function playNotificationSound(){
+    notificationAudio.play();
 }

@@ -1,4 +1,4 @@
-import { TasksHandler } from "./dom";
+import { TasksHandler, playNotificationSound } from "./dom";
 import { currentProject } from "./projects";
 import { allProjects, currentProjectIndex } from "./projects";
 import Toastify from 'toastify-js'
@@ -165,6 +165,7 @@ function addTaskCheckboxEvent(){
             checkbox.addEventListener('click', () => {
                 setTimeout(() => {
                    checkTaskAsCompleted(checkboxIndex)
+                   playNotificationSound()
                 }, 10)
             });
         })

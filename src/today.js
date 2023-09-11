@@ -1,7 +1,7 @@
 import { format, isToday } from 'date-fns'
 import todayIcon from './img/today48x48.svg'
 import noTasksIconToday from './img/today-no-tasks.png'
-import { TasksHandler, ProjectsHandler, removeEmptyProjectsFromHTML } from './dom'
+import { TasksHandler, ProjectsHandler, removeEmptyProjectsFromHTML, playNotificationSound } from './dom'
 import { allProjects } from './projects'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
@@ -116,6 +116,7 @@ function addTodayTaskCheckboxEvent(){
         checkbox.addEventListener('click', () => {
             setTimeout(() => {
                 checkTaskAsCompleted(checkboxIndex, allTodayTasks[checkboxIndex].projectIndexToday, allTodayTasks[checkboxIndex].sectionIndexToday, allTodayTasks[checkboxIndex].taskIndexToday)
+                playNotificationSound()
             }, 10);
         })
     })    

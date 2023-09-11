@@ -1,6 +1,6 @@
 import allTasksIcon from './img/alltasks48x48.svg'
 import { allProjects } from './projects'
-import { TasksHandler, ProjectsHandler } from './dom'
+import { TasksHandler, ProjectsHandler, playNotificationSound } from './dom'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
 
@@ -95,6 +95,7 @@ function addAllTasksCheckboxEvent(){
         checkbox.addEventListener('click', () => {
             setTimeout(() => {
                 checkTaskAsCompleted(checkboxIndex, allTasks[checkboxIndex].projectIndexAll, allTasks[checkboxIndex].sectionIndexAll, allTasks[checkboxIndex].taskIndexAll)
+                playNotificationSound()
             }, 10);
         })
     })    

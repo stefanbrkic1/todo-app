@@ -1,7 +1,7 @@
 import { isThisWeek, startOfWeek, endOfWeek, addDays, format } from 'date-fns'
 import weekIcon from './img/thisweek48x48.svg'
 import { allProjects } from './projects'
-import { TasksHandler, ProjectsHandler, removeEmptyProjectsFromHTML } from './dom'
+import { TasksHandler, ProjectsHandler, removeEmptyProjectsFromHTML, playNotificationSound } from './dom'
 import noTasksIconThisWeek from './img/this-week-no-tasks.png'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
@@ -129,6 +129,7 @@ function addWeekTaskCheckboxEvent(){
         checkbox.addEventListener('click', () => {
             setTimeout(() => {
                 checkTaskAsCompleted(checkboxIndex, allWeekTasks[checkboxIndex].projectIndexWeek, allWeekTasks[checkboxIndex].sectionIndexWeek, allWeekTasks[checkboxIndex].taskIndexWeek)
+                playNotificationSound()
             }, 10);
         })
     })    

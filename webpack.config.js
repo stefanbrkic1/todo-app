@@ -29,6 +29,18 @@ module.exports = {
                 use: ['style-loader', 'css-loader'],
             },
             {
+                test: /\.(mp3|wav)$/, // Add any other audio file formats you need to support
+                use: [
+                  {
+                    loader: 'file-loader', // or 'url-loader' if you prefer
+                    options: {
+                      name: '[name].[ext]',
+                      outputPath: 'audio/', // Specifies where the bundled audio files will be placed
+                    },
+                  },
+                ],
+              },
+            {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
             },
