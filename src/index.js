@@ -12,7 +12,6 @@ import { loadProjects, addProjectEvent, addProjectToolsSubmitEvent } from './pro
         setTimeout(() => {
             loader.style.opacity = "0";
             loader.style.visibility = "hidden";
-            loader.style.transform = "scale(0.8)";
         }, 3500);
     })
 

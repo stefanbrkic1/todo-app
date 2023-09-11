@@ -26,6 +26,7 @@
 .preloader-tagline{
   font-family: 'TTSemiBold';
   font-size: 16rem;
+  margin-bottom: 30px;
 }
 
 * {
