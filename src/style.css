@@ -1,5 +1,10 @@
-#preloader{
-  background: #fff url(../src/img/preloader.gif) no-repeat center center;
+.preloader-image{
+  background: url(../src/img/preloader.gif) no-repeat center center;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @font-face {

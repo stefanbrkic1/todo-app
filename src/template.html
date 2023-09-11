@@ -6,19 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo | ProductivityApp</title>
     <style>
-        #preloader {
+        .preloader {
+            background: #fff;
             height: 100vh;
             width: 100vw;
             position: fixed;
             top: 0;
             left: 0;
             z-index: 30000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
 
 <body>
-    <div id="preloader"></div>
+    <div id="preloader" class="preloader">
+        <div class="preloader-image"></div>
+    </div>
 
     <div class="body-container">
         <!-- #region header-->
