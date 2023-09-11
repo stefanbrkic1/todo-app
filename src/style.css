@@ -3,6 +3,11 @@
   src: url(./fonts/TT\ Interphases\ Pro\ Trial\ Bold.ttf);
 }
 
+@font-face {
+  font-family: 'TTSemiBold';
+  src: url(./fonts/TT\ Interphases\ Pro\ Trial\ DemiBold.ttf);
+}
+
 .preloader-image{
   background: url(../src/img/preloader.gif) no-repeat center center;
   width: 100px;
@@ -14,17 +19,13 @@
 
 .preloader-text{
   font-family: 'TTBold';
-  font-size: 35rem;
+  font-size: 30rem;
   margin-bottom: 10px;
 }
 
 .preloader-tagline{
-  font-size: 18rem;
-}
-
-@font-face {
   font-family: 'TTSemiBold';
-  src: url(./fonts/TT\ Interphases\ Pro\ Trial\ DemiBold.ttf);
+  font-size: 16rem;
 }
 
 * {
