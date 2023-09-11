@@ -7,6 +7,13 @@ import { loadProjects, addProjectEvent, addProjectToolsSubmitEvent } from './pro
 (function websiteHandler(){
     const modalHandler = new ModalHandler(); 
 
+    const loader = document.getElementById('preloader')
+    window.addEventListener('load', function(){
+        setTimeout(() => {
+            loader.style.display = "none";
+        }, 2000);
+    })
+
     handleSidebar();
     loadAllTasks();
     loadProjects();
