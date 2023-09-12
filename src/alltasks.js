@@ -84,7 +84,7 @@ function displayTasksLength() {
         tasksString = 'task'
     }
     const lengthString = `TasksCount: ${allTasks.length} ${tasksString}.`
-    tasksHandler.createRightDateDisplay(lengthString)
+    tasksHandler.createRightCountDisplay(lengthString)
 }
 
 function addAllTasksCheckboxEvent(){

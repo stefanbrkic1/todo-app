@@ -813,7 +813,7 @@ body {
   align-items: center;
   gap: 10px;
   font-size: 16rem;
-  color: var(--text-light);
+  color: var(--inactive-color);
 }
 
 .add-section-button {
@@ -1110,8 +1110,13 @@ button{
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
   color: var(--text-light);
+  border: 1px solid var(--hover-light);
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  font-size: 17rem;
 }
 
 .home-container-right, .home-container-left{
@@ -1139,11 +1144,11 @@ button{
 }
 
 .motivation-icon{
-  background-image: url(./img/thisweek48x48.svg);
+  background-image: url(./img/target-fill.svg);
 }
 
 .home-clock{
-  font-size: 55rem;
+  font-size: 65rem;
   color: var(--inactive-color);
 }
 
@@ -1163,6 +1168,23 @@ button{
   font-size: 20rem;
   color: var(--text-light);
   font-family: 'TTBold';
+}
+
+.flex-list{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.all-tasks-icon{
+  border: none;
+  outline: none;
+  appearance: none;
+  padding: 17px;
+  background-color: transparent;
+  background: url(./img/alltasks48x48.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 
@@ -1363,6 +1385,16 @@ button{
   
   .home-clock{
     display: none;
+  }
+
+  .home-container{
+    font-size: 16rem;
+    padding: 10px 15px;
+    margin-top: 15px;
+  }
+
+  .all-tasks-heading{
+    margin-top: 35px;
   }
 }
 

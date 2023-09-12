@@ -475,9 +475,17 @@ export class TasksHandler {
         dateDisplayer.appendChild(div)
     }
 
-    createRightDateDisplay(fullDateString) {
+    createRightDateDisplay(mainHeadingRight, fullDateString) {
+        mainHeadingRight.innerHTML = ''
+        const div = document.createElement('div')
+        div.classList.add('date-heading-right')
+        div.textContent = fullDateString
+        mainHeadingRight.appendChild(div)
+    }
+
+    createRightCountDisplay(lengthString) {
         const allTasksRight = document.querySelector('.all-tasks-right')
-        allTasksRight.textContent = fullDateString
+        allTasksRight.textContent = lengthString
     }
 }
 
@@ -516,6 +524,7 @@ export function createHomeWidgets(dateDisplayer) {
     homeContainerLeft.classList.add('home-container-left');
 
     const divCont = document.createElement('div');
+    divCont.classList.add('flex-list')
 
     // Create the first flex container
     const flex1 = document.createElement('div');
@@ -580,18 +589,7 @@ export function createHomeWidgets(dateDisplayer) {
     // Create the motivation message
     const motivationMessage = document.createElement('div');
     motivationMessage.classList.add('motivation-message');
-
-    const motivationMessages = [
-        "What's your plan for today?",
-        "What do you want to accomplish today?",
-        "Remove doubts with action",
-        "The more you do, the more you can do",
-        "Your future is created by what you do today, not tomorrow",
-         "The best way to predict the future is to create it"
-        ]
-
-    let randomNumber = Math.round(Math.random() * 5)  
-    motivationMessage.textContent = motivationMessages[randomNumber];
+    motivationMessage.textContent = "What's your plan for today?";
 
     // Create the motivation icon button
     const motivationIcon = document.createElement('button');
@@ -617,12 +615,18 @@ export function createHomeWidgets(dateDisplayer) {
     clock.setAttribute('id', 'clock');
     clock.classList.add('home-clock');
 
-    setInterval(() => {
-        const time = new Date()
+    // Function to update the clock's time
+    function updateClock() {
+        const time = new Date();
         const options = { hour: '2-digit', minute: '2-digit' };
         clock.innerHTML = time.toLocaleTimeString(undefined, options);
-    }, 1000);
+    }
 
+    // Initial update to display the current time
+    updateClock();
+
+    // Start the interval to update the clock every second
+    setInterval(updateClock, 1000);
 
     // Append the clock element to the right container
     homeContainerRight.appendChild(clock);
@@ -639,11 +643,19 @@ export function createHomeWidgets(dateDisplayer) {
 
     const allTasksDivLeft = document.createElement('div')
     allTasksDivLeft.classList.add('all-tasks-left')
-    allTasksDivLeft.textContent = 'All Tasks'
+    allTasksDivLeft.classList.add('flex')
+    
+    const allTasksDivLeftIcon = document.createElement('button')
+    allTasksDivLeftIcon.classList.add('all-tasks-icon')
+
+    const allTasksDivLeftText = document.createElement('div')
+    allTasksDivLeftText.textContent = 'All Tasks'
+
+    allTasksDivLeft.appendChild(allTasksDivLeftIcon)
+    allTasksDivLeft.appendChild(allTasksDivLeftText)
 
     const allTasksDivRight = document.createElement('div')
     allTasksDivRight.classList.add('all-tasks-right')
-    allTasksDivRight.textContent = 'All Tasks'
 
     allTasksDiv.appendChild(allTasksDivLeft)
     allTasksDiv.appendChild(allTasksDivRight)
