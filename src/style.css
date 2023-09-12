@@ -1106,7 +1106,64 @@ button{
   border-radius: 8px !important;
 }
 
+.home-container{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  color: var(--text-light);
+}
 
+.home-container-right, .home-container-left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.widget-icon{
+  border: none;
+  appearance: none;
+  outline: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 10px;
+}
+
+.greetings-icon{
+  background-image: url(./img/important.svg);
+}
+
+.date-icon{
+  background-image: url(./img/today48x48.svg);
+}
+
+.motivation-icon{
+  background-image: url(./img/thisweek48x48.svg);
+}
+
+.home-clock{
+  font-size: 55rem;
+  color: var(--inactive-color);
+}
+
+.all-tasks-heading{
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+}
+
+.all-tasks-right{
+  color: var(--inactive-color);
+}
+
+.all-tasks-left{
+  font-size: 20rem;
+  color: var(--text-light);
+  font-family: 'TTBold';
+}
 
 
 /*Media Queries*/
@@ -1302,6 +1359,10 @@ button{
 
   .task{
     margin-bottom: 0px;
+  }
+  
+  .home-clock{
+    display: none;
   }
 }
 

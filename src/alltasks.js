@@ -1,6 +1,6 @@
-import allTasksIcon from './img/alltasks48x48.svg'
+import allTasksIcon from './img/home.svg'
 import { allProjects } from './projects'
-import { TasksHandler, ProjectsHandler, playNotificationSound } from './dom'
+import { TasksHandler, ProjectsHandler, playNotificationSound, createHomeWidgets } from './dom'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
 
@@ -36,11 +36,12 @@ function setAllTasksTab() {
     currentTabIcon.innerHTML = ''
     currentTabIcon.appendChild(svgAllTasks)
 
-    currentTabName.textContent = 'All Tasks'
+    currentTabName.textContent = 'Home'
 
     tasksListView.innerHTML = ''
     tasksListView.classList.add('height-auto')
     dateDisplayer.innerHTML = ''
+    createHomeWidgets(dateDisplayer)
     floatingActionButton.innerHTML = ''
     headerSection.className = ''
     headerSection.classList.add('header-all-tasks')
@@ -83,10 +84,7 @@ function displayTasksLength() {
         tasksString = 'task'
     }
     const lengthString = `TasksCount: ${allTasks.length} ${tasksString}.`
-    tasksHandler.createRightDateDisplay(mainHeadingRight, lengthString)
-
-    dateDisplayer.innerHTML = ''
-    tasksHandler.createDateDisplay(dateDisplayer, lengthString)
+    tasksHandler.createRightDateDisplay(lengthString)
 }
 
 function addAllTasksCheckboxEvent(){

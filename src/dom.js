@@ -3,6 +3,7 @@ import flatpickr from "flatpickr"
 import 'flatpickr/dist/flatpickr.min.css'; // Import the CSS file
 require("flatpickr/dist/themes/material_green.css");
 import notificationSound from './audio/intuition.mp3';
+import { format } from 'date-fns'
 
 export class ModalHandler {
     constructor() {
@@ -474,12 +475,9 @@ export class TasksHandler {
         dateDisplayer.appendChild(div)
     }
 
-    createRightDateDisplay(mainHeadingRight, fullDateString) {
-        mainHeadingRight.innerHTML = ''
-        const div = document.createElement('div')
-        div.classList.add('date-heading-right')
-        div.textContent = fullDateString
-        mainHeadingRight.appendChild(div)
+    createRightDateDisplay(fullDateString) {
+        const allTasksRight = document.querySelector('.all-tasks-right')
+        allTasksRight.textContent = fullDateString
     }
 }
 
@@ -508,3 +506,147 @@ export function playNotificationSound(){
     notificationAudio.play();
 }
 
+export function createHomeWidgets(dateDisplayer) {
+    // Create the main container
+    const homeContainer = document.createElement('div');
+    homeContainer.classList.add('home-container');
+
+    // Create the left container
+    const homeContainerLeft = document.createElement('div');
+    homeContainerLeft.classList.add('home-container-left');
+
+    const divCont = document.createElement('div');
+
+    // Create the first flex container
+    const flex1 = document.createElement('div');
+    flex1.classList.add('flex');
+
+    // Create the greetings message
+    const greetingsMessage = document.createElement('div');
+    greetingsMessage.classList.add('greetings-message');
+
+    const now = new Date()
+    const currentHour = now.getHours()
+
+    const morningStart = 5;     // 5:00 AM
+    const afternoonStart = 12;  // 12:00 PM (noon)
+    const eveningStart = 18;    // 6:00 PM
+
+    let timeOfDay;
+    if(currentHour >= morningStart && currentHour < afternoonStart){
+        timeOfDay = 'Morning'
+    }
+    else if(currentHour >= afternoonStart && currentHour < eveningStart){
+        timeOfDay = 'Afternoon'
+    }
+    else{
+        timeOfDay = 'Evening'
+    }
+
+    greetingsMessage.textContent = `Good ${timeOfDay}`;
+
+    // Create the greetings icon button
+    const greetingsIcon = document.createElement('button');
+    greetingsIcon.classList.add('widget-icon', 'greetings-icon');
+
+    // Append greetings message and icon to flex container 1
+    flex1.appendChild(greetingsMessage);
+    flex1.appendChild(greetingsIcon);
+
+    // Create the second flex container
+    const flex2 = document.createElement('div');
+    flex2.classList.add('flex');
+
+    // Create the home date message
+    const homeDate = document.createElement('div');
+    homeDate.classList.add('home-date');
+
+    const todaysDate = format(now, 'MMMM, dd. yyyy.')
+
+    homeDate.textContent = todaysDate;
+
+    // Create the date icon button
+    const dateIcon = document.createElement('button');
+    dateIcon.classList.add('widget-icon', 'date-icon');
+
+    // Append home date and icon to flex container 2
+    flex2.appendChild(homeDate);
+    flex2.appendChild(dateIcon);
+
+    // Create the third flex container
+    const flex3 = document.createElement('div');
+    flex3.classList.add('flex');
+
+    // Create the motivation message
+    const motivationMessage = document.createElement('div');
+    motivationMessage.classList.add('motivation-message');
+
+    const motivationMessages = [
+        "What's your plan for today?",
+        "What do you want to accomplish today?",
+        "Remove doubts with action",
+        "The more you do, the more you can do",
+        "Your future is created by what you do today, not tomorrow",
+         "The best way to predict the future is to create it"
+        ]
+
+    let randomNumber = Math.round(Math.random() * 5)  
+    motivationMessage.textContent = motivationMessages[randomNumber];
+
+    // Create the motivation icon button
+    const motivationIcon = document.createElement('button');
+    motivationIcon.classList.add('widget-icon', 'motivation-icon');
+
+    // Append motivation message and icon to flex container 3
+    flex3.appendChild(motivationMessage);
+    flex3.appendChild(motivationIcon);
+
+    // Append all flex containers to the left container
+    divCont.appendChild(flex1);
+    divCont.appendChild(flex2);
+    divCont.appendChild(flex3);
+
+    homeContainerLeft.appendChild(divCont)
+
+    // Create the right container
+    const homeContainerRight = document.createElement('div');
+    homeContainerRight.classList.add('home-container-right');
+
+    // Create the clock element
+    const clock = document.createElement('div');
+    clock.setAttribute('id', 'clock');
+    clock.classList.add('home-clock');
+
+    setInterval(() => {
+        const time = new Date()
+        const options = { hour: '2-digit', minute: '2-digit' };
+        clock.innerHTML = time.toLocaleTimeString(undefined, options);
+    }, 1000);
+
+
+    // Append the clock element to the right container
+    homeContainerRight.appendChild(clock);
+
+    // Append the left and right containers to the main container
+    homeContainer.appendChild(homeContainerLeft);
+    homeContainer.appendChild(homeContainerRight);
+
+    dateDisplayer.appendChild(homeContainer);
+
+    const allTasksDiv = document.createElement('div')
+    allTasksDiv.classList.add('all-tasks-heading')
+    allTasksDiv.classList.add('border-bottom')
+
+    const allTasksDivLeft = document.createElement('div')
+    allTasksDivLeft.classList.add('all-tasks-left')
+    allTasksDivLeft.textContent = 'All Tasks'
+
+    const allTasksDivRight = document.createElement('div')
+    allTasksDivRight.classList.add('all-tasks-right')
+    allTasksDivRight.textContent = 'All Tasks'
+
+    allTasksDiv.appendChild(allTasksDivLeft)
+    allTasksDiv.appendChild(allTasksDivRight)
+
+    dateDisplayer.appendChild(allTasksDiv)
+}
