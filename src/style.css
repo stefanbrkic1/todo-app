@@ -1391,6 +1391,7 @@ button{
     font-size: 16rem;
     padding: 10px 15px;
     margin-top: 15px;
+    border: 2px solid var(--hover-light);
   }
 
   .all-tasks-heading{
