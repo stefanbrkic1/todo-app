@@ -42,7 +42,7 @@ export function displayNoSectionsImage() {
         noSectionsImage.classList.add('no-sections-img')
 
         const text = document.createElement('div')
-        text.textContent = `Start organizing your tasks! Create sections within your projects.`
+        text.textContent = `Start organizing your tasks! Create sections within your lists.`
         text.classList.add('no-tasks-img-text')
 
         container.appendChild(noSectionsImage)

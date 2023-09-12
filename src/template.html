@@ -68,7 +68,7 @@
                             </svg>This Week</li>
                         <li id="tabImportant" class="sidebar-item tab"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><mask id="ipSStar0"><path fill="#fff" stroke="#fff" stroke-linejoin="round" stroke-width="4" d="m23.999 5l-6.113 12.478L4 19.49l10.059 9.834L11.654 43L24 36.42L36.345 43L33.96 29.325L44 19.491l-13.809-2.013L24 5Z"/></mask><path fill="#ffc300" d="M0 0h48v48H0z" mask="url(#ipSStar0)"/></svg>Important</li>
                     </ul>
-                    <div class="sidebar-header">Projects</div>
+                    <div class="sidebar-header">Your Lists</div>
                     <ul id="projectsContainer" class="projects-sidebar-list">
 
                     </ul>
@@ -77,7 +77,7 @@
                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <path fill="#303336"
                                     d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
-                            </svg>Add Project
+                            </svg>Add List
                         </li>
                     </ul>
                 </div>
@@ -145,11 +145,11 @@
      <!-- #region modal-add-->
      <div id="modal" class="modal">
         <div class="modal-header">
-            <div class="modal-title">Add Project</div>
+            <div class="modal-title">Add List</div>
         </div>
         <div class="modal-body">
             <form id="addForm" action="">
-                <input type="text" id="projectNameInput" class="add-project-input" placeholder="Enter project title" autocomplete="off" maxlength="11">
+                <input type="text" id="projectNameInput" class="add-project-input" placeholder="Enter list title" autocomplete="off" maxlength="11">
                 <div id="modalAlert" class="modal-alert"></div>
                 <div class="project-modal-buttons">
                     <button type="submit" id="addProjectButton" class="add-project-buttons add-btn">Add</button>
@@ -170,7 +170,7 @@
         <div class="modal-body">
             <form id="renameForm" action="">
                 <input type="text" id="projectRenameInput" class="add-project-input"
-                    placeholder="Enter new project title" autocomplete="off" maxlength="11">
+                    placeholder="Enter new list title" autocomplete="off" maxlength="11">
                     <div id="modalAlertRename" class="modal-alert"></div>
                 <div class="project-modal-buttons">
                     <button type="submit" id="projectRenameButton"
@@ -191,7 +191,7 @@
         </div>
         <div class="modal-body">
             <form id="deleteForm" action="">
-                <div class="delete-question">Are you sure you want to delete this project?</div>
+                <div class="delete-question">Are you sure you want to delete this list?</div>
                 <div class="project-modal-buttons">
                     <button type="submit" id="projectDeleteButton"
                         class="add-project-buttons close-btn">Delete</button>

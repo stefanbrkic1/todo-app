@@ -218,7 +218,7 @@ export class ProjectsHandler {
         // Create the project name div
         const projectNameDiv = document.createElement('div');
         projectNameDiv.classList.add('project-name-all-tasks');
-        projectNameDiv.textContent = `Project (${project.name})`;
+        projectNameDiv.textContent = `List (${project.name})`;
 
         projectHeaderDiv.appendChild(projectNameDiv);
 
