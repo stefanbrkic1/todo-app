@@ -69,6 +69,8 @@ body {
 
   --orange-color: #ff9900;
   --yellow-color: #ffc300;
+
+  --inactive-color: #979797;
 }
 
 .body-container {
@@ -1015,8 +1017,8 @@ button{
   justify-content: center;
   align-items: center;
   font-size: 15rem;
-  color: var(--hover-light);
-  border: 1px solid var(--hover-light);
+  color: var(--inactive-color);
+  border: 1px solid var(--inactive-color);
   width: 110px;
   border-radius: 5px;
   pointer-events: none;
@@ -1067,13 +1069,13 @@ button{
 
 .this-week-date{
   display: none;
-  color: var(--hover-light);
+  color: var(--inactive-color);
   font-size: 16rem;
 }
 
 .date-heading-right{
   display: block;
-  color: var(--hover-light);
+  color: var(--inactive-color);
 }
 
 .date-displayer{
