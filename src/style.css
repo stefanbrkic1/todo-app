@@ -48,9 +48,9 @@
 
 
 .dark-theme {
-  --primary-color: #4ecbfb;
-  --secondary-color: #74ffe0;
-  --tertiary-color: #fe8975;
+  --primary-color: #0770b3; /* Slightly desaturated primary color */
+  --secondary-color: #0c8a6e; /* Slightly desaturated secondary color */
+  --tertiary-color: #ff6f56; /* Brighter red for alerts */
 
   --background: #1a1a1a; /* Dark background color for the main content */
   --secondary-background: #121212; /* Even darker background for sidebar */
@@ -694,8 +694,8 @@ body {
   appearance: none;
   border: none;
   outline: none;
-  background-color: var(--secondary-color);
-  color: var(--background);
+  background-color: #10a885;
+  color: #fafafa;
   font-size: 55rem;
   position: absolute;
   right: 0;
