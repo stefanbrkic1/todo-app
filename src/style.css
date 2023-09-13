@@ -57,7 +57,7 @@
 
   --hover: #222222; /* Slightly lighter than the background for hover effects */
   --text-dark: #f0f0f0; /* Light text for readability on dark background */
-  --text-light: #ffffff; /* White text for headers and primary content */
+  --text-light: #303336; /* White text for headers and primary content */
 
   --warning: #ff6f56; /* Keep the same warning color for consistency */
 
@@ -417,6 +417,8 @@ body {
   font-family: 'TTSemiBold';
   font-size: 16rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: var(--background);
+  color: var(--text-dark);
 }
 
 .project-modal-buttons {
@@ -432,7 +434,7 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  color: var(--text-light);
+  color: #fafafa;
   font-family: 'TTBold';
   font-size: 18rem;
 }
@@ -758,6 +760,8 @@ body {
   border-radius: 5px;
   font-size: 14rem;
   border: solid 1px var(--hover);
+  background-color: var(--background);
+  color: var(--text-dark);
 }
 
 .task-data{
@@ -783,8 +787,8 @@ body {
   padding: 7px 20px;
   border-radius: 3px;
   background-color: var(--secondary-color);
-  color: var(--text-light);
   font-family: 'TTSemiBold';
+  color: #fafafa;
 }
 
 .add-task-form-btn:hover{
@@ -799,6 +803,7 @@ body {
   background-color: var(--tertiary-color);
   color: var(--text-light);
   font-family: 'TTSemiBold';
+  color: #fafafa;
 }
 
 .cancel-task-btn:hover{
@@ -812,6 +817,7 @@ body {
   border: 1px solid var(--hover);
   border-radius: 5px;
   background-color: transparent;
+  color: var(--text-dark);
 }
 
 
