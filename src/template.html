@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listify | ProductivityApp</title>
     <style>
+        .preloader-for-preloader{
+            background: #fff;
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 40000;
+            visibility: visible;
+            transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
+        }
         .preloader {
             background: #fff;
             height: 100vh;
@@ -26,6 +37,7 @@
 </head>
 
 <body>
+    <div id="preloaderForLoader" class="preloader-for-preloader"></div>
     <div id="preloader" class="preloader">
         <div class="preloader-image"></div>
         <div class="preloader-text">Listify</div>

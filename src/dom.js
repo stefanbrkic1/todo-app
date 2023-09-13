@@ -463,7 +463,7 @@ export class TasksHandler {
     displayNoTasksMessage(currentProjectWithNoTasksHtml) {
         const div = document.createElement('div')
         div.classList.add('no-tasks-message')
-        div.textContent = `No tasks in this list. Go to your lists and add some tasks.`
+        div.textContent = `No tasks in this list. Go to "Your Lists" and add some tasks.`
 
         currentProjectWithNoTasksHtml.appendChild(div)
     }
