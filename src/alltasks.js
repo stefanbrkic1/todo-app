@@ -117,6 +117,7 @@ function checkTaskAsCompleted(checkboxIndex, projectIndexAll, sectionIndexAll, t
 
 function displayNoLists() {
     if (tasksListView.innerHTML === '') {
+        tasksListView.classList.add('no-lists-list-view')
         const container = document.createElement('div')
         container.classList.add('no-lists-container')
 

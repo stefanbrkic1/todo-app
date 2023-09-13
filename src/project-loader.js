@@ -25,6 +25,7 @@ function setActiveProject(currentProject) {
 
     dateDisplayer.innerHTML = ''
     tasksListView.classList.add('height-auto')
+    tasksListView.classList.remove('no-lists-list-view')
     sectionHandler.createAddSectionButtonHtml()
     headerSection.className = ''
     headerSection.classList.add('header-project')

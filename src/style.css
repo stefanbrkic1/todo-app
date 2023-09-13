@@ -1223,6 +1223,10 @@ button{
   color: var(--text-dark);
 }
 
+.no-lists-list-view{
+  padding: 30px 0px 90px 0px !important;
+}
+
 
 
 /*Media Queries*/
@@ -1325,6 +1329,10 @@ button{
   .tasks-list-view {
     padding: 20px 20px 140px 20px;
     height: 87%;
+  }
+
+  .no-lists-list-view{
+    padding: 20px 0px 140px 0px !important; 
   }
 
   .delete-question {

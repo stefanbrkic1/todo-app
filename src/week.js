@@ -58,6 +58,7 @@ function setWeekTab() {
 
     tasksListView.innerHTML = ''
     tasksListView.classList.add('height-auto')
+    tasksListView.classList.remove('no-lists-list-view')
     floatingActionButton.innerHTML = ''
     headerSection.className = ''
     headerSection.classList.add('header-week')
