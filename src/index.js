@@ -35,7 +35,7 @@ function setThemeTogglerEvent(){
     const themeToggler = document.getElementById('themeToggler')
     themeToggler.addEventListener('click', () => {
         console.log('clicked')
-        document.body.classList.toggle("dark-theme")
+        document.body.classList.toggle("light-theme")
     })
 }
 
