@@ -649,7 +649,7 @@ export function createHomeWidgets(dateDisplayer) {
     allTasksDivLeftIcon.classList.add('all-tasks-icon')
 
     const allTasksDivLeftText = document.createElement('div')
-    allTasksDivLeftText.textContent = 'All Tasks'
+    allTasksDivLeftText.textContent = 'All Lists'
 
     allTasksDivLeft.appendChild(allTasksDivLeftIcon)
     allTasksDivLeft.appendChild(allTasksDivLeftText)

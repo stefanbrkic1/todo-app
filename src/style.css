@@ -1080,7 +1080,7 @@ button{
 }
 
 .date-displayer{
-  padding: 10px 0px 0px 0px;
+  padding: 10px 10px 0px 10px;
 }
 
 .custom-toast{
@@ -1166,7 +1166,7 @@ button{
 }
 
 .all-tasks-left{
-  font-size: 20rem;
+  font-size: 22rem;
   color: var(--text-light);
   font-family: 'TTBold';
 }
@@ -1181,7 +1181,7 @@ button{
   border: none;
   outline: none;
   appearance: none;
-  padding: 17px;
+  padding: 14px;
   background-color: transparent;
   background: url(./img/alltasks48x48.svg);
   background-repeat: no-repeat;
@@ -1222,6 +1222,7 @@ button{
   background-color: var(--inactive-color);
   color: var(--text-dark);
 }
+
 
 
 /*Media Queries*/
@@ -1437,6 +1438,10 @@ button{
   .no-lists-container{
     padding: 80px 10px;
     border: 2px solid var(--hover-light);
+  }
+
+  .date-displayer{
+    padding: 10px 0px 0px 0px;
   }
 }
 
