@@ -109,7 +109,18 @@ export function addProjectEvent() {
         allProjects.push(newProject);
         loadProjects();
         closeModalButton.click();
+        reloadTabAllTasksIfListAdded()
     });
+}
+
+function reloadTabAllTasksIfListAdded(){
+    const currentTabName = document.getElementById('currentTabName')
+    if (currentTabName.textContent === 'Home') {
+        const tabAllTasks = document.getElementById('tabAllTasks')
+        tabAllTasks.click()
+        const tasksListView = document.getElementById('tasksListView')
+        tasksListView.classList.remove('no-lists-list-view')
+    }
 }
 
 export function addProjectToolsSubmitEvent() {

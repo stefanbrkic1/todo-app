@@ -1019,12 +1019,13 @@ button{
   align-items: center;
   font-size: 15rem;
   color: var(--inactive-color);
-  border: 1px solid var(--inactive-color);
-  width: 110px;
+  border: 1px solid var(--hover-light);
   border-radius: 5px;
   pointer-events: none;
   box-sizing: border-box;
-  padding: 3px 0px;
+  width: auto;
+  padding: 10px 10px;
+  margin-top: 8px;
 }
 
 .no-tasks-img-container{
@@ -1450,6 +1451,10 @@ button{
 
   .date-displayer{
     padding: 10px 0px 0px 0px;
+  }
+
+  .no-tasks-message{
+    border: 2px solid var(--hover-light);
   }
 }
 
