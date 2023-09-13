@@ -76,6 +76,7 @@ function loadTasks(){
     });
     displayTasksLength()
     addAllTasksCheckboxEvent()
+    displayNoLists()
 }
 
 function displayTasksLength() {
@@ -112,4 +113,30 @@ function checkTaskAsCompleted(checkboxIndex, projectIndexAll, sectionIndexAll, t
             position: "left", // `left`, `center` or `right`
           }).showToast();
     }, 300);
+}
+
+function displayNoLists() {
+    if (tasksListView.innerHTML === '') {
+        const container = document.createElement('div')
+        container.classList.add('no-lists-container')
+
+        const text = document.createElement('div')
+        text.textContent = `Ready to get organized? Start by creating your first list and begin managing your tasks.`
+        text.classList.add('no-lists-text')
+
+        const button = document.createElement('button')
+        button.textContent = `+ Add list`
+        button.classList.add('no-lists-btn')
+        button.id = 'noListsBtn'
+
+        container.appendChild(text)
+        container.appendChild(button)
+        tasksListView.appendChild(container)
+
+        const noListsBtn = document.getElementById('noListsBtn')
+        const addListBtn = document.querySelector('.sidebar-add-project')
+        noListsBtn.addEventListener('click', () => {
+            addListBtn.click()
+        })
+    }
 }

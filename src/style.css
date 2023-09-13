@@ -641,6 +641,7 @@ body {
   box-sizing: border-box;
   padding: 30px 70px 90px 70px;
   height: 90%;
+  position: relative;
 }
 
 .tasks-list-container {
@@ -1187,6 +1188,41 @@ button{
   background-size: contain;
 }
 
+.no-lists-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid var(--hover-light);
+  border-radius: 8px;
+  padding: 150px 10px;
+  margin-top: 8px;
+}
+
+.no-lists-text{
+  text-align: center;
+  font-size: 17rem;
+  color: var(--text-light);
+}
+
+.no-lists-btn{
+  appearance: none;
+  border: 1px solid var(--inactive-color);
+  outline: none;
+  font-size: 17rem;
+  padding: 10px 40px;
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--text-light);
+  font-family: 'TTSemiBold';
+}
+
+.no-lists-btn:hover{
+  background-color: var(--inactive-color);
+  color: var(--text-dark);
+}
+
 
 /*Media Queries*/
 
@@ -1396,6 +1432,11 @@ button{
 
   .all-tasks-heading{
     margin-top: 35px;
+  }
+
+  .no-lists-container{
+    padding: 80px 10px;
+    border: 2px solid var(--hover-light);
   }
 }
 

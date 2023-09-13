@@ -93,6 +93,7 @@ function taskIsToday(taskDate) {
 function displayNoTasksImage() {
     if (tasksListView.innerHTML === '') {
         tasksListView.classList.remove('height-auto')
+        tasksListView.classList.remove('home-height')
         const container = document.createElement('div')
         container.classList.add('no-tasks-img-container')
 
