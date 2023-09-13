@@ -45,6 +45,7 @@
 
   --inactive: #979797; /* Unchanged color for inactive elements */
   --yellow-color: #ffc300;
+
 }
 
 
@@ -331,7 +332,7 @@ body {
 }
 
 .border-bottom {
-  border-bottom: 1px solid var(--hover);
+  border-bottom: 2px solid var(--hover);
 }
 
 .modal {
@@ -745,7 +746,7 @@ body {
 
 .add-task-form-container{
   margin-top: 20px;
-  border: solid 1px var(--hover);
+  border: solid 2px var(--hover);
   border-radius: 4px;
   box-sizing: border-box;
   padding: 10px;
@@ -756,10 +757,9 @@ body {
   box-sizing: border-box;
   padding: 9px 7px 9px 7px;
   outline: none;
-  border: none;
   border-radius: 5px;
   font-size: 14rem;
-  border: solid 1px var(--hover);
+  border: solid 2px var(--hover);
   background-color: var(--background);
   color: var(--text-dark);
 }
@@ -776,7 +776,7 @@ body {
   gap: 6px;
   justify-content: end;
   align-items: center;
-  border-top: 1px solid var(--hover);
+  border-top: 2px solid var(--hover);
   box-sizing: border-box;
   padding: 15px 0px 5px 0px ;
 }
@@ -811,10 +811,10 @@ body {
 }
 
 .date-input{
-  height: 35px;
+  height: 38px;
   box-sizing: border-box;
   padding: 0px 10px;
-  border: 1px solid var(--hover);
+  border: 2px solid var(--hover);
   border-radius: 5px;
   background-color: transparent;
   color: var(--text-dark);
@@ -892,7 +892,7 @@ button{
   align-items: center;
   font-size: 15rem;
   color: var(--inactive);
-  border: 1px solid var(--hover);
+  border: 2px solid var(--hover);
   border-radius: 5px;
   pointer-events: none;
   box-sizing: border-box;
@@ -987,7 +987,7 @@ button{
   margin-bottom: 10px;
   margin-top: 20px;
   color: var(--text-dark);
-  border: 1px solid var(--hover);
+  border: 2px solid var(--hover);
   border-radius: 8px;
   box-sizing: border-box;
   padding: 10px 15px;
@@ -1068,7 +1068,7 @@ button{
   justify-content: center;
   align-items: center;
   gap: 20px;
-  border: 1px solid var(--hover);
+  border: 2px solid var(--hover);
   border-radius: 8px;
   padding: 150px 10px;
   margin-top: 8px;
@@ -1082,7 +1082,7 @@ button{
 
 .no-lists-btn{
   appearance: none;
-  border: 1px solid var(--inactive);
+  border: 2px solid var(--inactive);
   outline: none;
   font-size: 17rem;
   padding: 10px 40px;
@@ -1098,7 +1098,7 @@ button{
 }
 
 .no-lists-list-view{
-  padding: 30px 0px 90px 0px !important;
+  padding: 30px 10px 90px 10px !important;
 }
 
 #toggler{
