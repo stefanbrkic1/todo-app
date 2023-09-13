@@ -29,6 +29,42 @@
   margin-bottom: 30px;
 }
 
+:root {
+  --primary-color: #126fb5;
+  --secondary-color: #10a885;
+  --tertiary-color: #ff5436;
+
+  --background: #ffffff;
+  --secondary-background: #fafafa;
+
+  --hover: #dde0e4;
+  --text-dark: #303336;
+  --text-light: #fafafa;
+  --warning: #ff5436;
+
+  --inactive: #979797;
+  --yellow-color: #ffc300;
+}
+
+
+.dark-theme {
+  --primary-color: #4ecbfb;
+  --secondary-color: #74ffe0;
+  --tertiary-color: #fe8975;
+
+  --background: #1a1a1a; /* Dark background color for the main content */
+  --secondary-background: #121212; /* Even darker background for sidebar */
+
+  --hover: #222222; /* Slightly lighter than the background for hover effects */
+  --text-dark: #f0f0f0; /* Light text for readability on dark background */
+  --text-light: #ffffff; /* White text for headers and primary content */
+
+  --warning: #ff6f56; /* Keep the same warning color for consistency */
+
+  --inactive: #979797; /* Unchanged color for inactive elements */
+  --yellow-color: #ffc300;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -45,51 +81,24 @@ body {
   overflow: hidden;
 }
 
-:root {
-  --primary-color-light: #126fb5;
-  --secondary-color-light: #10a885;
-  --tertiary-color-light: #ff5436;
-
-  --primary-color-dark: #4ecbfb;
-  --secondary-color-dark: #74ffe0;
-  --tertiary-color-dark: #fe8975;
-
-  --background-light: #ffffff;
-  --secondary-background-light: #fafafa;
-  --background-dark: #212844;
-  --secondary-background-dark: #f4f5f7;
-
-  --hover-light: #dde0e4;
-
-  --text-light: #303336;
-  --text-dark: #ffffff;
-
-  --warning-light: #ff5436;
-  --warning-dark: #FFF200;
-
-  --orange-color: #ff9900;
-  --yellow-color: #ffc300;
-
-  --inactive-color: #979797;
-}
-
 .body-container {
   width: 100vw;
   height: 100vh;
   display: grid;
   grid-template-columns: 310px repeat(4, 1fr);
   grid-template-rows: 40px repeat(11, 1fr);
+  background-color: var(--background);
 }
 
 .sidebar {
-  background-color: var(--secondary-background-light);
+  background-color: var(--secondary-background);
   grid-area: 1 / 1 / -1 / 2;
   box-sizing: border-box;
   padding: 20px;
 }
 
 .main {
-  background-color: var(--background-light);
+  background-color: var(--background);
   grid-area: 2 / 2 / 13 / -1;
   box-sizing: border-box;
   padding: 0px 70px 0px 70px;
@@ -134,14 +143,14 @@ body {
 }
 
 .sidebar-item:hover {
-  background-color: var(--hover-light);
+  background-color: var(--hover);
 }
 
 .sidebar-items {
   display: grid;
   grid-template-rows: 1fr 1fr;
   height: 100%;
-  color: var(--text-light);
+  color: var(--text-dark);
   font-size: 15rem;
 }
 
@@ -156,13 +165,13 @@ body {
 }
 
 .sidebar-add-project:hover {
-  background-color: var(--hover-light);
+  background-color: var(--hover);
 }
 
 .sidebar-header {
   font-size: 21rem;
   padding-bottom: 10px;
-  color: var(--text-light);
+  color: var(--text-dark);
   font-family: 'TTBold';
   display: flex;
   justify-content: space-between;
@@ -181,148 +190,6 @@ body {
   padding: 5px 5px 5px 10px;
 }
 
-.switch {
-  /* switch */
-  --switch-width: 46px;
-  --switch-height: 24px;
-  --switch-bg: rgb(48, 51, 54);
-  --switch-checked-bg: rgb(19, 197, 156);
-  --switch-offset: calc((var(--switch-height) - var(--circle-diameter)) / 2);
-  --switch-transition: all .2s cubic-bezier(0.27, 0.2, 0.25, 1.51);
-  /* circle */
-  --circle-diameter: 18px;
-  --circle-bg: #fff;
-  --circle-shadow: 1px 1px 2px rgba(146, 146, 146, 0.45);
-  --circle-checked-shadow: -1px 1px 2px rgba(163, 163, 163, 0.45);
-  --circle-transition: var(--switch-transition);
-  /* icon */
-  --icon-transition: all .2s cubic-bezier(0.27, 0.2, 0.25, 1.51);
-  --icon-cross-color: var(--switch-bg);
-  --icon-cross-size: 6px;
-  --icon-checkmark-color: var(--switch-checked-bg);
-  --icon-checkmark-size: 10px;
-  /* effect line */
-  --effect-width: calc(var(--circle-diameter) / 2);
-  --effect-height: calc(var(--effect-width) / 2 - 1px);
-  --effect-bg: var(--circle-bg);
-  --effect-border-radius: 1px;
-  --effect-transition: all .2s ease-in-out;
-}
-
-.switch input {
-  display: none;
-}
-
-.switch {
-  display: inline-block;
-}
-
-.switch svg {
-  -webkit-transition: var(--icon-transition);
-  -o-transition: var(--icon-transition);
-  transition: var(--icon-transition);
-  position: absolute;
-  height: auto;
-}
-
-.switch .checkmark {
-  width: var(--icon-checkmark-size);
-  color: var(--icon-checkmark-color);
-  -webkit-transform: scale(0);
-  -ms-transform: scale(0);
-  transform: scale(0);
-}
-
-.switch .cross {
-  width: var(--icon-cross-size);
-  color: var(--icon-cross-color);
-}
-
-.slider {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  width: var(--switch-width);
-  height: var(--switch-height);
-  background: var(--switch-bg);
-  border-radius: 999px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  position: relative;
-  -webkit-transition: var(--switch-transition);
-  -o-transition: var(--switch-transition);
-  transition: var(--switch-transition);
-  cursor: pointer;
-}
-
-.circle {
-  width: var(--circle-diameter);
-  height: var(--circle-diameter);
-  background: var(--circle-bg);
-  border-radius: inherit;
-  -webkit-box-shadow: var(--circle-shadow);
-  box-shadow: var(--circle-shadow);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-transition: var(--circle-transition);
-  -o-transition: var(--circle-transition);
-  transition: var(--circle-transition);
-  z-index: 1;
-  position: absolute;
-  left: var(--switch-offset);
-}
-
-.slider::before {
-  content: "";
-  position: absolute;
-  width: var(--effect-width);
-  height: var(--effect-height);
-  left: calc(var(--switch-offset) + (var(--effect-width) / 2));
-  background: var(--effect-bg);
-  border-radius: var(--effect-border-radius);
-  -webkit-transition: var(--effect-transition);
-  -o-transition: var(--effect-transition);
-  transition: var(--effect-transition);
-}
-
-/* actions */
-
-.switch input:checked+.slider {
-  background: var(--switch-checked-bg);
-}
-
-.switch input:checked+.slider .checkmark {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-}
-
-.switch input:checked+.slider .cross {
-  -webkit-transform: scale(0);
-  -ms-transform: scale(0);
-  transform: scale(0);
-}
-
-.switch input:checked+.slider::before {
-  left: calc(100% - var(--effect-width) - (var(--effect-width) / 2) - var(--switch-offset));
-}
-
-.switch input:checked+.slider .circle {
-  left: calc(100% - var(--circle-diameter) - var(--switch-offset));
-  -webkit-box-shadow: var(--circle-checked-shadow);
-  box-shadow: var(--circle-checked-shadow);
-}
-
 #Open {
   position: absolute;
   top: 20px;
@@ -336,7 +203,7 @@ body {
 
 .wrapper {
   height: 3px;
-  background-color: var(--text-dark);
+  background-color: var(--text-light);
   transition: all 0.5s;
 }
 
@@ -351,13 +218,13 @@ body {
 
 #Open:checked~.sidebar-icon>.wrapper.first {
   transform: rotate(315deg);
-  background-color: var(--text-light);
+  background-color: var(--text-dark);
   margin-top: 9px;
 }
 
 #Open:checked~.sidebar-icon>.wrapper.third {
   transform: rotate(-315deg);
-  background-color: var(--text-light);
+  background-color: var(--text-dark);
   margin-top: -9px;
 }
 
@@ -370,7 +237,7 @@ body {
 }
 
 .sidebar-item-active {
-  background-color: var(--hover-light);
+  background-color: var(--hover);
 }
 
 .flex {
@@ -390,15 +257,15 @@ body {
 }
 
 .sidebar-project:hover {
-  background-color: var(--hover-light);
+  background-color: var(--hover);
 }
 
 .sidebar-project:hover .project-name-input {
-  background-color: var(--hover-light);
+  background-color: var(--hover);
 }
 
 .sidebar-project-active {
-  background-color: var(--hover-light);
+  background-color: var(--hover);
 }
 
 .sidebar-project:hover .project-tools {
@@ -422,7 +289,7 @@ body {
   position: absolute;
   top: 25px;
   right: 0;
-  background-color: var(--background-light);
+  background-color: var(--background);
   border: 1px solid #ccc;
   border-radius: 4px;
   list-style: none;
@@ -434,7 +301,7 @@ body {
 }
 
 .menu-options li:hover {
-  background-color: var(--hover-light);
+  background-color: var(--hover);
 }
 
 .project-tools {
@@ -446,7 +313,7 @@ body {
   font-size: 15rem;
   max-width: 150px;
   background-color: transparent;
-  color: var(--text-light);
+  color: var(--text-dark);
   cursor: pointer;
 }
 
@@ -464,7 +331,7 @@ body {
 }
 
 .border-bottom {
-  border-bottom: 1px solid var(--hover-light);
+  border-bottom: 1px solid var(--hover);
 }
 
 .modal {
@@ -475,7 +342,7 @@ body {
   transition: 200ms ease-in-out;
   border-radius: 10px;
   z-index: 999;
-  background-color: var(--background-light);
+  background-color: var(--background);
   width: 600px;
   max-width: 80%;
 }
@@ -489,7 +356,7 @@ body {
   padding: 10px 15px;
   border-bottom: 1px solid black;
   font-size: 22rem;
-  color: var(--text-light);
+  color: var(--text-dark);
   display: flex;
   gap: 10px;
   align-items: baseline;
@@ -497,7 +364,7 @@ body {
 
 .modal-alert {
   font-size: 16rem;
-  color: var(--warning-light);
+  color: var(--warning);
   box-sizing: border-box;
   padding: 7px 0px 5px 0px;
 }
@@ -507,7 +374,7 @@ body {
   padding: 10px 15px;
   border-bottom: 1px solid black;
   font-size: 22rem;
-  color: var(--text-light);
+  color: var(--text-dark);
   display: flex;
   gap: 10px;
   align-items: center;
@@ -545,7 +412,7 @@ body {
   box-sizing: border-box;
   padding: 12px 10px 12px 10px;
   outline: none;
-  border: 1px solid var(--text-light);
+  border: 1px solid var(--text-dark);
   border-radius: 5px;
   font-family: 'TTSemiBold';
   font-size: 16rem;
@@ -565,18 +432,18 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  color: var(--text-dark);
+  color: var(--text-light);
   font-family: 'TTBold';
   font-size: 18rem;
 }
 
 .add-btn {
-  background-color: var(--secondary-color-light);
+  background-color: var(--secondary-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .close-btn {
-  background-color: var(--tertiary-color-light);
+  background-color: var(--tertiary-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -622,7 +489,7 @@ body {
   font-size: 18rem;
   padding-bottom: 10px;
   text-align: center;
-  color: var(--text-light);
+  color: var(--text-dark);
 }
 
 #mediaQueryHandler {
@@ -633,7 +500,7 @@ body {
 
 .section-title {
   font-size: 17rem;
-  color: var(--secondary-color-light);
+  color: var(--secondary-color);
   font-family: 'TTBold';
 }
 
@@ -659,7 +526,7 @@ body {
 .bottom-task-side{
   display: none;
   font-size: 12rem;
-  color: var(--hover-light);
+  color: var(--hover);
   margin-bottom: 12px;
 }
 
@@ -684,7 +551,7 @@ body {
 
 .date-task-container{
   font-size: 15rem;
-  color: var(--hover-light);
+  color: var(--hover);
 }
 
 .important-btn{
@@ -710,7 +577,7 @@ body {
 
 .task-title {
   font-size: 15rem;
-  color: var(--text-light);
+  color: var(--text-dark);
 }
 
 .section-header {
@@ -766,11 +633,11 @@ body {
   gap: 4px;
   cursor: pointer;
   width: 100px;
-  color: var(--text-light);
+  color: var(--text-dark);
 }
 
 .add-task-container:hover {
-  color: var(--primary-color-light);
+  color: var(--primary-color);
 }
 
 .add-task-container:hover .add-task-btn {
@@ -814,7 +681,7 @@ body {
   align-items: center;
   gap: 10px;
   font-size: 16rem;
-  color: var(--inactive-color);
+  color: var(--inactive);
 }
 
 .add-section-button {
@@ -827,8 +694,8 @@ body {
   appearance: none;
   border: none;
   outline: none;
-  background-color: var(--secondary-color-light);
-  color: var(--background-light);
+  background-color: var(--secondary-color);
+  color: var(--background);
   font-size: 55rem;
   position: absolute;
   right: 0;
@@ -849,15 +716,15 @@ body {
 }
 
 .header-all-tasks {
-  background-color: var(--secondary-color-light);
+  background-color: var(--secondary-color);
 }
 
 .header-today {
-  background-color: var(--tertiary-color-light);
+  background-color: var(--tertiary-color);
 }
 
 .header-week {
-  background-color: var(--primary-color-light);
+  background-color: var(--primary-color);
 }
 
 .header-important {
@@ -865,7 +732,7 @@ body {
 }
 
 .header-project {
-  background-color: var(--secondary-color-light);
+  background-color: var(--secondary-color);
 }
 
 #floatingActionButton {
@@ -876,7 +743,7 @@ body {
 
 .add-task-form-container{
   margin-top: 20px;
-  border: solid 1px var(--hover-light);
+  border: solid 1px var(--hover);
   border-radius: 4px;
   box-sizing: border-box;
   padding: 10px;
@@ -890,7 +757,7 @@ body {
   border: none;
   border-radius: 5px;
   font-size: 14rem;
-  border: solid 1px var(--hover-light);
+  border: solid 1px var(--hover);
 }
 
 .task-data{
@@ -905,7 +772,7 @@ body {
   gap: 6px;
   justify-content: end;
   align-items: center;
-  border-top: 1px solid var(--hover-light);
+  border-top: 1px solid var(--hover);
   box-sizing: border-box;
   padding: 15px 0px 5px 0px ;
 }
@@ -915,8 +782,8 @@ body {
   outline: none;
   padding: 7px 20px;
   border-radius: 3px;
-  background-color: var(--secondary-color-light);
-  color: var(--text-dark);
+  background-color: var(--secondary-color);
+  color: var(--text-light);
   font-family: 'TTSemiBold';
 }
 
@@ -929,8 +796,8 @@ body {
   outline: none;
   padding: 7px 20px;
   border-radius: 3px;
-  background-color: var(--tertiary-color-light);
-  color: var(--text-dark);
+  background-color: var(--tertiary-color);
+  color: var(--text-light);
   font-family: 'TTSemiBold';
 }
 
@@ -942,7 +809,7 @@ body {
   height: 35px;
   box-sizing: border-box;
   padding: 0px 10px;
-  border: 1px solid var(--hover-light);
+  border: 1px solid var(--hover);
   border-radius: 5px;
   background-color: transparent;
 }
@@ -958,11 +825,11 @@ button{
 
 .disabled-click{
   pointer-events: none;
-  color: var(--hover-light)!important;
+  color: var(--hover)!important;
 }
 
 .invalid-input{
-  border: 2px solid var(--tertiary-color-light) !important;
+  border: 2px solid var(--tertiary-color) !important;
 }
 
 .checkbox{
@@ -976,7 +843,7 @@ button{
 }
 
 #currentTabName{
-  color: var(--text-light);
+  color: var(--text-dark);
 }
 
 .project-tasks-container-all-tasks{
@@ -985,7 +852,7 @@ button{
 }
 
 .project-name-all-tasks{
-  color: var(--text-light);
+  color: var(--text-dark);
   font-size: 18rem;
   font-family: 'TTBold';
 }
@@ -1018,8 +885,8 @@ button{
   justify-content: center;
   align-items: center;
   font-size: 15rem;
-  color: var(--inactive-color);
-  border: 1px solid var(--hover-light);
+  color: var(--inactive);
+  border: 1px solid var(--hover);
   border-radius: 5px;
   pointer-events: none;
   box-sizing: border-box;
@@ -1064,20 +931,20 @@ button{
 .no-tasks-img-text{
   margin-top: 30px;
   font-size: 20rem;
-  color: var(--text-light);
+  color: var(--text-dark);
   text-align: center;
   max-width: 370px;
 }
 
 .this-week-date{
   display: none;
-  color: var(--inactive-color);
+  color: var(--inactive);
   font-size: 16rem;
 }
 
 .date-heading-right{
   display: block;
-  color: var(--inactive-color);
+  color: var(--inactive);
 }
 
 .date-displayer{
@@ -1086,19 +953,19 @@ button{
 
 .custom-toast{
   width: 240px;
-  background: var(--secondary-color-light) !important;
+  background: var(--secondary-color) !important;
   border-radius: 8px !important;
 }
 
 .custom-toast-red{
   width: 240px;
-  background: var(--tertiary-color-light) !important;
+  background: var(--tertiary-color) !important;
   border-radius: 8px !important;
 }
 
 .custom-toast-blue{
   width: 240px;
-  background: var(--primary-color-light) !important;
+  background: var(--primary-color) !important;
   border-radius: 8px !important;
 }
 
@@ -1113,8 +980,8 @@ button{
   justify-content: space-between;
   margin-bottom: 10px;
   margin-top: 20px;
-  color: var(--text-light);
-  border: 1px solid var(--hover-light);
+  color: var(--text-dark);
+  border: 1px solid var(--hover);
   border-radius: 8px;
   box-sizing: border-box;
   padding: 10px 15px;
@@ -1151,7 +1018,7 @@ button{
 
 .home-clock{
   font-size: 65rem;
-  color: var(--inactive-color);
+  color: var(--inactive);
 }
 
 .all-tasks-heading{
@@ -1163,12 +1030,12 @@ button{
 }
 
 .all-tasks-right{
-  color: var(--inactive-color);
+  color: var(--inactive);
 }
 
 .all-tasks-left{
   font-size: 22rem;
-  color: var(--text-light);
+  color: var(--text-dark);
   font-family: 'TTBold';
 }
 
@@ -1195,7 +1062,7 @@ button{
   justify-content: center;
   align-items: center;
   gap: 20px;
-  border: 1px solid var(--hover-light);
+  border: 1px solid var(--hover);
   border-radius: 8px;
   padding: 150px 10px;
   margin-top: 8px;
@@ -1204,30 +1071,35 @@ button{
 .no-lists-text{
   text-align: center;
   font-size: 17rem;
-  color: var(--text-light);
+  color: var(--text-dark);
 }
 
 .no-lists-btn{
   appearance: none;
-  border: 1px solid var(--inactive-color);
+  border: 1px solid var(--inactive);
   outline: none;
   font-size: 17rem;
   padding: 10px 40px;
   border-radius: 8px;
   background-color: transparent;
-  color: var(--text-light);
+  color: var(--text-dark);
   font-family: 'TTSemiBold';
 }
 
 .no-lists-btn:hover{
-  background-color: var(--inactive-color);
-  color: var(--text-dark);
+  background-color: var(--inactive);
+  color: var(--text-light);
 }
 
 .no-lists-list-view{
   padding: 30px 0px 90px 0px !important;
 }
 
+#toggler{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
 
 
 /*Media Queries*/
@@ -1354,7 +1226,7 @@ button{
 
   .date-input{
     width: 100%;
-    border: 2px solid var(--hover-light);
+    border: 2px solid var(--hover);
   }
 
   .add-task-form-buttons{
@@ -1372,19 +1244,19 @@ button{
   }
 
   .add-task-form-container{
-    border: 2px solid var(--hover-light);
+    border: 2px solid var(--hover);
   }
 
   .border-bottom{
-    border-bottom: 2px solid var(--hover-light);
+    border-bottom: 2px solid var(--hover);
   }
 
   .add-task-form-buttons{
-    border-top: 2px solid var(--hover-light);
+    border-top: 2px solid var(--hover);
   }
 
   .task-description-input{
-    border: 2px solid var(--hover-light);
+    border: 2px solid var(--hover);
   }
 
   .date-task-container{
@@ -1437,7 +1309,7 @@ button{
     font-size: 16rem;
     padding: 10px 15px;
     margin-top: 15px;
-    border: 2px solid var(--hover-light);
+    border: 2px solid var(--hover);
   }
 
   .all-tasks-heading{
@@ -1446,7 +1318,7 @@ button{
 
   .no-lists-container{
     padding: 80px 10px;
-    border: 2px solid var(--hover-light);
+    border: 2px solid var(--hover);
   }
 
   .date-displayer{
@@ -1454,7 +1326,7 @@ button{
   }
 
   .no-tasks-message{
-    border: 2px solid var(--hover-light);
+    border: 2px solid var(--hover);
   }
 }
 
