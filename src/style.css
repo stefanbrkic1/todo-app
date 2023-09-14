@@ -50,6 +50,8 @@
   --dark-theme-icon: url("./img/dark-theme-icon.svg");
 
   --today-no-tasks-image: url("./img/today-no-tasks-dark-theme.png");
+  --no-sections-image: url("./img/no-sections-dark-theme.png");
+  --important-no-tasks-image: url("./img/important-no-tasks-dark-theme.png");
 }
 
 
@@ -73,6 +75,8 @@
   --dark-theme-icon: url("./img/dark-theme-icon-light-theme.svg");
 
   --today-no-tasks-image: url("./img/today-no-tasks.png");
+  --no-sections-image: url("./img/no-sections.png");
+  --important-no-tasks-image: url("./img/important-no-tasks.png");
 }
 
 * {
@@ -920,9 +924,11 @@ button{
 }
 
 .no-tasks-img{
-  width: 29%;
-  max-width: 350px;
-  min-width: 200px;
+  width: 370px;
+  height: 370px;
+  background-image: var(--important-no-tasks-image);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .no-tasks-img-today{
@@ -940,9 +946,11 @@ button{
 }
 
 .no-sections-img{
-  width: 35%;
-  max-width: 450px;
-  min-width: 300px;
+  width: 370px;
+  height: 370px;
+  background-image: var(--no-sections-image);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .no-tasks-img-text{

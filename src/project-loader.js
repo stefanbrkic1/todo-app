@@ -1,6 +1,5 @@
 import { SectionHandler } from './dom'
 import projectIcon from './img/project48x48.svg'
-import noSectionsIcon from './img/no-sections.png'
 
 const sectionHandler = new SectionHandler()
 const headerSection = document.getElementById('headerSection')
@@ -38,8 +37,7 @@ export function displayNoSectionsImage() {
         const container = document.createElement('div')
         container.classList.add('no-tasks-img-container')
 
-        const noSectionsImage = new Image()
-        noSectionsImage.src = noSectionsIcon
+        const noSectionsImage = document.createElement('div')
         noSectionsImage.classList.add('no-sections-img')
 
         const text = document.createElement('div')

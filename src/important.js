@@ -1,7 +1,6 @@
 import { allProjects } from './projects';
 import importantIcon from './img/important.svg'
 import { TasksHandler, ProjectsHandler, removeEmptyProjectsFromHTML, playNotificationSound } from './dom'
-import noTasksIconImportant from './img/important-no-tasks.png'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
 
@@ -82,8 +81,7 @@ function displayNoTasksImage() {
         const container = document.createElement('div')
         container.classList.add('no-tasks-img-container')
 
-        const noTasksImageImportant = new Image()
-        noTasksImageImportant.src = noTasksIconImportant
+        const noTasksImageImportant = document.createElement('div')
         noTasksImageImportant.classList.add('no-tasks-img')
 
         const text = document.createElement('div')
