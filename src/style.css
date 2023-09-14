@@ -47,7 +47,9 @@
   --yellow-color: #ffc300;
 
   --add-task-icon: url("./img/add-task.svg");
-  --dark-theme-icon: url("./img/dark-theme-icon.svg")
+  --dark-theme-icon: url("./img/dark-theme-icon.svg");
+
+  --today-no-tasks-image: url("./img/today-no-tasks-dark-theme.png");
 }
 
 
@@ -68,7 +70,9 @@
   --yellow-color: #ffc300;
 
   --add-task-icon: url("./img/add-task-light-theme.svg");
-  --dark-theme-icon: url("./img/dark-theme-icon-light-theme.svg")
+  --dark-theme-icon: url("./img/dark-theme-icon-light-theme.svg");
+
+  --today-no-tasks-image: url("./img/today-no-tasks.png");
 }
 
 * {
@@ -922,9 +926,11 @@ button{
 }
 
 .no-tasks-img-today{
-  width: 38%;
-  max-width: 400px;
-  min-width: 270px;
+  width: 370px;
+  height: 370px;
+  background-image: var(--today-no-tasks-image);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .no-tasks-img-week{

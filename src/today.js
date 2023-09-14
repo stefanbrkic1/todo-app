@@ -1,6 +1,5 @@
 import { format, isToday } from 'date-fns'
 import todayIcon from './img/today48x48.svg'
-import noTasksIconToday from './img/today-no-tasks.png'
 import { TasksHandler, ProjectsHandler, removeEmptyProjectsFromHTML, playNotificationSound } from './dom'
 import { allProjects } from './projects'
 import Toastify from 'toastify-js'
@@ -98,8 +97,7 @@ function displayNoTasksImage() {
         const container = document.createElement('div')
         container.classList.add('no-tasks-img-container')
 
-        const noTasksImageToday = new Image()
-        noTasksImageToday.src = noTasksIconToday
+        const noTasksImageToday = document.createElement('div')
         noTasksImageToday.classList.add('no-tasks-img-today')
 
         const text = document.createElement('div')
