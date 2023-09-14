@@ -929,6 +929,8 @@ button{
   background-image: var(--important-no-tasks-image);
   background-repeat: no-repeat;
   background-size: contain;
+  margin-bottom: 30px;
+  background-position: center;
 }
 
 .no-tasks-img-today{
@@ -937,12 +939,17 @@ button{
   background-image: var(--today-no-tasks-image);
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
 }
 
 .no-tasks-img-week{
-  width: 50%;
-  max-width: 450px;
-  min-width: 300px;
+  width: 370px;
+  height: 370px;
+  background-image: var(--no-sections-image);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin-bottom: 25px;
 }
 
 .no-sections-img{
@@ -951,10 +958,10 @@ button{
   background-image: var(--no-sections-image);
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
 }
 
 .no-tasks-img-text{
-  margin-top: 30px;
   font-size: 20rem;
   color: var(--text-dark);
   text-align: center;
@@ -1310,19 +1317,20 @@ button{
   }
 
   .no-tasks-img{
-    width: 70%;
+    width: 100%;
   }
 
   .no-tasks-img-today{
-    width: 70%;
+    width: 100%;
   }
 
   .no-tasks-img-week{
-    width: 70%;
+    width: 100%;
   }
 
   .no-sections-img{
-    width: 70%;
+    width: 100%;
+    margin-bottom: 15px;
   }
 
   .this-week-date{

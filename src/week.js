@@ -111,8 +111,7 @@ function displayNoTasksImage() {
         const container = document.createElement('div')
         container.classList.add('no-tasks-img-container')
 
-        const noTasksImageThisWeek = new Image()
-        noTasksImageThisWeek.src = noTasksIconThisWeek
+        const noTasksImageThisWeek = document.createElement('div')
         noTasksImageThisWeek.classList.add('no-tasks-img-week')
 
         const text = document.createElement('div')
