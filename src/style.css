@@ -46,6 +46,8 @@
   --inactive: #979797; /* Unchanged color for inactive elements */
   --yellow-color: #ffc300;
 
+  --add-task-icon: url("./img/add-task.svg");
+  --dark-theme-icon: url("./img/dark-theme-icon.svg")
 }
 
 
@@ -64,6 +66,9 @@
 
   --inactive: #979797;
   --yellow-color: #ffc300;
+
+  --add-task-icon: url("./img/add-task-light-theme.svg");
+  --dark-theme-icon: url("./img/dark-theme-icon-light-theme.svg")
 }
 
 * {
@@ -616,7 +621,7 @@ body {
   border: none;
   outline: none;
   cursor: pointer;
-  background-image: url(./img/add-task.svg);
+  background-image: var(--add-task-icon);
   background-repeat: no-repeat;
   background-size: contain;
   box-sizing: border-box;
@@ -1107,6 +1112,21 @@ button{
   cursor: pointer;
 }
 
+.dark-theme-icon{
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-image: var(--dark-theme-icon);
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /*Media Queries*/
 
