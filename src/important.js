@@ -126,7 +126,7 @@ function checkTaskAsCompleted(checkboxIndex, projectIndexImportant, sectionIndex
         Toastify({
             text: "1 task completed",
             className: "custom-toast-yellow", // Apply the custom CSS class
-            duration: 3000,
+            duration: 2300,
             gravity: "bottom", // `top` or `bottom`
             position: "left", // `left`, `center` or `right`
           }).showToast();
