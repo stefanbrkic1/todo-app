@@ -1442,7 +1442,7 @@ button{
   .no-tasks-img-text-sections{
     font-size: 17rem;
     padding: 0px 10px;
-    bottom: 27%;
+    bottom: 31%;
     max-width: 300px;
   }
 
@@ -1462,7 +1462,7 @@ button{
 
   .no-sections-img{
     width: 70%;
-    margin-bottom: 0px;
+    margin-bottom: 30px;
   }
 
   .this-week-date{
@@ -1733,7 +1733,7 @@ button{
   .no-tasks-img-text-sections{
     font-size: 17rem;
     padding: 0px 10px;
-    bottom: 27%;
+    bottom: 30%;
     max-width: 300px;
   }
 
@@ -1753,7 +1753,7 @@ button{
 
   .no-sections-img{
     width: 70%;
-    margin-bottom: 0px;
+    margin-bottom: 30px;
   }
 
   .this-week-date{
@@ -1811,7 +1811,7 @@ button{
   .listify-container-small{
     position: absolute;
     right: 20px;
-    top: 16px;
+    top: 17px;
     color: #ffffff;
     display: flex;
     gap: 5px;
