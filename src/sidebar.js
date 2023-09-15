@@ -3,6 +3,7 @@ const sidebar = document.getElementById('sidebarMenu')
 const main = document.getElementById('mainSection');
 const header = document.getElementById('headerSection');
 const floatingActionButton = document.getElementById('floatingActionButton');
+const listify = document.querySelector('.listify-container-small')
 
 export default function handleSidebar() {
     sidebarToggle.addEventListener('change', function () {
@@ -11,6 +12,7 @@ export default function handleSidebar() {
                 main.classList.add('blur');
                 header.classList.add('blur');
                 floatingActionButton.classList.add('blur');
+                listify.classList.add('blur');
                 sidebar.classList.add('active-sidebar')
             }, 220);
             handleTransition()
@@ -19,6 +21,7 @@ export default function handleSidebar() {
             main.classList.remove('blur');
             header.classList.remove('blur');
             floatingActionButton.classList.remove('blur');
+            listify.classList.remove('blur');
             sidebar.classList.remove('active-sidebar')
             handleTransition()
         }
