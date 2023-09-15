@@ -345,6 +345,7 @@ export class TasksHandler {
         taskDescriptionInput.id = 'taskDescriptionInput';
         taskDescriptionInput.classList.add('task-description-input');
         taskDescriptionInput.placeholder = 'Task description...';
+        taskDescriptionInput.setAttribute('autocomplete', 'off');
 
         // Create date input
         const dateInput = document.createElement('input');
@@ -386,7 +387,6 @@ export class TasksHandler {
         flatpickr(dateInput, {
             dateFormat: "d/m/Y",
               minDate: "today",
-              disableMobile: "true",
               locale: {
                 firstDayOfWeek: 1
             },
