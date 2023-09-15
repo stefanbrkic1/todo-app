@@ -226,7 +226,7 @@ body {
 
 .wrapper {
   height: 3px;
-  background-color: var(--text-light);
+  background-color: #ffffff;
   transition: all 0.5s;
 }
 
@@ -1448,7 +1448,7 @@ button{
   }
 
   .task{
-    margin-bottom: 0px;
+    margin-bottom: 2px;
   }
   
   .home-clock{
@@ -1486,6 +1486,11 @@ button{
   .checkbox{
     margin-right: 4px;
   }
+
+  .checkbox::before {
+    border: 1px solid var(--inactive);
+  }
+  
 }
 
 /* Smartphones (portrait) */
