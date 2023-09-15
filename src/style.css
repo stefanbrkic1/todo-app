@@ -1227,6 +1227,32 @@ button{
   justify-content: center;
 }
 
+.listify-container{
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  color: var(--text-dark);
+  display: flex;
+  gap: 5px;
+}
+
+.logo-main{
+  width: 20px;
+  height: 20px;
+  background-image: url(./img/task-green.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.listify{
+  font-family: 'TTBold';
+}
+
+.listify-container-small{
+  display: none;
+}
+
 /*Media Queries*/
 
 /* Smartphones (portrait and landscape) */
@@ -1306,6 +1332,10 @@ button{
 
   .modal-title {
     font-size: 20rem;
+  }
+
+  .listify-container{
+    display: none;
   }
 
   #oldName {
@@ -1491,6 +1521,28 @@ button{
     border: 1px solid var(--inactive);
   }
   
+  .listify-container-small{
+    position: absolute;
+    right: 20px;
+    top: 18px;
+    color: #ffffff;
+    display: flex;
+    gap: 5px;
+  }
+  
+  .logo-main-small{
+    width: 23px;
+    height: 23px;
+    background-image: url(./img/task-white.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .listify-small{
+    font-family: 'TTBold';
+    font-size: 18rem;
+  }
 }
 
 /* Smartphones (portrait) */

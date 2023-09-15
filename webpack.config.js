@@ -13,7 +13,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title:'ToDo | ProductivityApp',
-            favicon: "./src/img/task.png",
+            favicon: "./src/img/task-green.png",
             template: path.resolve(__dirname, './src/template.html'),
         }),
     ],
