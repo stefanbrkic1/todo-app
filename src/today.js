@@ -31,6 +31,7 @@ function setTodayTab() {
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
     const dateDisplayer = document.querySelector('.date-displayer')
+    const listify = document.querySelector('.listify-container')
 
     const svgToday = new Image()
     svgToday.src = todayIcon;
@@ -45,6 +46,8 @@ function setTodayTab() {
 
     dateDisplayer.innerHTML = ''
     tasksHandler.createDateDisplay(dateDisplayer, todayDateString)
+
+    listify.classList.add('display-none')
 
     tasksListView.innerHTML = ''
     tasksListView.classList.add('height-auto')

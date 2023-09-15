@@ -30,6 +30,7 @@ export default function loadAllTasks() {
 function setAllTasksTab() {
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
+    const listify = document.querySelector('.listify-container')
 
     const svgAllTasks = new Image()
     svgAllTasks.src = allTasksIcon;
@@ -37,6 +38,8 @@ function setAllTasksTab() {
     currentTabIcon.appendChild(svgAllTasks)
 
     currentTabName.textContent = 'Home'
+
+    listify.classList.remove('display-none')
 
     tasksListView.innerHTML = ''
     tasksListView.classList.add('height-auto')

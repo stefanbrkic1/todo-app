@@ -14,6 +14,7 @@ function setActiveProject(currentProject) {
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
     const dateDisplayer = document.querySelector('.date-displayer')
+    const listify = document.querySelector('.listify-container')
 
     const svgProject = new Image()
     svgProject.src = projectIcon;
@@ -21,6 +22,8 @@ function setActiveProject(currentProject) {
     currentTabIcon.appendChild(svgProject)
 
     currentTabName.textContent = `${currentProject.name}`
+
+    listify.classList.add('display-none')
 
     dateDisplayer.innerHTML = ''
     tasksListView.classList.add('height-auto')

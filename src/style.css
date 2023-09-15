@@ -849,7 +849,7 @@ button{
 }
 
 .display-none{
-  display: none;
+  display: none !important;
 }
 
 .disabled-click{
@@ -1545,28 +1545,289 @@ button{
   }
 }
 
-/* Smartphones (portrait) */
-@media only screen and (max-width: 480px) {
-  /* Your CSS styles for portrait-oriented phones go here */
-}
-
-/* Smartphones (landscape) */
-@media only screen and (min-width: 481px) and (max-width: 767px) {
-  /* Your CSS styles for landscape-oriented phones go here */
-}
-
 
 /* Tablets (portrait and landscape) */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  /* Your CSS styles for tablets go here */
-}
+  
+  /* Hide the scrollbar track and thumb */
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 
-/* Tablets (portrait) */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  /* Your CSS styles for portrait-oriented tablets go here */
-}
+  /* Optional: Hide the scrollbar corner */
+  ::-webkit-scrollbar-corner {
+    display: none;
+  }
 
-/* Tablets (landscape) */
-@media only screen and (min-width: 992px) and (max-width: 1023px) {
-  /* Your CSS styles for landscape-oriented tablets go here */
+  .body-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 55px repeat(11, 1fr);
+  }
+
+  .main {
+    grid-area: 2 / 1 / -1 / -1;
+    padding: 25px 20px 0px 20px;
+  }
+
+  #headerSection {
+    grid-area: 1 / 1 / 1 / -1;
+    height: auto;
+  }
+
+  .sidebar {
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    width: 50vw;
+    padding-top: 60px;
+    transform: translateX(-1000px);
+  }
+
+  .sidebar-icon {
+    display: block;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    z-index: 20;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+  }
+
+  #Open:checked~#sidebarMenu {
+    transform: translateX(0px);
+    transition: transform 350ms ease-in-out;
+  }
+
+  .btn-delete,
+  .btn-rename {
+    display: none;
+  }
+
+  .modal-body {
+    padding: 17px;
+  }
+
+  .modal-header {
+    font-size: 18rem;
+  }
+
+  .add-project-input {
+    font-size: 15rem;
+  }
+
+  .add-project-buttons {
+    font-size: 15rem;
+  }
+
+  .modal-title {
+    font-size: 20rem;
+  }
+
+  .listify-container{
+    display: none;
+  }
+
+  #oldName {
+    font-size: 20rem;
+  }
+
+  #deleteProjectName {
+    font-size: 20rem;
+  }
+
+  .modal-alert {
+    font-size: 14rem;
+  }
+
+  #mediaQueryHandler {
+    display: none;
+  }
+
+  .tasks-list-view {
+    padding: 20px 20px 140px 20px;
+    height: 87%;
+  }
+
+  .no-lists-list-view{
+    padding: 20px 0px 140px 0px !important; 
+  }
+
+  .delete-question {
+    font-size: 15rem;
+  }
+
+  .home-heading {
+    padding-bottom: 4px;
+  }
+
+  .add-section-button {
+    margin: 0px 16px 16px 0px;
+  }
+
+  .task-data{
+    flex-direction: column;
+  }
+
+  .date-input{
+    width: 100%;
+    border: 3px solid var(--hover);
+  }
+
+  .add-task-form-buttons{
+    justify-content: center;
+  }
+
+  .add-task-form-btn{
+    padding: 10px 0px;
+    flex: 1;
+  }
+
+  .cancel-task-btn{
+    padding: 10px 0px;
+    flex: 1;
+  }
+
+  .add-task-form-container{
+    border: 3px solid var(--hover);
+  }
+
+  .border-bottom{
+    border-bottom: 3px solid var(--hover);
+  }
+
+  .add-task-form-buttons{
+    border-top: 3px solid var(--hover);
+  }
+
+  .task-description-input{
+    border: 3px solid var(--hover);
+  }
+
+  .date-task-container{
+    display: none;
+  }
+
+  .no-tasks-img-text-today{
+    font-size: 17rem;
+    padding: 0px 10px;
+    max-width: none;
+    bottom: 35%;
+  }
+
+  .no-tasks-img-text-week{
+    font-size: 17rem;
+    padding: 0px 10px;
+    max-width: none;
+    bottom: 35%;
+  }
+
+  .no-tasks-img-text-important{
+    font-size: 17rem;
+    padding: 0px 10px;
+    max-width: none;
+    bottom: 30%;
+  }
+
+  .no-tasks-img-text-sections{
+    font-size: 17rem;
+    padding: 0px 10px;
+    bottom: 27%;
+    max-width: 300px;
+  }
+
+  .no-tasks-img{
+    width: 70%;
+    margin-bottom: 25px;
+  }
+
+  .no-tasks-img-today{
+    width: 70%;
+  }
+
+  .no-tasks-img-week{
+    width: 90%;
+    margin-bottom: 0px;
+  }
+
+  .no-sections-img{
+    width: 70%;
+    margin-bottom: 0px;
+  }
+
+  .this-week-date{
+    display: block;
+  }
+
+  .date-heading-right{
+    display: none;
+  }
+
+  .bottom-task-side{
+    display: block;
+  }
+
+  .task{
+    margin-bottom: 2px;
+  }
+
+  .home-container{
+    font-size: 16rem;
+    padding: 10px 15px;
+    margin-top: 15px;
+    border: 3px solid var(--hover);
+  }
+
+  .all-tasks-heading{
+    margin-top: 35px;
+  }
+
+  .no-lists-container{
+    padding: 80px 10px;
+    border: 3px solid var(--hover);
+  }
+
+  .date-displayer{
+    padding: 10px 0px 0px 0px;
+  }
+
+  .no-tasks-message{
+    border: 3px solid var(--hover);
+  }
+  
+  .add-task-container{
+    margin-top: 28px;
+  }
+
+  .checkbox{
+    margin-right: 4px;
+  }
+
+  .checkbox::before {
+    border: 1px solid var(--inactive);
+  }
+  
+  .listify-container-small{
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    color: #ffffff;
+    display: flex;
+    gap: 5px;
+  }
+  
+  .logo-main-small{
+    width: 23px;
+    height: 23px;
+    background-image: url(./img/task-white.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .listify-small{
+    font-family: 'TTBold';
+    font-size: 18rem;
+  }
 }

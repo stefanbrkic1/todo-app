@@ -30,6 +30,7 @@ export default function loadImportantTasks() {
 function setImportantTab() {
     const currentTabName = document.getElementById('currentTabName')
     const currentTabIcon = document.getElementById('currentTabIcon')
+    const listify = document.querySelector('.listify-container')
 
     const svgImportant = new Image()
     svgImportant.src = importantIcon;
@@ -37,6 +38,8 @@ function setImportantTab() {
     currentTabIcon.appendChild(svgImportant)
 
     currentTabName.textContent = 'Important'
+
+    listify.classList.add('display-none')
 
     tasksListView.innerHTML = ''
     tasksListView.classList.add('height-auto')

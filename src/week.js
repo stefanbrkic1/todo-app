@@ -34,6 +34,7 @@ function setWeekTab() {
     const currentTabIcon = document.getElementById('currentTabIcon')
     const mainHeadingRight = document.getElementById('mainHeadingRight')
     const dateDisplayer = document.querySelector('.date-displayer')
+    const listify = document.querySelector('.listify-container')
 
     const svgWeek = new Image()
     svgWeek.src = weekIcon;
@@ -54,6 +55,8 @@ function setWeekTab() {
 
     dateDisplayer.innerHTML = ''
     tasksHandler.createDateDisplay(dateDisplayer, fullDateString)
+
+    listify.classList.add('display-none')
 
     tasksListView.innerHTML = ''
     tasksListView.classList.add('height-auto')
