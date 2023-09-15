@@ -102,7 +102,7 @@ function displayNoTasksImage() {
 
         const text = document.createElement('div')
         text.textContent = `You don't have any tasks for today!`
-        text.classList.add('no-tasks-img-text')
+        text.classList.add('no-tasks-img-text-today')
 
         container.appendChild(noTasksImageToday)
         container.appendChild(text)

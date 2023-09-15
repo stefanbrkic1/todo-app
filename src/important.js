@@ -86,7 +86,7 @@ function displayNoTasksImage() {
 
         const text = document.createElement('div')
         text.textContent = `You don't have any important tasks!`
-        text.classList.add('no-tasks-img-text')
+        text.classList.add('no-tasks-img-text-important')
 
         container.appendChild(noTasksImageImportant)
         container.appendChild(text)
