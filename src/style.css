@@ -809,13 +809,13 @@ body {
   outline: none;
   padding: 7px 20px;
   border-radius: 3px;
-  background-color: var(--secondary-color);
+  background-color: #01a17c;
   font-family: 'TTSemiBold';
   color: #fafafa;
 }
 
 .add-task-form-btn:hover{
-  background-color: #01a17c;
+  background-color: var(--secondary-color);
 }
 
 .cancel-task-btn{
