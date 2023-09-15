@@ -52,6 +52,9 @@
   --today-no-tasks-image: url("./img/today-no-tasks-dark-theme.png");
   --no-sections-image: url("./img/no-sections-dark-theme.png");
   --important-no-tasks-image: url("./img/important-no-tasks-dark-theme.png");
+
+  --rename-icon: url("./img/rename.svg");
+  --delete-icon: url("./img/delete-dark-theme.svg")
 }
 
 
@@ -77,6 +80,9 @@
   --today-no-tasks-image: url("./img/today-no-tasks.png");
   --no-sections-image: url("./img/no-sections.png");
   --important-no-tasks-image: url("./img/important-no-tasks.png");
+
+  --rename-icon: url("./img/rename-light-theme.svg");
+  --delete-icon: url("./img/delete.svg")
 }
 
 * {
@@ -475,7 +481,7 @@ body {
   border: none;
   outline: none;
   background-color: transparent;
-  background-image: url(./img/rename.svg);
+  background-image: var(--rename-icon);
   background-size: contain;
   background-repeat: no-repeat;
   padding: 12px;
@@ -490,7 +496,7 @@ body {
   border: none;
   outline: none;
   background-color: transparent;
-  background-image: url(./img/delete.svg);
+  background-image: var(--delete-icon);
   background-size: contain;
   background-repeat: no-repeat;
   padding: 12px;
@@ -542,7 +548,7 @@ body {
 .bottom-task-side{
   display: none;
   font-size: 12rem;
-  color: var(--hover);
+  color: var(--inactive);
   margin-bottom: 12px;
 }
 
@@ -567,7 +573,7 @@ body {
 
 .date-task-container{
   font-size: 15rem;
-  color: var(--hover);
+  color: var(--inactive);
 }
 
 .important-btn{
@@ -666,7 +672,7 @@ body {
   border: none;
   outline: none;
   background-color: transparent;
-  background-image: url(./img/rename.svg);
+  background-image: var(--rename-icon);
   background-size: contain;
   background-repeat: no-repeat;
   padding: 13px;
@@ -681,7 +687,7 @@ body {
   border: none;
   outline: none;
   background-color: transparent;
-  background-image: url(./img/delete.svg);
+  background-image: var(--delete-icon);
   background-size: contain;
   background-repeat: no-repeat;
   padding: 13px;
@@ -924,18 +930,18 @@ button{
 }
 
 .no-tasks-img{
-  width: 370px;
-  height: 370px;
+  width: 330px;
+  height: 330px;
   background-image: var(--important-no-tasks-image);
   background-repeat: no-repeat;
   background-size: contain;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   background-position: center;
 }
 
 .no-tasks-img-today{
-  width: 370px;
-  height: 370px;
+  width: 360px;
+  height: 360px;
   background-image: var(--today-no-tasks-image);
   background-repeat: no-repeat;
   background-size: contain;
@@ -953,12 +959,13 @@ button{
 }
 
 .no-sections-img{
-  width: 370px;
-  height: 370px;
+  width: 340px;
+  height: 340px;
   background-image: var(--no-sections-image);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  margin-bottom: 20px;
 }
 
 .no-tasks-img-text{
@@ -1317,11 +1324,12 @@ button{
   }
 
   .no-tasks-img{
-    width: 100%;
+    width: 80%;
+    margin-bottom: 25px;
   }
 
   .no-tasks-img-today{
-    width: 100%;
+    width: 90%;
   }
 
   .no-tasks-img-week{
@@ -1329,8 +1337,8 @@ button{
   }
 
   .no-sections-img{
-    width: 100%;
-    margin-bottom: 15px;
+    width: 80%;
+    margin-bottom: 0px;
   }
 
   .this-week-date{
