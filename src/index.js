@@ -2,9 +2,10 @@ import './style.css'
 import handleSidebar from './sidebar'
 import loadAllTasks from './alltasks';
 import { ModalHandler } from './dom';
-import { loadProjects, addProjectEvent, addProjectToolsSubmitEvent } from './projects';
+import { loadProjects, addProjectEvent, addProjectToolsSubmitEvent, allProjects } from './projects';
 
 (function websiteHandler(){
+    checkStorage()
     document.addEventListener("DOMContentLoaded", function() {
         const modalHandler = new ModalHandler(); 
 
@@ -39,3 +40,14 @@ function setThemeTogglerEvent(){
     })
 }
 
+function checkStorage(){
+    if (!localStorage.getItem("allProjects")) {
+        populateStorage();
+      } else {
+        
+      }
+}
+
+function populateStorage(){
+    localStorage.setItem("allProjects", JSON.stringify(allProjects))
+}
