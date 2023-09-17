@@ -54,7 +54,8 @@ function setImportantTab() {
 function loadTasks(){
     tasksListView.innerHTML = ''
     allImportantTasks = []
-    allProjects.forEach((project, projectIndexImportant) => {
+    let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
+    allProjectsLocal.forEach((project, projectIndexImportant) => {
         projectsHandler.createProjectHtmlForTabs(tasksListView, project);
         const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
 
@@ -122,7 +123,9 @@ function addImportantTaskCheckboxEvent(){
 }
 
 function checkTaskAsCompleted(checkboxIndex, projectIndexImportant, sectionIndexImportant, taskIndexImportant){
-    allProjects[projectIndexImportant].sections[sectionIndexImportant].tasks.splice(taskIndexImportant, 1)
+    let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
+    allProjectsLocal[projectIndexImportant].sections[sectionIndexImportant].tasks.splice(taskIndexImportant, 1)
+    localStorage.setItem("allProjects", JSON.stringify(allProjectsLocal))
     allImportantTasks.splice(checkboxIndex, 1)
     setTimeout(() => {
         loadTasks()

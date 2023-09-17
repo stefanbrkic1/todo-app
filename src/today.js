@@ -60,7 +60,8 @@ function setTodayTab() {
 function loadTasks(){
     tasksListView.innerHTML = ''
     allTodayTasks = []
-    allProjects.forEach((project, projectIndexToday) => {
+    let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
+    allProjectsLocal.forEach((project, projectIndexToday) => {
         projectsHandler.createProjectHtmlForTabs(tasksListView, project);
         const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
 
@@ -126,7 +127,9 @@ function addTodayTaskCheckboxEvent(){
 }
 
 function checkTaskAsCompleted(checkboxIndex, projectIndexToday, sectionIndexToday, taskIndexToday){
-    allProjects[projectIndexToday].sections[sectionIndexToday].tasks.splice(taskIndexToday, 1)
+    let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
+    allProjectsLocal[projectIndexToday].sections[sectionIndexToday].tasks.splice(taskIndexToday, 1)
+    localStorage.setItem("allProjects", JSON.stringify(allProjectsLocal))
     allTodayTasks.splice(checkboxIndex, 1)
     setTimeout(() => {
         loadTasks()

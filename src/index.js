@@ -41,7 +41,7 @@ function setThemeTogglerEvent(){
 }
 
 function checkStorage(){
-    if (!localStorage.getItem("allProjects")) {
+    if (!JSON.parse(localStorage.getItem("allProjects"))) {
         populateStorage();
       } else {
         

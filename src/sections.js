@@ -1,7 +1,7 @@
 import { SectionHandler } from "./dom";
-import { currentProject, addDeleteSectionButtonsEvent } from "./projects";
+import { currentProject, currentProjectIndex, clickCurrentProject } from "./projects";
 import { ModalHandler } from "./dom";
-import { addTaskFormCreationEvent, loadAllSectionsTasks, getCurrentSectionIndex, addImportantButtonEvent } from "./tasks";
+import { addTaskFormCreationEvent, getCurrentSectionIndex } from "./tasks";
 
 const modalHandler = new ModalHandler();
 const sectionHandler = new SectionHandler();
@@ -15,13 +15,16 @@ class Section {
     }
 }
 
-export function addSectionSubmitEvent() {
+addSectionSubmitEvent()
+
+function addSectionSubmitEvent() {
     const addSectionButtonSubmit = document.getElementById('addSectionButtonSubmit');
     const closeModalButtonSection = document.getElementById('closeModalButtonSection')
 
     addSectionButtonSubmit.addEventListener('click', () => {
         const sectionNameInput = document.getElementById('sectionNameInput');
         const modalSectionAlert = document.getElementById('modalSectionAlert')
+        let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
 
         let existingProject = currentProject.sections.find(section => section.sectionTitle === sectionNameInput.value)
 
@@ -37,10 +40,10 @@ export function addSectionSubmitEvent() {
         }
         else if (currentProject) {
             let newSection = new Section(sectionNameInput.value)
-            currentProject.sections.push(newSection)
-            loadCurrentProjectSections(currentProject)
-            loadAllSectionsTasks(currentProject)
-            addDeleteSectionButtonsEvent()
+            allProjectsLocal[currentProjectIndex].sections.push(newSection)
+            setTimeout(() => {
+                clickCurrentProject()
+            }, 1);
             closeModalButtonSection.click();
             modalHandler.handleModals();
             modalHandler.changeModalPositionIfKeyboardOpened()
@@ -48,12 +51,14 @@ export function addSectionSubmitEvent() {
         } else {
 
         }
+        localStorage.setItem("allProjects", JSON.stringify(allProjectsLocal))
     });
 }
 
-export function loadCurrentProjectSections(currentProject) {
+export function loadCurrentProjectSections() {
     tasksListView.innerHTML = ''
-    currentProject.sections.forEach(section => {
+    let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
+    allProjectsLocal[currentProjectIndex].sections.forEach(section => {
         sectionHandler.createSectionHtml(section)
     })
     addTaskFormCreationEvent()

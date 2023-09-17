@@ -1,5 +1,6 @@
 import { SectionHandler } from './dom'
 import projectIcon from './img/project48x48.svg'
+import { currentProjectIndex } from './projects'
 
 const sectionHandler = new SectionHandler()
 const headerSection = document.getElementById('headerSection')

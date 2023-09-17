@@ -2,7 +2,7 @@ import { ModalHandler, ProjectsHandler } from './dom';
 import { ActiveHomeTabHandler } from './tabs';
 import { loadActiveProject, displayNoSectionsImage } from './project-loader';
 import { closeSidebarIfSmallScreen } from './dom'
-import { addSectionSubmitEvent, loadCurrentProjectSections } from './sections';
+import { loadCurrentProjectSections } from './sections';
 import { loadAllSectionsTasks } from './tasks';
 
 const modalHandler = new ModalHandler();
@@ -17,53 +17,19 @@ class Project {
     }
 }
 
-export let allProjects = [
-    {
-        name: 'ToDo',
-        sections: [
-            {
-                sectionTitle: 'Routines',
-                tasks: [
-
-                ],
-            },
-            {
-                sectionTitle: 'Shopping',
-                tasks: [
-
-                ],
-            },
-        ],
-    },
-    {
-        name: 'My Work',
-        sections: [
-            {
-                sectionTitle: 'Presentations',
-                tasks: [
-
-                ],
-            },
-            {
-                sectionTitle: 'Interviews',
-                tasks: [
-
-                ],
-            },
-        ],
-    },
-]
+export let allProjects = []
 
 export let currentProject = null;
 export let currentProjectIndex = null
 
 export function loadProjects() {
+    let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
     projectsContainer.innerHTML = ''
-    allProjects.forEach(project => {
+    allProjectsLocal.forEach(project => {
         projectsHandler.createProjectHtml(project);
     })
     activeHomeTabHandler.handleTabsClick()
-    handleProjectTabs(allProjects)
+    handleProjectTabs()
     addProjectToolsEvent()
     modalHandler.handleModals()
     modalHandler.changeModalPositionIfKeyboardOpened()
@@ -83,10 +49,11 @@ export function addProjectEvent() {
     const modalAlert = document.getElementById('modalAlert')
 
     addProjectButton.addEventListener('click', () => {
+        let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
         const newProjectName = projectNameInput.value.trim();
 
         // Check if a project with the same name already exists
-        const existingProject = allProjects.find(project => project.name === newProjectName);
+        const existingProject = allProjectsLocal.find(project => project.name === newProjectName);
 
         if (newProjectName === '') {
             modalAlert.textContent = '(You must enter new project name)'
@@ -106,7 +73,8 @@ export function addProjectEvent() {
         }
 
         let newProject = new Project(newProjectName);
-        allProjects.push(newProject);
+        allProjectsLocal.push(newProject);
+        localStorage.setItem("allProjects", JSON.stringify(allProjectsLocal))
         loadProjects();
         closeModalButton.click();
         reloadTabAllTasksIfListAdded()
@@ -130,10 +98,10 @@ export function addProjectToolsSubmitEvent() {
     const closeModalButtonDelete = document.getElementById('closeModalButtonDelete');
 
     renameProjectButton.addEventListener('click', () => {
-        const projectTabs = document.querySelectorAll('.sidebar-project')
+        let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
         const projectRenameInput = document.getElementById('projectRenameInput');
         const modalAlertRename = document.getElementById('modalAlertRename')
-        let existingProject = allProjects.find(project => project.name === projectRenameInput.value)
+        let existingProject = allProjectsLocal.find(project => project.name === projectRenameInput.value)
 
         if (projectRenameInput.value === '') {
             modalAlertRename.textContent = '(You must enter new project name)'
@@ -148,12 +116,14 @@ export function addProjectToolsSubmitEvent() {
         }
 
         if (currentProject) {
-            currentProject.name = projectRenameInput.value;
+            const projectToUpdate = allProjectsLocal[currentProjectIndex];
+            projectToUpdate.name = projectRenameInput.value;
+            localStorage.setItem("allProjects", JSON.stringify(allProjectsLocal))
             loadProjects();
-            projectTabs[currentProjectIndex].click()
             closeModalButtonRename.click();
             modalHandler.handleModals();
             modalHandler.changeModalPositionIfKeyboardOpened()
+            clickCurrentProject()
         } else {
 
         }
@@ -161,9 +131,11 @@ export function addProjectToolsSubmitEvent() {
     });
 
     deleteProjectButton.addEventListener('click', () => {
+        let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
         const tabAllTasks = document.getElementById('tabAllTasks')
         if (currentProject) {
-            allProjects.splice(currentProjectIndex, 1)
+            allProjectsLocal.splice(currentProjectIndex, 1)
+            localStorage.setItem("allProjects", JSON.stringify(allProjectsLocal))
             currentProjectIndex = null
             loadProjects();
             closeModalButtonDelete.click();
@@ -178,13 +150,19 @@ export function addProjectToolsSubmitEvent() {
     });
 }
 
+export function clickCurrentProject(){
+    const projectTabs = document.querySelectorAll('.sidebar-project')
+    projectTabs[currentProjectIndex].click()
+}
+
 function addProjectToolsEvent() {
     const renameButtons = document.querySelectorAll('.btn-rename');
     const deleteButtons = document.querySelectorAll('.btn-delete');
+    let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
 
     renameButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
-            currentProject = allProjects[index];
+            currentProject = allProjectsLocal[index];
             currentProjectIndex = index;
             const oldName = document.getElementById('oldName');
             oldName.textContent = `(${currentProject.name})`
@@ -193,7 +171,7 @@ function addProjectToolsEvent() {
 
     deleteButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
-            currentProject = allProjects[index];
+            currentProject = allProjectsLocal[index];
             currentProjectIndex = index;
             const deleteProjectName = document.getElementById('deleteProjectName')
             deleteProjectName.textContent = `(${currentProject.name})`
@@ -201,7 +179,8 @@ function addProjectToolsEvent() {
     });
 }
 
-function handleProjectTabs(allProjects) {
+function handleProjectTabs() {
+    let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
     const projectTabs = document.querySelectorAll('.sidebar-project')
     const tabs = document.querySelectorAll('.tab')
     projectTabs.forEach((tab, index) => {
@@ -211,13 +190,12 @@ function handleProjectTabs(allProjects) {
                 tab.classList.remove('sidebar-item-active')
             })
             tab.classList.add('sidebar-item-active')
-            currentProject = allProjects[index]
+            currentProject = allProjectsLocal[index]
             loadActiveProject(currentProject)
             projectsHandler.createMainProjectToolsHtml()
             addProjectToolsMainEvent()
-            addSectionSubmitEvent()
             addSectionDeleteEvent()
-            loadCurrentProjectSections(currentProject)
+            loadCurrentProjectSections()
             addDeleteSectionButtonsEvent()
             loadAllSectionsTasks(currentProject)
             modalHandler.handleModals()
@@ -230,21 +208,22 @@ function addProjectToolsMainEvent() {
     const btnRenameMain = document.getElementById('btnRenameMain');
     const btnDeleteMain = document.getElementById('btnDeleteMain');
     const addSectionButton = document.getElementById('addSectionButton');
+    let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
 
     btnRenameMain.addEventListener('click', () => {
-        currentProject = allProjects[currentProjectIndex];
+        currentProject = allProjectsLocal[currentProjectIndex];
         const oldName = document.getElementById('oldName');
         oldName.textContent = `(${currentProject.name})`
     })
 
     btnDeleteMain.addEventListener('click', () => {
-        currentProject = allProjects[currentProjectIndex];
+        currentProject = allProjectsLocal[currentProjectIndex];
         const deleteProjectName = document.getElementById('deleteProjectName')
         deleteProjectName.textContent = `(${currentProject.name})`
     })
 
     addSectionButton.addEventListener('click', () => {
-        currentProject = allProjects[currentProjectIndex];
+        currentProject = allProjectsLocal[currentProjectIndex];
     })
 }
 
@@ -252,10 +231,11 @@ export let currentSectionIndex = null
 
 export function addDeleteSectionButtonsEvent() {
     const deleteSectionButtons = document.querySelectorAll('.remove-section-btn')
+    let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
 
     deleteSectionButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
-            currentProject = allProjects[currentProjectIndex];
+            currentProject = allProjectsLocal[currentProjectIndex];
             currentSectionIndex = index;
             const deleteSectionName = document.getElementById('deleteSectionName')
             deleteSectionName.textContent = `(${currentProject.sections[index].sectionTitle})`
@@ -268,15 +248,15 @@ export function addSectionDeleteEvent() {
     const closeModalButtonDeleteSection = document.getElementById('closeModalButtonDeleteSection')
 
     deleteSectionButton.addEventListener('click', () => {
+        let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
         if (currentSectionIndex || currentSectionIndex === 0) {
-            currentProject.sections.splice(currentSectionIndex, 1)
-            loadCurrentProjectSections(currentProject)
-            loadAllSectionsTasks(currentProject)
+            allProjectsLocal[currentProjectIndex].sections.splice(currentSectionIndex, 1)
+            localStorage.setItem("allProjects", JSON.stringify(allProjectsLocal))
             closeModalButtonDeleteSection.click();
             modalHandler.handleModals();
             modalHandler.changeModalPositionIfKeyboardOpened()
-            addDeleteSectionButtonsEvent()
             displayNoSectionsImage()
+            clickCurrentProject()
         } else {
 
         }

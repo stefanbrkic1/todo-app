@@ -1,6 +1,5 @@
 import { TasksHandler, playNotificationSound } from "./dom";
-import { currentProject } from "./projects";
-import { allProjects, currentProjectIndex } from "./projects";
+import { currentProjectIndex } from "./projects";
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
 
@@ -86,9 +85,10 @@ function addTaskSubmitEvent() {
         }
         else {
             const newTask = new Task(taskDescriptionInput.value, dateInput.value)
-            let currentSection = currentProject.sections[currentSectionIndex]
-            currentSection.tasks.push(newTask)
-            loadAllSectionsTasks(currentProject)
+            let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
+            allProjectsLocal[currentProjectIndex].sections[currentSectionIndex].tasks.push(newTask)
+            localStorage.setItem("allProjects", JSON.stringify(allProjectsLocal))
+            loadAllSectionsTasks()
             cancelTaskFormButton.click()
         }
     })
@@ -103,12 +103,13 @@ function addTaskSubmitEvent() {
     })
 }
 
-export function loadAllSectionsTasks(currentProject) {
+export function loadAllSectionsTasks() {
+    let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
     const allSectionTasksContainers = document.querySelectorAll('.section-tasks')
     allSectionTasksContainers.forEach(container => {
         container.innerHTML = ''
     })
-    currentProject.sections.forEach((section, index) => {
+    allProjectsLocal[currentProjectIndex].sections.forEach((section, index) => {
         section.tasks.forEach(task => {
             tasksHandler.createTaskHtml(allSectionTasksContainers[index], task)
         })
@@ -148,13 +149,17 @@ export function addImportantButtonEvent() {
 }
 
 function setTaskAsImportant(clickedButton, index) {
+    let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
     clickedButton.classList.add('important-btn-active')
-    currentProject.sections[clickedSectionIndex].tasks[index].important = true
+    allProjectsLocal[currentProjectIndex].sections[clickedSectionIndex].tasks[index].important = true
+    localStorage.setItem("allProjects", JSON.stringify(allProjectsLocal))
 }
 
 function setTaskAsUnimportant(clickedButton, index) {
+    let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
     clickedButton.classList.remove('important-btn-active')
-    currentProject.sections[clickedSectionIndex].tasks[index].important = false
+    allProjectsLocal[currentProjectIndex].sections[clickedSectionIndex].tasks[index].important = false
+    localStorage.setItem("allProjects", JSON.stringify(allProjectsLocal))
 }
 
 function addTaskCheckboxEvent(){
@@ -173,9 +178,11 @@ function addTaskCheckboxEvent(){
 }
 
 function checkTaskAsCompleted(checkboxIndex){
-    allProjects[currentProjectIndex].sections[clickedSectionIndex].tasks.splice(checkboxIndex, 1)
+    let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
+    allProjectsLocal[currentProjectIndex].sections[clickedSectionIndex].tasks.splice(checkboxIndex, 1)
+    localStorage.setItem("allProjects", JSON.stringify(allProjectsLocal))
     setTimeout(() => {
-        loadAllSectionsTasks(currentProject)
+        loadAllSectionsTasks()
         Toastify({
             text: "1 task completed",
             className: "custom-toast", // Apply the custom CSS class

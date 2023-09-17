@@ -69,7 +69,8 @@ function setWeekTab() {
 function loadTasks(){
     tasksListView.innerHTML = ''
     allWeekTasks = []
-    allProjects.forEach((project, projectIndexWeek) => {
+    let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
+    allProjectsLocal.forEach((project, projectIndexWeek) => {
         projectsHandler.createProjectHtmlForTabs(tasksListView, project);
         const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
 
@@ -139,7 +140,9 @@ function addWeekTaskCheckboxEvent(){
 }
 
 function checkTaskAsCompleted(checkboxIndex, projectIndexWeek, sectionIndexWeek, taskIndexWeek){
-    allProjects[projectIndexWeek].sections[sectionIndexWeek].tasks.splice(taskIndexWeek, 1)
+    let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
+    allProjectsLocal[projectIndexWeek].sections[sectionIndexWeek].tasks.splice(taskIndexWeek, 1)
+    localStorage.setItem("allProjects", JSON.stringify(allProjectsLocal))
     allWeekTasks.splice(checkboxIndex, 1)
     setTimeout(() => {
         loadTasks()
