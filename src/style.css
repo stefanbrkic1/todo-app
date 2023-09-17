@@ -541,6 +541,22 @@ body {
   overflow-y: auto;
 }
 
+/* Customize the scrollbar track */
+.tasks-list-container::-webkit-scrollbar {
+  width: 0px; /* Adjust the width of the scrollbar track */
+}
+
+/* Customize the scrollbar thumb (the draggable part) */
+.tasks-list-container::-webkit-scrollbar-thumb {
+  background: var(--inactive); /* Change the background color of the thumb */
+  border-radius: 5px; /* Add rounded corners to the thumb */
+}
+
+/* Customize the scrollbar track on hover */
+.tasks-list-container::-webkit-scrollbar-track:hover {
+  background: #f1f1f1; /* Change the background color on hover */
+}
+
 .task {
   display: flex;
   align-items: center;
@@ -1140,6 +1156,7 @@ button{
 
 .all-tasks-right{
   color: var(--inactive);
+  margin-right: 15px;
 }
 
 .all-tasks-left{
