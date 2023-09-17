@@ -32,7 +32,7 @@
 :root {
   --primary-color: #0770b3; /* Slightly desaturated primary color */
   --secondary-color: #0c8a6e; /* Slightly desaturated secondary color */
-  --tertiary-color: #ff6f56; /* Brighter red for alerts */
+  --tertiary-color: #ff5436; /* Brighter red for alerts */
 
   --background: #1a1a1a; /* Dark background color for the main content */
   --secondary-background: #121212; /* Even darker background for sidebar */
@@ -63,7 +63,6 @@
 .light-theme {
   --primary-color: #126fb5;
   --secondary-color: #10a885;
-  --tertiary-color: #ff5436;
 
   --background: #ffffff;
   --secondary-background: #fafafa;
