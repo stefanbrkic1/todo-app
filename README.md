@@ -17,16 +17,11 @@ Listify your chaos, find your calm.
   </p>
 </div>
 
-<!-- Badges -->
-<div align="center">
-
-  ![GitHub deployments](https://img.shields.io/github/deployments/0xabdulkhalid/weatherwise/production?style=for-the-badge&logo=vercel&logoColor=white&label=Vercel%20Deployement&labelColor=%23000&color=white)
-
-</div>
-
 
 # Listify
 ToDo Application for Productivity, and Task Managament.
+
+<br>
 
 <!-- ABOUT THE PROJECT -->
 ## Preview
