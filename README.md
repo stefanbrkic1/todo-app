@@ -1,11 +1,11 @@
 <br>
 
 <div align="center">
-<img src="./src/img/LOGO.png" alt="Listify" width="350">
+<img src="./src/img/LOGO.png" alt="Listify" width="300">
 <br>
 <br>
   
-Listify your chaos, find your calm.
+###Listify your chaos, find your calm.
 
 <br>
   <p>
@@ -15,9 +15,9 @@ Listify your chaos, find your calm.
     &nbsp;·&nbsp;
     <a href="https://github.com/stefanbrkic1/todo-app/issues">Request Feature</a>
   </p>
-</div>
 
-ToDo Application for Productivity, and Task Managament.
+  ToDo Application for Productivity, and Task Managament.
+</div>
 
 <br>
 
