@@ -1,7 +1,7 @@
 <br>
 
 <div align="center">
-<img src="./src/img/LOGO.png" alt="Listify" width="250">
+<img src="./src/img/LOGO.png" alt="Listify" width="350">
 <br>
 <br>
   
@@ -17,8 +17,6 @@ Listify your chaos, find your calm.
   </p>
 </div>
 
-
-# Listify
 ToDo Application for Productivity, and Task Managament.
 
 <br>
