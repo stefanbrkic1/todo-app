@@ -4,7 +4,12 @@ ToDo Application for Productivity
 <!-- ABOUT THE PROJECT -->
 ## Preview
 
-![LandingPagePreview](./src/img/task/png)
+![LandingPagePreview](./src/img/GitHub(MainPage).jpg)
+![Preview](./src/img/GitHub(MainPage)2.jpg)
+![Preview](./src/img/GitHub(MainPage)3.jpg)
+![Preview](./src/img/GitHub(MainPage)4.jpg)
+![Preview](./src/img/GitHub(MainPage)5.jpg)
+![Preview](./src/img/GitHub(Devices).jpg)
 
 > **Note**  
 >> Application is still under Development
