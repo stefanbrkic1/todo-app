@@ -1,7 +1,7 @@
 <br>
 
 <div align="center">
-<img src="./src/img/LOGO.png" alt="Listify" width="180">
+<img src="./src/img/LOGO.png" alt="Listify" width="250">
 <br>
 <br>
   
@@ -62,6 +62,7 @@ ToDo Application for Productivity, and Task Managament.
 - Listing **Today** tasks
 - Listing **ThisWeek** tasks
 - Listing **Important** tasks
+- **Dark** and **Light** Theme
 - Modern **UI/UX** design
 - **Responsive** for all devices **Desktop** , **Tablet** & **Mobile**
 
