@@ -51,11 +51,8 @@
 <br>
 
 ## Features
-- Creating **Lists**
-- Adding **Sections** within lists
-- Listing **Today** tasks
-- Listing **ThisWeek** tasks
-- Listing **Important** tasks
+- Creating **Lists** and adding **Sections** within lists
+- Listing **Today**, **ThisWeek** and **Important** tasks
 - **Dark** and **Light** Theme
 - Modern **UI/UX** design
 - **Responsive** for all devices **Desktop** , **Tablet** & **Mobile**
