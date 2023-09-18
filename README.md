@@ -5,7 +5,7 @@
 <br>
 <br>
   
-###Listify your chaos, find your calm.
+**Listify your chaos, find your calm.**
 
 <br>
   <p>
