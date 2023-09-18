@@ -59,9 +59,11 @@ ToDo Application for Productivity, and Task Managament.
 <br>
 
 ## Features
-- **Home** page
-- **Menu** page
-- **Contact** page 
+- Creating **Lists**
+- Adding **Sections** within lists
+- Listing **Today** tasks
+- Listing **ThisWeek** tasks
+- Listing **Important** tasks
 - Modern **UI/UX** design
 - **Responsive** for all devices **Desktop** , **Tablet** & **Mobile**
 
