@@ -1,7 +1,7 @@
 <br>
 
 <div align="center">
-<img src="./src/img/LOGO.png" alt="Listify" width="220">
+<img src="./src/img/LOGO.png" alt="Listify" width="200">
 <br>
 <br>
   <p>
