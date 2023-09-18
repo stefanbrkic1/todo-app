@@ -1,3 +1,30 @@
+<br>
+
+<div align="center">
+<img src="./src/img/task.png" alt="Listify" width="250">
+<br>
+<br>
+  
+Listify your chaos, find your calm.
+
+<br>
+  <p>
+    <a href="">View Demo</a>
+    &nbsp;·&nbsp;
+    <a href="">Report Bug</a>
+    &nbsp;·&nbsp;
+    <a href="">Request Feature</a>
+  </p>
+</div>
+
+<!-- Badges -->
+<div align="center">
+
+  ![GitHub deployments](https://img.shields.io/github/deployments/0xabdulkhalid/weatherwise/production?style=for-the-badge&logo=vercel&logoColor=white&label=Vercel%20Deployement&labelColor=%23000&color=white)
+
+</div>
+
+
 # todo-app
 ToDo Application for Productivity
 
@@ -5,7 +32,6 @@ ToDo Application for Productivity
 ## Preview
 
 ![LandingPagePreview](./src/img/GitHub(MainPage).jpg)
-![Preview](./src/img/GitHub(MainPage)2.jpg)
 ![Preview](./src/img/GitHub(MainPage)3.jpg)
 ![Preview](./src/img/GitHub(MainPage)4.jpg)
 ![Preview](./src/img/GitHub(MainPage)5.jpg)
