@@ -1,7 +1,7 @@
 <br>
 
 <div align="center">
-<img src="./src/img/task-green.png" alt="Listify" width="250">
+<img src="./src/img/task-green.png" alt="Listify" width="200">
 <br>
 <br>
   
@@ -9,7 +9,7 @@ Listify your chaos, find your calm.
 
 <br>
   <p>
-    <a href="">View Demo</a>
+    <a href="https://stefanbrkic1.github.io/todo-app/">View Demo</a>
     &nbsp;·&nbsp;
     <a href="">Report Bug</a>
     &nbsp;·&nbsp;
@@ -25,13 +25,12 @@ Listify your chaos, find your calm.
 </div>
 
 
-# todo-app
-ToDo Application for Productivity
+# Listify
+ToDo Application for Productivity, and Task Managament.
 
 <!-- ABOUT THE PROJECT -->
 ## Preview
 
-![LandingPagePreview](./src/img/GitHub(MainPage).jpg)
 ![Preview](./src/img/GitHub(MainPage)3.jpg)
 ![Preview](./src/img/GitHub(MainPage)4.jpg)
 ![Preview](./src/img/GitHub(MainPage)5.jpg)
