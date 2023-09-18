@@ -4,14 +4,14 @@ import loadAllTasks from './alltasks';
 import { ModalHandler } from './dom';
 import { loadProjects, addProjectEvent, addProjectToolsSubmitEvent, allProjects } from './projects';
 
-(function websiteHandler(){
+(function websiteHandler() {
     checkStorage()
-    document.addEventListener("DOMContentLoaded", function() {
-        const modalHandler = new ModalHandler(); 
+    document.addEventListener("DOMContentLoaded", function () {
+        const modalHandler = new ModalHandler();
 
         const preloaderForLoader = document.getElementById('preloaderForLoader')
         const loader = document.getElementById('preloader')
-        window.addEventListener('load', function(){
+        window.addEventListener('load', function () {
             preloaderForLoader.style.opacity = "0";
             preloaderForLoader.style.visibility = "hidden";
             setTimeout(() => {
@@ -19,7 +19,7 @@ import { loadProjects, addProjectEvent, addProjectToolsSubmitEvent, allProjects 
                 loader.style.visibility = "hidden";
             }, 3500);
         })
-        
+
         handleSidebar();
         loadAllTasks();
         loadProjects();
@@ -29,10 +29,10 @@ import { loadProjects, addProjectEvent, addProjectToolsSubmitEvent, allProjects 
         modalHandler.changeModalPositionIfKeyboardOpened()
         modalHandler.handleSubmit()
         setThemeTogglerEvent();
-      });
+    });
 })();
 
-function setThemeTogglerEvent(){
+function setThemeTogglerEvent() {
     const themeToggler = document.getElementById('themeToggler')
     themeToggler.addEventListener('click', () => {
         console.log('clicked')
@@ -40,14 +40,14 @@ function setThemeTogglerEvent(){
     })
 }
 
-function checkStorage(){
+function checkStorage() {
     if (!JSON.parse(localStorage.getItem("allProjects"))) {
         populateStorage();
-      } else {
-        
-      }
+    } else {
+
+    }
 }
 
-function populateStorage(){
+function populateStorage() {
     localStorage.setItem("allProjects", JSON.stringify(allProjects))
 }

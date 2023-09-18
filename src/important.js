@@ -1,4 +1,3 @@
-import { allProjects } from './projects';
 import importantIcon from './img/important.svg'
 import { TasksHandler, ProjectsHandler, removeEmptyProjectsFromHTML, playNotificationSound } from './dom'
 import Toastify from 'toastify-js'
@@ -15,7 +14,7 @@ const dateDisplayer = document.querySelector('.date-displayer')
 let allImportantTasks = []
 
 class ImportantTask {
-    constructor(projectIndexImportant, sectionIndexImportant, taskIndexImportant){
+    constructor(projectIndexImportant, sectionIndexImportant, taskIndexImportant) {
         this.projectIndexImportant = projectIndexImportant
         this.sectionIndexImportant = sectionIndexImportant
         this.taskIndexImportant = taskIndexImportant
@@ -51,7 +50,7 @@ function setImportantTab() {
 
 }
 
-function loadTasks(){
+function loadTasks() {
     tasksListView.innerHTML = ''
     allImportantTasks = []
     let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
@@ -63,7 +62,7 @@ function loadTasks(){
             section.tasks.forEach((task, taskIndexImportant) => {
                 if (task.important === true) {
                     tasksHandler.createTaskHtml(tasksContainerAllTasks[projectIndexImportant], task);
-                    
+
                     let newImportantTask = new ImportantTask(projectIndexImportant, sectionIndexImportant, taskIndexImportant)
                     allImportantTasks.push(newImportantTask)
                 } else {
@@ -110,7 +109,7 @@ function displayImportantTasksLength() {
     tasksHandler.createDateDisplay(dateDisplayer, lengthString)
 }
 
-function addImportantTaskCheckboxEvent(){
+function addImportantTaskCheckboxEvent() {
     let importantCheckboxes = document.querySelectorAll('.checkbox')
     importantCheckboxes.forEach((checkbox, checkboxIndex) => {
         checkbox.addEventListener('click', () => {
@@ -119,10 +118,10 @@ function addImportantTaskCheckboxEvent(){
                 playNotificationSound()
             }, 10);
         })
-    })    
+    })
 }
 
-function checkTaskAsCompleted(checkboxIndex, projectIndexImportant, sectionIndexImportant, taskIndexImportant){
+function checkTaskAsCompleted(checkboxIndex, projectIndexImportant, sectionIndexImportant, taskIndexImportant) {
     let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
     allProjectsLocal[projectIndexImportant].sections[sectionIndexImportant].tasks.splice(taskIndexImportant, 1)
     localStorage.setItem("allProjects", JSON.stringify(allProjectsLocal))
@@ -135,7 +134,7 @@ function checkTaskAsCompleted(checkboxIndex, projectIndexImportant, sectionIndex
             duration: 2300,
             gravity: "bottom", // `top` or `bottom`
             position: "left", // `left`, `center` or `right`
-          }).showToast();
+        }).showToast();
     }, 300);
 }
 

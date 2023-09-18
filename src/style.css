@@ -8,7 +8,7 @@
   src: url(./fonts/TT\ Interphases\ Pro\ Trial\ DemiBold.ttf);
 }
 
-.preloader-image{
+.preloader-image {
   background: url(../src/img/preloader.gif) no-repeat center center;
   width: 100px;
   height: 100px;
@@ -17,33 +17,43 @@
   align-items: center;
 }
 
-.preloader-text{
+.preloader-text {
   font-family: 'TTBold';
   font-size: 30rem;
   margin-bottom: 10px;
 }
 
-.preloader-tagline{
+.preloader-tagline {
   font-family: 'TTSemiBold';
   font-size: 16rem;
   margin-bottom: 30px;
 }
 
 :root {
-  --primary-color: #0770b3; /* Slightly desaturated primary color */
-  --secondary-color: #0c8a6e; /* Slightly desaturated secondary color */
-  --tertiary-color: #ff5436; /* Brighter red for alerts */
+  --primary-color: #0770b3;
+  /* Slightly desaturated primary color */
+  --secondary-color: #0c8a6e;
+  /* Slightly desaturated secondary color */
+  --tertiary-color: #ff5436;
+  /* Brighter red for alerts */
 
-  --background: #1a1a1a; /* Dark background color for the main content */
-  --secondary-background: #121212; /* Even darker background for sidebar */
+  --background: #1a1a1a;
+  /* Dark background color for the main content */
+  --secondary-background: #121212;
+  /* Even darker background for sidebar */
 
-  --hover: #222222; /* Slightly lighter than the background for hover effects */
-  --text-dark: #f0f0f0; /* Light text for readability on dark background */
-  --text-light: #303336; /* White text for headers and primary content */
+  --hover: #222222;
+  /* Slightly lighter than the background for hover effects */
+  --text-dark: #f0f0f0;
+  /* Light text for readability on dark background */
+  --text-light: #303336;
+  /* White text for headers and primary content */
 
-  --warning: #ff6f56; /* Keep the same warning color for consistency */
+  --warning: #ff6f56;
+  /* Keep the same warning color for consistency */
 
-  --inactive: #979797; /* Unchanged color for inactive elements */
+  --inactive: #979797;
+  /* Unchanged color for inactive elements */
   --yellow-color: #ffc300;
 
   --add-task-icon: url("./img/add-task.svg");
@@ -139,7 +149,7 @@ body {
   padding-bottom: 23px;
 }
 
-.sidebar-list-settings{
+.sidebar-list-settings {
   list-style-type: none;
   display: flex;
   flex-direction: column;
@@ -542,18 +552,22 @@ body {
 
 /* Customize the scrollbar track */
 .tasks-list-container::-webkit-scrollbar {
-  width: 0px; /* Adjust the width of the scrollbar track */
+  width: 0px;
+  /* Adjust the width of the scrollbar track */
 }
 
 /* Customize the scrollbar thumb (the draggable part) */
 .tasks-list-container::-webkit-scrollbar-thumb {
-  background: var(--inactive); /* Change the background color of the thumb */
-  border-radius: 5px; /* Add rounded corners to the thumb */
+  background: var(--inactive);
+  /* Change the background color of the thumb */
+  border-radius: 5px;
+  /* Add rounded corners to the thumb */
 }
 
 /* Customize the scrollbar track on hover */
 .tasks-list-container::-webkit-scrollbar-track:hover {
-  background: #f1f1f1; /* Change the background color on hover */
+  background: #f1f1f1;
+  /* Change the background color on hover */
 }
 
 .task {
@@ -563,25 +577,25 @@ body {
   margin-bottom: 12px;
 }
 
-.bottom-task-side{
+.bottom-task-side {
   display: none;
   font-size: 12rem;
   color: var(--inactive);
   margin-bottom: 12px;
 }
 
-.height-auto{
+.height-auto {
   height: auto !important;
 }
 
-.left-task-side{
+.left-task-side {
   flex: 6;
   display: flex;
   align-items: center;
   gap: 7px;
 }
 
-.right-task-side{
+.right-task-side {
   flex: 1;
   display: flex;
   align-items: center;
@@ -589,12 +603,12 @@ body {
   gap: 20px;
 }
 
-.date-task-container{
+.date-task-container {
   font-size: 15rem;
   color: var(--inactive);
 }
 
-.important-btn{
+.important-btn {
   appearance: none;
   background-color: transparent;
   border: none;
@@ -607,11 +621,11 @@ body {
   padding: 10px;
 }
 
-.important-btn:hover{
+.important-btn:hover {
   transform: scale(1.2);
 }
 
-.important-btn-active{
+.important-btn-active {
   background-image: url(./img/important.svg);
 }
 
@@ -663,7 +677,7 @@ body {
   justify-content: center;
 }
 
-.add-task-btn-disabled{
+.add-task-btn-disabled {
   background-image: var(--add-task-icon-disabled) !important;
 }
 
@@ -782,7 +796,7 @@ body {
   right: 0;
 }
 
-.add-task-form-container{
+.add-task-form-container {
   margin-top: 20px;
   border: solid 2px var(--hover);
   border-radius: 4px;
@@ -790,7 +804,7 @@ body {
   padding: 10px;
 }
 
-.task-description-input{
+.task-description-input {
   width: 100%;
   box-sizing: border-box;
   padding: 9px 7px 9px 7px;
@@ -802,24 +816,24 @@ body {
   color: var(--text-dark);
 }
 
-.task-data{
+.task-data {
   display: flex;
   align-items: center;
   gap: 7px;
   padding-bottom: 15px;
 }
 
-.add-task-form-buttons{
+.add-task-form-buttons {
   display: flex;
   gap: 6px;
   justify-content: end;
   align-items: center;
   border-top: 2px solid var(--hover);
   box-sizing: border-box;
-  padding: 15px 0px 5px 0px ;
+  padding: 15px 0px 5px 0px;
 }
 
-.add-task-form-btn{
+.add-task-form-btn {
   border: none;
   outline: none;
   padding: 7px 20px;
@@ -829,11 +843,11 @@ body {
   color: #fafafa;
 }
 
-.add-task-form-btn:hover{
+.add-task-form-btn:hover {
   background-color: var(--secondary-color);
 }
 
-.cancel-task-btn{
+.cancel-task-btn {
   border: none;
   outline: none;
   padding: 7px 20px;
@@ -844,11 +858,11 @@ body {
   color: #fafafa;
 }
 
-.cancel-task-btn:hover{
+.cancel-task-btn:hover {
   background-color: #ff3916;
 }
 
-.date-input{
+.date-input {
   height: 38px;
   box-sizing: border-box;
   padding: 0px 10px;
@@ -859,24 +873,24 @@ body {
 }
 
 
-button{
+button {
   cursor: pointer;
 }
 
-.display-none{
+.display-none {
   display: none !important;
 }
 
-.disabled-click{
+.disabled-click {
   pointer-events: none;
-  color: var(--inactive)!important;
+  color: var(--inactive) !important;
 }
 
-.invalid-input{
+.invalid-input {
   border: 2px solid var(--tertiary-color) !important;
 }
 
-.checkbox{
+.checkbox {
   position: relative;
   width: 18px;
   height: 18px;
@@ -918,32 +932,32 @@ button{
   opacity: 1;
 }
 
-.task-button-title{
+.task-button-title {
   font-size: 15rem;
 }
 
-#currentTabName{
+#currentTabName {
   color: var(--text-dark);
 }
 
-.project-tasks-container-all-tasks{
+.project-tasks-container-all-tasks {
   display: flex;
   flex-direction: column;
 }
 
-.project-name-all-tasks{
+.project-name-all-tasks {
   color: var(--text-dark);
   font-size: 18rem;
   font-family: 'TTBold';
 }
 
-.project-all-tasks-header{
+.project-all-tasks-header {
   box-sizing: border-box;
   padding: 7px 0px;
   margin-bottom: 14px;
 }
 
-.project-icon-all-tasks{
+.project-icon-all-tasks {
   width: 24px;
   height: 24px;
   appearance: none;
@@ -956,11 +970,11 @@ button{
   pointer-events: nonecio;
 }
 
-.tasks-container-all-tasks{
+.tasks-container-all-tasks {
   margin-bottom: 15px;
 }
 
-.no-tasks-message{
+.no-tasks-message {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -975,7 +989,7 @@ button{
   margin-top: 8px;
 }
 
-.no-tasks-img-container{
+.no-tasks-img-container {
   width: 100%;
   height: 100%;
   display: flex;
@@ -984,7 +998,7 @@ button{
   align-items: center;
 }
 
-.no-tasks-img{
+.no-tasks-img {
   width: 330px;
   height: 330px;
   background-image: var(--important-no-tasks-image);
@@ -994,7 +1008,7 @@ button{
   background-position: center;
 }
 
-.no-tasks-img-today{
+.no-tasks-img-today {
   width: 360px;
   height: 360px;
   background-image: var(--today-no-tasks-image);
@@ -1004,7 +1018,7 @@ button{
   margin-bottom: 30px;
 }
 
-.no-tasks-img-week{
+.no-tasks-img-week {
   width: 430px;
   height: 430px;
   background-image: var(--this-week-no-tasks-image);
@@ -1014,7 +1028,7 @@ button{
   margin-bottom: 30px;
 }
 
-.no-sections-img{
+.no-sections-img {
   width: 340px;
   height: 340px;
   background-image: var(--no-sections-image);
@@ -1024,7 +1038,7 @@ button{
   margin-bottom: 70px;
 }
 
-.no-tasks-img-text-today{
+.no-tasks-img-text-today {
   font-size: 20rem;
   color: var(--text-dark);
   text-align: center;
@@ -1033,7 +1047,7 @@ button{
   bottom: 25%;
 }
 
-.no-tasks-img-text-week{
+.no-tasks-img-text-week {
   font-size: 20rem;
   color: var(--text-dark);
   text-align: center;
@@ -1042,7 +1056,7 @@ button{
   bottom: 27%;
 }
 
-.no-tasks-img-text-important{
+.no-tasks-img-text-important {
   font-size: 20rem;
   color: var(--text-dark);
   text-align: center;
@@ -1051,7 +1065,7 @@ button{
   bottom: 24%;
 }
 
-.no-tasks-img-text-sections{
+.no-tasks-img-text-sections {
   font-size: 20rem;
   color: var(--text-dark);
   text-align: center;
@@ -1060,46 +1074,46 @@ button{
   bottom: 24%;
 }
 
-.this-week-date{
+.this-week-date {
   display: none;
   color: var(--inactive);
   font-size: 16rem;
 }
 
-.date-heading-right{
+.date-heading-right {
   display: block;
   color: var(--inactive);
 }
 
-.date-displayer{
+.date-displayer {
   padding: 10px 10px 0px 10px;
 }
 
-.custom-toast{
+.custom-toast {
   width: 240px;
   background: var(--secondary-color) !important;
   border-radius: 8px !important;
 }
 
-.custom-toast-red{
+.custom-toast-red {
   width: 240px;
   background: var(--tertiary-color) !important;
   border-radius: 8px !important;
 }
 
-.custom-toast-blue{
+.custom-toast-blue {
   width: 240px;
   background: var(--primary-color) !important;
   border-radius: 8px !important;
 }
 
-.custom-toast-yellow{
+.custom-toast-yellow {
   width: 240px;
   background: var(--yellow-color) !important;
   border-radius: 8px !important;
 }
 
-.home-container{
+.home-container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
@@ -1112,13 +1126,14 @@ button{
   font-size: 17rem;
 }
 
-.home-container-right, .home-container-left{
+.home-container-right,
+.home-container-left {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.widget-icon{
+.widget-icon {
   border: none;
   appearance: none;
   outline: none;
@@ -1128,24 +1143,24 @@ button{
   padding: 10px;
 }
 
-.greetings-icon{
+.greetings-icon {
   background-image: url(./img/important.svg);
 }
 
-.date-icon{
+.date-icon {
   background-image: url(./img/today48x48.svg);
 }
 
-.motivation-icon{
+.motivation-icon {
   background-image: url(./img/target-fill.svg);
 }
 
-.home-clock{
+.home-clock {
   font-size: 65rem;
   color: var(--inactive);
 }
 
-.all-tasks-heading{
+.all-tasks-heading {
   margin-top: 50px;
   display: flex;
   justify-content: space-between;
@@ -1153,24 +1168,24 @@ button{
   padding: 10px 0px;
 }
 
-.all-tasks-right{
+.all-tasks-right {
   color: var(--inactive);
   margin-right: 15px;
 }
 
-.all-tasks-left{
+.all-tasks-left {
   font-size: 22rem;
   color: var(--text-dark);
   font-family: 'TTBold';
 }
 
-.flex-list{
+.flex-list {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.all-tasks-icon{
+.all-tasks-icon {
   border: none;
   outline: none;
   appearance: none;
@@ -1181,7 +1196,7 @@ button{
   background-size: contain;
 }
 
-.no-lists-container{
+.no-lists-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1193,13 +1208,13 @@ button{
   margin-top: 8px;
 }
 
-.no-lists-text{
+.no-lists-text {
   text-align: center;
   font-size: 17rem;
   color: var(--text-dark);
 }
 
-.no-lists-btn{
+.no-lists-btn {
   appearance: none;
   border: 2px solid var(--inactive);
   outline: none;
@@ -1211,23 +1226,23 @@ button{
   font-family: 'TTSemiBold';
 }
 
-.no-lists-btn:hover{
+.no-lists-btn:hover {
   background-color: var(--inactive);
   color: var(--text-light);
 }
 
-.no-lists-list-view{
+.no-lists-list-view {
   padding: 30px 10px 90px 10px !important;
 }
 
-#toggler{
+#toggler {
   width: 20px;
   height: 20px;
   cursor: pointer;
   accent-color: var(--secondary-color);
 }
 
-.dark-theme-icon{
+.dark-theme-icon {
   appearance: none;
   background-color: transparent;
   border: none;
@@ -1243,7 +1258,7 @@ button{
   justify-content: center;
 }
 
-.listify-container{
+.listify-container {
   position: absolute;
   right: 20px;
   top: 30px;
@@ -1252,7 +1267,7 @@ button{
   gap: 5px;
 }
 
-.logo-main{
+.logo-main {
   width: 20px;
   height: 20px;
   background-image: url(./img/task-green.png);
@@ -1261,11 +1276,11 @@ button{
   background-repeat: no-repeat;
 }
 
-.listify{
+.listify {
   font-family: 'TTBold';
 }
 
-.listify-container-small{
+.listify-container-small {
   display: none;
 }
 
@@ -1350,7 +1365,7 @@ button{
     font-size: 20rem;
   }
 
-  .listify-container{
+  .listify-container {
     display: none;
   }
 
@@ -1375,8 +1390,8 @@ button{
     height: 87%;
   }
 
-  .no-lists-list-view{
-    padding: 20px 0px 140px 0px !important; 
+  .no-lists-list-view {
+    padding: 20px 0px 140px 0px !important;
   }
 
   .delete-question {
@@ -1391,153 +1406,153 @@ button{
     margin: 0px 16px 16px 0px;
   }
 
-  .task-data{
+  .task-data {
     flex-direction: column;
   }
 
-  .date-input{
+  .date-input {
     width: 100%;
     border: 3px solid var(--hover);
   }
 
-  .add-task-form-buttons{
+  .add-task-form-buttons {
     justify-content: center;
   }
 
-  .add-task-form-btn{
+  .add-task-form-btn {
     padding: 10px 0px;
     flex: 1;
   }
 
-  .cancel-task-btn{
+  .cancel-task-btn {
     padding: 10px 0px;
     flex: 1;
   }
 
-  .add-task-form-container{
+  .add-task-form-container {
     border: 3px solid var(--hover);
   }
 
-  .border-bottom{
+  .border-bottom {
     border-bottom: 3px solid var(--hover);
   }
 
-  .add-task-form-buttons{
+  .add-task-form-buttons {
     border-top: 3px solid var(--hover);
   }
 
-  .task-description-input{
+  .task-description-input {
     border: 3px solid var(--hover);
   }
 
-  .date-task-container{
+  .date-task-container {
     display: none;
   }
 
-  .no-tasks-img-text-today{
+  .no-tasks-img-text-today {
     font-size: 17rem;
     padding: 0px 10px;
     max-width: none;
     bottom: 35%;
   }
 
-  .no-tasks-img-text-week{
+  .no-tasks-img-text-week {
     font-size: 17rem;
     padding: 0px 10px;
     max-width: none;
     bottom: 35%;
   }
 
-  .no-tasks-img-text-important{
+  .no-tasks-img-text-important {
     font-size: 17rem;
     padding: 0px 10px;
     max-width: none;
     bottom: 30%;
   }
 
-  .no-tasks-img-text-sections{
+  .no-tasks-img-text-sections {
     font-size: 17rem;
     padding: 0px 10px;
     bottom: 31%;
     max-width: 300px;
   }
 
-  .no-tasks-img{
+  .no-tasks-img {
     width: 70%;
     margin-bottom: 25px;
   }
 
-  .no-tasks-img-today{
+  .no-tasks-img-today {
     width: 70%;
   }
 
-  .no-tasks-img-week{
+  .no-tasks-img-week {
     width: 90%;
     margin-bottom: 0px;
   }
 
-  .no-sections-img{
+  .no-sections-img {
     width: 70%;
     margin-bottom: 30px;
   }
 
-  .this-week-date{
+  .this-week-date {
     display: block;
   }
 
-  .date-heading-right{
+  .date-heading-right {
     display: none;
   }
 
-  .bottom-task-side{
+  .bottom-task-side {
     display: block;
   }
 
-  .task{
+  .task {
     margin-bottom: 2px;
   }
-  
-  .home-clock{
+
+  .home-clock {
     display: none;
   }
 
-  .home-container{
+  .home-container {
     font-size: 16rem;
     padding: 10px 15px;
     margin-top: 15px;
     border: 3px solid var(--hover);
   }
 
-  .all-tasks-heading{
+  .all-tasks-heading {
     margin-top: 35px;
   }
 
-  .no-lists-container{
+  .no-lists-container {
     padding: 80px 10px;
     border: 3px solid var(--hover);
   }
 
-  .date-displayer{
+  .date-displayer {
     padding: 10px 0px 0px 0px;
   }
 
-  .no-tasks-message{
+  .no-tasks-message {
     border: 3px solid var(--hover);
   }
-  
-  .add-task-container{
+
+  .add-task-container {
     margin-top: 28px;
   }
 
-  .checkbox{
+  .checkbox {
     margin-right: 4px;
   }
 
   .checkbox::before {
     border: 1px solid var(--inactive);
   }
-  
-  .listify-container-small{
+
+  .listify-container-small {
     position: absolute;
     right: 20px;
     top: 16px;
@@ -1545,8 +1560,8 @@ button{
     display: flex;
     gap: 5px;
   }
-  
-  .logo-main-small{
+
+  .logo-main-small {
     width: 23px;
     height: 23px;
     background-image: url(./img/task-white.png);
@@ -1554,8 +1569,8 @@ button{
     background-size: contain;
     background-repeat: no-repeat;
   }
-  
-  .listify-small{
+
+  .listify-small {
     font-family: 'TTBold';
     font-size: 18rem;
   }
@@ -1564,7 +1579,7 @@ button{
 
 /* Tablets (portrait and landscape) */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  
+
   /* Hide the scrollbar track and thumb */
   ::-webkit-scrollbar {
     width: 0;
@@ -1641,7 +1656,7 @@ button{
     font-size: 20rem;
   }
 
-  .listify-container{
+  .listify-container {
     display: none;
   }
 
@@ -1666,8 +1681,8 @@ button{
     height: 87%;
   }
 
-  .no-lists-list-view{
-    padding: 20px 0px 140px 0px !important; 
+  .no-lists-list-view {
+    padding: 20px 0px 140px 0px !important;
   }
 
   .delete-question {
@@ -1682,149 +1697,149 @@ button{
     margin: 0px 16px 16px 0px;
   }
 
-  .task-data{
+  .task-data {
     flex-direction: column;
   }
 
-  .date-input{
+  .date-input {
     width: 100%;
     border: 3px solid var(--hover);
   }
 
-  .add-task-form-buttons{
+  .add-task-form-buttons {
     justify-content: center;
   }
 
-  .add-task-form-btn{
+  .add-task-form-btn {
     padding: 10px 0px;
     flex: 1;
   }
 
-  .cancel-task-btn{
+  .cancel-task-btn {
     padding: 10px 0px;
     flex: 1;
   }
 
-  .add-task-form-container{
+  .add-task-form-container {
     border: 3px solid var(--hover);
   }
 
-  .border-bottom{
+  .border-bottom {
     border-bottom: 3px solid var(--hover);
   }
 
-  .add-task-form-buttons{
+  .add-task-form-buttons {
     border-top: 3px solid var(--hover);
   }
 
-  .task-description-input{
+  .task-description-input {
     border: 3px solid var(--hover);
   }
 
-  .date-task-container{
+  .date-task-container {
     display: none;
   }
 
-  .no-tasks-img-text-today{
+  .no-tasks-img-text-today {
     font-size: 17rem;
     padding: 0px 10px;
     max-width: none;
     bottom: 35%;
   }
 
-  .no-tasks-img-text-week{
+  .no-tasks-img-text-week {
     font-size: 17rem;
     padding: 0px 10px;
     max-width: none;
     bottom: 35%;
   }
 
-  .no-tasks-img-text-important{
+  .no-tasks-img-text-important {
     font-size: 17rem;
     padding: 0px 10px;
     max-width: none;
     bottom: 30%;
   }
 
-  .no-tasks-img-text-sections{
+  .no-tasks-img-text-sections {
     font-size: 17rem;
     padding: 0px 10px;
     bottom: 30%;
     max-width: 300px;
   }
 
-  .no-tasks-img{
+  .no-tasks-img {
     width: 70%;
     margin-bottom: 25px;
   }
 
-  .no-tasks-img-today{
+  .no-tasks-img-today {
     width: 70%;
   }
 
-  .no-tasks-img-week{
+  .no-tasks-img-week {
     width: 90%;
     margin-bottom: 0px;
   }
 
-  .no-sections-img{
+  .no-sections-img {
     width: 70%;
     margin-bottom: 30px;
   }
 
-  .this-week-date{
+  .this-week-date {
     display: block;
   }
 
-  .date-heading-right{
+  .date-heading-right {
     display: none;
   }
 
-  .bottom-task-side{
+  .bottom-task-side {
     display: block;
   }
 
-  .task{
+  .task {
     margin-bottom: 2px;
   }
 
-  .home-container{
+  .home-container {
     font-size: 16rem;
     padding: 10px 15px;
     margin-top: 15px;
     border: 3px solid var(--hover);
   }
 
-  .all-tasks-heading{
+  .all-tasks-heading {
     margin-top: 35px;
   }
 
-  .no-lists-container{
+  .no-lists-container {
     padding: 80px 10px;
     border: 3px solid var(--hover);
   }
 
-  .date-displayer{
+  .date-displayer {
     padding: 10px 0px 0px 0px;
   }
 
-  .no-tasks-message{
+  .no-tasks-message {
     border: 3px solid var(--hover);
   }
-  
-  .add-task-container{
+
+  .add-task-container {
     margin-top: 28px;
   }
 
-  .checkbox{
+  .checkbox {
     margin-right: 4px;
   }
 
   .checkbox::before {
     border: 1px solid var(--inactive);
   }
-  
-  .listify-container-small{
+
+  .listify-container-small {
     position: absolute;
     right: 20px;
     top: 17px;
@@ -1832,8 +1847,8 @@ button{
     display: flex;
     gap: 5px;
   }
-  
-  .logo-main-small{
+
+  .logo-main-small {
     width: 23px;
     height: 23px;
     background-image: url(./img/task-white.png);
@@ -1841,8 +1856,8 @@ button{
     background-size: contain;
     background-repeat: no-repeat;
   }
-  
-  .listify-small{
+
+  .listify-small {
     font-family: 'TTBold';
     font-size: 18rem;
   }

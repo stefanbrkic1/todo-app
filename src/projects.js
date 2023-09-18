@@ -81,7 +81,7 @@ export function addProjectEvent() {
     });
 }
 
-function reloadTabAllTasksIfListAdded(){
+function reloadTabAllTasksIfListAdded() {
     const currentTabName = document.getElementById('currentTabName')
     if (currentTabName.textContent === 'Home') {
         const tabAllTasks = document.getElementById('tabAllTasks')
@@ -150,7 +150,7 @@ export function addProjectToolsSubmitEvent() {
     });
 }
 
-export function clickCurrentProject(){
+export function clickCurrentProject() {
     const projectTabs = document.querySelectorAll('.sidebar-project')
     projectTabs[currentProjectIndex].click()
 }

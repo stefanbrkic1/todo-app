@@ -1,7 +1,6 @@
 import { format, isToday } from 'date-fns'
 import todayIcon from './img/today48x48.svg'
 import { TasksHandler, ProjectsHandler, removeEmptyProjectsFromHTML, playNotificationSound } from './dom'
-import { allProjects } from './projects'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
 
@@ -15,7 +14,7 @@ const floatingActionButton = document.getElementById('floatingActionButton')
 let allTodayTasks = []
 
 class TodayTask {
-    constructor(projectIndexToday, sectionIndexToday, taskIndexToday){
+    constructor(projectIndexToday, sectionIndexToday, taskIndexToday) {
         this.projectIndexToday = projectIndexToday
         this.sectionIndexToday = sectionIndexToday
         this.taskIndexToday = taskIndexToday
@@ -57,7 +56,7 @@ function setTodayTab() {
     headerSection.classList.add('header-today')
 }
 
-function loadTasks(){
+function loadTasks() {
     tasksListView.innerHTML = ''
     allTodayTasks = []
     let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
@@ -69,7 +68,7 @@ function loadTasks(){
             section.tasks.forEach((task, taskIndexToday) => {
                 if (taskIsToday(task.date)) {
                     tasksHandler.createTaskHtml(tasksContainerAllTasks[projectIndexToday], task);
-                    
+
                     let newTodayTask = new TodayTask(projectIndexToday, sectionIndexToday, taskIndexToday)
                     allTodayTasks.push(newTodayTask)
                 } else {
@@ -114,7 +113,7 @@ function displayNoTasksImage() {
     }
 }
 
-function addTodayTaskCheckboxEvent(){
+function addTodayTaskCheckboxEvent() {
     let todayCheckboxes = document.querySelectorAll('.checkbox')
     todayCheckboxes.forEach((checkbox, checkboxIndex) => {
         checkbox.addEventListener('click', () => {
@@ -123,10 +122,10 @@ function addTodayTaskCheckboxEvent(){
                 playNotificationSound()
             }, 10);
         })
-    })    
+    })
 }
 
-function checkTaskAsCompleted(checkboxIndex, projectIndexToday, sectionIndexToday, taskIndexToday){
+function checkTaskAsCompleted(checkboxIndex, projectIndexToday, sectionIndexToday, taskIndexToday) {
     let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
     allProjectsLocal[projectIndexToday].sections[sectionIndexToday].tasks.splice(taskIndexToday, 1)
     localStorage.setItem("allProjects", JSON.stringify(allProjectsLocal))
@@ -139,7 +138,7 @@ function checkTaskAsCompleted(checkboxIndex, projectIndexToday, sectionIndexToda
             duration: 2300,
             gravity: "bottom", // `top` or `bottom`
             position: "left", // `left`, `center` or `right`
-          }).showToast();
+        }).showToast();
     }, 300);
 }
 

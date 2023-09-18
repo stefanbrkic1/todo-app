@@ -1,12 +1,11 @@
 import { SectionHandler } from './dom'
 import projectIcon from './img/project48x48.svg'
-import { currentProjectIndex } from './projects'
 
 const sectionHandler = new SectionHandler()
 const headerSection = document.getElementById('headerSection')
 const tasksListView = document.getElementById('tasksListView')
 
-export function loadActiveProject(currentProject){
+export function loadActiveProject(currentProject) {
     setActiveProject(currentProject)
     displayNoSectionsImage()
 }
@@ -35,22 +34,22 @@ function setActiveProject(currentProject) {
 }
 
 export function displayNoSectionsImage() {
-   setTimeout(() => {
-    if (tasksListView.innerHTML === '') {
-        tasksListView.classList.remove('height-auto')
-        const container = document.createElement('div')
-        container.classList.add('no-tasks-img-container')
+    setTimeout(() => {
+        if (tasksListView.innerHTML === '') {
+            tasksListView.classList.remove('height-auto')
+            const container = document.createElement('div')
+            container.classList.add('no-tasks-img-container')
 
-        const noSectionsImage = document.createElement('div')
-        noSectionsImage.classList.add('no-sections-img')
+            const noSectionsImage = document.createElement('div')
+            noSectionsImage.classList.add('no-sections-img')
 
-        const text = document.createElement('div')
-        text.textContent = `Start organizing your tasks! Create sections within your lists.`
-        text.classList.add('no-tasks-img-text-sections')
+            const text = document.createElement('div')
+            text.textContent = `Start organizing your tasks! Create sections within your lists.`
+            text.classList.add('no-tasks-img-text-sections')
 
-        container.appendChild(noSectionsImage)
-        container.appendChild(text)
-        tasksListView.appendChild(container)
-    }
-   }, 5);
+            container.appendChild(noSectionsImage)
+            container.appendChild(text)
+            tasksListView.appendChild(container)
+        }
+    }, 5);
 }

@@ -162,22 +162,22 @@ function setTaskAsUnimportant(clickedButton, index) {
     localStorage.setItem("allProjects", JSON.stringify(allProjectsLocal))
 }
 
-function addTaskCheckboxEvent(){
+function addTaskCheckboxEvent() {
     const allSectionsHtml = document.querySelectorAll('.section')
     allSectionsHtml.forEach(section => {
         let sectionCheckboxes = section.querySelectorAll('.checkbox')
         sectionCheckboxes.forEach((checkbox, checkboxIndex) => {
             checkbox.addEventListener('click', () => {
                 setTimeout(() => {
-                   checkTaskAsCompleted(checkboxIndex)
-                   playNotificationSound()
+                    checkTaskAsCompleted(checkboxIndex)
+                    playNotificationSound()
                 }, 10)
             });
         })
     })
 }
 
-function checkTaskAsCompleted(checkboxIndex){
+function checkTaskAsCompleted(checkboxIndex) {
     let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
     allProjectsLocal[currentProjectIndex].sections[clickedSectionIndex].tasks.splice(checkboxIndex, 1)
     localStorage.setItem("allProjects", JSON.stringify(allProjectsLocal))
@@ -189,6 +189,6 @@ function checkTaskAsCompleted(checkboxIndex){
             duration: 2300,
             gravity: "bottom", // `top` or `bottom`
             position: "left", // `left`, `center` or `right`
-          }).showToast();
+        }).showToast();
     }, 300);
 }

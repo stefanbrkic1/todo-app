@@ -1,5 +1,4 @@
 import allTasksIcon from './img/home.svg'
-import { allProjects } from './projects'
 import { TasksHandler, ProjectsHandler, playNotificationSound, createHomeWidgets } from './dom'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
@@ -15,7 +14,7 @@ const dateDisplayer = document.querySelector('.date-displayer')
 let allTasks = []
 
 class AllTask {
-    constructor(projectIndexAll, sectionIndexAll, taskIndexAll){
+    constructor(projectIndexAll, sectionIndexAll, taskIndexAll) {
         this.projectIndexAll = projectIndexAll
         this.sectionIndexAll = sectionIndexAll
         this.taskIndexAll = taskIndexAll
@@ -50,7 +49,7 @@ function setAllTasksTab() {
     headerSection.classList.add('header-all-tasks')
 }
 
-function loadTasks(){
+function loadTasks() {
     tasksListView.innerHTML = ''
     allTasks = []
     let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
@@ -92,7 +91,7 @@ function displayTasksLength() {
     tasksHandler.createRightCountDisplay(lengthString)
 }
 
-function addAllTasksCheckboxEvent(){
+function addAllTasksCheckboxEvent() {
     let allCheckboxes = document.querySelectorAll('.checkbox')
     allCheckboxes.forEach((checkbox, checkboxIndex) => {
         checkbox.addEventListener('click', () => {
@@ -101,10 +100,10 @@ function addAllTasksCheckboxEvent(){
                 playNotificationSound()
             }, 10);
         })
-    })    
+    })
 }
 
-function checkTaskAsCompleted(checkboxIndex, projectIndexAll, sectionIndexAll, taskIndexAll){
+function checkTaskAsCompleted(checkboxIndex, projectIndexAll, sectionIndexAll, taskIndexAll) {
     let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
     allProjectsLocal[projectIndexAll].sections[sectionIndexAll].tasks.splice(taskIndexAll, 1)
     localStorage.setItem("allProjects", JSON.stringify(allProjectsLocal))
@@ -117,7 +116,7 @@ function checkTaskAsCompleted(checkboxIndex, projectIndexAll, sectionIndexAll, t
             duration: 2300,
             gravity: "bottom", // `top` or `bottom`
             position: "left", // `left`, `center` or `right`
-          }).showToast();
+        }).showToast();
     }, 300);
 }
 

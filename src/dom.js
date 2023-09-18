@@ -386,8 +386,8 @@ export class TasksHandler {
 
         flatpickr(dateInput, {
             dateFormat: "d/m/Y",
-              minDate: "today",
-              locale: {
+            minDate: "today",
+            locale: {
                 firstDayOfWeek: 1
             },
         })
@@ -495,10 +495,10 @@ export function closeSidebarIfSmallScreen() {
     sidebar.classList.contains('active-sidebar') ? closeSidebarButon.click() : {};
 }
 
-export function removeEmptyProjectsFromHTML(){
+export function removeEmptyProjectsFromHTML() {
     const tasksContainerAllTasks = document.querySelectorAll('.tasks-container-all-tasks');
     tasksContainerAllTasks.forEach(container => {
-        if(container.innerHTML === ''){
+        if (container.innerHTML === '') {
             let parentContainer = container;
             while (parentContainer && !parentContainer.classList.contains('project-tasks-container-all-tasks')) {
                 parentContainer = parentContainer.parentNode;
@@ -510,7 +510,7 @@ export function removeEmptyProjectsFromHTML(){
 
 const notificationAudio = new Audio(notificationSound);
 
-export function playNotificationSound(){
+export function playNotificationSound() {
     notificationAudio.play();
 }
 
@@ -542,13 +542,13 @@ export function createHomeWidgets(dateDisplayer) {
     const eveningStart = 18;    // 6:00 PM
 
     let timeOfDay;
-    if(currentHour >= morningStart && currentHour < afternoonStart){
+    if (currentHour >= morningStart && currentHour < afternoonStart) {
         timeOfDay = 'Morning'
     }
-    else if(currentHour >= afternoonStart && currentHour < eveningStart){
+    else if (currentHour >= afternoonStart && currentHour < eveningStart) {
         timeOfDay = 'Afternoon'
     }
-    else{
+    else {
         timeOfDay = 'Evening'
     }
 
@@ -644,7 +644,7 @@ export function createHomeWidgets(dateDisplayer) {
     const allTasksDivLeft = document.createElement('div')
     allTasksDivLeft.classList.add('all-tasks-left')
     allTasksDivLeft.classList.add('flex')
-    
+
     const allTasksDivLeftIcon = document.createElement('button')
     allTasksDivLeftIcon.classList.add('all-tasks-icon')
 

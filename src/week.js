@@ -1,6 +1,5 @@
 import { startOfWeek, endOfWeek, addDays, format } from 'date-fns'
 import weekIcon from './img/thisweek48x48.svg'
-import { allProjects } from './projects'
 import { TasksHandler, ProjectsHandler, removeEmptyProjectsFromHTML, playNotificationSound } from './dom'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
@@ -17,7 +16,7 @@ let fullDateString = null
 let allWeekTasks = []
 
 class WeekTask {
-    constructor(projectIndexWeek, sectionIndexWeek, taskIndexWeek){
+    constructor(projectIndexWeek, sectionIndexWeek, taskIndexWeek) {
         this.projectIndexWeek = projectIndexWeek
         this.sectionIndexWeek = sectionIndexWeek
         this.taskIndexWeek = taskIndexWeek
@@ -66,7 +65,7 @@ function setWeekTab() {
     headerSection.classList.add('header-week')
 }
 
-function loadTasks(){
+function loadTasks() {
     tasksListView.innerHTML = ''
     allWeekTasks = []
     let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
@@ -78,7 +77,7 @@ function loadTasks(){
             section.tasks.forEach((task, taskIndexWeek) => {
                 if (taskHasDateForThisWeek(task.date)) {
                     tasksHandler.createTaskHtml(tasksContainerAllTasks[projectIndexWeek], task);
-                    
+
                     let newWeekTask = new WeekTask(projectIndexWeek, sectionIndexWeek, taskIndexWeek)
                     allWeekTasks.push(newWeekTask)
                 } else {
@@ -97,9 +96,9 @@ function taskHasDateForThisWeek(taskDate) {
     const currentTaskDate = new Date(year, month - 1, day);
 
     // Get the start and end of the current week
-    const startOfCurrentWeek = startOfWeek(new Date(), {weekStartsOn: 1});
-    const endOfCurrentWeek = endOfWeek(new Date(), {weekStartsOn: 1});
-    
+    const startOfCurrentWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
+    const endOfCurrentWeek = endOfWeek(new Date(), { weekStartsOn: 1 });
+
     if (currentTaskDate >= startOfCurrentWeek && currentTaskDate <= endOfCurrentWeek) {
         return true;
     } else {
@@ -127,7 +126,7 @@ function displayNoTasksImage() {
     }
 }
 
-function addWeekTaskCheckboxEvent(){
+function addWeekTaskCheckboxEvent() {
     let weekCheckboxes = document.querySelectorAll('.checkbox')
     weekCheckboxes.forEach((checkbox, checkboxIndex) => {
         checkbox.addEventListener('click', () => {
@@ -136,10 +135,10 @@ function addWeekTaskCheckboxEvent(){
                 playNotificationSound()
             }, 10);
         })
-    })    
+    })
 }
 
-function checkTaskAsCompleted(checkboxIndex, projectIndexWeek, sectionIndexWeek, taskIndexWeek){
+function checkTaskAsCompleted(checkboxIndex, projectIndexWeek, sectionIndexWeek, taskIndexWeek) {
     let allProjectsLocal = JSON.parse(localStorage.getItem("allProjects"))
     allProjectsLocal[projectIndexWeek].sections[sectionIndexWeek].tasks.splice(taskIndexWeek, 1)
     localStorage.setItem("allProjects", JSON.stringify(allProjectsLocal))
@@ -152,6 +151,6 @@ function checkTaskAsCompleted(checkboxIndex, projectIndexWeek, sectionIndexWeek,
             duration: 2300,
             gravity: "bottom", // `top` or `bottom`
             position: "left", // `left`, `center` or `right`
-          }).showToast();
+        }).showToast();
     }, 300);
 }
