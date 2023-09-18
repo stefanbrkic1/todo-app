@@ -1,12 +1,9 @@
 <br>
 
 <div align="center">
-<img src="./src/img/LOGO.png" alt="Listify" width="300">
+<img src="./src/img/LOGO.png" alt="Listify" width="250">
 <br>
 <br>
-  
-**Listify your chaos, find your calm.**
-
 <br>
   <p>
     <a href="https://stefanbrkic1.github.io/todo-app/">View Demo</a>
