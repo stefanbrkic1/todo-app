@@ -11,9 +11,9 @@ Listify your chaos, find your calm.
   <p>
     <a href="https://stefanbrkic1.github.io/todo-app/">View Demo</a>
     &nbsp;·&nbsp;
-    <a href="">Report Bug</a>
+    <a href="https://github.com/stefanbrkic1/todo-app/issues">Report Bug</a>
     &nbsp;·&nbsp;
-    <a href="">Request Feature</a>
+    <a href="https://github.com/stefanbrkic1/todo-app/issues">Request Feature</a>
   </p>
 </div>
 
@@ -27,8 +27,6 @@ ToDo Application for Productivity, and Task Managament.
 ## Preview
 
 ![Preview](./src/img/GitHub(MainPage)3.jpg)
-![Preview](./src/img/GitHub(MainPage)4.jpg)
-![Preview](./src/img/GitHub(MainPage)5.jpg)
 ![Preview](./src/img/GitHub(Devices).jpg)
 
 > **Note**  
