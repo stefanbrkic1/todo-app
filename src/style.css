@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'TTBold';
+  font-family: "TTBold";
   src: url(./fonts/TT\ Interphases\ Pro\ Trial\ Bold.ttf);
 }
 
 @font-face {
-  font-family: 'TTSemiBold';
+  font-family: "TTSemiBold";
   src: url(./fonts/TT\ Interphases\ Pro\ Trial\ DemiBold.ttf);
 }
 
@@ -18,13 +18,13 @@
 }
 
 .preloader-text {
-  font-family: 'TTBold';
+  font-family: "TTBold";
   font-size: 30rem;
   margin-bottom: 10px;
 }
 
 .preloader-tagline {
-  font-family: 'TTSemiBold';
+  font-family: "TTSemiBold";
   font-size: 16rem;
   margin-bottom: 30px;
 }
@@ -66,9 +66,8 @@
   --important-no-tasks-image: url("./img/important-no-tasks-dark-theme.png");
 
   --rename-icon: url("./img/rename.svg");
-  --delete-icon: url("./img/delete-dark-theme.svg")
+  --delete-icon: url("./img/delete-dark-theme.svg");
 }
-
 
 .light-theme {
   --primary-color: #126fb5;
@@ -94,7 +93,7 @@
   --important-no-tasks-image: url("./img/important-no-tasks.png");
 
   --rename-icon: url("./img/rename-light-theme.svg");
-  --delete-icon: url("./img/delete.svg")
+  --delete-icon: url("./img/delete.svg");
 }
 
 * {
@@ -108,7 +107,7 @@ html {
 
 body {
   font-size: 16rem;
-  font-family: 'TTSemiBold';
+  font-family: "TTSemiBold";
   height: 100%;
   overflow: hidden;
 }
@@ -204,7 +203,7 @@ body {
   font-size: 21rem;
   padding-bottom: 10px;
   color: var(--text-dark);
-  font-family: 'TTBold';
+  font-family: "TTBold";
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -229,7 +228,7 @@ body {
   display: none;
 }
 
-#Open:checked~#sidebarMenu {
+#Open:checked ~ #sidebarMenu {
   transform: translateX(0px);
 }
 
@@ -244,17 +243,17 @@ body {
   margin-top: 3px;
 }
 
-#Open:checked~.sidebar-icon>.wrapper.second {
+#Open:checked ~ .sidebar-icon > .wrapper.second {
   opacity: 0;
 }
 
-#Open:checked~.sidebar-icon>.wrapper.first {
+#Open:checked ~ .sidebar-icon > .wrapper.first {
   transform: rotate(315deg);
   background-color: var(--text-dark);
   margin-top: 9px;
 }
 
-#Open:checked~.sidebar-icon>.wrapper.third {
+#Open:checked ~ .sidebar-icon > .wrapper.third {
   transform: rotate(-315deg);
   background-color: var(--text-dark);
   margin-top: -9px;
@@ -341,7 +340,7 @@ body {
 }
 
 .project-name-input {
-  font-family: 'TTSemiBold';
+  font-family: "TTSemiBold";
   font-size: 15rem;
   max-width: 150px;
   background-color: transparent;
@@ -355,7 +354,7 @@ body {
 
 .home-heading {
   font-size: 30rem;
-  font-family: 'TTBold';
+  font-family: "TTBold";
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -413,7 +412,7 @@ body {
 }
 
 .modal-title {
-  font-family: 'TTBold';
+  font-family: "TTBold";
 }
 
 .modal-body {
@@ -428,7 +427,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, 0.5);
   pointer-events: none;
   transition: 200ms ease-in-out;
   z-index: 15;
@@ -446,7 +445,7 @@ body {
   outline: none;
   border: 1px solid var(--text-dark);
   border-radius: 5px;
-  font-family: 'TTSemiBold';
+  font-family: "TTSemiBold";
   font-size: 16rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   background-color: var(--background);
@@ -467,7 +466,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   color: #fafafa;
-  font-family: 'TTBold';
+  font-family: "TTBold";
   font-size: 18rem;
 }
 
@@ -535,7 +534,7 @@ body {
 .section-title {
   font-size: 17rem;
   color: #10a885;
-  font-family: 'TTBold';
+  font-family: "TTBold";
 }
 
 .tasks-list-view {
@@ -839,7 +838,7 @@ body {
   padding: 7px 20px;
   border-radius: 3px;
   background-color: #01a17c;
-  font-family: 'TTSemiBold';
+  font-family: "TTSemiBold";
   color: #fafafa;
 }
 
@@ -854,7 +853,7 @@ body {
   border-radius: 3px;
   background-color: var(--tertiary-color);
   color: var(--text-light);
-  font-family: 'TTSemiBold';
+  font-family: "TTSemiBold";
   color: #fafafa;
 }
 
@@ -871,7 +870,6 @@ body {
   background-color: transparent;
   color: var(--text-dark);
 }
-
 
 button {
   cursor: pointer;
@@ -909,7 +907,9 @@ button {
   background-color: transparent;
   border: 1px solid var(--inactive);
   border-radius: 4px;
-  transition: background-color 0.3s, transform 0.3s;
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
 }
 
 .checkbox::after {
@@ -948,7 +948,7 @@ button {
 .project-name-all-tasks {
   color: var(--text-dark);
   font-size: 18rem;
-  font-family: 'TTBold';
+  font-family: "TTBold";
 }
 
 .project-all-tasks-header {
@@ -1093,24 +1093,28 @@ button {
   width: 240px;
   background: var(--secondary-color) !important;
   border-radius: 8px !important;
+  box-shadow: none !important;
 }
 
 .custom-toast-red {
   width: 240px;
   background: var(--tertiary-color) !important;
   border-radius: 8px !important;
+  box-shadow: none !important;
 }
 
 .custom-toast-blue {
   width: 240px;
   background: var(--primary-color) !important;
   border-radius: 8px !important;
+  box-shadow: none !important;
 }
 
 .custom-toast-yellow {
   width: 240px;
   background: var(--yellow-color) !important;
   border-radius: 8px !important;
+  box-shadow: none !important;
 }
 
 .home-container {
@@ -1176,7 +1180,7 @@ button {
 .all-tasks-left {
   font-size: 22rem;
   color: var(--text-dark);
-  font-family: 'TTBold';
+  font-family: "TTBold";
 }
 
 .flex-list {
@@ -1223,7 +1227,7 @@ button {
   border-radius: 8px;
   background-color: transparent;
   color: var(--text-dark);
-  font-family: 'TTSemiBold';
+  font-family: "TTSemiBold";
 }
 
 .no-lists-btn:hover {
@@ -1277,7 +1281,7 @@ button {
 }
 
 .listify {
-  font-family: 'TTBold';
+  font-family: "TTBold";
 }
 
 .listify-container-small {
@@ -1288,7 +1292,6 @@ button {
 
 /* Smartphones (portrait and landscape) */
 @media only screen and (max-width: 767px) {
-
   /* Hide the scrollbar track and thumb */
   ::-webkit-scrollbar {
     width: 0;
@@ -1335,7 +1338,7 @@ button {
     cursor: pointer;
   }
 
-  #Open:checked~#sidebarMenu {
+  #Open:checked ~ #sidebarMenu {
     transform: translateX(0px);
     transition: transform 350ms ease-in-out;
   }
@@ -1571,15 +1574,13 @@ button {
   }
 
   .listify-small {
-    font-family: 'TTBold';
+    font-family: "TTBold";
     font-size: 18rem;
   }
 }
 
-
 /* Tablets (portrait and landscape) */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-
   /* Hide the scrollbar track and thumb */
   ::-webkit-scrollbar {
     width: 0;
@@ -1626,7 +1627,7 @@ button {
     cursor: pointer;
   }
 
-  #Open:checked~#sidebarMenu {
+  #Open:checked ~ #sidebarMenu {
     transform: translateX(0px);
     transition: transform 350ms ease-in-out;
   }
@@ -1858,7 +1859,7 @@ button {
   }
 
   .listify-small {
-    font-family: 'TTBold';
+    font-family: "TTBold";
     font-size: 18rem;
   }
 }
